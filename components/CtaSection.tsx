@@ -32,7 +32,7 @@ export default function CtaSection() {
           </Link>
 
           {/* Outline Button */}
-          <Link href="/work">
+          <Link href="/#selected-work">
             <Button
               variant="outline"
               className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-medium px-8 py-6 rounded-full text-sm sm:text-base transition-all duration-300"

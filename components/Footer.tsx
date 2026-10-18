@@ -127,7 +127,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-4 text-gray-400">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/cinorium_/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -136,7 +136,7 @@ export default function Footer() {
               <InstagramIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/cinorium/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -145,7 +145,7 @@ export default function Footer() {
               <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@cinoriumacademy"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
