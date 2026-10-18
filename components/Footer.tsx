@@ -80,12 +80,12 @@ export default function Footer() {
         </div>
 
         {/* Divider Line */}
-        <hr className="border-gray-800/80 w-full" />
+        {/* <hr className="border-gray-800/80 w-full" /> */}
 
         {/* Navigation Grid (Explore & Resources) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {/* Column 1: Explore */}
-          <div className="flex flex-col gap-3">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"> */}
+        {/* Column 1: Explore */}
+        {/* <div className="flex flex-col gap-3">
             <h3 className="text-amber-400 font-medium text-sm">Explore</h3>
             <ul className="flex flex-col gap-2.5 text-sm font-light text-gray-300">
               {exploreLinks.map((link) => (
@@ -99,10 +99,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
-          {/* Column 2: Resources */}
-          <div className="flex flex-col gap-3">
+        {/* Column 2: Resources */}
+        {/* <div className="flex flex-col gap-3">
             <h3 className="text-amber-400 font-medium text-sm">Resources</h3>
             <ul className="flex flex-col gap-2.5 text-sm font-light text-gray-300">
               {resourceLinks.map((link) => (
@@ -117,7 +117,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Divider Line */}
         <hr className="border-gray-800/80 w-full" />
@@ -158,7 +158,7 @@ export default function Footer() {
           {/* Copyright Notice & Legal Links */}
           <div className="flex flex-wrap items-center justify-between sm:justify-end gap-6 w-full sm:w-auto text-xs text-gray-400 font-light">
             <p>© 2026 Muhammad Huzaifa. All rights reserved.</p>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <Link
                 href="/privacy"
                 className="hover:text-white transition-colors"
@@ -172,7 +172,7 @@ export default function Footer() {
               >
                 Terms
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
