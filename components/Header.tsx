@@ -60,10 +60,10 @@ const desktopNavLinks = [
 // Mobile-only links
 const mobileNavLinks = [
   { name: "Home", href: "/" },
-  { name: "Work", href: "/work" },
-  { name: "Services", href: "/services" },
-  { name: "Learn", href: "/learn" },
-  { name: "Menu", href: "#" },
+  { name: "Work", href: "/#selected-work" },
+  { name: "Services", href: "/#what-i-do" },
+  { name: "Learn", href: "/#learn-by-creating" },
+  { name: "contact", href: "/contact" },
 ];
 
 export default function Header() {
