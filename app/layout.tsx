@@ -1,55 +1,130 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display, Geist, Figtree } from "next/font/google";
+import { Montserrat, Playfair_Display, Figtree } from "next/font/google";
 import "./globals.css";
+
 import Header from "@/components/Header";
-import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import NotificationBar from "@/components/NotificationBar";
+import { cn } from "@/lib/utils";
 
-const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
+const siteUrl = "https://cinorium.com";
+const siteName = "Cinorium";
+const personId = `${siteUrl}/#person`;
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
 
-// Load Montserrat as primary sans font
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   display: "swap",
 });
 
-// Load Playfair Display as secondary serif font
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
 });
 
+const siteDescription =
+  "Muhammad Huzaifa helps businesses strengthen their online presence through search visibility, strategic content, effective websites, and creative execution.";
+
 export const metadata: Metadata = {
-  title: "Cinorium — Portfolio & Digital Services",
-  description:
-    "I help businesses strengthen their online presence through search visibility, strategic content, effective websites, and creative execution.",
-  metadataBase: new URL("https://cinorium.com"), // Apni live Vercel domain yahan dein
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Muhammad Huzaifa | Digital Marketing & Creative Web",
+    template: "%s | Muhammad Huzaifa",
+  },
+
+  description: siteDescription,
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Cinorium — Portfolio & Digital Services",
-    description:
-      "I help businesses strengthen their online presence through search visibility, strategic content, effective websites, and creative execution.",
-    url: "https://cinorium.com",
-    siteName: "Cinorium",
+    type: "website",
+    url: siteUrl,
+    siteName,
+    title: "Muhammad Huzaifa | Digital Marketing & Creative Web",
+    description: siteDescription,
+    locale: "en_US",
     images: [
       {
-        url: "/og-images/og-image.webp", // Aapki public folder me rakhi hui preview image
+        url: "/og-images/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Cinorium Portfolio Preview",
+        alt: "Muhammad Huzaifa — Digital Marketing, Web and Creative Work",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Cinorium — Portfolio & Digital Services",
-    description: "I help businesses strengthen their online presence.",
-    images: ["/og-image.png"],
+    title: "Muhammad Huzaifa | Digital Marketing & Creative Web",
+    description: siteDescription,
+    images: ["/og-images/og-image.webp"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Muhammad Huzaifa",
+      url: siteUrl,
+      jobTitle: "Digital Marketing & Creative Professional",
+      description:
+        "A digital creative working across digital marketing, search visibility, web development, graphic design, content, and publishing.",
+      knowsAbout: [
+        "Digital Marketing",
+        "Search Engine Optimization (SEO)",
+        "Local SEO",
+        "Content Strategy",
+        "Social Media Marketing",
+        "Answer Engine Optimization (AEO)",
+        "Generative Engine Optimization (GEO)",
+        "Web Development",
+        "Graphic Design",
+        "Digital Publishing",
+        "Amazon Kindle Direct Publishing",
+      ],
+      worksFor: {
+        "@id": organizationId,
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: "Cinorium",
+      url: siteUrl,
+      description:
+        "A digital brand focused on marketing, search visibility, content, web experiences, creative work, and educational resources.",
+      founder: {
+        "@id": personId,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: siteUrl,
+      name: "Cinorium",
+      alternateName: "Muhammad Huzaifa",
+      description: siteDescription,
+      inLanguage: "en",
+      publisher: {
+        "@id": organizationId,
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -57,68 +132,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Schema Structured Data Object
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://cinorium.com/#person",
-        name: "Muhammad Huzaifa",
-        jobTitle: "Digital Creative & SEO Specialist",
-        url: "https://cinorium.com",
-        sameAs: [
-          "https://instagram.com/yourhandle",
-          "https://linkedin.com/in/yourhandle",
-          "https://youtube.com/@yourchannel",
-        ],
-        knowsAbout: [
-          "Digital Marketing",
-          "Search Engine Optimization (SEO)",
-          "Web Development",
-          "Graphic Design",
-          "Content Strategy",
-        ],
-        worksFor: {
-          "@type": "Organization",
-          name: "Cinorium",
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://cinorium.com/#website",
-        url: "https://cinorium.com",
-        name: "Muhammad Huzaifa - Digital Portfolio",
-        description:
-          "Digital marketing, creative thinking and useful digital experiences built around real business needs.",
-        publisher: {
-          "@id": "https://cinorium.com/#person",
-        },
-        inLanguage: "en-US",
-      },
-    ],
-  };
   return (
     <html
       lang="en"
       className={cn(
         montserrat.variable,
         playfair.variable,
-        "font-sans",
         figtree.variable,
+        "font-sans",
       )}
     >
-      <head>
-        {/* Schema JSON-LD Injection */}
+      <body className="min-h-screen font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
-      </head>
-      <body className="font-sans min-h-screen antialiased">
+
         <NotificationBar />
         <Header />
-        <main className="w-lvw">{children}</main>
+
+        <main className="w-full">{children}</main>
+
         <Footer />
       </body>
     </html>
