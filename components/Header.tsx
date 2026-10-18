@@ -124,7 +124,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-2.5 shrink-0">
           {/* YouTube */}
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@cinoriumacademy"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
@@ -135,7 +135,7 @@ export default function Header() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/cinorium_/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -146,7 +146,7 @@ export default function Header() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/cinorium/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
