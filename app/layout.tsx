@@ -35,11 +35,11 @@ const siteDescription =
   "Muhammad Huzaifa helps businesses strengthen their online presence through search visibility, strategic content, effective websites, and creative execution.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://cinorium.com"),
 
   title: {
-    default: "Muhammad Huzaifa | Digital Marketing & Creative Web",
-    template: "%s | Muhammad Huzaifa",
+    default: "Cinorium — Digital Marketing & Creative Services",
+    template: "%s | Cinorium",
   },
 
   description: siteDescription,
@@ -114,15 +114,14 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": websiteId,
-      url: siteUrl,
+      "@id": "https://cinorium.com/#website",
+      url: "https://cinorium.com",
       name: "Cinorium",
-      alternateName: "Muhammad Huzaifa",
-      description: siteDescription,
-      inLanguage: "en",
+      alternateName: "Cinorium by Muhammad Huzaifa",
       publisher: {
-        "@id": organizationId,
+        "@id": "https://cinorium.com/#organization",
       },
+      inLanguage: "en",
     },
   ],
 };
