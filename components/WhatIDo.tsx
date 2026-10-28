@@ -51,10 +51,10 @@ export default function WhatIDo() {
         {/* Header Section (Left Aligned & Aligned with Theme Max-Width) */}
         <div className="mb-14">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3">
-            What I Do
+            What We Do
           </h2>
           <p className="text-sm md:text-base text-gray-600 max-w-lg font-light leading-relaxed">
-            I help businesses strengthen their online presence through search
+            We help businesses strengthen their online presence through search
             visibility, strategic content, effective websites, and creative
             execution.
           </p>

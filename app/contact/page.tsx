@@ -1,228 +1,222 @@
-"use client";
+import type { Metadata } from "next";
+import { Mail, MessageCircle } from "lucide-react";
+import ContactForm from "./ContactForm";
 
-import React, { useState } from "react";
-import { submitContactForm } from "./actions";
-import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+export const metadata: Metadata = {
+  title: "Contact Cinorium | Discuss Your Website or SEO Project",
+  description:
+    "Contact Cinorium to discuss website development, technical SEO, on-page optimization and search visibility for your business.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Cinorium | Discuss Your Website or SEO Project",
+    description:
+      "Contact Cinorium to discuss website development, technical SEO, on-page optimization and search visibility for your business.",
+    url: "https://cinorium.com/contact",
+    type: "website",
+  },
+};
+
+function LinkedinIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+    </svg>
+  );
+}
+
+function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    </svg>
+  );
+}
+
+const whatsappUrl =
+  "https://wa.me/923212481412?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20or%20SEO%20project.";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<{
-    success?: boolean;
-    message?: string;
-  } | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setStatus(null);
-
-    const formData = new FormData(event.currentTarget);
-    const res = await submitContactForm(null, formData);
-
-    setStatus(res);
-    setIsSubmitting(false);
-
-    if (res.success) {
-      (event.target as HTMLFormElement).reset();
-    }
-  }
-
   return (
-    <section className="w-full bg-white pt-32 pb-24 px-6 md:px-16 lg:px-24">
-      <div className="max-w-5xl mx-auto">
-        {/* Page Header */}
-        <div className="mb-16">
-          <span className="inline-block text-xs uppercase tracking-widest font-semibold text-gray-700 border-b-2 border-amber-400 pb-1 mb-4">
-            Get In Touch
+    <div className="w-full">
+      {/* 1. Hero Section */}
+      <section
+        id="contact-hero"
+        className="w-full bg-blue-100 pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+      >
+        <div className="max-w-5xl mx-auto">
+          {/* Eyebrow */}
+          <span className="mb-4 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
+            LET&apos;S TALK
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-tight mb-4">
-            Let's Start a Conversation.
+
+          {/* Heading */}
+          <h1 className="mb-6 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+            Let&apos;s Discuss Your Next Project.
           </h1>
-          <p className="text-base md:text-lg text-gray-600 font-light max-w-2xl leading-relaxed">
-            Have a project in mind, need help with marketing and SEO, or just
-            want to say hello? Send a message and let's discuss your next step.
+
+          {/* Supporting Copy */}
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg">
+            Whether you need a new website, improvements to an existing one, or
+            a clearer SEO direction, tell us a little about your business and
+            what you&apos;re trying to achieve. We&apos;ll use that information
+            to understand your requirements and discuss the next practical steps.
           </p>
         </div>
+      </section>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Info Column */}
-          <div className="lg:col-span-5 flex flex-col gap-8 bg-amber-50/40 p-8 rounded-3xl border border-amber-200/60">
-            <div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">
-                Contact Details
-              </h3>
-              <p className="text-sm text-gray-600 font-light leading-relaxed">
-                Fill out the form or reach out directly through email.
-              </p>
-            </div>
+      {/* 2. Main Content & Form Grid */}
+      <section
+        id="contact-form-section"
+        className="w-full bg-amber-50/40 py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left Column: Direct Contact Information */}
+            <aside
+              aria-label="Contact Channels"
+              className="lg:col-span-5 flex flex-col gap-6"
+            >
+              {/* Channels Card */}
+              <div className="rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm">
+                <h2 className="mb-2 font-serif text-2xl font-bold text-gray-900">
+                  Contact Channels
+                </h2>
+                <p className="mb-8 text-sm leading-relaxed text-gray-600">
+                  Direct ways to reach out, discuss requirements, or connect with
+                  Cinorium.
+                </p>
 
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full  border border-amber-400 flex items-center justify-center text-gray-900 shrink-0">
-                  <Mail className="w-5 h-5" />
+                <div className="flex flex-col gap-6">
+                  {/* Channel: Email */}
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        Business Email
+                      </span>
+                      <a
+                        href="mailto:cinoriumadmin@gmail.com"
+                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                      >
+                        cinoriumadmin@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Channel: WhatsApp */}
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                      <MessageCircle className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        WhatsApp
+                      </span>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                      >
+                        Discuss on WhatsApp
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Channel: LinkedIn */}
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                      <LinkedinIcon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        LinkedIn
+                      </span>
+                      <a
+                        href="https://www.linkedin.com/in/cinorium/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                      >
+                        linkedin.com/in/cinorium
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Channel: Instagram */}
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                      <InstagramIcon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        Instagram
+                      </span>
+                      <a
+                        href="https://www.instagram.com/cinorium_/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                      >
+                        @cinorium_
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs uppercase font-medium text-gray-500 block">
-                    Email Me
-                  </span>
-                  <a
-                    href="mailto:cinoriumadmin@gmail.com"
-                    className="text-base font-medium text-gray-900 hover:text-amber-800 transition-colors"
-                  >
-                    cinoriumadmin@gmail.com
-                  </a>
-                </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full  border border-amber-400 flex items-center justify-center text-gray-900 shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs uppercase font-medium text-gray-500 block">
-                    Location
-                  </span>
-                  <span className="text-base font-medium text-gray-900">
-                    Remote / Available Worldwide
-                  </span>
-                </div>
+              {/* What Happens Next Card */}
+              <div className="rounded-3xl border border-amber-200 bg-amber-100/40 p-7">
+                <h3 className="mb-2 font-serif text-lg font-bold text-gray-900">
+                  What Happens Next?
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700">
+                  Your enquiry is received directly. We review your business
+                  context, inspect your current digital setup if a website was
+                  provided, and prepare thoughtful, practical next steps.
+                </p>
               </div>
-            </div>
+            </aside>
 
-            <div className="pt-6 border-t border-amber-200/80">
-              <span className="text-xs font-medium text-gray-700 uppercase tracking-wider block mb-2">
-                Response Time
-              </span>
-              <p className="text-sm text-gray-600 font-light">
-                Usually reply within 24–48 working hours.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Form Column */}
-          <div className="lg:col-span-7 bg-white p-2 rounded-3xl">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              {/* Name Input */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="name"
-                  className="text-sm font-medium text-gray-900"
+            {/* Right Column: Enquiry Form Card */}
+            <main
+              aria-labelledby="enquiry-form-heading"
+              className="lg:col-span-7 rounded-3xl border-2 border-black bg-white p-7 sm:p-10 shadow-sm"
+            >
+              <div className="mb-8">
+                <h2
+                  id="enquiry-form-heading"
+                  className="mb-2 font-serif text-2xl sm:text-3xl font-bold text-gray-900"
                 >
-                  Your Name <span className="text-amber-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="e.g. John Doe"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none transition-colors text-sm text-gray-900 bg-gray-50/50"
-                />
+                  Project Enquiry Form
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-600">
+                  Fill in your details below and we will follow up with you.
+                </p>
               </div>
 
-              {/* Email Input */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  Email Address <span className="text-amber-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="e.g. john@example.com"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none transition-colors text-sm text-gray-900 bg-gray-50/50"
-                />
-              </div>
-
-              {/* Service Select Options */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="service"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  What service are you looking for?
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  defaultValue="Digital Marketing & SEO"
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none transition-colors text-sm text-gray-900 bg-gray-50/50"
-                >
-                  <option value="Digital Marketing & SEO">
-                    Digital Marketing & SEO
-                  </option>
-                  <option value="Web & Digital Development">
-                    Web & Digital Development
-                  </option>
-                  <option value="Graphic Design & Creative Work">
-                    Graphic Design & Creative Work
-                  </option>
-                  <option value="Other / General Query">
-                    Other / General Query
-                  </option>
-                </select>
-              </div>
-
-              {/* Message Textarea */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  Project Details / Message{" "}
-                  <span className="text-amber-500">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  placeholder="Tell me a little about your project, goals, or requirements..."
-                  className="w-full px-5 py-3.5 rounded-2xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none transition-colors text-sm text-gray-900 bg-gray-50/50 resize-none"
-                ></textarea>
-              </div>
-
-              {/* Status Alert */}
-              {status && (
-                <div
-                  className={`p-4 rounded-2xl text-sm flex items-center gap-3 ${
-                    status.success
-                      ? "bg-green-50 text-green-800 border border-green-200"
-                      : "bg-red-50 text-red-800 border border-red-200"
-                  }`}
-                >
-                  {status.success && (
-                    <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                  )}
-                  <span>{status.message}</span>
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-amber-400 hover:bg-amber-500 text-gray-900 font-medium py-6 px-8 rounded-full text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-none"
-              >
-                {isSubmitting ? (
-                  <span>Sending Message...</span>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </Button>
-            </form>
+              {/* Client-side form with full validation & states */}
+              <ContactForm />
+            </main>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

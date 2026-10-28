@@ -14,7 +14,7 @@ export default function NotificationBar() {
       {/* Centered Message */}
       <div className="flex-1 flex items-center justify-center gap-2 text-center">
         <p className="font-light">
-          Welcome to my portfolio! Some sections are currently being updated.
+          Welcome to Cinorium! Some sections are currently being updated.
         </p>
         <Link
           href="/contact"

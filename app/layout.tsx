@@ -149,7 +149,7 @@ export default function RootLayout({
           }}
         />
 
-        <NotificationBar />
+
         <Header />
 
         <main className="w-full">{children}</main>
