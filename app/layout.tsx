@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NotificationBar from "@/components/NotificationBar";
 import { cn } from "@/lib/utils";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const siteUrl = "https://cinorium.com";
 const siteName = "Cinorium";
@@ -149,7 +150,8 @@ export default function RootLayout({
           }}
         />
 
-
+        {/* Vercel Insights */}
+        <SpeedInsights />
         <Header />
 
         <main className="w-full">{children}</main>
