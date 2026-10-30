@@ -652,7 +652,7 @@ export default function WorkPage() {
             <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
               OUR APPROACH
             </span>
-            <h2 className="mb-3 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl">
               Principles Behind Every Build
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600">
@@ -666,7 +666,7 @@ export default function WorkPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
                 <Layers className="h-5 w-5" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
                 Structured Foundations
               </h3>
               <p className="text-sm leading-relaxed text-gray-600">
@@ -679,7 +679,7 @@ export default function WorkPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
                 <Gauge className="h-5 w-5" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
                 Performance-Conscious
               </h3>
               <p className="text-sm leading-relaxed text-gray-600">
@@ -692,7 +692,7 @@ export default function WorkPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
                 <Sparkles className="h-5 w-5" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
                 Clear Communication
               </h3>
               <p className="text-sm leading-relaxed text-gray-600">

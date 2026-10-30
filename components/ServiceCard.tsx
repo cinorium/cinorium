@@ -37,7 +37,7 @@ export const ServiceCard = ({
 
         {/* Title & Description */}
         <div className="flex-1 flex flex-col justify-start">
-          <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-heading font-bold tracking-tight text-gray-900 mb-4">
             {title}
           </h3>
           <p className="text-sm text-gray-600 leading-relaxed font-light">

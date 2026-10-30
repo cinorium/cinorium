@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import SignalsTracker from "@/components/signals/SignalsTracker";
+import SignalsCaptureModal from "@/components/signals/SignalsCaptureModal";
 
 const siteUrl = "https://www.cinorium.com";
 const siteName = "Cinorium";
@@ -151,6 +153,11 @@ export default function RootLayout({
         {/* Vercel Insights */}
         <SpeedInsights />
         <Analytics />
+
+        {/* Cinorium Signals: First-Party Behaviour & Contextual Capture */}
+        <SignalsTracker />
+        <SignalsCaptureModal />
+
         <Header />
 
         <main className="w-full">{children}</main>
