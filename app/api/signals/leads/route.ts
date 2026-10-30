@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
 
     if (gmailUser && gmailPass) {
       try {
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
           service: "gmail",
           auth: { user: gmailUser, pass: gmailPass },
         });
