@@ -32,10 +32,12 @@ export default async function SignalsAdminPage() {
     totalDismissals: 0,
     conversionRate: 0,
   };
+  let diagnostics = undefined;
 
   try {
     leads = await signalsStorage.getLeads();
     summary = await signalsStorage.getAnalyticsSummary();
+    diagnostics = await signalsStorage.getDiagnostics();
   } catch (err) {
     console.error("[Signals Admin] Failed to fetch leads/summary:", err);
   }
@@ -62,7 +64,7 @@ export default async function SignalsAdminPage() {
           </div>
         </div>
 
-        <LeadsDashboard initialLeads={leads} summary={summary} />
+        <LeadsDashboard initialLeads={leads} summary={summary} diagnostics={diagnostics} />
       </main>
     </div>
   );

@@ -74,9 +74,15 @@ ALTER TABLE visitor_events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 ALTER TABLE lead_notes ENABLE ROW LEVEL SECURITY;
 
--- Deny public anon access to leads and notes; only server role key can query or mutate
-CREATE POLICY "Server full access on leads" ON leads FOR ALL USING (auth.role() = 'service_role');
-CREATE POLICY "Server full access on lead_notes" ON lead_notes FOR ALL USING (auth.role() = 'service_role');
-CREATE POLICY "Server full access on visitor_sessions" ON visitor_sessions FOR ALL USING (auth.role() = 'service_role');
+-- Allow access for both anon key and service role key
+DROP POLICY IF EXISTS "Server full access on leads" ON leads;
+DROP POLICY IF EXISTS "Server full access on lead_notes" ON lead_notes;
+DROP POLICY IF EXISTS "Server full access on visitor_sessions" ON visitor_sessions;
+DROP POLICY IF EXISTS "Server full access on visitor_events" ON visitor_events;
+
+CREATE POLICY "Allow all operations on leads" ON leads FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all operations on lead_notes" ON lead_notes FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all operations on visitor_sessions" ON visitor_sessions FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all operations on visitor_events" ON visitor_events FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Server full access on visitor_events" ON visitor_events FOR ALL USING (auth.role() = 'service_role');
 

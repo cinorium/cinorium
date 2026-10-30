@@ -22,6 +22,15 @@ import { Lead, LeadStatus, SignalsAnalyticsSummary } from "@/lib/signals/types";
 interface Props {
   initialLeads: Lead[];
   summary: SignalsAnalyticsSummary;
+  diagnostics?: {
+    engine: "supabase" | "local";
+    isSupabaseConfigured: boolean;
+    supabaseUrl: string;
+    hasServiceRoleKey: boolean;
+    hasAnonKey: boolean;
+    connectionStatus: "connected" | "error" | "not_configured";
+    connectionError?: string;
+  };
 }
 
 const STATUS_COLORS: Record<LeadStatus, { bg: string; text: string; border: string }> = {
@@ -32,7 +41,7 @@ const STATUS_COLORS: Record<LeadStatus, { bg: string; text: string; border: stri
   LOST: { bg: "bg-gray-100", text: "text-gray-700", border: "border-gray-300" },
 };
 
-export default function LeadsDashboard({ initialLeads, summary }: Props) {
+export default function LeadsDashboard({ initialLeads, summary, diagnostics }: Props) {
   const [leads, setLeads] = useState<Lead[]>(initialLeads);
   const [selectedStatus, setSelectedStatus] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState("");
@@ -74,6 +83,36 @@ export default function LeadsDashboard({ initialLeads, summary }: Props) {
 
   return (
     <div className="space-y-8">
+      {/* Storage Diagnostics Notice */}
+      {diagnostics?.connectionStatus === "error" && (
+        <div className="rounded-2xl border-2 border-red-500 bg-red-50 p-4 text-xs text-red-900">
+          <div className="flex items-center gap-2 font-bold mb-1">
+            <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
+            Supabase Connection / Permissions Notice
+          </div>
+          <p className="mb-2">
+            The database rejected the query: <code>{diagnostics.connectionError}</code>
+          </p>
+          <p className="text-[11px] text-red-800">
+            If this mentions Row Level Security (RLS) or missing permissions, run this in your Supabase SQL Editor:
+          </p>
+          <pre className="mt-1.5 p-2.5 bg-white/80 rounded-xl border border-red-200 font-mono text-[11px] overflow-x-auto text-gray-900">
+            ALTER TABLE visitor_sessions DISABLE ROW LEVEL SECURITY;{"\n"}
+            ALTER TABLE visitor_events DISABLE ROW LEVEL SECURITY;{"\n"}
+            ALTER TABLE leads DISABLE ROW LEVEL SECURITY;{"\n"}
+            ALTER TABLE lead_notes DISABLE ROW LEVEL SECURITY;
+          </pre>
+        </div>
+      )}
+
+      {diagnostics?.engine === "local" && (
+        <div className="rounded-2xl border border-amber-300 bg-amber-50 p-3.5 text-xs text-amber-900 flex items-center justify-between">
+          <span>
+            Storage Mode: <strong>Local File Fallback</strong> (.signals_store.json). Note: on Vercel serverless, Supabase environment variables must be configured to persist leads.
+          </span>
+          <span className="font-semibold text-amber-800 text-[11px]">Local Dev</span>
+        </div>
+      )}
       {/* ── 1. Top KPI Summary Cards ─────────────────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-5">
         <div className="rounded-2xl border-2 border-black bg-white p-4 sm:p-5 shadow-xs">

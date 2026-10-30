@@ -454,6 +454,54 @@ class SupabaseStorageAdapter {
       };
     }
   }
+
+  async getDiagnostics() {
+    const hasServiceRole = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
+    const hasAnon = Boolean(
+      process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    );
+
+    try {
+      const res = await fetch(`${this.url}/rest/v1/leads?limit=1&select=id`, {
+        headers: {
+          apikey: this.key,
+          Authorization: `Bearer ${this.key}`,
+        },
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        return {
+          engine: "supabase" as const,
+          isSupabaseConfigured: true,
+          supabaseUrl: this.url,
+          hasServiceRoleKey: hasServiceRole,
+          hasAnonKey: hasAnon,
+          connectionStatus: "error" as const,
+          connectionError: `Supabase [${res.status}]: ${errText}`,
+        };
+      }
+
+      return {
+        engine: "supabase" as const,
+        isSupabaseConfigured: true,
+        supabaseUrl: this.url,
+        hasServiceRoleKey: hasServiceRole,
+        hasAnonKey: hasAnon,
+        connectionStatus: "connected" as const,
+      };
+    } catch (err: any) {
+      return {
+        engine: "supabase" as const,
+        isSupabaseConfigured: true,
+        supabaseUrl: this.url,
+        hasServiceRoleKey: hasServiceRole,
+        hasAnonKey: hasAnon,
+        connectionStatus: "error" as const,
+        connectionError: err?.message || "Failed to reach Supabase REST endpoint",
+      };
+    }
+  }
 }
 
 // Local Fallback Storage Adapter
@@ -652,6 +700,19 @@ class LocalStorageAdapter {
       totalImpressions,
       totalDismissals,
       conversionRate,
+    };
+  }
+
+  async getDiagnostics() {
+    return {
+      engine: "local" as const,
+      isSupabaseConfigured: false,
+      supabaseUrl: "",
+      hasServiceRoleKey: false,
+      hasAnonKey: false,
+      connectionStatus: "not_configured" as const,
+      connectionError:
+        "Running on local file store. To store leads permanently on Vercel, connect your Supabase project credentials.",
     };
   }
 }
