@@ -122,7 +122,7 @@ export default function Header() {
 
   return (
     <header className="fixed z-50 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl bottom-4 md:bottom-auto md:top-6 transition-all duration-300">
-      <div className="bg-brand-dark backdrop-blur-md text-gray-200 rounded-full px-4 md:px-6 py-3 flex items-center justify-between shadow-2xl border border-gray-800/60">
+      <div className="bg-brand-dark/95 backdrop-blur-md text-gray-200 rounded-full px-4 md:px-6 py-3 flex items-center justify-between shadow-2xl border border-gray-800/80">
         {/* Brand Logo - Desktop Only */}
         <Link
           href="/"
