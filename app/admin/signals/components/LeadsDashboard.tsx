@@ -85,22 +85,77 @@ export default function LeadsDashboard({ initialLeads, summary, diagnostics }: P
     <div className="space-y-8">
       {/* Storage Diagnostics Notice */}
       {diagnostics?.connectionStatus === "error" && (
-        <div className="rounded-2xl border-2 border-red-500 bg-red-50 p-4 text-xs text-red-900">
-          <div className="flex items-center gap-2 font-bold mb-1">
-            <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-            Supabase Connection / Permissions Notice
+        <div className="rounded-2xl border-2 border-amber-500 bg-amber-50 p-5 text-xs text-amber-950 shadow-sm">
+          <div className="flex items-center gap-2 font-bold text-sm mb-2 text-amber-900">
+            <span className="h-2.5 w-2.5 rounded-full bg-amber-500 animate-pulse" />
+            Supabase Setup Required: Tables Not Found in Database
           </div>
-          <p className="mb-2">
-            The database rejected the query: <code>{diagnostics.connectionError}</code>
+          <p className="mb-2 font-mono text-[11px] bg-white/70 p-2 rounded-lg border border-amber-200 text-gray-800">
+            {diagnostics.connectionError}
           </p>
-          <p className="text-[11px] text-red-800">
-            If this mentions Row Level Security (RLS) or missing permissions, run this in your Supabase SQL Editor:
+          <p className="mb-3 text-xs leading-relaxed text-amber-900">
+            The error code <strong>PGRST205</strong> indicates that the <code>leads</code> table has not been created yet in your Supabase project. To create all required tables, copy the SQL below, paste it into your <strong>Supabase SQL Editor</strong>, and click <strong>Run</strong>:
           </p>
-          <pre className="mt-1.5 p-2.5 bg-white/80 rounded-xl border border-red-200 font-mono text-[11px] overflow-x-auto text-gray-900">
-            ALTER TABLE visitor_sessions DISABLE ROW LEVEL SECURITY;{"\n"}
-            ALTER TABLE visitor_events DISABLE ROW LEVEL SECURITY;{"\n"}
-            ALTER TABLE leads DISABLE ROW LEVEL SECURITY;{"\n"}
-            ALTER TABLE lead_notes DISABLE ROW LEVEL SECURITY;
+          <pre className="p-3 bg-white rounded-xl border border-amber-200 font-mono text-[11px] overflow-x-auto text-gray-900 leading-relaxed max-h-56">
+{`CREATE TABLE IF NOT EXISTS visitor_sessions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_token VARCHAR(64) UNIQUE NOT NULL,
+  interest_score INT DEFAULT 0 NOT NULL,
+  interest_level VARCHAR(20) DEFAULT 'LOW' NOT NULL,
+  first_page VARCHAR(255) NOT NULL,
+  last_page VARCHAR(255) NOT NULL,
+  page_views_count INT DEFAULT 1 NOT NULL,
+  last_category VARCHAR(100),
+  converted BOOLEAN DEFAULT FALSE NOT NULL,
+  first_seen_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
+  last_seen_at TIMESTAMPTZ DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS visitor_events (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_token VARCHAR(64) NOT NULL,
+  event_type VARCHAR(50) NOT NULL,
+  page_path VARCHAR(255) NOT NULL,
+  metadata JSONB DEFAULT '{}'::jsonb,
+  score_delta INT DEFAULT 0 NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS leads (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_token VARCHAR(64),
+  full_name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  website_url VARCHAR(255),
+  phone VARCHAR(50),
+  interest_area VARCHAR(100) NOT NULL,
+  message TEXT NOT NULL,
+  source_page VARCHAR(255) NOT NULL,
+  campaign_id VARCHAR(100) NOT NULL,
+  interest_score_at_capture INT DEFAULT 0 NOT NULL,
+  status VARCHAR(50) DEFAULT 'NEW' NOT NULL,
+  ip_hash VARCHAR(64),
+  created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS lead_notes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  lead_id UUID NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
+  author VARCHAR(100) DEFAULT 'Cinorium Team' NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL
+);
+
+ALTER TABLE visitor_sessions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE visitor_events ENABLE ROW LEVEL SECURITY;
+ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+ALTER TABLE lead_notes ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow all access" ON leads FOR ALL TO authenticated, anon, service_role USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access" ON lead_notes FOR ALL TO authenticated, anon, service_role USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access" ON visitor_sessions FOR ALL TO authenticated, anon, service_role USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, anon, service_role USING (true) WITH CHECK (true);`}
           </pre>
         </div>
       )}
