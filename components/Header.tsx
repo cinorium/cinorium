@@ -1,7 +1,9 @@
 "use client";
 
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ChevronDown, Code2, Search, Layers } from "lucide-react";
 
 // Custom Brand SVG Icons
 function YoutubeIcon({ size = 16 }: { size?: number }) {
@@ -49,35 +51,73 @@ function LinkedinIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-// Full desktop links
-const desktopNavLinks = [
-  { name: "Work", href: "/work" },
-  { name: "Services", href: "/#what-i-do" },
-  { name: "Insights", href: "/journal" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
-
-// Mobile-only links (consistent with desktop destinations, with Home included)
-const mobileNavLinks = [
-  { name: "Home", href: "/" },
-  { name: "Work", href: "/work" },
-  { name: "Services", href: "/#what-i-do" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+const serviceSubmenu = [
+  {
+    name: "All Services Overview",
+    href: "/services",
+    description: "Our integrated 4-pillar approach to technology & marketing.",
+    icon: Layers,
+  },
+  {
+    name: "Web Development",
+    href: "/web-development",
+    description: "High-performance custom Next.js & WordPress platforms.",
+    icon: Code2,
+  },
+  {
+    name: "SEO Services",
+    href: "/seo-services",
+    description: "Technical SEO, on-page architecture & search discovery.",
+    icon: Search,
+  },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click or route change
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+      if (
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(event.target as Node)
+      ) {
+        setMobileServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
     }
-    if (href === "/#what-i-do") {
-      return pathname === "/web-development" || pathname === "/seo-services";
+    if (href === "/services") {
+      return (
+        pathname === "/services" ||
+        pathname === "/web-development" ||
+        pathname === "/seo-services"
+      );
     }
-    return pathname === href || (href !== "/" && Boolean(pathname?.startsWith(href)));
+    return (
+      pathname === href || (href !== "/" && Boolean(pathname?.startsWith(href)))
+    );
   };
 
   return (
@@ -86,54 +126,254 @@ export default function Header() {
         {/* Brand Logo - Desktop Only */}
         <Link
           href="/"
-          className="hidden lg:block font-montserrat text-xl font-normal tracking-tight text-white hover:opacity-80 transition-opacity shrink-0"
+          className="hidden lg:block font-heading text-xl font-semibold tracking-tight text-white hover:opacity-80 transition-opacity shrink-0"
         >
           cinorium
         </Link>
 
         {/* Full Navigation Links - Desktop Only */}
-        <nav aria-label="Desktop primary navigation" className="hidden lg:flex items-center gap-6 text-sm font-normal text-gray-300">
-          {desktopNavLinks.map((link) => {
-            const isActive = isLinkActive(link.href);
-            return (
+        <nav
+          aria-label="Desktop primary navigation"
+          className="hidden lg:flex items-center gap-6 text-sm font-normal text-gray-300"
+        >
+          <Link
+            href="/work"
+            className={`transition-colors duration-200 ${
+              isLinkActive("/work")
+                ? "text-brand-amber font-medium"
+                : "hover:text-white text-gray-300"
+            }`}
+          >
+            Work
+          </Link>
+
+          {/* Accessible Services Dropdown Menu */}
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <div className="flex items-center gap-1">
               <Link
-                key={link.name}
-                href={link.href}
+                href="/services"
                 className={`transition-colors duration-200 ${
-                  isActive
+                  isLinkActive("/services")
                     ? "text-brand-amber font-medium"
                     : "hover:text-white text-gray-300"
                 }`}
               >
-                {link.name}
+                Services
               </Link>
-            );
-          })}
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={servicesOpen}
+                aria-label="Toggle services menu"
+                onClick={() => setServicesOpen((prev) => !prev)}
+                className="text-gray-400 hover:text-white focus:outline-none p-0.5 rounded"
+              >
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesOpen ? "rotate-180 text-brand-amber" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            {/* Desktop Dropdown Flyout */}
+            {servicesOpen && (
+              <div
+                role="menu"
+                aria-orientation="vertical"
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 transition-all duration-200"
+              >
+                <div className="rounded-2xl border border-gray-800 bg-[#0b131e]/95 backdrop-blur-xl p-2.5 shadow-2xl">
+                  {serviceSubmenu.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setServicesOpen(false)}
+                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                          isActive
+                            ? "bg-amber-400/10 text-white"
+                            : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
+                        }`}
+                      >
+                        <div className="p-1.5 rounded-lg bg-gray-800/80 text-amber-400 shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-semibold text-white">
+                            {item.name}
+                          </div>
+                          <div className="text-[11px] text-gray-400 leading-tight mt-0.5 font-light">
+                            {item.description}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link
+            href="/journal"
+            className={`transition-colors duration-200 ${
+              isLinkActive("/journal")
+                ? "text-brand-amber font-medium"
+                : "hover:text-white text-gray-300"
+            }`}
+          >
+            Insights
+          </Link>
+
+          <Link
+            href="/about"
+            className={`transition-colors duration-200 ${
+              isLinkActive("/about")
+                ? "text-brand-amber font-medium"
+                : "hover:text-white text-gray-300"
+            }`}
+          >
+            About
+          </Link>
+
+          <Link
+            href="/contact"
+            className={`transition-colors duration-200 ${
+              isLinkActive("/contact")
+                ? "text-brand-amber font-medium"
+                : "hover:text-white text-gray-300"
+            }`}
+          >
+            Contact
+          </Link>
         </nav>
 
-        {/* Mobile Navigation - Centered items with proper spacing */}
-        <nav aria-label="Mobile primary navigation" className="flex lg:hidden items-center justify-around w-full text-xs font-medium px-1">
-          {mobileNavLinks.map((link) => {
-            const isActive = isLinkActive(link.href);
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`transition-colors py-1 px-1.5 text-center ${
-                  isActive
-                    ? "text-brand-amber font-semibold"
-                    : "text-gray-300 hover:text-white"
+        {/* Mobile Navigation - Accessible pill layout with Services popover */}
+        <div ref={mobileDropdownRef} className="relative w-full lg:hidden">
+          {/* Mobile Popover Menu (opens upward from bottom bar) */}
+          {mobileServicesOpen && (
+            <div
+              role="dialog"
+              aria-label="Services Submenu"
+              className="absolute bottom-full left-0 right-0 mb-3 bg-[#0b131e]/98 border border-gray-800 rounded-2xl p-3 shadow-2xl backdrop-blur-xl"
+            >
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 px-2 py-1 border-b border-gray-800/80 mb-2">
+                Services Architecture
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {serviceSubmenu.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileServicesOpen(false)}
+                      className="flex items-center gap-2.5 p-2 rounded-xl text-xs text-gray-200 hover:bg-gray-800/80 hover:text-white"
+                    >
+                      <Icon className="w-4 h-4 text-amber-400 shrink-0" />
+                      <div>
+                        <span className="font-semibold block">{item.name}</span>
+                        <span className="text-[10px] text-gray-400 block font-light">
+                          {item.description}
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <nav
+            aria-label="Mobile primary navigation"
+            className="flex items-center justify-around w-full text-xs font-medium px-1"
+          >
+            <Link
+              href="/"
+              className={`transition-colors py-1 px-1.5 text-center ${
+                isLinkActive("/")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Home
+            </Link>
+
+            <button
+              type="button"
+              aria-expanded={mobileServicesOpen}
+              onClick={() => setMobileServicesOpen((prev) => !prev)}
+              className={`inline-flex items-center gap-0.5 py-1 px-1.5 text-center transition-colors ${
+                isLinkActive("/services")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              <span>Services</span>
+              <ChevronDown
+                className={`w-3 h-3 transition-transform ${
+                  mobileServicesOpen ? "rotate-180 text-brand-amber" : ""
                 }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
+              />
+            </button>
+
+            <Link
+              href="/work"
+              className={`transition-colors py-1 px-1.5 text-center ${
+                isLinkActive("/work")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Work
+            </Link>
+
+            <Link
+              href="/journal"
+              className={`transition-colors py-1 px-1.5 text-center ${
+                isLinkActive("/journal")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Insights
+            </Link>
+
+            <Link
+              href="/about"
+              className={`transition-colors py-1 px-1.5 text-center ${
+                isLinkActive("/about")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              About
+            </Link>
+
+            <Link
+              href="/contact"
+              className={`transition-colors py-1 px-1.5 text-center ${
+                isLinkActive("/contact")
+                  ? "text-brand-amber font-semibold"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
 
         {/* Social Icons - Desktop Only (`hidden lg:flex`) */}
         <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-          {/* YouTube */}
           <a
             href="https://www.youtube.com/@cinoriumacademy"
             target="_blank"
@@ -144,7 +384,6 @@ export default function Header() {
             <YoutubeIcon size={14} />
           </a>
 
-          {/* Instagram */}
           <a
             href="https://www.instagram.com/cinorium_/"
             target="_blank"
@@ -155,7 +394,6 @@ export default function Header() {
             <InstagramIcon size={14} />
           </a>
 
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/cinorium/"
             target="_blank"

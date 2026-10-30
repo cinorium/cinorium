@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Review the Terms of Service governing your use of the Cinorium website and our service engagement terms.",
   alternates: {
-    canonical: "https://cinorium.com/terms",
+    canonical: "/terms",
   },
   openGraph: {
     title: "Terms of Service | Cinorium",
     description:
       "Review the Terms of Service governing your use of the Cinorium website and our service engagement terms.",
-    url: "https://cinorium.com/terms",
+    url: "https://www.cinorium.com/terms",
     type: "website",
   },
 };

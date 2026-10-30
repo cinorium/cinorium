@@ -41,7 +41,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             </div>
           </div>
 
-          <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl">
+          <h2 className="mb-4 font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl md:text-4xl">
             <Link
               href={`/journal/${article.slug}`}
               className="transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-sm"
@@ -86,7 +86,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
           <BookOpen className="h-4 w-4 text-gray-400 transition-colors group-hover:text-black" aria-hidden="true" />
         </div>
 
-        <h3 className="mb-3 font-serif text-xl font-bold leading-snug text-gray-900 sm:text-2xl">
+        <h3 className="mb-3 font-heading text-xl font-semibold tracking-tight leading-snug text-gray-900 sm:text-2xl">
           <Link
             href={`/journal/${article.slug}`}
             className="transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-sm"

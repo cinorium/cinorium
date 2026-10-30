@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Learn how Cinorium collects, uses, and protects your information when you browse our website or submit an inquiry.",
   alternates: {
-    canonical: "https://cinorium.com/privacy",
+    canonical: "/privacy",
   },
   openGraph: {
     title: "Privacy Policy | Cinorium",
     description:
       "Learn how Cinorium collects, uses, and protects your information when you browse our website or submit an inquiry.",
-    url: "https://cinorium.com/privacy",
+    url: "https://www.cinorium.com/privacy",
     type: "website",
   },
 };

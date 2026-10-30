@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     };
   }
 
-  const url = `https://cinorium.com/journal/${article.slug}`;
+  const url = `https://www.cinorium.com/journal/${article.slug}`;
 
   return {
     title: `${article.title} | Cinorium Journal`,
@@ -102,42 +102,42 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://cinorium.com",
+            item: "https://www.cinorium.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Journal",
-            item: "https://cinorium.com/journal",
+            item: "https://www.cinorium.com/journal",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: article.title,
-            item: `https://cinorium.com/journal/${article.slug}`,
+            item: `https://www.cinorium.com/journal/${article.slug}`,
           },
         ],
       },
       {
         "@type": "BlogPosting",
-        "@id": `https://cinorium.com/journal/${article.slug}#article`,
+        "@id": `https://www.cinorium.com/journal/${article.slug}#article`,
         headline: article.title,
         description: article.description,
         datePublished: article.date,
         dateModified: article.updatedAt || article.date,
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://cinorium.com/journal/${article.slug}`,
+          "@id": `https://www.cinorium.com/journal/${article.slug}`,
         },
         author: {
           "@type": "Person",
           name: article.author?.name || "Muhammad Huzaifa",
-          url: "https://cinorium.com/about",
+          url: "https://www.cinorium.com/about",
         },
         publisher: {
           "@type": "Organization",
           name: "Cinorium",
-          url: "https://cinorium.com",
+          url: "https://www.cinorium.com",
         },
         articleSection: article.category,
         keywords: article.tags.join(", "),
@@ -193,7 +193,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {/* Article Title */}
-          <h1 className="mb-6 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
             {article.title}
           </h1>
 
@@ -248,11 +248,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
               {/* Author Box */}
               <div className="mt-10 rounded-2xl border-2 border-black bg-amber-50/50 p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-black bg-white font-serif text-xl font-bold text-gray-900">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-black bg-white font-heading text-xl font-bold tracking-tight text-gray-900">
                   MH
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-gray-900 mb-1">
+                  <h3 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-1">
                     Written by {article.author?.name || "Muhammad Huzaifa"}
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">
@@ -285,7 +285,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   <Sparkles className="h-3 w-3 text-amber-700" aria-hidden="true" />
                   Project Support
                 </span>
-                <h4 className="font-serif text-lg font-bold text-gray-900 mb-2">
+                <h4 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-2">
                   Need Help with Search Visibility?
                 </h4>
                 <p className="text-xs sm:text-sm leading-relaxed text-gray-700 mb-5">
@@ -319,7 +319,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </span>
               <h2
                 id="related-heading"
-                className="font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl"
+                className="font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl"
               >
                 Related Resources
               </h2>
@@ -347,7 +347,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           <h2
             id="journal-cta-heading"
-            className="mb-4 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl max-w-2xl"
+            className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl max-w-2xl"
           >
             Ready to Build a Better Search Foundation?
           </h2>

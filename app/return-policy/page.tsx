@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Return & Refund Policy | Cinorium",
   description:
-    "Review Cinorium's return, refund, and cancellation policies for custom web development and SEO consulting services.",
+    "Review Cinorium's return, refund, and cancellation policies for custom web development and digital marketing services.",
   alternates: {
-    canonical: "https://cinorium.com/return-policy",
+    canonical: "/return-policy",
   },
   openGraph: {
     title: "Return & Refund Policy | Cinorium",
     description:
-      "Review Cinorium's return, refund, and cancellation policies for custom web development and SEO consulting services.",
-    url: "https://cinorium.com/return-policy",
+      "Review Cinorium's return, refund, and cancellation policies for custom web development and digital marketing services.",
+    url: "https://www.cinorium.com/return-policy",
     type: "website",
   },
 };

@@ -6,27 +6,27 @@ const painPoints = [
     id: 1,
     title: "Invisible to Modern Customers",
     description:
-      "If your business doesn't rank in modern search results or AI recommendations, your ideal buyers are giving their money to your competitors every single day.",
+      "If your business doesn't rank in organic search results or AI answer engines, prospective buyers looking for your exact services end up hiring your competitors every single day.",
     linkText: "Fix Your Search Presence",
     href: "/seo-services",
     icon: <Sparkle className="w-6 h-6 fill-black text-black" />,
   },
   {
     id: 2,
-    title: "Slow, Broken & Non-Converting Web Tech",
+    title: "Slow, Bloated & Frustrating Tech",
     description:
-      "Heavy plugins, slow load times, and poor user flow destroy your ad budget and SEO efforts. A visitor leaves within 3 seconds if your platform feels clunky.",
+      "Excess plugins, bloated scripts, and convoluted layouts kill conversion rates. Visitors abandon clunky sites in seconds, wasting your marketing budget before they ever reach an inquiry form.",
     linkText: "Upgrade Your Tech Stack",
     href: "/web-development",
     icon: <Diamond className="w-6 h-6 text-black" />,
   },
   {
     id: 3,
-    title: "Marketing Without Technical Foundation",
+    title: "Marketing Without A Foundation",
     description:
-      "Running ads or posting content on top of a weak website engine is like pouring water into a leaking bucket. Growth requires a strong, integrated system.",
-    linkText: "Build Your Foundation",
-    href: "/about",
+      "Driving traffic or publishing content on top of a fragile website is like pouring water into a leaking bucket. Real, sustainable growth requires technology and marketing working in tandem.",
+    linkText: "Explore Integrated Services",
+    href: "/services",
     icon: <Plus className="w-6 h-6 text-black stroke-[3]" />,
   },
 ];
@@ -40,12 +40,16 @@ export default function RealRevenue() {
       <div className="max-w-6xl mx-auto w-full">
         {/* Header Section */}
         <div className="mb-14 text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3">
-            Why Most Websites Fail to Generate Real Revenue
+          <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
+            BEYOND THE SURFACE
+          </span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight text-gray-900 mb-3">
+            Why Websites Fail Beyond Appearance
           </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-lg font-light leading-relaxed">
-            Having a pretty site means nothing if no one can find it or if it
-            takes 5 seconds to load.
+          <p className="text-sm md:text-base text-gray-600 max-w-xl font-light leading-relaxed">
+            A site can look modern and still fail commercially. Without search
+            discoverability, rapid load times, and structured buyer journeys,
+            your digital investment underperforms.
           </p>
         </div>
 
@@ -75,7 +79,7 @@ export default function RealRevenue() {
 
                 {/* Title & Description */}
                 <div className="flex-1 flex flex-col justify-start">
-                  <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-heading font-semibold tracking-tight text-gray-900 mb-4">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed font-light">
@@ -87,7 +91,7 @@ export default function RealRevenue() {
                 <div className="mt-6 pt-4 w-full">
                   <div className="inline-flex items-center justify-center gap-2 text-sm font-medium text-gray-700 lg:group-hover:text-black lg:group-hover:underline transition-all">
                     <span>{item.linkText}</span>
-                    <MoveRight className="w-4 h-4 transition-transform lg:group-hover:translate-x-1" />
+                    <MoveRight className="w-4 h-4 transition-transform lg:group-hover:translate-x-1 text-amber-500" />
                   </div>
                 </div>
               </div>

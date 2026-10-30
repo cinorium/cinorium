@@ -1,46 +1,41 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display, Figtree } from "next/font/google";
+import { Geist, Figtree } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NotificationBar from "@/components/NotificationBar";
 import { cn } from "@/lib/utils";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
-const siteUrl = "https://cinorium.com";
+const siteUrl = "https://www.cinorium.com";
 const siteName = "Cinorium";
 const personId = `${siteUrl}/#person`;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-figtree",
   display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const siteDescription =
-  "Muhammad Huzaifa helps businesses strengthen their online presence through search visibility, strategic content, effective websites, and creative execution.";
+  "Cinorium is a technology-driven digital marketing agency. We combine web development, SEO, and strategic marketing to build digital systems that look right, function right, and drive business growth.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cinorium.com"),
+  metadataBase: new URL("https://www.cinorium.com"),
 
   title: {
-    default: "Cinorium — Digital Marketing & Creative Services",
+    default: "Cinorium — Technology-Driven Digital Marketing & Web Development",
     template: "%s | Cinorium",
   },
 
@@ -54,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "Muhammad Huzaifa | Digital Marketing & Creative Web",
+    title: "Cinorium | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -62,14 +57,14 @@ export const metadata: Metadata = {
         url: "/og-images/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Muhammad Huzaifa — Digital Marketing, Web and Creative Work",
+        alt: "Cinorium — Built for Visibility. Designed for Growth.",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Huzaifa | Digital Marketing & Creative Web",
+    title: "Cinorium | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     images: ["/og-images/og-image.webp"],
   },
@@ -79,49 +74,52 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
-      "@id": personId,
-      name: "Muhammad Huzaifa",
+      "@type": "Organization",
+      "@id": organizationId,
+      name: "Cinorium",
       url: siteUrl,
-      jobTitle: "Digital Marketing & Creative Professional",
-      description:
-        "A digital creative working across digital marketing, search visibility, web development, graphic design, content, and publishing.",
+      logo: `${siteUrl}/og-images/og-image.webp`,
+      description: siteDescription,
+      slogan: "Built for Visibility. Designed for Growth.",
       knowsAbout: [
         "Digital Marketing",
         "Search Engine Optimization (SEO)",
-        "Local SEO",
+        "Technical SEO",
+        "Website Development",
+        "WordPress Development",
         "Content Strategy",
-        "Social Media Marketing",
+        "Conversion Rate Optimization",
         "Answer Engine Optimization (AEO)",
         "Generative Engine Optimization (GEO)",
-        "Web Development",
-        "Graphic Design",
-        "Digital Publishing",
-        "Amazon Kindle Direct Publishing",
+        "E-commerce Strategy",
       ],
+      founder: {
+        "@id": personId,
+      },
+      sameAs: [
+        "https://www.linkedin.com/in/cinorium/",
+        "https://www.instagram.com/cinorium_/",
+        "https://www.youtube.com/@cinoriumacademy",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Muhammad Huzaifa",
+      url: `${siteUrl}/about`,
+      jobTitle: "Founder & Technical Director",
       worksFor: {
         "@id": organizationId,
       },
     },
     {
-      "@type": "Organization",
-      "@id": organizationId,
-      name: "Cinorium",
-      url: siteUrl,
-      description:
-        "A digital brand focused on marketing, search visibility, content, web experiences, creative work, and educational resources.",
-      founder: {
-        "@id": personId,
-      },
-    },
-    {
       "@type": "WebSite",
-      "@id": "https://cinorium.com/#website",
-      url: "https://cinorium.com",
+      "@id": websiteId,
+      url: siteUrl,
       name: "Cinorium",
-      alternateName: "Cinorium by Muhammad Huzaifa",
+      alternateName: "Cinorium Digital Marketing Agency",
       publisher: {
-        "@id": "https://cinorium.com/#organization",
+        "@id": organizationId,
       },
       inLanguage: "en",
     },
@@ -137,8 +135,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        montserrat.variable,
-        playfair.variable,
+        geist.variable,
         figtree.variable,
         "font-sans",
       )}

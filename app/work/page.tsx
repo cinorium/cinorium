@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Work & Website Development Portfolio | Cinorium",
     description:
       "Explore Cinorium's website development work, including live business websites and selected concepts built for different industries.",
-    url: "https://cinorium.com/work",
+    url: "https://www.cinorium.com/work",
     type: "website",
   },
 };
@@ -47,7 +47,7 @@ export default function WorkPage() {
           </span>
 
           {/* Main Heading */}
-          <h1 className="mb-6 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
             Websites Built Around Real Business Needs.
           </h1>
 
@@ -100,7 +100,7 @@ export default function WorkPage() {
             <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
               FEATURED CLIENT WORK
             </span>
-            <h2 className="mb-3 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
               Live Business Websites
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
@@ -141,7 +141,7 @@ export default function WorkPage() {
               <div className="mb-8">
                 <h3
                   id="project-clothing-nexus-title"
-                  className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
                 >
                   Clothing Nexus
                 </h3>
@@ -188,7 +188,7 @@ export default function WorkPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-gray-200">
                   <div className="flex items-center gap-2.5">
                     <Gauge className="h-5 w-5 text-gray-900" />
-                    <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900">
+                    <h4 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-gray-900">
                       PageSpeed Insights
                     </h4>
                   </div>
@@ -205,7 +205,7 @@ export default function WorkPage() {
                       Desktop Perf.
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-emerald-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         100
                       </span>
                       <span className="text-xs text-gray-400 font-medium">
@@ -224,7 +224,7 @@ export default function WorkPage() {
                       Mobile Perf.
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-amber-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-amber-600">
                         75
                       </span>
                       <span className="text-xs text-gray-400 font-medium">
@@ -243,7 +243,7 @@ export default function WorkPage() {
                       Accessibility
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-emerald-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         96
                       </span>
                       <span className="text-xs text-gray-400 font-medium">
@@ -262,7 +262,7 @@ export default function WorkPage() {
                       Best Practices
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-emerald-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         96
                       </span>
                       <span className="text-xs text-gray-400 font-medium">
@@ -281,7 +281,7 @@ export default function WorkPage() {
                       SEO
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-emerald-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         92
                       </span>
                       <span className="text-xs text-gray-400 font-medium">
@@ -353,7 +353,7 @@ export default function WorkPage() {
               <div className="mb-8">
                 <h3
                   id="project-cn-it-title"
-                  className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
                 >
                   CN IT Solutions
                 </h3>
@@ -444,7 +444,7 @@ export default function WorkPage() {
             <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
               EXPLORATORY WORK
             </span>
-            <h2 className="mb-3 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
               Concepts &amp; Selected Samples
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
@@ -470,7 +470,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
                   Tooni Wear
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">
@@ -508,7 +508,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
                   March Computer
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">
@@ -545,7 +545,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
                   Lexway
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">
@@ -582,7 +582,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
                   Khawar Law Associates
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">
@@ -618,7 +618,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
                   3G Leather
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">

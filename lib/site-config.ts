@@ -16,7 +16,7 @@ export const siteUrl: string =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://cinorium.com");
+    : "https://www.cinorium.com");
 
 export interface StaticRoute {
   /** Path relative to the site root, e.g. "/" or "/about". */
@@ -50,7 +50,7 @@ export interface StaticRoute {
  *
  * Rules of thumb:
  *   1.0  → Homepage
- *   0.9  → Core service / product pages
+ *   0.9  → Core service / product pages & Services overview
  *   0.8  → Portfolio, case studies, testimonials
  *   0.7  → Informational / about / contact
  *   0.6  → Blog / journal index
@@ -61,6 +61,11 @@ export const staticRoutes: StaticRoute[] = [
     path: "/",
     changeFrequency: "weekly",
     priority: 1.0,
+  },
+  {
+    path: "/services",
+    changeFrequency: "weekly",
+    priority: 0.9,
   },
   {
     path: "/web-development",
@@ -108,4 +113,3 @@ export const staticRoutes: StaticRoute[] = [
     priority: 0.5,
   },
 ];
-

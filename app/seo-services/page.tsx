@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "SEO Services & Search Optimization | Cinorium",
     description:
       "Improve your website's search visibility with technical SEO, on-page optimization, strategic content and ongoing search performance improvements.",
-    url: "https://cinorium.com/seo-services",
+    url: "https://www.cinorium.com/seo-services",
     type: "website",
   },
 };
@@ -681,6 +681,30 @@ export default function SeoServicesPage() {
               be honest about.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── Contextual Investigation Callout ────────────────────────── */}
+      <section className={`w-full bg-[#fcfbf7] border-b border-black/10 ${px} py-12`}>
+        <div className="max-w-4xl mx-auto rounded-3xl border-2 border-black bg-blue-100 p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-700 block mb-1">
+              From Our Journal · The Internet, Under the Hood
+            </span>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+              How Website Development Improves Search Visibility
+            </h3>
+            <p className="text-sm text-gray-700 leading-relaxed font-light">
+              Explore how technical foundations, crawling efficiency, semantic markup, and on-page structure combine to support organic search performance.
+            </p>
+          </div>
+          <Link
+            href="/journal/improve-website-search-visibility"
+            className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white hover:bg-gray-900 transition-all shrink-0"
+          >
+            <span>Read Guide</span>
+            <ArrowRight className="h-4 w-4 text-amber-400" />
+          </Link>
         </div>
       </section>
 

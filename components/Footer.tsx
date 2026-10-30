@@ -46,6 +46,7 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 const footerNavLinks = [
+  { name: "Services Overview", href: "/services" },
   { name: "Website Development", href: "/web-development" },
   { name: "SEO Services", href: "/seo-services" },
   { name: "Selected Work", href: "/work" },
@@ -60,25 +61,31 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto flex flex-col gap-10">
         {/* Top CTA Banner inside Footer */}
         <div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-3">
-            Let&apos;s make your next idea count.
+          <span className="text-xs font-semibold uppercase tracking-widest text-amber-400 block mb-2">
+            Technology · Marketing · Digital Growth
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-white mb-3">
+            Built for Visibility. Designed for Growth.
           </h2>
           <p className="text-sm sm:text-base text-gray-400 font-light leading-relaxed max-w-2xl mb-6">
-            Digital marketing, creative thinking and useful digital experiences
-            — built around real business needs.
+            We don&apos;t just make things look right. We make them work right.
+            Technology-driven digital marketing with a strong web development foundation.
           </p>
 
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-amber-400 transition-colors group"
           >
-            <span>Start a Project</span>
-            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <span>Discuss Your Project</span>
+            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-amber-400" />
           </Link>
         </div>
 
         {/* Footer Navigation Links */}
-        <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-400">
+        <nav
+          aria-label="Footer navigation"
+          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-400"
+        >
           {footerNavLinks.map((link) => (
             <Link
               key={link.name}
@@ -128,19 +135,33 @@ export default function Footer() {
 
           {/* Legal Links & Copyright Notice */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-xs text-gray-400 font-light">
-            <nav aria-label="Legal navigation" className="flex flex-wrap items-center gap-x-4 gap-y-1">
-              <Link href="/privacy" className="hover:text-amber-400 transition-colors">
+            <nav
+              aria-label="Legal navigation"
+              className="flex flex-wrap items-center gap-x-4 gap-y-1"
+            >
+              <Link
+                href="/privacy"
+                className="hover:text-amber-400 transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-amber-400 transition-colors">
+              <Link
+                href="/terms"
+                className="hover:text-amber-400 transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/return-policy" className="hover:text-amber-400 transition-colors">
-                Return & Refund Policy
+              <Link
+                href="/return-policy"
+                className="hover:text-amber-400 transition-colors"
+              >
+                Return &amp; Refund Policy
               </Link>
             </nav>
-            <span className="hidden sm:inline text-gray-600" aria-hidden="true">•</span>
-            <p>© 2026 Muhammad Huzaifa. All rights reserved.</p>
+            <span className="hidden sm:inline text-gray-600" aria-hidden="true">
+              •
+            </span>
+            <p>© 2026 Muhammad Huzaifa / Cinorium. All rights reserved.</p>
           </div>
         </div>
       </div>

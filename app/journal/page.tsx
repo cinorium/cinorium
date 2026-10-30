@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "The Growth & Tech Vault | SEO & Web Development Journal | Cinorium",
     description:
       "Practical guides and technical resources on SEO, website development, Core Web Vitals, and search visibility by Cinorium.",
-    url: "https://cinorium.com/journal",
+    url: "https://www.cinorium.com/journal",
     type: "website",
   },
 };
@@ -37,20 +37,20 @@ export default async function JournalPage() {
       >
         <div className={inner}>
           <span className="mb-4 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            Insights &amp; Resources
+            THE INTERNET, UNDER THE HOOD · JOURNAL &amp; INSIGHTS
           </span>
 
           <h1
             id="journal-hero-heading"
-            className="mb-5 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl"
+            className="mb-5 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl"
           >
             The Growth &amp; Tech Vault
           </h1>
 
           <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            Practical guides on SEO, website development, and search visibility.
-            Clear explanations, useful frameworks, and advice you can put into
-            practice without agency fluff or unsupported claims.
+            Website investigations, technical explanations, and practical
+            frameworks on web development, SEO, search visibility, and digital
+            marketing. Clear advice without agency fluff or unsupported claims.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default async function JournalPage() {
             </span>
             <h2
               id="articles-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+              className="mb-3 font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
               Explore the Archive
             </h2>

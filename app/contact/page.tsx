@@ -3,17 +3,17 @@ import { Mail, MessageCircle } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Cinorium | Discuss Your Website or SEO Project",
+  title: "Contact Cinorium | Discuss Your Website or Marketing Project",
   description:
-    "Contact Cinorium to discuss website development, technical SEO, on-page optimization and search visibility for your business.",
+    "Contact Cinorium to discuss web development, technical SEO, digital marketing strategy, and e-commerce growth for your business.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Cinorium | Discuss Your Website or SEO Project",
+    title: "Contact Cinorium | Discuss Your Website or Marketing Project",
     description:
-      "Contact Cinorium to discuss website development, technical SEO, on-page optimization and search visibility for your business.",
-    url: "https://cinorium.com/contact",
+      "Contact Cinorium to discuss web development, technical SEO, digital marketing strategy, and e-commerce growth for your business.",
+    url: "https://www.cinorium.com/contact",
     type: "website",
   },
 };

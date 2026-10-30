@@ -18,7 +18,7 @@ export const mdxComponents = {
     return (
       <h2
         id={id}
-        className="group relative mb-4 mt-12 scroll-mt-28 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl border-b border-black/10 pb-2.5"
+        className="group relative mb-4 mt-12 scroll-mt-28 font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl border-b border-black/10 pb-2.5"
         {...props}
       >
         <a
@@ -37,7 +37,7 @@ export const mdxComponents = {
     return (
       <h3
         id={id}
-        className="group mb-3 mt-8 scroll-mt-28 font-serif text-xl font-bold text-gray-900 sm:text-2xl"
+        className="group mb-3 mt-8 scroll-mt-28 font-heading text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl"
         {...props}
       >
         <a

@@ -1,43 +1,56 @@
 import Link from "next/link";
+import { ArrowRight, MoveRight } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden bg-blue-100 px-6 py-16 text-center sm:px-10 md:px-20 lg:min-h-screen lg:px-32"
+      className="flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden bg-blue-100 px-6 py-20 text-center sm:px-10 md:px-20 lg:min-h-screen lg:px-32"
     >
-      <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2">
+      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-3">
         <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-          Web Development & SEO
+          Technology · Marketing · Digital Growth
         </span>
 
-        <h1 className="mb-4 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
-          <span className="block">Build Better Websites.</span>
-          <span className="block">Grow Through Search.</span>
+        <h1 className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
+          <span className="block">Built for Visibility.</span>
+          <span className="block">Designed for Growth.</span>
         </h1>
 
-        <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-          We build custom and WordPress websites with a strong technical
-          foundation, then help businesses improve their search visibility
-          through SEO and useful content.
+        <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg md:text-xl">
+          We don&apos;t just make things look right. We make them work right.
+          Cinorium brings web development, SEO, and digital marketing
+          together—using deep technical understanding to build digital systems
+          that convert and endure.
         </p>
 
-        <div className="mt-5 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+        <div className="mt-6 flex w-full flex-col items-center justify-center gap-3.5 sm:w-auto sm:flex-row">
           <Link
-            href="https://wa.me/923212481412?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20or%20SEO%20project."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-black px-8 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
+            href="/contact"
+            className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-black px-8 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
           >
-            Discuss Your Project
+            <span>Discuss Your Project</span>
+            <ArrowRight className="h-4 w-4 text-amber-400" />
           </Link>
 
           <Link
-            href="/#what-i-do"
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border-2 border-black bg-white/80 px-8 py-4 text-center text-sm font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
+            href="/services"
+            className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white/80 px-8 py-4 text-center text-sm font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
           >
-            Explore Our Services
+            <span>Explore Services</span>
+            <MoveRight className="h-4 w-4" />
           </Link>
+        </div>
+
+        {/* Supporting credibility pill */}
+        <div className="mt-8 pt-4 border-t border-black/10 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-gray-600 sm:text-sm">
+          <span>Web Development &amp; Tech</span>
+          <span className="text-gray-400">•</span>
+          <span>SEO &amp; Search Visibility</span>
+          <span className="text-gray-400">•</span>
+          <span>Digital Marketing Strategy</span>
+          <span className="text-gray-400">•</span>
+          <span>E-commerce Growth</span>
         </div>
       </div>
     </section>
