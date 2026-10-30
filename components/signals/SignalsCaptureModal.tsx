@@ -206,7 +206,7 @@ export default function SignalsCaptureModal() {
       role="dialog"
       aria-modal="false"
       aria-label="Contextual enquiry prompt"
-      className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] sm:w-[420px] transition-all duration-300 ease-out"
+      className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[calc(100dvh-6rem)] overflow-y-auto transition-all duration-300 ease-out"
     >
       <div className="relative rounded-2xl border-2 border-black bg-white p-5 sm:p-6 shadow-2xl">
         {/* Close Button */}

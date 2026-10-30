@@ -85,7 +85,12 @@ export async function getAllArticles(): Promise<Article[]> {
   }
 
   const fileNames = fs.readdirSync(JOURNAL_DIRECTORY);
-  const mdxFiles = fileNames.filter((file) => file.endsWith(".mdx") || file.endsWith(".md"));
+  const mdxFiles = fileNames.filter(
+    (file) =>
+      (file.endsWith(".mdx") || file.endsWith(".md")) &&
+      !file.includes(" ") &&
+      !file.startsWith(".")
+  );
 
   const articles = mdxFiles.map((fileName) => {
     const slug = fileName.replace(/\.mdx?$/, "");
