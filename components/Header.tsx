@@ -86,6 +86,8 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!servicesOpen && !mobileServicesOpen) return;
+
     function handleClickOutside(event: MouseEvent) {
       if (
         dropdownRef.current &&
@@ -102,7 +104,7 @@ export default function Header() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [servicesOpen, mobileServicesOpen]);
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
@@ -121,8 +123,8 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed z-50 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl bottom-4 md:bottom-auto md:top-6 transition-all duration-300">
-      <div className="bg-brand-dark/95 backdrop-blur-md text-gray-200 rounded-full px-4 md:px-6 py-3 flex items-center justify-between shadow-2xl border border-gray-800/80">
+    <header className="fixed z-50 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl bottom-4 md:bottom-auto md:top-6 transform-gpu transition-all duration-300">
+      <div className="bg-brand-dark/95 backdrop-blur-md text-gray-200 rounded-full px-4 md:px-6 py-3 flex items-center justify-between shadow-2xl border border-gray-800/80 transform-gpu">
         {/* Brand Logo - Desktop Only */}
         <Link
           href="/"
@@ -138,11 +140,10 @@ export default function Header() {
         >
           <Link
             href="/work"
-            className={`transition-colors duration-200 ${
-              isLinkActive("/work")
+            className={`transition-colors duration-200 ${isLinkActive("/work")
                 ? "text-brand-amber font-medium"
                 : "hover:text-white text-gray-300"
-            }`}
+              }`}
           >
             Work
           </Link>
@@ -157,11 +158,10 @@ export default function Header() {
             <div className="flex items-center gap-1">
               <Link
                 href="/services"
-                className={`transition-colors duration-200 ${
-                  isLinkActive("/services")
+                className={`transition-colors duration-200 ${isLinkActive("/services")
                     ? "text-brand-amber font-medium"
                     : "hover:text-white text-gray-300"
-                }`}
+                  }`}
               >
                 Services
               </Link>
@@ -174,9 +174,8 @@ export default function Header() {
                 className="text-gray-400 hover:text-white focus:outline-none p-0.5 rounded"
               >
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180 text-brand-amber" : ""
-                  }`}
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180 text-brand-amber" : ""
+                    }`}
                 />
               </button>
             </div>
@@ -198,11 +197,10 @@ export default function Header() {
                         href={item.href}
                         role="menuitem"
                         onClick={() => setServicesOpen(false)}
-                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
-                          isActive
+                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-colors ${isActive
                             ? "bg-amber-400/10 text-white"
                             : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
-                        }`}
+                          }`}
                       >
                         <div className="p-1.5 rounded-lg bg-gray-800/80 text-amber-400 shrink-0 mt-0.5">
                           <Icon className="w-4 h-4" />
@@ -225,33 +223,30 @@ export default function Header() {
 
           <Link
             href="/journal"
-            className={`transition-colors duration-200 ${
-              isLinkActive("/journal")
+            className={`transition-colors duration-200 ${isLinkActive("/journal")
                 ? "text-brand-amber font-medium"
                 : "hover:text-white text-gray-300"
-            }`}
+              }`}
           >
             Insights
           </Link>
 
           <Link
             href="/about"
-            className={`transition-colors duration-200 ${
-              isLinkActive("/about")
+            className={`transition-colors duration-200 ${isLinkActive("/about")
                 ? "text-brand-amber font-medium"
                 : "hover:text-white text-gray-300"
-            }`}
+              }`}
           >
             About
           </Link>
 
           <Link
             href="/contact"
-            className={`transition-colors duration-200 ${
-              isLinkActive("/contact")
+            className={`transition-colors duration-200 ${isLinkActive("/contact")
                 ? "text-brand-amber font-medium"
                 : "hover:text-white text-gray-300"
-            }`}
+              }`}
           >
             Contact
           </Link>
@@ -299,11 +294,10 @@ export default function Header() {
           >
             <Link
               href="/"
-              className={`transition-colors py-1 px-1.5 text-center ${
-                isLinkActive("/")
+              className={`transition-colors py-1 px-1.5 text-center ${isLinkActive("/")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               Home
             </Link>
@@ -312,60 +306,54 @@ export default function Header() {
               type="button"
               aria-expanded={mobileServicesOpen}
               onClick={() => setMobileServicesOpen((prev) => !prev)}
-              className={`inline-flex items-center gap-0.5 py-1 px-1.5 text-center transition-colors ${
-                isLinkActive("/services")
+              className={`inline-flex items-center gap-0.5 py-1 px-1.5 text-center transition-colors ${isLinkActive("/services")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               <span>Services</span>
               <ChevronDown
-                className={`w-3 h-3 transition-transform ${
-                  mobileServicesOpen ? "rotate-180 text-brand-amber" : ""
-                }`}
+                className={`w-3 h-3 transition-transform ${mobileServicesOpen ? "rotate-180 text-brand-amber" : ""
+                  }`}
               />
             </button>
 
             <Link
               href="/work"
-              className={`transition-colors py-1 px-1.5 text-center ${
-                isLinkActive("/work")
+              className={`transition-colors py-1 px-1.5 text-center ${isLinkActive("/work")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               Work
             </Link>
 
             <Link
               href="/journal"
-              className={`transition-colors py-1 px-1.5 text-center ${
-                isLinkActive("/journal")
+              className={`transition-colors py-1 px-1.5 text-center ${isLinkActive("/journal")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               Insights
             </Link>
 
             <Link
               href="/about"
-              className={`transition-colors py-1 px-1.5 text-center ${
-                isLinkActive("/about")
+              className={`transition-colors py-1 px-1.5 text-center ${isLinkActive("/about")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               About
             </Link>
 
             <Link
               href="/contact"
-              className={`transition-colors py-1 px-1.5 text-center ${
-                isLinkActive("/contact")
+              className={`transition-colors py-1 px-1.5 text-center ${isLinkActive("/contact")
                   ? "text-brand-amber font-semibold"
                   : "text-gray-300 hover:text-white"
-              }`}
+                }`}
             >
               Contact
             </Link>

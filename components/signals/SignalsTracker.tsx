@@ -52,13 +52,12 @@ export default function SignalsTracker() {
     }
   };
 
-  // Track page views on route changes
+  // Track page views on route changes (deferred to browser idle time to avoid blocking LCP/FCP)
   useEffect(() => {
     currentPathRef.current = pathname;
     scrollTrackedRef.current = false;
 
-    // Small delay to let page stabilize
-    const timer = setTimeout(() => {
+    const scheduleTrack = () => {
       let eventType = "page_view";
       if (
         pathname.startsWith("/web-development") ||
@@ -71,26 +70,50 @@ export default function SignalsTracker() {
       }
 
       trackEvent(eventType, { title: document.title });
-    }, 400);
+    };
 
-    return () => clearTimeout(timer);
+    let idleId: number | null = null;
+    let timerId: ReturnType<typeof setTimeout> | null = null;
+
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      idleId = (window as any).requestIdleCallback(scheduleTrack, {
+        timeout: 3000,
+      });
+    } else {
+      timerId = setTimeout(scheduleTrack, 2500);
+    }
+
+    return () => {
+      if (idleId && typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        (window as any).cancelIdleCallback(idleId);
+      }
+      if (timerId) clearTimeout(timerId);
+    };
   }, [pathname]);
 
-  // Track 70% scroll depth once per page
+  // Track 70% scroll depth once per page (throttled with requestAnimationFrame)
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (scrollTrackedRef.current) return;
+      if (scrollTrackedRef.current || ticking) return;
 
-      const scrollY = window.scrollY || window.pageYOffset;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight <= 0) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        ticking = false;
+        if (scrollTrackedRef.current) return;
 
-      const scrollPercent = (scrollY / docHeight) * 100;
-      if (scrollPercent >= 70) {
-        scrollTrackedRef.current = true;
-        trackEvent("scroll_depth", { scrollPercent: Math.round(scrollPercent) });
-      }
+        const scrollY = window.scrollY || window.pageYOffset;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+
+        const scrollPercent = (scrollY / docHeight) * 100;
+        if (scrollPercent >= 70) {
+          scrollTrackedRef.current = true;
+          trackEvent("scroll_depth", { scrollPercent: Math.round(scrollPercent) });
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

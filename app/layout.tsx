@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Figtree } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 
 import Header from "@/components/Header";
@@ -8,7 +9,10 @@ import { cn } from "@/lib/utils";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import SignalsTracker from "@/components/signals/SignalsTracker";
-import SignalsCaptureModal from "@/components/signals/SignalsCaptureModal";
+
+const SignalsCaptureModal = dynamic(
+  () => import("@/components/signals/SignalsCaptureModal")
+);
 
 const siteUrl = "https://www.cinorium.com";
 const siteName = "Cinorium";
@@ -20,14 +24,12 @@ const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
   display: "swap",
-  weight: ["400", "500", "600"],
 });
 
 const siteDescription =

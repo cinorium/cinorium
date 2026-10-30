@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden bg-blue-100 px-6 py-20 text-center sm:px-10 md:px-20 lg:min-h-screen lg:px-32"
+      className="flex min-h-[85dvh] w-full flex-col items-center justify-center overflow-hidden bg-blue-100 px-6 pt-28 sm:pt-36 md:pt-40 lg:pt-36 xl:pt-40 pb-16 sm:pb-20 text-center sm:px-10 md:px-20 lg:min-h-screen lg:px-32"
     >
       <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-3">
         <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">

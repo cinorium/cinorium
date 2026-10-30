@@ -29,8 +29,8 @@ export default function AboutCinorium() {
         <div className="flex w-full flex-col items-center justify-between gap-10 lg:flex-row lg:gap-16">
           <div className="w-full shrink-0 lg:w-[42%]">
             <div className="relative overflow-hidden rounded-3xl border-2 border-black bg-white/80 p-7 shadow-sm sm:p-9">
-              <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-amber-200/60 blur-2xl" />
-              <div className="pointer-events-none absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-blue-200/70 blur-2xl" />
+              <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-amber-200/60 blur-2xl transform-gpu" />
+              <div className="pointer-events-none absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-blue-200/70 blur-2xl transform-gpu" />
 
               <div className="relative">
                 <span className="inline-block rounded-full border border-amber-200 bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900">
