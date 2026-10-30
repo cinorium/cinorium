@@ -119,7 +119,19 @@ class SupabaseStorageAdapter {
         converted: false,
       }),
     });
-    const row = created[0];
+    const row = (Array.isArray(created) && created[0]) || {
+      id: crypto.randomUUID(),
+      session_token: token,
+      interest_score: 0,
+      interest_level: "LOW",
+      first_page: initialPage,
+      last_page: initialPage,
+      page_views_count: 1,
+      last_category: undefined,
+      converted: false,
+      first_seen_at: new Date().toISOString(),
+      last_seen_at: new Date().toISOString(),
+    };
     return {
       id: row.id,
       sessionToken: row.session_token,
@@ -163,7 +175,19 @@ class SupabaseStorageAdapter {
         body: JSON.stringify(updatePayload),
       }
     );
-    const row = updated[0];
+    const row = (Array.isArray(updated) && updated[0]) || {
+      id: session.id,
+      session_token: token,
+      interest_score: newScore,
+      interest_level: newLevel,
+      first_page: session.firstPage,
+      last_page: lastPage,
+      page_views_count: session.pageViewsCount + 1,
+      last_category: lastCategory || session.lastCategory,
+      converted: session.converted,
+      first_seen_at: session.firstSeenAt,
+      last_seen_at: new Date().toISOString(),
+    };
     return {
       id: row.id,
       sessionToken: row.session_token,
@@ -210,7 +234,23 @@ class SupabaseStorageAdapter {
         ip_hash: data.ipHash,
       }),
     });
-    const row = res[0];
+    const row = (Array.isArray(res) && res[0]) || {
+      id: crypto.randomUUID(),
+      session_token: data.sessionToken,
+      full_name: data.fullName,
+      email: data.email,
+      website_url: data.websiteUrl,
+      phone: data.phone,
+      interest_area: data.interestArea,
+      message: data.message,
+      source_page: data.sourcePage,
+      campaign_id: data.campaignId,
+      interest_score_at_capture: data.interestScoreAtCapture,
+      status: data.status,
+      ip_hash: data.ipHash,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
     return {
       id: row.id,
       sessionToken: row.session_token,
@@ -232,6 +272,7 @@ class SupabaseStorageAdapter {
 
   async getLeads(): Promise<Lead[]> {
     const rows = await this.fetchSupabase(`leads?order=created_at.desc&select=*`);
+    if (!Array.isArray(rows)) return [];
     return rows.map((row: any) => ({
       id: row.id,
       sessionToken: row.session_token,

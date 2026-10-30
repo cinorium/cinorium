@@ -41,6 +41,10 @@ export default function SignalsCaptureModal() {
   // Check whether popups are permitted
   const isEligible = useCallback(() => {
     if (typeof window === "undefined") return false;
+    // URL override for testing/preview: ?signals=test or ?signals=preview
+    if (window.location.search.includes("signals=test") || window.location.search.includes("signals=preview")) {
+      return true;
+    }
     // Don't show on admin or contact page
     if (pathname.startsWith("/admin") || pathname.startsWith("/contact")) {
       return false;
@@ -56,6 +60,18 @@ export default function SignalsCaptureModal() {
     }
     return true;
   }, [pathname]);
+
+  // Expose reset helper in browser console for testing
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      (window as any).__CINORIUM_SIGNALS_RESET = () => {
+        localStorage.removeItem(DISMISSED_KEY);
+        localStorage.removeItem(CONVERTED_KEY);
+        localStorage.removeItem("cinorium_signals_token");
+        console.log("✅ Cinorium Signals local test state has been reset.");
+      };
+    }
+  }, []);
 
   // Listen for signal evaluation updates from tracker
   useEffect(() => {
@@ -75,10 +91,15 @@ export default function SignalsCaptureModal() {
         }
       }
 
-      // Check if threshold reached and not already open
-      const triggerScore = campaign?.triggerMinScore || 30;
-      if (score >= triggerScore && !isOpen) {
-        // Enforce a minimum 8-second dwell time before displaying
+      // Check if threshold reached or preview forced
+      const isPreview =
+        typeof window !== "undefined" &&
+        (window.location.search.includes("signals=test") ||
+          window.location.search.includes("signals=preview"));
+      const triggerScore = isPreview ? 0 : campaign?.triggerMinScore || 20;
+
+      if ((score >= triggerScore || isPreview) && !isOpen) {
+        // Enforce a natural 3-second dwell time before displaying
         setTimeout(() => {
           if (isEligible()) {
             setIsOpen(true);
@@ -95,7 +116,7 @@ export default function SignalsCaptureModal() {
               }),
             }).catch(() => {});
           }
-        }, 8000);
+        }, 3000);
       }
     };
 

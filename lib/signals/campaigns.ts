@@ -9,7 +9,7 @@ export const SIGNAL_CAMPAIGNS: SignalCampaign[] = [
       "Get a practical review of your site architecture, performance goals, and tech stack options before writing a line of code.",
     ctaText: "Request Website Consultation",
     interestArea: "Website Development",
-    triggerMinScore: 30,
+    triggerMinScore: 20,
     relevantPathPrefixes: ["/web-development", "/work"],
   },
   {
@@ -20,7 +20,7 @@ export const SIGNAL_CAMPAIGNS: SignalCampaign[] = [
       "Identify rendering issues, indexing blockers, and structural bottlenecks affecting your organic search rankings.",
     ctaText: "Request Technical Assessment",
     interestArea: "SEO & Search Visibility",
-    triggerMinScore: 30,
+    triggerMinScore: 20,
     relevantPathPrefixes: ["/seo-services", "/journal"],
   },
   {
@@ -31,7 +31,7 @@ export const SIGNAL_CAMPAIGNS: SignalCampaign[] = [
       "Align your website design with targeted organic visibility and measurable enquiry generation.",
     ctaText: "Discuss Your Marketing Goals",
     interestArea: "Digital Marketing & Growth",
-    triggerMinScore: 35,
+    triggerMinScore: 20,
     relevantPathPrefixes: ["/services", "/about"],
   },
   {
@@ -42,7 +42,7 @@ export const SIGNAL_CAMPAIGNS: SignalCampaign[] = [
       "Discuss your website or organic visibility goals with founder Muhammad Huzaifa for an honest, actionable plan.",
     ctaText: "Schedule a Quick Discussion",
     interestArea: "General Consultation",
-    triggerMinScore: 40,
+    triggerMinScore: 25,
     relevantPathPrefixes: ["/"],
   },
 ];
