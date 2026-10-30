@@ -42,30 +42,48 @@ function saveLocalStore(data: LocalStoreData): void {
 }
 
 // Check if Supabase credentials exist
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const SUPABASE_URL =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  process.env.SUPABASE_URL;
+
+const SUPABASE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  process.env.SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
 const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_KEY);
 
 class SupabaseStorageAdapter {
-  private url = SUPABASE_URL!;
-  private key = SUPABASE_KEY!;
+  private url = SUPABASE_URL ? SUPABASE_URL.replace(/\/+$/, "") : "";
+  private key = SUPABASE_KEY || "";
 
   private async fetchSupabase(endpoint: string, options: RequestInit = {}) {
-    const res = await fetch(`${this.url}/rest/v1/${endpoint}`, {
-      ...options,
-      headers: {
-        apikey: this.key,
-        Authorization: `Bearer ${this.key}`,
-        "Content-Type": "application/json",
-        Prefer: "return=representation",
-        ...options.headers,
-      },
-    });
-    if (!res.ok) {
-      const err = await res.text();
-      throw new Error(`Supabase request error [${res.status}]: ${err}`);
+    try {
+      const res = await fetch(`${this.url}/rest/v1/${endpoint}`, {
+        ...options,
+        headers: {
+          apikey: this.key,
+          Authorization: `Bearer ${this.key}`,
+          "Content-Type": "application/json",
+          Prefer: "return=representation",
+          ...options.headers,
+        },
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        console.warn(`[Signals Supabase] Request warning [${res.status}]: ${err}`);
+        // If table doesn't exist yet in Supabase (404 or 400), don't crash
+        if (res.status === 404 || res.status === 400) {
+          return [];
+        }
+        return [];
+      }
+      return res.json();
+    } catch (fetchErr) {
+      console.warn("[Signals Supabase] Network/fetch warning:", fetchErr);
+      return [];
     }
-    return res.json();
   }
 
   async getOrCreateSession(token: string, initialPage: string): Promise<VisitorSession> {
@@ -289,6 +307,7 @@ class SupabaseStorageAdapter {
     const rows = await this.fetchSupabase(
       `lead_notes?lead_id=eq.${encodeURIComponent(leadId)}&order=created_at.desc&select=*`
     );
+    if (!Array.isArray(rows)) return [];
     return rows.map((r: any) => ({
       id: r.id,
       leadId: r.lead_id,
@@ -296,6 +315,103 @@ class SupabaseStorageAdapter {
       content: r.content,
       createdAt: r.created_at,
     }));
+  }
+
+  async markSessionConverted(token: string): Promise<void> {
+    try {
+      await this.fetchSupabase(
+        `visitor_sessions?session_token=eq.${encodeURIComponent(token)}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ converted: true }),
+        }
+      );
+    } catch {}
+  }
+
+  async getAnalyticsSummary(): Promise<SignalsAnalyticsSummary> {
+    try {
+      const leads = await this.getLeads();
+      const totalLeads = leads.length;
+      const newLeads = leads.filter((l) => l.status === "NEW").length;
+      const qualifiedLeads = leads.filter((l) => l.status === "QUALIFIED").length;
+      const convertedLeads = leads.filter((l) => l.status === "CONVERTED").length;
+
+      const leadsByInterest: Record<string, number> = {};
+      const leadsByCampaign: Record<string, number> = {};
+      const leadsByStatus: Record<LeadStatus, number> = {
+        NEW: 0,
+        CONTACTED: 0,
+        QUALIFIED: 0,
+        CONVERTED: 0,
+        LOST: 0,
+      };
+
+      for (const lead of leads) {
+        leadsByInterest[lead.interestArea] =
+          (leadsByInterest[lead.interestArea] || 0) + 1;
+        leadsByCampaign[lead.campaignId] =
+          (leadsByCampaign[lead.campaignId] || 0) + 1;
+        if (leadsByStatus[lead.status] !== undefined) {
+          leadsByStatus[lead.status] += 1;
+        }
+      }
+
+      let totalSessions = 0;
+      try {
+        const sessions = await this.fetchSupabase(`visitor_sessions?select=id`);
+        totalSessions = Array.isArray(sessions) ? sessions.length : 0;
+      } catch {
+        totalSessions = totalLeads;
+      }
+
+      let totalImpressions = 0;
+      let totalDismissals = 0;
+      try {
+        const imp = await this.fetchSupabase(
+          `visitor_events?event_type=eq.popup_impression&select=id`
+        );
+        totalImpressions = Array.isArray(imp) ? imp.length : 0;
+        const dis = await this.fetchSupabase(
+          `visitor_events?event_type=eq.popup_dismiss&select=id`
+        );
+        totalDismissals = Array.isArray(dis) ? dis.length : 0;
+      } catch {}
+
+      const conversionRate =
+        totalSessions > 0
+          ? Number(((totalLeads / totalSessions) * 100).toFixed(1))
+          : 0;
+
+      return {
+        totalLeads,
+        newLeads,
+        qualifiedLeads,
+        convertedLeads,
+        leadsByInterest,
+        leadsByCampaign,
+        leadsByStatus,
+        totalSessions,
+        totalImpressions,
+        totalDismissals,
+        conversionRate,
+      };
+    } catch (err) {
+      console.warn("[Signals] Error building analytics summary:", err);
+      return {
+        totalLeads: 0,
+        newLeads: 0,
+        qualifiedLeads: 0,
+        convertedLeads: 0,
+        leadsByInterest: {},
+        leadsByCampaign: {},
+        leadsByStatus: { NEW: 0, CONTACTED: 0, QUALIFIED: 0, CONVERTED: 0, LOST: 0 },
+        totalSessions: 0,
+        totalImpressions: 0,
+        totalDismissals: 0,
+        conversionRate: 0,
+      };
+    }
   }
 }
 

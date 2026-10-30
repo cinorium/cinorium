@@ -18,8 +18,27 @@ export default async function SignalsAdminPage() {
     redirect("/admin/signals/login");
   }
 
-  const leads = await signalsStorage.getLeads();
-  const summary = await signalsStorage.getAnalyticsSummary();
+  let leads: any[] = [];
+  let summary = {
+    totalLeads: 0,
+    newLeads: 0,
+    qualifiedLeads: 0,
+    convertedLeads: 0,
+    leadsByInterest: {},
+    leadsByCampaign: {},
+    leadsByStatus: { NEW: 0, CONTACTED: 0, QUALIFIED: 0, CONVERTED: 0, LOST: 0 },
+    totalSessions: 0,
+    totalImpressions: 0,
+    totalDismissals: 0,
+    conversionRate: 0,
+  };
+
+  try {
+    leads = await signalsStorage.getLeads();
+    summary = await signalsStorage.getAnalyticsSummary();
+  } catch (err) {
+    console.error("[Signals Admin] Failed to fetch leads/summary:", err);
+  }
 
   return (
     <div className="min-h-screen bg-amber-50/20 text-gray-900 pb-20">
