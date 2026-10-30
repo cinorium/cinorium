@@ -229,7 +229,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <article className="prose prose-gray max-w-none">
                 <MDXRemote
                   source={article.content.replace(
-                    /<a\s+[^>]*href="([^"]+)"[^>]*download[^>]*>(.*?)<\/a>/gis,
+                    /<a\s+[^>]*href="([^"]+)"[^>]*download[^>]*>([\s\S]*?)<\/a>/gi,
                     '<DownloadCard href="$1" title="$2" />'
                   )}
                   components={mdxComponents}
