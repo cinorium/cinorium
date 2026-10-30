@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Download, FileText } from "lucide-react";
 import { slugifyHeading } from "@/lib/journal";
 
 function getTextContent(children: React.ReactNode): string {
@@ -92,7 +93,7 @@ export const mdxComponents = {
   ),
 
   thead: ({ children, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="border-b-2 border-black bg-amber-50 font-serif font-bold text-gray-900" {...props}>
+    <thead className="border-b-2 border-black bg-amber-50 font-heading font-bold tracking-tight text-gray-900" {...props}>
       {children}
     </thead>
   ),
@@ -150,6 +151,47 @@ export const mdxComponents = {
   },
 
   a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const isDownload =
+      props.download !== undefined ||
+      Boolean(href && (href.endsWith(".pdf") || href.includes("/downloads/")));
+
+    if (isDownload) {
+      return (
+        <span className="my-8 block not-prose">
+          <a
+            href={href}
+            download={props.download ?? true}
+            className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border-2 border-black bg-amber-50/70 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-amber-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            {...props}
+          >
+            <div className="flex items-start sm:items-center gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-black bg-amber-400 text-black shadow-xs group-hover:scale-105 transition-transform">
+                <Download className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <div>
+                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-0.5">
+                  Free Downloadable Resource (PDF)
+                </span>
+                <div className="font-heading text-base sm:text-lg font-bold tracking-tight text-gray-900 group-hover:text-black">
+                  {children}
+                </div>
+                <p className="text-xs text-gray-600 mt-0.5">
+                  Click to download this checklist directly to your device
+                </p>
+              </div>
+            </div>
+
+            <div className="shrink-0 pt-2 sm:pt-0">
+              <span className="inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs group-hover:bg-gray-900 transition-colors">
+                <span>Download PDF</span>
+                <Download className="h-4 w-4 text-amber-400 group-hover:translate-y-0.5 transition-transform" />
+              </span>
+            </div>
+          </a>
+        </span>
+      );
+    }
+
     if (href?.startsWith("/")) {
       return (
         <Link
@@ -173,6 +215,52 @@ export const mdxComponents = {
       </a>
     );
   },
+
+  DownloadCard: ({
+    href,
+    title,
+    description = "Click to download this resource directly to your device",
+    badge = "Free Downloadable Resource (PDF)",
+  }: {
+    href: string;
+    title: string;
+    description?: string;
+    badge?: string;
+  }) => (
+    <div className="my-8 not-prose">
+      <a
+        href={href}
+        download
+        className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border-2 border-black bg-amber-50/70 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-amber-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+      >
+        <div className="flex items-start sm:items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-black bg-amber-400 text-black shadow-xs group-hover:scale-105 transition-transform">
+            <Download className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div>
+            <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-0.5">
+              {badge}
+            </span>
+            <div className="font-heading text-base sm:text-lg font-bold tracking-tight text-gray-900 group-hover:text-black">
+              {title}
+            </div>
+            {description && (
+              <p className="text-xs text-gray-600 mt-0.5">
+                {description}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="shrink-0 pt-2 sm:pt-0">
+          <span className="inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs group-hover:bg-gray-900 transition-colors">
+            <span>Download PDF</span>
+            <Download className="h-4 w-4 text-amber-400 group-hover:translate-y-0.5 transition-transform" />
+          </span>
+        </div>
+      </a>
+    </div>
+  ),
 
   hr: () => <hr className="my-10 border-black/10" />,
 };
