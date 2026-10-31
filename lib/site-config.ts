@@ -14,9 +14,7 @@
 
 export const siteUrl: string =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://www.cinorium.com");
+  "https://www.cinorium.com";
 
 export interface StaticRoute {
   /** Path relative to the site root, e.g. "/" or "/about". */
