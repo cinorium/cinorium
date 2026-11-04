@@ -10,6 +10,7 @@ import {
   Layers,
   Sparkles,
   Info,
+  ShoppingBag,
 } from "lucide-react";
 import CtaSection from "@/components/CtaSection";
 
@@ -326,7 +327,116 @@ export default function WorkPage() {
               </div>
             </article>
 
-            {/* Project 2: CN IT Solutions */}
+            {/* Project 2: CN Fragrances */}
+            <article
+              aria-labelledby="project-cn-fragrances-title"
+              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
+            >
+              {/* Header row: Badges and URL */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-800">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    Live Website
+                  </span>
+
+                  <span className="rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-semibold tracking-wide text-gray-800">
+                    Next.js
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
+                    <ShoppingBag className="h-3.5 w-3.5 text-amber-700" />
+                    E-commerce / Online Store
+                  </span>
+                </div>
+
+                <span className="text-xs text-gray-500 font-mono">
+                  cnfragrances.com
+                </span>
+              </div>
+
+              {/* Title & Description */}
+              <div className="mb-8">
+                <h3
+                  id="project-cn-fragrances-title"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
+                >
+                  CN Fragrances
+                </h3>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
+                  A live direct-to-consumer e-commerce store engineered with Next.js for a premium fragrance brand, featuring a curated product catalog, shopping cart, customer accounts, and real-time order tracking.
+                </p>
+              </div>
+
+              {/* Scope & Context Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {/* Scope of Contribution */}
+                <div className="rounded-2xl border border-gray-200 bg-gray-50/70 p-6 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3 flex items-center gap-2">
+                      <Layers className="h-4 w-4 text-amber-600" />
+                      Scope of Contribution
+                    </h4>
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                      Full-stack website development and e-commerce implementation.
+                    </p>
+                    <ul className="space-y-2.5 text-sm text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Custom Next.js e-commerce storefront development</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Product catalog, variant selection &amp; shopping cart integration</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Customer self-service portal &amp; real-time order tracking</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Mobile-first shopping interface with bottom floating navigation</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Context Note (Honest relationship disclosure) */}
+                <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-900 mb-3 flex items-center gap-2">
+                      <Info className="h-4 w-4 text-amber-700" />
+                      Project Context &amp; Group Affiliation
+                    </h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Developed as a dedicated online retail venture associated with the Clothing Nexus company group. Built to provide a direct-to-consumer digital shopping channel for the brand&apos;s fragrance line.
+                    </p>
+                  </div>
+                  <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-amber-200/60 pt-3">
+                    Presented as an independent live e-commerce platform within the broader Clothing Nexus group portfolio.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Link Button */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                <a
+                  href="https://www.cnfragrances.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                >
+                  <span>View Live Website</span>
+                  <ExternalLink className="h-4 w-4 text-amber-400" />
+                </a>
+
+                <span className="text-xs text-gray-500">
+                  Opens external website in a new tab
+                </span>
+              </div>
+            </article>
+
+            {/* Project 3: CN IT Solutions */}
             <article
               aria-labelledby="project-cn-it-title"
               className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
@@ -454,9 +564,50 @@ export default function WorkPage() {
             </p>
           </div>
 
-          {/* Grid of Concept Cards (Balanced 5-Project Grid) */}
+          {/* Grid of Concept Cards (Balanced 6-Project Grid) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {/* Project 3: Tooni Wear */}
+            {/* Project 4: Zubair Law Associates */}
+            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div>
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="rounded-full border border-sky-300 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-800">
+                    Client Pitch / Concept
+                  </span>
+                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
+                    Legal Services
+                  </span>
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                  Zubair Law Associates
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                  A modern website concept designed for an Advocate High Court
+                  legal chamber in Karachi. Demonstrates structured presentation
+                  of civil, criminal, and constitutional litigation services
+                  alongside a legal drafting resource library. Prepared as an
+                  exploratory client pitch; awaiting presentation and not an
+                  officially commissioned or active firm website.
+                </p>
+              </div>
+
+              {/* Action Link pinned to bottom */}
+              <div className="mt-auto pt-4 border-t border-gray-100">
+                <a
+                  href="https://zubair-law-associates.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                >
+                  <span>View Concept Demo</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Project 5: Tooni Wear */}
             <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div>
                 {/* Badges */}
@@ -494,7 +645,7 @@ export default function WorkPage() {
               </div>
             </div>
 
-            {/* Project 4: March Computer */}
+            {/* Project 6: March Computer */}
             <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div>
                 {/* Badges */}
@@ -531,7 +682,7 @@ export default function WorkPage() {
               </div>
             </div>
 
-            {/* Project 5: Lexway */}
+            {/* Project 7: Lexway */}
             <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div>
                 {/* Badges */}
@@ -568,7 +719,7 @@ export default function WorkPage() {
               </div>
             </div>
 
-            {/* Project 6: Khawar Law Associates */}
+            {/* Project 8: Khawar Law Associates */}
             <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div>
                 {/* Badges */}
@@ -604,7 +755,7 @@ export default function WorkPage() {
               </div>
             </div>
 
-            {/* Project 7: 3G Leather */}
+            {/* Project 9: 3G Leather */}
             <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div>
                 {/* Badges */}
