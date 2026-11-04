@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Figtree } from "next/font/google";
 import dynamic from "next/dynamic";
+import Script from "next/script";
 import "./globals.css";
 
 import Header from "@/components/Header";
@@ -11,11 +12,12 @@ import { Analytics } from "@vercel/analytics/next";
 import SignalsTracker from "@/components/signals/SignalsTracker";
 
 const SignalsCaptureModal = dynamic(
-  () => import("@/components/signals/SignalsCaptureModal")
+  () => import("@/components/signals/SignalsCaptureModal"),
 );
 
 const siteUrl = "https://www.cinorium.com";
 const siteName = "Cinorium";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-CM37CKLDL4";
 const personId = `${siteUrl}/#person`;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
@@ -33,7 +35,7 @@ const figtree = Figtree({
 });
 
 const siteDescription =
-  "Cinorium is a technology-driven digital marketing agency. We combine web development, SEO, and strategic marketing to build digital systems that look right, function right, and drive business growth.";
+  "Cinorium combines web development, SEO, and digital marketing to help businesses build stronger digital foundations, improve search visibility, and grow online.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cinorium.com"),
@@ -138,11 +140,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        geist.variable,
-        figtree.variable,
-        "font-sans",
-      )}
+      className={cn(geist.variable, figtree.variable, "font-sans")}
     >
       <body className="min-h-screen font-sans antialiased">
         <script
@@ -155,6 +153,20 @@ export default function RootLayout({
         {/* Vercel Insights */}
         <SpeedInsights />
         <Analytics />
+
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
 
         {/* Cinorium Signals: First-Party Behaviour & Contextual Capture */}
         <SignalsTracker />
