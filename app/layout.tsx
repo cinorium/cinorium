@@ -150,6 +150,18 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Consent Mode / CMP (Choice by InMobi) */}
+        <Script
+          src="https://choices.consentframework.com/js/pa/55358/c/ujCdg/stub?source=google-tag"
+          strategy="beforeInteractive"
+          data-cfasync="false"
+        />
+        <Script
+          src="https://choices.consentframework.com/js/pa/55358/c/ujCdg/cmp?source=google-tag"
+          strategy="afterInteractive"
+          data-cfasync="false"
+        />
+
         {/* Vercel Insights */}
         <SpeedInsights />
         <Analytics />
