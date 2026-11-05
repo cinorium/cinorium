@@ -151,6 +151,13 @@ export default function RootLayout({
         />
 
         {/* Google Consent Mode / CMP (Choice by InMobi) */}
+        <Script id="choice-cmp-config" strategy="beforeInteractive">
+          {`
+            window.SDDAN = window.SDDAN || {};
+            window.SDDAN.theme = window.SDDAN.theme || {};
+            window.SDDAN.theme.toolbar = { active: false };
+          `}
+        </Script>
         <Script
           src="https://choices.consentframework.com/js/pa/55358/c/ujCdg/stub?source=google-tag"
           strategy="beforeInteractive"

@@ -306,6 +306,34 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               )}
 
+              {/* Contextual CTA Card (Relocated from Sidebar to End of Article) */}
+              <div className="mt-10 rounded-2xl border-2 border-black bg-blue-100/70 p-6 sm:p-7 shadow-xs">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                  <div className="max-w-xl">
+                    <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-900">
+                      <Sparkles className="h-3 w-3 text-amber-700" aria-hidden="true" />
+                      Project Support
+                    </span>
+                    <h4 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
+                      Need Help with Search Visibility?
+                    </h4>
+                    <p className="text-sm leading-relaxed text-gray-700">
+                      Let&apos;s evaluate your current website structure, technical SEO, and
+                      content foundations to determine a practical roadmap.
+                    </p>
+                  </div>
+                  <div className="shrink-0">
+                    <Link
+                      href="/contact"
+                      className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-black px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    >
+                      <span>Discuss Your Project</span>
+                      <ArrowRight className="h-4 w-4 text-amber-400" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               {/* Author Box */}
               <div className="mt-10 rounded-2xl border-2 border-black bg-amber-50/50 p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-black bg-white font-heading text-xl font-bold tracking-tight text-gray-900">
@@ -335,31 +363,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </div>
             </main>
 
-            {/* Sidebar Column (Desktop Table of Contents & Quick Action) */}
-            <aside aria-label="Article navigation" className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+            {/* Sidebar Column (Desktop Table of Contents) */}
+            <aside aria-label="Article navigation" className="lg:col-span-4 lg:sticky lg:top-28">
               <TableOfContents items={tocItems} />
-
-              {/* Contextual CTA Card */}
-              <div className="rounded-2xl border-2 border-black bg-blue-100/70 p-6 shadow-xs">
-                <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-900">
-                  <Sparkles className="h-3 w-3 text-amber-700" aria-hidden="true" />
-                  Project Support
-                </span>
-                <h4 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-2">
-                  Need Help with Search Visibility?
-                </h4>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-700 mb-5">
-                  Let&apos;s evaluate your current website structure, technical SEO, and
-                  content foundations to determine a practical roadmap.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-black px-4 py-3 text-center text-xs sm:text-sm font-semibold text-white transition-all hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                >
-                  <span>Discuss Your Project</span>
-                  <ArrowRight className="h-4 w-4 text-amber-400" aria-hidden="true" />
-                </Link>
-              </div>
             </aside>
           </div>
         </div>

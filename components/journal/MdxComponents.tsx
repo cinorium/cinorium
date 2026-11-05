@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Download, FileText, ChevronDown } from "lucide-react";
+import { Download, FileText, MoveDown } from "lucide-react";
 import { slugifyHeading } from "@/lib/journal";
 import { FaqAccordion, FaqItem } from "./ArticleFaq";
 
@@ -302,7 +302,7 @@ export const mdxComponents = {
 
   details: ({ children, ...props }: React.HTMLAttributes<HTMLDetailsElement>) => (
     <details
-      className="group my-4 overflow-hidden rounded-2xl border-2 border-black bg-white shadow-xs transition-all duration-200 open:shadow-sm"
+      className="group my-4 overflow-hidden rounded-2xl border-2 border-black bg-white shadow-xs transition-all duration-200"
       {...props}
     >
       {children}
@@ -311,18 +311,18 @@ export const mdxComponents = {
 
   summary: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <summary
-      className="flex cursor-pointer list-none select-none items-center justify-between p-5 sm:p-6 font-heading font-semibold text-lg text-gray-900 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500"
+      className="flex cursor-pointer list-none select-none items-center justify-between p-5 sm:p-6 font-heading font-semibold text-lg text-gray-900 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500 [&::-webkit-details-marker]:hidden [&::marker]:hidden"
       {...props}
     >
       <span className="pr-4">{children}</span>
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/10 bg-gray-100 text-gray-700 transition-all duration-200 group-open:rotate-180 group-open:bg-amber-400 group-open:text-black group-open:border-transparent">
-        <ChevronDown className="h-4 w-4" aria-hidden="true" />
+        <MoveDown className="h-4 w-4" aria-hidden="true" />
       </span>
     </summary>
   ),
 
   FaqAnswer: ({ children }: { children: React.ReactNode }) => (
-    <div className="border-t border-gray-100 px-5 pb-5 pt-3 text-sm leading-relaxed text-gray-600 sm:px-6 sm:pb-6 sm:text-base font-light [&>p]:mb-3 [&>p:last-child]:mb-0">
+    <div className="border-t border-gray-100 px-6 pb-6 pt-4 text-sm leading-relaxed text-gray-600 sm:px-7 sm:pb-7 sm:text-base font-light [&>p]:mb-3 [&>p:last-child]:mb-0">
       {children}
     </div>
   ),

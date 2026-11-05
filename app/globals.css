@@ -160,14 +160,71 @@ html {
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden !important;
+  overflow-x: clip;
   position: relative;
 }
 
-/* Page wrapper container */
+/* Page wrapper container - use clip to prevent horizontal spill without breaking position:sticky */
 main {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Custom smooth scrollbar for Table of Contents and compact panels */
+.toc-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.toc-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+.toc-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Choice by InMobi CMP — Persistent Toolbar & Mobile Floating Icon Override
+   1. Hide the intrusive persistent floating badge/icon after consent decision,
+      preventing it from floating permanently or obstructing mobile navigation.
+   2. Cookie preferences can be reopened anytime via the Footer link.
+   3. Ensure the initial modal dialog and overlay remain accessible and centered.
+   ───────────────────────────────────────────────────────────────────────────── */
+.sd-cmp-nkWFW,
+.sd-cmp-8O2yq,
+.sd-cmp-M1Z0E,
+.sd-cmp-EV52o,
+.sd-cmp-GICIV,
+.sd-cmp-n-KXb,
+.sd-cmp-9F1sT,
+.sd-cmp-0I0Ww,
+.sd-cmp-WPSIy,
+.sd-cmp-R12oB,
+div[class*="sd-cmp-8O2yq"],
+div[class*="sd-cmp-M1Z0E"],
+div[class*="sd-cmp-nkWFW"],
+div[class*="toolbarBtn"],
+div[class*="toolbarIcon"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+/* Ensure any modal/banner dialog from Choice remains fully accessible and centered */
+.sd-cmp-dK6gK {
+  z-index: 2147483647 !important;
+}
+
+.sd-cmp-MtHO2 {
+  z-index: 2147483646 !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -217,15 +274,15 @@ article details summary:hover {
   background-color: rgba(254, 243, 199, 0.4) !important;
 }
 
-article details summary::after {
+article details summary:not(:has(svg))::after {
   content: "" !important;
   display: inline-block !important;
-  width: 2.25rem !important;
-  height: 2.25rem !important;
+  width: 2rem !important;
+  height: 2rem !important;
   border-radius: 9999px !important;
   background-color: #f3f4f6 !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%23374151'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%23374151'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: 1rem 1rem !important;
@@ -234,11 +291,11 @@ article details summary::after {
   margin-left: 1rem !important;
 }
 
-article details[open] summary::after {
+article details[open] summary:not(:has(svg))::after {
   transform: rotate(180deg) !important;
   background-color: #ffb703 !important;
   border-color: #000000 !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%23000000'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%23000000'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3'/%3E%3C/svg%3E") !important;
 }
 
 article details > div,

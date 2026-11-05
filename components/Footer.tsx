@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
+import CookiePreferencesButton from "./CookiePreferencesButton";
 
 // Custom SVG Icons for Social Links
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -157,6 +158,7 @@ export default function Footer() {
               >
                 Return &amp; Refund Policy
               </Link>
+              <CookiePreferencesButton />
             </nav>
             <span className="hidden sm:inline text-gray-600" aria-hidden="true">
               •
