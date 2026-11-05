@@ -11,9 +11,21 @@ export interface ArticleFrontmatter {
     name: string;
     role?: string;
   };
-  category: "SEO & Search Visibility" | "Web Development" | "AI Search";
+  category: "SEO & Search Visibility" | "Web Development" | "AI Search" | "Digital Marketing";
   tags: string[];
+  /** Public URL of the article's featured/cover image (e.g. from Vercel Blob). */
   coverImage?: string;
+  /** Descriptive alt text for the cover image. Required when coverImage is provided. */
+  coverImageAlt?: string;
+  /**
+   * Optional dedicated Open Graph image URL.
+   * Falls back to coverImage, then to the site-level OG image.
+   */
+  ogImage?: string;
+  /** Original image width in pixels — used to prevent CLS on remote images. */
+  imageWidth?: number;
+  /** Original image height in pixels — used to prevent CLS on remote images. */
+  imageHeight?: number;
   featured?: boolean;
   published: boolean;
 }
@@ -113,6 +125,10 @@ export async function getAllArticles(): Promise<Article[]> {
       category: frontmatter.category || "SEO & Search Visibility",
       tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
       coverImage: frontmatter.coverImage,
+      coverImageAlt: frontmatter.coverImageAlt,
+      ogImage: frontmatter.ogImage,
+      imageWidth: frontmatter.imageWidth,
+      imageHeight: frontmatter.imageHeight,
       featured: Boolean(frontmatter.featured),
       published: Boolean(frontmatter.published),
       readingTime: calculateReadingTime(content),

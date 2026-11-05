@@ -22,6 +22,10 @@ import {
 import { mdxComponents } from "@/components/journal/MdxComponents";
 import TableOfContents from "@/components/journal/TableOfContents";
 import ArticleCard from "@/components/journal/ArticleCard";
+import ArticleImage from "@/components/journal/ArticleImage";
+
+/** Fallback OG image served from /public when no article image is set. */
+const DEFAULT_OG_IMAGE = "https://www.cinorium.com/og-default.png";
 
 interface ArticlePageProps {
   params: Promise<{
@@ -48,6 +52,10 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   const url = `https://www.cinorium.com/journal/${article.slug}`;
 
+  // OG image priority: ogImage → coverImage → site default.
+  const ogImageUrl = article.ogImage || article.coverImage || DEFAULT_OG_IMAGE;
+  const ogImageAlt = article.coverImageAlt || article.title;
+
   return {
     title: `${article.title} | Cinorium Journal`,
     description: article.description,
@@ -63,17 +71,36 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       modifiedTime: article.updatedAt || article.date,
       authors: [article.author?.name || "Muhammad Huzaifa"],
       tags: article.tags,
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.description,
+      images: [ogImageUrl],
     },
   };
 }
 
 const px = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
 const inner = "max-w-5xl mx-auto";
+
+/**
+ * Prepares raw article MDX content for rendering:
+ * 1. Converts download <a> tags into <DownloadCard /> components.
+ * 2. Converts extended link attribute syntax `[text](url){attrs}` into `<A href="url" attrs>text</A>`.
+ */
+function prepareMdxContent(content: string): string {
+  return content
+    .replace(
+      /<a\s+[^>]*href="([^"]+)"[^>]*download[^>]*>([\s\S]*?)<\/a>/gi,
+      '<DownloadCard href="$1" title="$2" />'
+    )
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)\{([^}]+)\}/g,
+      '<A href="$2" $3>$1</A>'
+    );
+}
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
@@ -126,6 +153,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         description: article.description,
         datePublished: article.date,
         dateModified: article.updatedAt || article.date,
+        ...(article.coverImage && {
+          image: {
+            "@type": "ImageObject",
+            url: article.ogImage || article.coverImage,
+            width: article.imageWidth ?? 1600,
+            height: article.imageHeight ?? 900,
+          },
+        }),
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `https://www.cinorium.com/journal/${article.slug}`,
@@ -220,6 +255,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </header>
 
+      {/* ── 1b. Cover Image (LCP) — rendered full-width between header and body */}
+      {article.coverImage && (
+        <div className={`w-full bg-blue-100 border-b border-black/10 ${px} pb-10 sm:pb-14`}>
+          <div className={inner}>
+            <ArticleImage
+              src={article.coverImage}
+              alt={article.coverImageAlt || article.title}
+              width={article.imageWidth ?? 1600}
+              height={article.imageHeight ?? 900}
+              priority={true}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 800px"
+            />
+          </div>
+        </div>
+      )}
+
       {/* ── 2. Article Body & Sidebar ─────────────────────────────────────── */}
       <div className={`w-full bg-white border-b border-black/10 ${px} py-14 sm:py-20`}>
         <div className={inner}>
@@ -228,10 +279,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <main className="lg:col-span-8 min-w-0">
               <article className="prose prose-gray max-w-none">
                 <MDXRemote
-                  source={article.content.replace(
-                    /<a\s+[^>]*href="([^"]+)"[^>]*download[^>]*>([\s\S]*?)<\/a>/gi,
-                    '<DownloadCard href="$1" title="$2" />'
-                  )}
+                  source={prepareMdxContent(article.content)}
                   components={mdxComponents}
                   options={{
                     mdxOptions: {

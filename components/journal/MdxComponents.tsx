@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Download, FileText } from "lucide-react";
+import { Download, FileText, ChevronDown } from "lucide-react";
 import { slugifyHeading } from "@/lib/journal";
+import { FaqAccordion, FaqItem } from "./ArticleFaq";
 
 function getTextContent(children: React.ReactNode): string {
   if (typeof children === "string") return children;
@@ -10,6 +11,104 @@ function getTextContent(children: React.ReactNode): string {
     return getTextContent((children.props as { children: React.ReactNode }).children);
   }
   return "";
+}
+
+function CustomAnchor({
+  href,
+  children,
+  target: explicitTarget,
+  rel: explicitRel,
+  className,
+  ...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const isDownload =
+    props.download !== undefined ||
+    Boolean(href && (href.endsWith(".pdf") || href.includes("/downloads/")));
+
+  if (isDownload) {
+    return (
+      <span className="my-8 block not-prose">
+        <a
+          href={href}
+          download={props.download ?? true}
+          className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border-2 border-black bg-amber-50/70 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-amber-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+          {...props}
+        >
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-black bg-amber-400 text-black shadow-xs group-hover:scale-105 transition-transform">
+              <Download className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <div>
+              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-0.5">
+                Free Downloadable Resource (PDF)
+              </span>
+              <div className="font-heading text-base sm:text-lg font-bold tracking-tight text-gray-900 group-hover:text-black">
+                {children}
+              </div>
+              <p className="text-xs text-gray-600 mt-0.5">
+                Click to download this checklist directly to your device
+              </p>
+            </div>
+          </div>
+
+          <div className="shrink-0 pt-2 sm:pt-0">
+            <span className="inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs group-hover:bg-gray-900 transition-colors">
+              <span>Download PDF</span>
+              <Download className="h-4 w-4 text-amber-400 group-hover:translate-y-0.5 transition-transform" />
+            </span>
+          </div>
+        </a>
+      </span>
+    );
+  }
+
+  // Determine external HTTP/HTTPS links
+  const isExternal = Boolean(href && /^https?:\/\//i.test(href));
+
+  // Explicit target overrides default; otherwise external links open in new tab (_blank),
+  // and internal links open in same tab (undefined).
+  const target = explicitTarget !== undefined ? explicitTarget : (isExternal ? "_blank" : undefined);
+
+  // When target="_blank", ensure rel includes "noopener noreferrer"
+  let rel = explicitRel;
+  if (target === "_blank") {
+    const relParts = new Set(explicitRel ? explicitRel.split(/\s+/).filter(Boolean) : []);
+    relParts.add("noopener");
+    relParts.add("noreferrer");
+    rel = Array.from(relParts).join(" ");
+  }
+
+  const defaultClasses =
+    "font-semibold text-gray-900 underline decoration-amber-400 decoration-2 underline-offset-4 transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-xs";
+  const combinedClassName = className ? `${defaultClasses} ${className}` : defaultClasses;
+
+  // Internal route links use Next.js Link
+  if (href?.startsWith("/")) {
+    return (
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        className={combinedClassName}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  // External, anchor, mailto, etc. use standard <a>
+  return (
+    <a
+      href={href}
+      target={target}
+      rel={rel}
+      className={combinedClassName}
+      {...props}
+    >
+      {children}
+    </a>
+  );
 }
 
 export const mdxComponents = {
@@ -150,71 +249,8 @@ export const mdxComponents = {
     );
   },
 
-  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-    const isDownload =
-      props.download !== undefined ||
-      Boolean(href && (href.endsWith(".pdf") || href.includes("/downloads/")));
-
-    if (isDownload) {
-      return (
-        <span className="my-8 block not-prose">
-          <a
-            href={href}
-            download={props.download ?? true}
-            className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border-2 border-black bg-amber-50/70 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-amber-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-            {...props}
-          >
-            <div className="flex items-start sm:items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-black bg-amber-400 text-black shadow-xs group-hover:scale-105 transition-transform">
-                <Download className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <div>
-                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-0.5">
-                  Free Downloadable Resource (PDF)
-                </span>
-                <div className="font-heading text-base sm:text-lg font-bold tracking-tight text-gray-900 group-hover:text-black">
-                  {children}
-                </div>
-                <p className="text-xs text-gray-600 mt-0.5">
-                  Click to download this checklist directly to your device
-                </p>
-              </div>
-            </div>
-
-            <div className="shrink-0 pt-2 sm:pt-0">
-              <span className="inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs group-hover:bg-gray-900 transition-colors">
-                <span>Download PDF</span>
-                <Download className="h-4 w-4 text-amber-400 group-hover:translate-y-0.5 transition-transform" />
-              </span>
-            </div>
-          </a>
-        </span>
-      );
-    }
-
-    if (href?.startsWith("/")) {
-      return (
-        <Link
-          href={href}
-          className="font-semibold text-gray-900 underline decoration-amber-400 decoration-2 underline-offset-4 transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-xs"
-          {...props}
-        >
-          {children}
-        </Link>
-      );
-    }
-    return (
-      <a
-        href={href}
-        target={href?.startsWith("http") ? "_blank" : undefined}
-        rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="font-semibold text-gray-900 underline decoration-amber-400 decoration-2 underline-offset-4 transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-xs"
-        {...props}
-      >
-        {children}
-      </a>
-    );
-  },
+  a: CustomAnchor,
+  A: CustomAnchor,
 
   DownloadCard: ({
     href,
@@ -263,5 +299,35 @@ export const mdxComponents = {
   ),
 
   hr: () => <hr className="my-10 border-black/10" />,
+
+  details: ({ children, ...props }: React.HTMLAttributes<HTMLDetailsElement>) => (
+    <details
+      className="group my-4 overflow-hidden rounded-2xl border-2 border-black bg-white shadow-xs transition-all duration-200 open:shadow-sm"
+      {...props}
+    >
+      {children}
+    </details>
+  ),
+
+  summary: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <summary
+      className="flex cursor-pointer list-none select-none items-center justify-between p-5 sm:p-6 font-heading font-semibold text-lg text-gray-900 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500"
+      {...props}
+    >
+      <span className="pr-4">{children}</span>
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/10 bg-gray-100 text-gray-700 transition-all duration-200 group-open:rotate-180 group-open:bg-amber-400 group-open:text-black group-open:border-transparent">
+        <ChevronDown className="h-4 w-4" aria-hidden="true" />
+      </span>
+    </summary>
+  ),
+
+  FaqAnswer: ({ children }: { children: React.ReactNode }) => (
+    <div className="border-t border-gray-100 px-5 pb-5 pt-3 text-sm leading-relaxed text-gray-600 sm:px-6 sm:pb-6 sm:text-base font-light [&>p]:mb-3 [&>p:last-child]:mb-0">
+      {children}
+    </div>
+  ),
+
+  FaqAccordion,
+  FaqItem,
 };
 
