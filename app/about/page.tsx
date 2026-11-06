@@ -14,16 +14,16 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Cinorium | Technology-Driven Digital Marketing Agency",
+  title: "About | Technology-Driven Digital Marketing Agency",
   description:
-    "Cinorium is a technology-driven digital marketing agency with a strong web development foundation. Built for visibility, designed for growth.",
+    "Cinorium is a technology-driven digital marketing agency combining web development, technical SEO and digital marketing to help businesses build sustainable online foundations.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Cinorium | Technology-Driven Digital Marketing Agency",
     description:
-      "Cinorium is a technology-driven digital marketing agency with a strong web development foundation. Built for visibility, designed for growth.",
+      "Cinorium is a technology-driven digital marketing agency combining web development, technical SEO and digital marketing to help businesses build sustainable online foundations.",
     url: "https://www.cinorium.com/about",
     type: "website",
   },

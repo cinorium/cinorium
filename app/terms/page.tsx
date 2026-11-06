@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Cinorium",
+  title: "Terms of Service",
   description:
     "Review the Terms of Service governing your use of the Cinorium website and our service engagement terms.",
   alternates: {

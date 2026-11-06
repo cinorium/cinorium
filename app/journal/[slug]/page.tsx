@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   if (!article) {
     return {
-      title: "Article Not Found | Cinorium",
+      title: "Article Not Found",
     };
   }
 
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const ogImageAlt = article.coverImageAlt || article.title;
 
   return {
-    title: `${article.title} | Cinorium Journal`,
+    title: article.title,
     description: article.description,
     alternates: {
       canonical: url,

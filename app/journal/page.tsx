@@ -4,7 +4,7 @@ import ArticleCard from "@/components/journal/ArticleCard";
 import CategoryFilter from "@/components/journal/CategoryFilter";
 
 export const metadata: Metadata = {
-  title: "The Growth & Tech Vault | SEO & Web Development Journal | Cinorium",
+  title: "The Growth & Tech Vault | SEO & Web Development Journal",
   description:
     "Practical guides and technical resources on SEO, website development, Core Web Vitals, and search visibility by Cinorium.",
   alternates: {

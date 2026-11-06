@@ -3,7 +3,7 @@ import { Mail, MessageCircle } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Cinorium | Discuss Your Website or Marketing Project",
+  title: "Contact | Discuss Your Website or Marketing Project",
   description:
     "Contact Cinorium to discuss web development, technical SEO, digital marketing strategy, and e-commerce growth for your business.",
   alternates: {

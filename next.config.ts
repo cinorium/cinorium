@@ -28,6 +28,33 @@ const nextConfig: NextConfig = {
     // Prefer AVIF, then WebP — Next.js negotiates via Accept header.
     formats: ["image/avif", "image/webp"],
   },
+
+  async redirects() {
+    return [
+      // Legacy journal slug redirect to canonical published article
+      {
+        source: "/journal/improve-website-search-visibility",
+        destination: "/journal/website-development-search-visibility-conversions",
+        permanent: true,
+      },
+      // Services sub-route redirects to dedicated service pages
+      {
+        source: "/services/web-development",
+        destination: "/web-development",
+        permanent: true,
+      },
+      {
+        source: "/services/seo-services",
+        destination: "/seo-services",
+        permanent: true,
+      },
+      {
+        source: "/services/seo",
+        destination: "/seo-services",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

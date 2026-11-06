@@ -18,14 +18,14 @@ import {
 import WebDevFaq from "./WebDevFaq";
 
 export const metadata: Metadata = {
-  title: "Website Development Services | Custom & WordPress | Cinorium",
+  title: "Website Development Services | Custom & WordPress",
   description:
     "Explore custom and WordPress website development by Cinorium, with a focus on responsive design, usability, performance and SEO-aware technical foundations.",
   alternates: {
     canonical: "/web-development",
   },
   openGraph: {
-    title: "Website Development Services | Custom & WordPress | Cinorium",
+    title: "Website Development Services | Cinorium",
     description:
       "Explore custom and WordPress website development by Cinorium, with a focus on responsive design, usability, performance and SEO-aware technical foundations.",
     url: "https://www.cinorium.com/web-development",
@@ -754,7 +754,7 @@ export default function WebDevelopmentPage() {
             </p>
           </div>
           <Link
-            href="/journal/improve-website-search-visibility"
+            href="/journal/website-development-search-visibility-conversions"
             className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white hover:bg-gray-900 transition-all shrink-0"
           >
             <span>Read Investigation</span>

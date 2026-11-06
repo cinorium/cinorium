@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Cinorium",
+  title: "Privacy Policy",
   description:
     "Learn how Cinorium collects, uses, and protects your information when you browse our website or submit an inquiry.",
   alternates: {

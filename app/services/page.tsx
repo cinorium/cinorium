@@ -16,16 +16,16 @@ import {
 import CtaSection from "@/components/CtaSection";
 
 export const metadata: Metadata = {
-  title: "Services | Technology-Driven Digital Marketing & Web Development",
+  title: "Digital Marketing & Web Development Services",
   description:
-    "Explore Cinorium's four service pillars: Web Development & Technology, SEO & Search Visibility, Digital Marketing, and E-commerce & Growth. Built for visibility, designed for growth.",
+    "Explore Cinorium's core service pillars: Web Development, Technical SEO, Search Visibility, and Digital Marketing Strategy built for sustainable business growth.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services | Cinorium Digital Marketing Agency",
+    title: "Digital Marketing & Web Development Services | Cinorium",
     description:
-      "Explore Cinorium's four service pillars: Web Development & Technology, SEO & Search Visibility, Digital Marketing, and E-commerce & Growth. Built for visibility, designed for growth.",
+      "Explore Cinorium's core service pillars: Web Development, Technical SEO, Search Visibility, and Digital Marketing Strategy built for sustainable business growth.",
     url: "https://www.cinorium.com/services",
     type: "website",
   },
@@ -469,7 +469,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <Link
-            href="/journal/improve-website-search-visibility"
+            href="/journal/website-development-search-visibility-conversions"
             className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white hover:bg-gray-900 transition-all shrink-0"
           >
             <span>Read Investigation</span>

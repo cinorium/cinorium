@@ -20,14 +20,14 @@ import {
 import SeoFaq from "./SeoFaq";
 
 export const metadata: Metadata = {
-  title: "SEO Services & Search Optimization | Cinorium",
+  title: "SEO & Search Visibility Services",
   description:
     "Improve your website's search visibility with technical SEO, on-page optimization, strategic content and ongoing search performance improvements.",
   alternates: {
     canonical: "/seo-services",
   },
   openGraph: {
-    title: "SEO Services & Search Optimization | Cinorium",
+    title: "SEO & Search Visibility Services | Cinorium",
     description:
       "Improve your website's search visibility with technical SEO, on-page optimization, strategic content and ongoing search performance improvements.",
     url: "https://www.cinorium.com/seo-services",
@@ -699,7 +699,7 @@ export default function SeoServicesPage() {
             </p>
           </div>
           <Link
-            href="/journal/improve-website-search-visibility"
+            href="/journal/website-development-search-visibility-conversions"
             className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white hover:bg-gray-900 transition-all shrink-0"
           >
             <span>Read Guide</span>

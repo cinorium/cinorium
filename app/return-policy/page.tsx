@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Return & Refund Policy | Cinorium",
+  title: "Return & Refund Policy",
   description:
     "Review Cinorium's return, refund, and cancellation policies for custom web development and digital marketing services.",
   alternates: {
