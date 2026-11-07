@@ -23,6 +23,9 @@ import { mdxComponents } from "@/components/journal/MdxComponents";
 import TableOfContents from "@/components/journal/TableOfContents";
 import ArticleCard from "@/components/journal/ArticleCard";
 import ArticleImage from "@/components/journal/ArticleImage";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import FinalCta from "@/components/FinalCta";
 
 /** Fallback OG image served from /public when no article image is set. */
 const DEFAULT_OG_IMAGE = "https://www.cinorium.com/og-default.png";
@@ -82,7 +85,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   };
 }
 
-const px = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
+const px = "px-6 sm:px-10 md:px-16 lg:px-24";
 const inner = "max-w-5xl mx-auto";
 
 /**
@@ -172,8 +175,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         },
         publisher: {
           "@type": "Organization",
+          "@id": "https://www.cinorium.com/#organization",
           name: "Cinorium",
           url: "https://www.cinorium.com",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://www.cinorium.com/cinorium-logo.svg",
+          },
         },
         articleSection: article.category,
         keywords: article.tags.join(", "),
@@ -194,11 +202,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* ── 1. Article Header ─────────────────────────────────────────────── */}
       <header
         aria-label="Article header"
-        className={`w-full bg-blue-100 border-b border-black/10 ${px} pt-28 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24`}
+        className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} pt-28 pb-16 sm:pt-36 sm:pb-20`}
       >
         <div className={inner}>
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumbs" className="mb-6 flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-gray-600">
+          <nav aria-label="Breadcrumbs" className="mb-6 flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-gray-600 font-light">
             <Link href="/" className="hover:text-gray-900 transition-colors">
               Home
             </Link>
@@ -214,9 +222,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Category Badge & Metadata Pill */}
           <div className="mb-4 flex flex-wrap items-center gap-3">
-            <span className="inline-block rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900">
+            <Badge variant="amber" size="sm">
               {article.category}
-            </span>
+            </Badge>
             <span className="flex items-center gap-1 text-xs text-gray-600">
               <Calendar className="h-3.5 w-3.5 text-gray-500" aria-hidden="true" />
               <time dateTime={article.date}>{formattedDate}</time>
@@ -229,18 +237,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {/* Article Title */}
-          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
             {article.title}
           </h1>
 
           {/* Intro description */}
-          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-xl">
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
             {article.description}
           </p>
 
           {/* Author row */}
           <div className="mt-8 flex items-center gap-3 border-t border-black/10 pt-5 text-xs sm:text-sm text-gray-700">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-900 bg-white text-gray-900">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0b131e] text-[#ffb703]">
               <User className="h-4 w-4" aria-hidden="true" />
             </div>
             <div>
@@ -255,9 +263,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </header>
 
-      {/* ── 1b. Cover Image (LCP) — rendered full-width between header and body */}
+      {/* ── 1b. Cover Image (LCP) ── */}
       {article.coverImage && (
-        <div className={`w-full bg-blue-100 border-b border-black/10 ${px} pb-10 sm:pb-14`}>
+        <div className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} pb-10 sm:pb-14`}>
           <div className={inner}>
             <ArticleImage
               src={article.coverImage}
@@ -306,47 +314,43 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               )}
 
-              {/* Contextual CTA Card (Relocated from Sidebar to End of Article) */}
-              <div className="mt-10 rounded-2xl border-2 border-black bg-blue-100/70 p-6 sm:p-7 shadow-xs">
+              {/* Contextual CTA Card */}
+              <div className="mt-10 rounded-2xl border-2 border-black bg-[#faf8f5] p-6 sm:p-7 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                   <div className="max-w-xl">
-                    <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-900">
-                      <Sparkles className="h-3 w-3 text-amber-700" aria-hidden="true" />
-                      Project Support
-                    </span>
+                    <Badge variant="amber" size="sm" className="mb-2.5">
+                      <Sparkles className="h-3 w-3 mr-1 inline" aria-hidden="true" />
+                      Strategic Consultation
+                    </Badge>
                     <h4 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
-                      Need Help with Search Visibility?
+                      Need Guidance on Search Visibility or Architecture?
                     </h4>
-                    <p className="text-sm leading-relaxed text-gray-700">
-                      Let&apos;s evaluate your current website structure, technical SEO, and
-                      content foundations to determine a practical roadmap.
+                    <p className="text-sm leading-relaxed text-gray-600 font-light">
+                      Let&apos;s evaluate your current website structure, technical SEO signals, and content foundation to determine a clear growth roadmap.
                     </p>
                   </div>
                   <div className="shrink-0">
-                    <Link
-                      href="/contact"
-                      className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-black px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                    >
-                      <span>Discuss Your Project</span>
-                      <ArrowRight className="h-4 w-4 text-amber-400" aria-hidden="true" />
+                    <Link href="/contact">
+                      <Button variant="default" size="default" className="gap-2">
+                        <span>Discuss Your Project</span>
+                        <ArrowRight className="h-4 w-4 text-[#ffb703]" />
+                      </Button>
                     </Link>
                   </div>
                 </div>
               </div>
 
               {/* Author Box */}
-              <div className="mt-10 rounded-2xl border-2 border-black bg-amber-50/50 p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-black bg-white font-heading text-xl font-bold tracking-tight text-gray-900">
+              <div className="mt-10 rounded-2xl border-2 border-black bg-[#fdfbf7] p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703] font-heading text-xl font-bold tracking-tight">
                   MH
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-1">
                     Written by {article.author?.name || "Muhammad Huzaifa"}
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
-                    Founder of Cinorium. Working at the intersection of custom website
-                    development, technical SEO, and search visibility to help businesses build
-                    maintainable digital foundations.
+                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                    Founder of Cinorium. Working at the intersection of custom website engineering, technical SEO, and organic growth systems to help businesses build maintainable digital foundations.
                   </p>
                 </div>
               </div>
@@ -355,7 +359,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <div className="mt-10">
                 <Link
                   href="/journal"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-800 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-700 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                   <span>Back to all insights</span>
@@ -376,16 +380,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <section
           id="related-articles"
           aria-labelledby="related-heading"
-          className={`w-full bg-amber-50/30 border-b border-black/10 ${px} py-16 sm:py-20`}
+          className={`w-full bg-[#faf8f5] border-b border-black/10 ${px} py-16 sm:py-20`}
         >
           <div className={inner}>
             <div className="mb-10">
-              <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
+              <Badge variant="secondary" size="sm" className="mb-3">
                 Further Reading
-              </span>
+              </Badge>
               <h2
                 id="related-heading"
-                className="font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl"
+                className="font-heading text-2xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-3xl"
               >
                 Related Resources
               </h2>
@@ -400,42 +404,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </section>
       )}
 
-      {/* ── 4. Final CTA ─────────────────────────────────────────────────── */}
-      <section
-        id="journal-cta"
-        aria-labelledby="journal-cta-heading"
-        className={`w-full bg-blue-100 ${px} py-20 lg:py-24`}
-      >
-        <div className={inner}>
-          <span className="mb-4 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            Work With Cinorium
-          </span>
-
-          <h2
-            id="journal-cta-heading"
-            className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl max-w-2xl"
-          >
-            Ready to Build a Better Search Foundation?
-          </h2>
-
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            Whether you&apos;re building a new website or working to improve search
-            performance on an existing one, let&apos;s discuss your goals and identify
-            the most effective next steps.
-          </p>
-
-          <Link
-            href="/contact"
-            className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-          >
-            <span>Discuss Your Project</span>
-            <ArrowRight
-              aria-hidden="true"
-              className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 text-amber-400"
-            />
-          </Link>
-        </div>
-      </section>
+      {/* ── 4. Unified Bottom CTA ────────────────────────────────────────── */}
+      <FinalCta />
     </div>
   );
 }

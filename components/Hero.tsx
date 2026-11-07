@@ -1,56 +1,74 @@
 import Link from "next/link";
-import { ArrowRight, MoveRight } from "lucide-react";
+import { ArrowRight, MoveRight, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function Hero() {
   return (
     <section
-      id="home"
-      className="flex min-h-[85dvh] w-full flex-col items-center justify-center overflow-hidden bg-blue-100 px-6 pt-28 sm:pt-36 md:pt-40 lg:pt-36 xl:pt-40 pb-16 sm:pb-20 text-center sm:px-10 md:px-20 lg:min-h-screen lg:px-32"
+      id="hero"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-[#fdfbf7] px-6 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 text-center sm:px-10 md:px-20 lg:px-32"
     >
-      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-3">
-        <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-          Technology · Marketing · Digital Growth
-        </span>
+      <div className="mx-auto flex w-full max-w-4xl flex-col items-center">
+        {/* Eyebrow Badge */}
+        <Badge variant="default" dot="amber" size="lg" className="mb-6">
+          Digital Marketing Agency
+        </Badge>
 
-        <h1 className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
+        {/* Display Heading — Sora Bold */}
+        <h1 className="mb-6 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-[#0b131e]">
           <span className="block">Built for Visibility.</span>
           <span className="block">Designed for Growth.</span>
         </h1>
 
-        <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg md:text-xl">
-          We don&apos;t just make things look right. We make them work right.
-          Cinorium brings web development, SEO, and digital marketing
-          together—using deep technical understanding to build digital systems
-          that convert and endure.
+        {/* Outcome-focused Value Proposition */}
+        <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-700 font-light leading-relaxed mb-8">
+          We help ambitious businesses build a stronger digital presence, capture high-intent search traffic, and turn online visibility into predictable revenue and growth.
         </p>
 
-        <div className="mt-6 flex w-full flex-col items-center justify-center gap-3.5 sm:w-auto sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-black px-8 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
-          >
-            <span>Discuss Your Project</span>
-            <ArrowRight className="h-4 w-4 text-amber-400" />
+        {/* Action CTAs */}
+        <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-4 sm:w-auto">
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="default"
+              size="lg"
+              className="w-full sm:w-auto gap-2 px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg"
+            >
+              <span>Discuss Your Project</span>
+              <ArrowRight className="h-4 w-4 text-[#ffb703]" />
+            </Button>
           </Link>
 
-          <Link
-            href="/services"
-            className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white/80 px-8 py-4 text-center text-sm font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto sm:text-base"
-          >
-            <span>Explore Services</span>
-            <MoveRight className="h-4 w-4" />
+          <Link href="/services" className="w-full sm:w-auto">
+            <Button
+              variant="slateOutline"
+              size="lg"
+              className="w-full sm:w-auto gap-2 px-8 py-6 text-base font-semibold"
+            >
+              <span>Explore Services</span>
+              <MoveRight className="h-4 w-4 text-[#0b131e]" />
+            </Button>
           </Link>
         </div>
 
-        {/* Supporting credibility pill */}
-        <div className="mt-8 pt-4 border-t border-black/10 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-gray-600 sm:text-sm">
-          <span>Web Development &amp; Tech</span>
-          <span className="text-gray-400">•</span>
-          <span>SEO &amp; Search Visibility</span>
-          <span className="text-gray-400">•</span>
-          <span>Digital Marketing Strategy</span>
-          <span className="text-gray-400">•</span>
-          <span>E-commerce Growth</span>
+        {/* Supporting Credibility Signals / Feature Tags as Tactile Badges */}
+        <div className="mt-10 sm:mt-12 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0b131e]/10 shadow-xs text-xs sm:text-sm font-medium text-[#0b131e]">
+            <CheckCircle2 className="w-4 h-4 text-[#ffb703] shrink-0" />
+            Digital Marketing Strategy
+          </span>
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0b131e]/10 shadow-xs text-xs sm:text-sm font-medium text-[#0b131e]">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            Search Visibility &amp; SEO
+          </span>
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0b131e]/10 shadow-xs text-xs sm:text-sm font-medium text-[#0b131e]">
+            <CheckCircle2 className="w-4 h-4 text-[#ffb703] shrink-0" />
+            AI Search (AEO / GEO)
+          </span>
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0b131e]/10 shadow-xs text-xs sm:text-sm font-medium text-[#0b131e]">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            Fast Web Foundation
+          </span>
         </div>
       </div>
     </section>

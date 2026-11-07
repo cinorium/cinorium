@@ -23,12 +23,12 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="w-full bg-[#fcfbf7] min-h-screen text-gray-900">
       {/* Header Banner */}
-      <section className="w-full bg-blue-100 border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+      <section className="w-full bg-[#fdfbf7] border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
             Legal & Transparency
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
             Privacy Policy
           </h1>
           <p className="mt-4 text-sm sm:text-base text-gray-600">
@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
         <div className="prose prose-gray max-w-none space-y-10 sm:space-y-12">
           {/* Introduction */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               1. Overview
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-gray-700">
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Information We Collect */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               2. Information We Collect
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-gray-900">
+              <h3 className="font-heading text-lg sm:text-xl font-bold text-gray-900">
                 A. Information You Voluntarily Provide
               </h3>
               <p className="text-base leading-relaxed text-gray-700">
@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-gray-900">
+              <h3 className="font-heading text-lg sm:text-xl font-bold text-gray-900">
                 B. Technical and Server Logs
               </h3>
               <p className="text-base leading-relaxed text-gray-700">
@@ -91,7 +91,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Cookies and Tracking */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               3. Cookies and Tracking Technologies
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -104,7 +104,7 @@ export default function PrivacyPolicyPage() {
 
           {/* How We Use Your Information */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               4. How We Use Your Information
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -123,7 +123,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Third-Party Service Providers */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               5. Service Providers & Third Parties
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -140,7 +140,7 @@ export default function PrivacyPolicyPage() {
 
           {/* External Links */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               6. External Links & Social Platforms
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Data Retention & Security */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               7. Data Retention & Security
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Your Data Rights */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               8. Your Rights & Choices
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -176,7 +176,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Changes to this Policy */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               9. Policy Updates
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -185,8 +185,8 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Contact Information */}
-          <section className="mt-12 p-8 bg-blue-100/60 border border-black/10 rounded-2xl space-y-3">
-            <h3 className="font-serif text-xl font-bold text-gray-900">
+          <section className="mt-12 p-8 bg-[#fdfbf7]/60 border border-black/10 rounded-2xl space-y-3">
+            <h3 className="font-heading text-xl font-bold text-gray-900">
               Questions or Concerns?
             </h3>
             <p className="text-base text-gray-700 leading-relaxed">

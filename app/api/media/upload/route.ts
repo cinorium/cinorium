@@ -1,13 +1,14 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
-import { randomUUID } from "crypto";
+import crypto, { randomUUID } from "crypto";
+import { isAuthenticatedAdmin } from "@/lib/signals/auth";
 
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
-/** Maximum upload size: 8 MB. */
-const MAX_BYTES = 8 * 1024 * 1024;
+/** Maximum upload size: 5 MB. */
+const MAX_BYTES = 5 * 1024 * 1024;
 
 /** Accepted MIME types. */
 const ALLOWED_MIME_TYPES = new Set([
@@ -17,10 +18,11 @@ const ALLOWED_MIME_TYPES = new Set([
   "image/webp",
   "image/avif",
   "image/gif",
+  "image/svg+xml",
 ]);
 
 /** Accepted file extensions (lower-case). */
-const ALLOWED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+const ALLOWED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif", ".svg"]);
 
 // ---------------------------------------------------------------------------
 // POST /api/media/upload
@@ -30,9 +32,11 @@ const ALLOWED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", "
  * Server-side Blob upload endpoint.
  *
  * Authentication: protected by the SIGNALS_ADMIN_PASSWORD environment
- * variable (re-used from the existing admin system) sent as a Bearer token.
+ * variable (re-used from the existing admin system) sent as a Bearer token,
+ * or by an active admin session cookie (HMAC-verified).
  *
- * Request: multipart/form-data with a "file" field.
+ * Request: multipart/form-data with a "file" field (max 5 MB).
+ * Allowed MIME types: JPEG, PNG, WebP, AVIF, GIF, SVG.
  * Response: { url, pathname, contentType, size }
  *
  * The BLOB_READ_WRITE_TOKEN is kept server-side and never exposed to the
@@ -48,15 +52,32 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   // ── 2. Authenticate the request ─────────────────────────────────────────
-  const adminPassword = process.env.SIGNALS_ADMIN_PASSWORD;
+  const adminPassword =
+    process.env.SIGNALS_ADMIN_PASSWORD ||
+    process.env.ADMIN_PASSWORD;
   const authHeader = req.headers.get("authorization");
   const token = authHeader?.startsWith("Bearer ")
     ? authHeader.slice(7)
     : null;
 
-  if (!adminPassword || !token || token !== adminPassword) {
+  const isCookieAuth = await isAuthenticatedAdmin();
+  let isBearerAuth = false;
+
+  if (adminPassword && token) {
+    try {
+      const tokenBuf = Buffer.from(token);
+      const passBuf = Buffer.from(adminPassword);
+      if (tokenBuf.length === passBuf.length && crypto.timingSafeEqual(tokenBuf, passBuf)) {
+        isBearerAuth = true;
+      }
+    } catch {
+      isBearerAuth = false;
+    }
+  }
+
+  if (!isCookieAuth && !isBearerAuth) {
     return NextResponse.json(
-      { error: "Unauthorised. Provide a valid Bearer token." },
+      { error: "Unauthorised. Provide a valid Bearer token or active admin session." },
       { status: 401 },
     );
   }
@@ -85,7 +106,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   if (!ALLOWED_MIME_TYPES.has(mimeType)) {
     return NextResponse.json(
       {
-        error: `Unsupported file type: ${mimeType}. Allowed types: JPEG, PNG, WebP, AVIF, GIF.`,
+        error: `Unsupported file type: ${mimeType}. Allowed types: JPEG, PNG, WebP, AVIF, GIF, SVG.`,
       },
       { status: 415 },
     );
@@ -105,7 +126,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   // ── 6. Validate file size ────────────────────────────────────────────────
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
-      { error: `File exceeds the 8 MB limit (received ${(file.size / 1024 / 1024).toFixed(2)} MB).` },
+      { error: `File exceeds the 5 MB limit (received ${(file.size / 1024 / 1024).toFixed(2)} MB).` },
       { status: 413 },
     );
   }

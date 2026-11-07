@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
+import CinoriumLogo from "@/components/CinoriumLogo";
 import CookiePreferencesButton from "./CookiePreferencesButton";
 
 // Custom SVG Icons for Social Links
@@ -46,125 +47,200 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-const footerNavLinks = [
-  { name: "Services Overview", href: "/services" },
-  { name: "Website Development", href: "/web-development" },
-  { name: "SEO Services", href: "/seo-services" },
-  { name: "Selected Work", href: "/work" },
-  { name: "Insights", href: "/journal" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
-
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0b131e] text-gray-300 pt-20 pb-28 md:pb-12 px-6 md:px-16 lg:px-24 border-t border-gray-800/40">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
-        {/* Top CTA Banner inside Footer */}
-        <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-amber-400 block mb-2">
-            Technology · Marketing · Digital Growth
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-white mb-3">
-            Built for Visibility. Designed for Growth.
-          </h2>
-          <p className="text-sm sm:text-base text-gray-400 font-light leading-relaxed max-w-2xl mb-6">
-            We don&apos;t just make things look right. We make them work right.
-            Technology-driven digital marketing with a strong web development foundation.
-          </p>
+    <footer className="w-full bg-[#0b131e] text-gray-300 pt-20 pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
+      <div className="max-w-6xl mx-auto flex flex-col gap-14">
+        {/* Top CTA Row */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-gray-800/80">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#ffb703] block mb-2">
+              Digital Marketing Agency
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-white mb-2">
+              Built for Visibility. Designed for Growth.
+            </h2>
+            <p className="text-sm sm:text-base text-gray-400 font-light max-w-xl">
+              Turn modern customer search behavior into qualified enquiries and measurable revenue.
+            </p>
+          </div>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-amber-400 transition-colors group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#0b131e] hover:bg-gray-800 border border-gray-700 px-5 py-3 rounded-2xl transition-colors group shrink-0"
           >
             <span>Discuss Your Project</span>
-            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-amber-400" />
+            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#ffb703]" />
           </Link>
         </div>
 
-        {/* Footer Navigation Links */}
-        <nav
-          aria-label="Footer navigation"
-          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-400"
-        >
-          {footerNavLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="hover:text-white transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+        {/* 4-Column Structured Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {/* Column 1: Brand & Tagline + Brief Positioning Statement */}
+          <div className="space-y-4">
+            <CinoriumLogo
+              variant="light"
+              size="md"
+              withTagline={false}
+              className="mb-2"
+            />
+            <p className="text-xs text-[#ffb703] font-semibold tracking-wide uppercase">
+              Built for Visibility. Designed for Growth.
+            </p>
+            <p className="text-xs text-gray-400 font-light leading-relaxed">
+              Cinorium is a digital marketing agency helping ambitious businesses build organic visibility, acquire qualified leads, and turn web traffic into predictable revenue. Web development and technical SEO serve as our supporting engineering foundation.
+            </p>
 
-        {/* Bottom Divider Line */}
-        <hr className="border-gray-800/80 w-full" />
-
-        {/* Footer Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          {/* Social Icons */}
-          <div className="flex items-center gap-4 text-gray-400">
-            <a
-              href="https://www.instagram.com/cinorium_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-amber-400 transition-colors"
-            >
-              <InstagramIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/cinorium/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-amber-400 transition-colors"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.youtube.com/@cinoriumacademy"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="hover:text-amber-400 transition-colors"
-            >
-              <YoutubeIcon className="w-4 h-4" />
-            </a>
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 pt-2 text-gray-400">
+              <a
+                href="https://www.instagram.com/cinorium_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cinorium Instagram"
+                className="hover:text-[#ffb703] transition-colors p-1"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/cinorium/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cinorium LinkedIn"
+                className="hover:text-[#ffb703] transition-colors p-1"
+              >
+                <LinkedinIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@cinoriumacademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cinorium Academy YouTube"
+                className="hover:text-[#ffb703] transition-colors p-1"
+              >
+                <YoutubeIcon className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
-          {/* Legal Links & Copyright Notice */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-xs text-gray-400 font-light">
-            <nav
-              aria-label="Legal navigation"
-              className="flex flex-wrap items-center gap-x-4 gap-y-1"
-            >
-              <Link
-                href="/privacy"
-                className="hover:text-amber-400 transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-amber-400 transition-colors"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/return-policy"
-                className="hover:text-amber-400 transition-colors"
-              >
-                Return &amp; Refund Policy
-              </Link>
-              <CookiePreferencesButton />
-            </nav>
-            <span className="hidden sm:inline text-gray-600" aria-hidden="true">
-              •
-            </span>
-            <p>© 2026 Muhammad Huzaifa / Cinorium. All rights reserved.</p>
+          {/* Column 2: Capabilities (Digital Marketing as Primary, Tech as Supporting) */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Capabilities
+            </h3>
+            <ul className="space-y-2 text-xs text-gray-400 font-light">
+              <li>
+                <Link
+                  href="/services#strategy"
+                  className="hover:text-white transition-colors"
+                >
+                  Digital Marketing Strategy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/seo-services"
+                  className="hover:text-white transition-colors"
+                >
+                  Search Visibility &amp; Technical SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services#ai-search"
+                  className="hover:text-white transition-colors"
+                >
+                  AI Search Visibility (AEO / GEO)
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-gray-800/60">
+                <span className="text-[10px] uppercase font-semibold text-gray-500 block mb-1">
+                  Supporting Capabilities
+                </span>
+                <Link
+                  href="/web-development"
+                  className="hover:text-white transition-colors block mb-1.5"
+                >
+                  Web Development &amp; Tech Optimization
+                </Link>
+                <Link
+                  href="/services#visual-communication"
+                  className="hover:text-white transition-colors block"
+                >
+                  Graphic Design &amp; Visual Communication
+                </Link>
+              </li>
+            </ul>
           </div>
+
+          {/* Column 3: Navigation */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Navigation
+            </h3>
+            <ul className="space-y-2 text-xs text-gray-400 font-light">
+              <li>
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Services Overview
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About Cinorium
+                </Link>
+              </li>
+              <li>
+                <Link href="/work" className="hover:text-white transition-colors">
+                  Selected Work &amp; Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/journal" className="hover:text-white transition-colors">
+                  Insights &amp; Journal
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact &amp; Project Discussion
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Legal & Preferences */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Legal &amp; Preferences
+            </h3>
+            <ul className="space-y-2 text-xs text-gray-400 font-light">
+              <li>
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/return-policy" className="hover:text-white transition-colors">
+                  Return &amp; Refund Policy
+                </Link>
+              </li>
+              <li className="pt-2">
+                <CookiePreferencesButton />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Copyright & Tagline */}
+        <div className="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-light">
+          <p>© 2026 Cinorium. All rights reserved.</p>
+          <p className="text-gray-400">
+            Built for Visibility. Designed for Growth.
+          </p>
         </div>
       </div>
     </footer>

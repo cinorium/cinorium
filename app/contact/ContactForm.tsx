@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 interface FormState {
   name: string;
@@ -17,7 +20,7 @@ interface FormState {
 const initialFormState: FormState = {
   name: "",
   email: "",
-  service: "Website Development",
+  service: "Digital Marketing Strategy",
   companyOrWebsite: "",
   budget: "Not decided yet",
   preferredContact: "Email",
@@ -91,28 +94,29 @@ export default function ContactForm() {
         <div
           role="status"
           aria-live="polite"
-          className="rounded-2xl border-2 border-emerald-500/40 bg-emerald-50/80 p-8 text-center sm:p-10"
+          className="rounded-3xl border-2 border-emerald-500/40 bg-emerald-50/80 p-8 text-center sm:p-10"
         >
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
             <CheckCircle2 className="h-8 w-8" />
           </div>
-          <h3 className="mb-2 font-serif text-2xl font-bold text-gray-900">
+          <h3 className="mb-2 font-heading text-2xl font-bold text-[#0b131e]">
             Enquiry Received
           </h3>
-          <p className="mx-auto max-w-md text-base leading-relaxed text-gray-700">
+          <p className="mx-auto max-w-md text-base leading-relaxed text-gray-700 font-light">
             {status.message}
           </p>
-          <p className="mt-3 text-sm text-gray-600">
-            We will review your requirements and follow up via your preferred
-            contact method.
+          <p className="mt-3 text-sm text-gray-600 font-light">
+            We will review your requirements and follow up with a concrete next step via your preferred contact channel.
           </p>
-          <button
+          <Button
             type="button"
+            variant="default"
+            size="default"
             onClick={() => setStatus(null)}
-            className="mt-6 inline-flex items-center justify-center rounded-xl border border-gray-900 bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="mt-6"
           >
             Send Another Enquiry
-          </button>
+          </Button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
@@ -144,15 +148,14 @@ export default function ContactForm() {
 
           {/* Name & Email Row */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {/* Full Name */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Full Name <span className="text-amber-600">*</span>
+                Full Name <span className="text-[#ffb703]">*</span>
               </label>
-              <input
+              <Input
                 type="text"
                 id="name"
                 name="name"
@@ -160,19 +163,17 @@ export default function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="e.g. Sarah Jenkins"
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
               />
             </div>
 
-            {/* Email Address */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Email Address <span className="text-amber-600">*</span>
+                Work Email <span className="text-[#ffb703]">*</span>
               </label>
-              <input
+              <Input
                 type="email"
                 id="email"
                 name="email"
@@ -180,20 +181,18 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="name@company.com"
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
               />
             </div>
           </div>
 
           {/* Service & Company Row */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {/* Service Interested In */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="service"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Service Interested In <span className="text-amber-600">*</span>
+                Primary Objective <span className="text-[#ffb703]">*</span>
               </label>
               <select
                 id="service"
@@ -201,57 +200,46 @@ export default function ContactForm() {
                 required
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
-                <option value="Website Development">Website Development</option>
-                <option value="WordPress Development">
-                  WordPress Development
-                </option>
-                <option value="SEO & Search Visibility">
-                  SEO & Search Visibility
-                </option>
-                <option value="Technical SEO">Technical SEO</option>
-                <option value="On-Page SEO & Content">
-                  On-Page SEO & Content
-                </option>
-                <option value="Other / Not Sure Yet">
-                  Other / Not Sure Yet
-                </option>
+                <option value="Digital Marketing Strategy">Digital Marketing Strategy</option>
+                <option value="Search Visibility & SEO">Search Visibility &amp; SEO</option>
+                <option value="AI Search Visibility (AEO / GEO)">AI Search Visibility (AEO / GEO)</option>
+                <option value="Website Development & Optimization">Website Development &amp; Optimization</option>
+                <option value="Graphic Design & Visual Assets">Graphic Design &amp; Visual Assets</option>
+                <option value="Comprehensive Growth Audit">Comprehensive Growth Audit</option>
               </select>
             </div>
 
-            {/* Company or Website URL (Optional) */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="companyOrWebsite"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Company or Website{" "}
+                Company Name or Website{" "}
                 <span className="text-xs font-normal text-gray-500">
                   (Optional)
                 </span>
               </label>
-              <input
+              <Input
                 type="text"
                 id="companyOrWebsite"
                 name="companyOrWebsite"
                 value={formData.companyOrWebsite}
                 onChange={handleChange}
-                placeholder="e.g. yourcompany.com"
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                placeholder="e.g. company.com"
               />
             </div>
           </div>
 
           {/* Budget & Preferred Contact Method Row */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {/* Budget Range (Optional) */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="budget"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Estimated Budget{" "}
+                Estimated Project Budget{" "}
                 <span className="text-xs font-normal text-gray-500">
                   (Optional)
                 </span>
@@ -261,7 +249,7 @@ export default function ContactForm() {
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
                 <option value="Not decided yet">Not decided yet</option>
                 <option value="Under $1,000">Under $1,000</option>
@@ -271,13 +259,12 @@ export default function ContactForm() {
               </select>
             </div>
 
-            {/* Preferred Contact Method (Optional) */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="preferredContact"
-                className="text-sm font-semibold text-gray-900"
+                className="text-sm font-semibold text-[#0b131e]"
               >
-                Preferred Contact Method{" "}
+                Preferred Contact Channel{" "}
                 <span className="text-xs font-normal text-gray-500">
                   (Optional)
                 </span>
@@ -287,7 +274,7 @@ export default function ContactForm() {
                 name="preferredContact"
                 value={formData.preferredContact}
                 onChange={handleChange}
-                className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
                 <option value="Email">Email</option>
                 <option value="WhatsApp">WhatsApp</option>
@@ -300,41 +287,42 @@ export default function ContactForm() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="message"
-              className="text-sm font-semibold text-gray-900"
+              className="text-sm font-semibold text-[#0b131e]"
             >
-              Project Details <span className="text-amber-600">*</span>
+              Needs, Objectives &amp; Current Challenges <span className="text-[#ffb703]">*</span>
             </label>
-            <textarea
+            <Textarea
               id="message"
               name="message"
               rows={5}
               required
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell us about your business, what you want to achieve with your website or SEO, and any specific requirements or questions..."
-              className="w-full resize-none rounded-2xl border-2 border-gray-200 bg-gray-50/60 px-4 py-3.5 text-sm leading-relaxed text-gray-900 transition-colors focus:border-amber-400 focus:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+              placeholder="Tell us about your business, current visibility roadblocks, target audience, and what commercial outcomes you want to achieve..."
             />
           </div>
 
           {/* Submit Action */}
           <div className="pt-2">
-            <button
+            <Button
               type="submit"
+              variant="default"
+              size="lg"
               disabled={isSubmitting}
-              className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-black px-8 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-base"
+              className="w-full sm:w-auto gap-2"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="h-5 w-5 animate-spin text-amber-400" />
-                  <span>Sending Project Enquiry...</span>
+                  <Loader2 className="h-5 w-5 animate-spin text-[#ffb703]" />
+                  <span>Submitting Project Enquiry...</span>
                 </>
               ) : (
                 <>
                   <span>Send Project Enquiry</span>
-                  <Send className="h-4 w-4 text-amber-400 transition-transform group-hover:translate-x-1" />
+                  <Send className="h-4 w-4 text-[#ffb703]" />
                 </>
               )}
-            </button>
+            </Button>
           </div>
         </form>
       )}

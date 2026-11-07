@@ -62,7 +62,7 @@ export default function WebDevFaq() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       {faqs.map((faq) => {
         const isOpen = openId === faq.id;
         const answerId = `${faq.id}-answer`;
@@ -70,10 +70,10 @@ export default function WebDevFaq() {
         return (
           <div
             key={faq.id}
-            className={`w-full rounded-2xl border-2 p-5 transition-colors duration-300 sm:px-7 sm:py-6 ${
+            className={`w-full rounded-2xl border-2 p-5 transition-colors duration-300 sm:px-6 sm:py-5 ${
               isOpen
-                ? "border-amber-400 bg-white"
-                : "border-black/10 bg-white/70 hover:border-amber-300"
+                ? "border-[#ffb703] bg-white shadow-sm"
+                : "border-black/10 bg-white/70 hover:border-black/30"
             }`}
           >
             <button
@@ -82,19 +82,19 @@ export default function WebDevFaq() {
               aria-expanded={isOpen}
               aria-controls={answerId}
               onClick={() => toggleFaq(faq.id)}
-              className="group flex w-full items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
+              className="group flex w-full items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703] focus-visible:ring-offset-4"
             >
-              <span className="font-serif text-base font-semibold leading-snug text-gray-900 sm:text-lg">
+              <span className="font-heading text-base font-bold leading-snug text-gray-900 sm:text-lg">
                 {faq.question}
               </span>
 
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-50 text-gray-800 transition-colors group-hover:bg-amber-100">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#faf8f5] text-gray-800 transition-colors group-hover:bg-[#ffb703]/20">
                 {isOpen ? (
-                  <MoveDown aria-hidden="true" className="h-5 w-5" />
+                  <MoveDown aria-hidden="true" className="h-4 w-4" />
                 ) : (
                   <MoveRight
                     aria-hidden="true"
-                    className="h-5 w-5 transition-transform group-hover:translate-x-0.5"
+                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                   />
                 )}
               </span>
@@ -112,7 +112,7 @@ export default function WebDevFaq() {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="border-t border-amber-200/80 pt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+                <p className="border-t border-gray-100 pt-4 text-sm leading-relaxed text-gray-600 sm:text-base font-light">
                   {faq.answer}
                 </p>
               </div>

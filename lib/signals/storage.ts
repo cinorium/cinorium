@@ -51,7 +51,15 @@ const SUPABASE_KEY =
   process.env.SUPABASE_ANON_KEY ||
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+const isProduction = process.env.NODE_ENV === "production";
 const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_KEY);
+
+if (isProduction && !isSupabaseConfigured) {
+  console.error(
+    "CRITICAL OPERATIONAL ERROR: Cinorium Signals requires Supabase in production. " +
+    "SUPABASE_URL or SUPABASE_KEY is missing. Local JSON fallback is restricted in production to prevent data loss."
+  );
+}
 
 class SupabaseStorageAdapter {
   private url = SUPABASE_URL ? SUPABASE_URL.replace(/\/+$/, "") : "";
@@ -73,15 +81,26 @@ class SupabaseStorageAdapter {
       if (!res.ok) {
         const err = await res.text();
         console.warn(`[Signals Supabase] Request warning [${res.status}]: ${err}`);
-        // If table doesn't exist yet in Supabase (404 or 400), don't crash
+        // If table doesn't exist yet in Supabase (404 or 400), don't crash in dev
         if (res.status === 404 || res.status === 400) {
+          if (isProduction) {
+            throw new Error(`[Signals Supabase] Table or schema missing [${res.status}]: ${err}`);
+          }
           return [];
+        }
+        if (isProduction) {
+          throw new Error(`[Signals Supabase] Critical database error [${res.status}]: ${err}`);
         }
         return [];
       }
       return res.json();
     } catch (fetchErr) {
       console.warn("[Signals Supabase] Network/fetch warning:", fetchErr);
+      if (isProduction) {
+        throw new Error(
+          `[Signals Supabase] Network/fetch failure: ${fetchErr instanceof Error ? fetchErr.message : String(fetchErr)}`
+        );
+      }
       return [];
     }
   }
@@ -234,6 +253,11 @@ class SupabaseStorageAdapter {
         ip_hash: data.ipHash,
       }),
     });
+
+    if (isProduction && (!Array.isArray(res) || !res[0])) {
+      throw new Error("[Signals Supabase] Failed to persist lead to Supabase database.");
+    }
+
     const row = (Array.isArray(res) && res[0]) || {
       id: crypto.randomUUID(),
       session_token: data.sessionToken,
@@ -506,7 +530,17 @@ class SupabaseStorageAdapter {
 
 // Local Fallback Storage Adapter
 class LocalStorageAdapter {
+  private assertNotProduction(): void {
+    if (isProduction) {
+      throw new Error(
+        "CRITICAL ERROR: Local JSON storage (.signals_store.json) is blocked in production to prevent data loss. " +
+        "Ensure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are configured in your Vercel deployment."
+      );
+    }
+  }
+
   async getOrCreateSession(token: string, initialPage: string): Promise<VisitorSession> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     let session = store.sessions.find((s) => s.sessionToken === token);
     if (!session) {
@@ -534,6 +568,7 @@ class LocalStorageAdapter {
     lastPage: string,
     lastCategory?: string
   ): Promise<VisitorSession> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     let session = store.sessions.find((s) => s.sessionToken === token);
     if (!session) {
@@ -566,6 +601,7 @@ class LocalStorageAdapter {
   }
 
   async markSessionConverted(token: string): Promise<void> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     const session = store.sessions.find((s) => s.sessionToken === token);
     if (session) {
@@ -575,6 +611,7 @@ class LocalStorageAdapter {
   }
 
   async recordEvent(event: Omit<VisitorEvent, "id" | "createdAt">): Promise<void> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     store.events.push({
       ...event,
@@ -585,6 +622,7 @@ class LocalStorageAdapter {
   }
 
   async saveLead(data: Omit<Lead, "id" | "createdAt" | "updatedAt">): Promise<Lead> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     const lead: Lead = {
       ...data,
@@ -606,6 +644,7 @@ class LocalStorageAdapter {
   }
 
   async getLeads(): Promise<Lead[]> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     return [...store.leads].sort(
       (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -613,11 +652,13 @@ class LocalStorageAdapter {
   }
 
   async getLeadById(id: string): Promise<Lead | null> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     return store.leads.find((l) => l.id === id) || null;
   }
 
   async updateLeadStatus(id: string, status: LeadStatus): Promise<void> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     const lead = store.leads.find((l) => l.id === id);
     if (lead) {
@@ -628,6 +669,7 @@ class LocalStorageAdapter {
   }
 
   async addLeadNote(note: Omit<LeadNote, "id" | "createdAt">): Promise<LeadNote> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     const created: LeadNote = {
       ...note,
@@ -640,6 +682,7 @@ class LocalStorageAdapter {
   }
 
   async getLeadNotes(leadId: string): Promise<LeadNote[]> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     return store.notes
       .filter((n) => n.leadId === leadId)
@@ -647,6 +690,7 @@ class LocalStorageAdapter {
   }
 
   async getAnalyticsSummary(): Promise<SignalsAnalyticsSummary> {
+    this.assertNotProduction();
     const store = loadLocalStore();
     const leads = store.leads;
     const events = store.events;
@@ -710,9 +754,10 @@ class LocalStorageAdapter {
       supabaseUrl: "",
       hasServiceRoleKey: false,
       hasAnonKey: false,
-      connectionStatus: "not_configured" as const,
-      connectionError:
-        "Running on local file store. To store leads permanently on Vercel, connect your Supabase project credentials.",
+      connectionStatus: isProduction ? ("error" as const) : ("not_configured" as const),
+      connectionError: isProduction
+        ? "CRITICAL: Running on Vercel/Production without Supabase credentials. Local file storage is disabled to prevent data loss. Configure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY."
+        : "Running on local file store. To store leads permanently on Vercel, connect your Supabase project credentials.",
     };
   }
 }
