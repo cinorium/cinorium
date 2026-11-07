@@ -22,12 +22,12 @@ export default function ReturnPolicyPage() {
   return (
     <div className="w-full bg-[#fcfbf7] min-h-screen text-gray-900">
       {/* Header Banner */}
-      <section className="w-full bg-blue-100 border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+      <section className="w-full bg-[#fdfbf7] border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
             Service Terms
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
             Return & Refund Policy
           </h1>
           <p className="mt-4 text-sm sm:text-base text-gray-600">
@@ -41,7 +41,7 @@ export default function ReturnPolicyPage() {
         <div className="prose prose-gray max-w-none space-y-10 sm:space-y-12">
           {/* Nature of Services */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               1. Nature of Our Services
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-gray-700">
@@ -54,7 +54,7 @@ export default function ReturnPolicyPage() {
 
           {/* Project Billing & Milestone Structure */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               2. Custom Proposals & Milestone Billing
             </h2>
             <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
@@ -71,12 +71,12 @@ export default function ReturnPolicyPage() {
 
           {/* Cancellation & Refund Terms */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               3. Cancellation & Refund Guidelines
             </h2>
             <div className="space-y-4">
               <div className="border border-black/10 rounded-2xl p-6 bg-white space-y-2">
-                <h3 className="font-serif text-lg font-bold text-gray-900">
+                <h3 className="font-heading text-lg font-bold text-gray-900">
                   Initial Project Deposits
                 </h3>
                 <p className="text-base leading-relaxed text-gray-700">
@@ -85,7 +85,7 @@ export default function ReturnPolicyPage() {
               </div>
 
               <div className="border border-black/10 rounded-2xl p-6 bg-white space-y-2">
-                <h3 className="font-serif text-lg font-bold text-gray-900">
+                <h3 className="font-heading text-lg font-bold text-gray-900">
                   Client-Initiated Cancellation During Active Projects
                 </h3>
                 <p className="text-base leading-relaxed text-gray-700">
@@ -94,7 +94,7 @@ export default function ReturnPolicyPage() {
               </div>
 
               <div className="border border-black/10 rounded-2xl p-6 bg-white space-y-2">
-                <h3 className="font-serif text-lg font-bold text-gray-900">
+                <h3 className="font-heading text-lg font-bold text-gray-900">
                   SEO Retainers & Ongoing Consulting
                 </h3>
                 <p className="text-base leading-relaxed text-gray-700">
@@ -106,7 +106,7 @@ export default function ReturnPolicyPage() {
 
           {/* Quality Assurance & Revision Process */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               4. Revisions & Satisfaction Process
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -120,8 +120,8 @@ export default function ReturnPolicyPage() {
           </section>
 
           {/* Contact Information */}
-          <section className="mt-12 p-8 bg-blue-100/60 border border-black/10 rounded-2xl space-y-3">
-            <h3 className="font-serif text-xl font-bold text-gray-900">
+          <section className="mt-12 p-8 bg-[#fdfbf7]/60 border border-black/10 rounded-2xl space-y-3">
+            <h3 className="font-heading text-xl font-bold text-gray-900">
               Questions About Your Project or Billing?
             </h3>
             <p className="text-base text-gray-700 leading-relaxed">

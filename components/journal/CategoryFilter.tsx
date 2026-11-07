@@ -107,7 +107,7 @@ export default function CategoryFilter({ articles, categories }: CategoryFilterP
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-900">
             <FolderX className="h-6 w-6" aria-hidden="true" />
           </div>
-          <h3 className="mb-2 font-serif text-xl font-bold text-gray-900">
+          <h3 className="mb-2 font-heading text-xl font-bold text-gray-900">
             No Published Articles Found
           </h3>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-gray-600 mb-6">

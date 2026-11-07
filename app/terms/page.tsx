@@ -23,12 +23,12 @@ export default function TermsOfServicePage() {
   return (
     <div className="w-full bg-[#fcfbf7] min-h-screen text-gray-900">
       {/* Header Banner */}
-      <section className="w-full bg-blue-100 border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+      <section className="w-full bg-[#fdfbf7] border-b border-black/10 py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
             Legal & Compliance
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
             Terms of Service
           </h1>
           <p className="mt-4 text-sm sm:text-base text-gray-600">
@@ -42,7 +42,7 @@ export default function TermsOfServicePage() {
         <div className="prose prose-gray max-w-none space-y-10 sm:space-y-12">
           {/* Agreement */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               1. Agreement to Terms
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-gray-700">
@@ -52,7 +52,7 @@ export default function TermsOfServicePage() {
 
           {/* Website Content & Purpose */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               2. Informational Purpose & No Professional Advice
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -65,7 +65,7 @@ export default function TermsOfServicePage() {
 
           {/* Services & Separate Client Agreements */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               3. Service Engagements & Written Contracts
             </h2>
             <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
@@ -80,7 +80,7 @@ export default function TermsOfServicePage() {
 
           {/* Intellectual Property */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               4. Intellectual Property Rights
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -93,7 +93,7 @@ export default function TermsOfServicePage() {
 
           {/* Portfolio & Case Study Rights */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               5. Portfolio Showcase & Attribution
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -103,7 +103,7 @@ export default function TermsOfServicePage() {
 
           {/* Acceptable Use */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               6. Acceptable Use
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -119,7 +119,7 @@ export default function TermsOfServicePage() {
 
           {/* Disclaimer of Warranties & Limitation of Liability */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               7. Disclaimer of Warranties & Limitation of Liability
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -132,7 +132,7 @@ export default function TermsOfServicePage() {
 
           {/* Governing Law */}
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 border-b border-black/10 pb-3">
               8. Governing Law
             </h2>
             <p className="text-base leading-relaxed text-gray-700">
@@ -141,8 +141,8 @@ export default function TermsOfServicePage() {
           </section>
 
           {/* Contact Information */}
-          <section className="mt-12 p-8 bg-blue-100/60 border border-black/10 rounded-2xl space-y-3">
-            <h3 className="font-serif text-xl font-bold text-gray-900">
+          <section className="mt-12 p-8 bg-[#fdfbf7]/60 border border-black/10 rounded-2xl space-y-3">
+            <h3 className="font-heading text-xl font-bold text-gray-900">
               Inquiries Regarding Terms
             </h3>
             <p className="text-base text-gray-700 leading-relaxed">

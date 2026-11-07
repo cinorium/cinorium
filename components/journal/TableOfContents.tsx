@@ -56,7 +56,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
     >
       {/* Pinned TOC Header */}
       <div className="flex shrink-0 items-center justify-between pb-1">
-        <h3 className="flex items-center gap-2 font-serif text-base font-bold text-gray-900">
+        <h3 className="flex items-center gap-2 font-heading text-base font-bold text-gray-900">
           <List className="h-4 w-4 text-amber-600" aria-hidden="true" />
           <span>Table of Contents</span>
         </h3>

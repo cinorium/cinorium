@@ -1,33 +1,34 @@
-import CtaSection from "@/components/CtaSection";
-import FaqSection from "@/components/FaqSection";
 import Hero from "@/components/Hero";
-import HowIHelp from "@/components/HowIHelp";
-import IdeasWorthExploring from "@/components/IdeasWorthExploring";
-import LearnByCreating from "@/components/LearnByCreating";
-import PublishingProducts from "@/components/PublishingProducts";
-import PainPoints from "@/components/PainPoints";
-import SelectedWork from "@/components/SelectedWork";
-import WhatIDo from "@/components/WhatIDo";
-import HowWeFixIt from "@/components/HowWeFixIt";
+import BusinessChallenges from "@/components/BusinessChallenges";
+import IntegratedApproach from "@/components/IntegratedApproach";
+import WorkingMethodology from "@/components/WorkingMethodology";
+import TechnicalCredibility from "@/components/TechnicalCredibility";
 import GrowthVault from "@/components/GrowthVault";
-import AboutCinorium from "@/components/AboutCinorium";
+import FinalCta from "@/components/FinalCta";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen bg-[#fdfbf7]">
+      {/* 1. Hero: Digital Marketing Agency Value Proposition */}
       <Hero />
-      <PainPoints />
-      <HowWeFixIt />
+
+      {/* 2. Business Challenges: Common Friction Points in Online Growth */}
+      <BusinessChallenges />
+
+      {/* 3. Integrated Approach: Strategy, Search Visibility & Conversion */}
+      <IntegratedApproach />
+
+      {/* 4. Working Methodology: 6-Stage Framework */}
+      <WorkingMethodology />
+
+      {/* 5. Technical Credibility: Speed as a Marketing Advantage & Performance Evidence */}
+      <TechnicalCredibility />
+
+      {/* 6. Growth Vault: Latest Journal Insights & Investigations */}
       <GrowthVault />
-      <AboutCinorium />
-      {/* <WhatIDo /> */}
-      {/* <SelectedWork /> */}
-      {/* <HowIHelp /> */}
-      {/* <LearnByCreating /> */}
-      {/* <IdeasWorthExploring /> */}
-      {/* <PublishingProducts /> */}
-      <FaqSection />
-      <CtaSection />
-    </div>
+
+      {/* 7. Final Conversion Section: Start Project Discussion */}
+      <FinalCta />
+    </main>
   );
 }
