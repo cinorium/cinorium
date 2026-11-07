@@ -426,7 +426,7 @@ export default function AboutPage() {
               >
                 <CardHeader className="p-0 pb-3">
                   <div className="flex items-center justify-between min-h-[2.5rem]">
-                    <span className="font-modak text-4xl sm:text-5xl text-[#ffb703] leading-none select-none">
+                    <span className="font-modak text-4xl sm:text-5xl text-brand-amber leading-none select-none">
                       {stage.step}
                     </span>
                     <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500">

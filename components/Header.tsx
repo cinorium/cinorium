@@ -179,16 +179,16 @@ export default function Header() {
                 <div
                   role="menu"
                   aria-orientation="vertical"
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-96 transition-all duration-200"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[420px] transition-all duration-200"
                 >
-                  <div className="rounded-2xl border border-gray-800 bg-[#0b131e]/98 backdrop-blur-xl p-3 shadow-2xl space-y-2">
+                  <div className="rounded-2xl border-2 border-[#0b131e] bg-white p-3.5 shadow-xl space-y-3">
                     {/* Primary Marketing Services */}
                     <div>
-                      <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400/90 border-b border-gray-800/80 mb-1 flex items-center justify-between">
+                      <div className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500 border-b border-gray-100 mb-1.5 flex items-center justify-between">
                         <span>Digital Marketing Services</span>
-                        <span className="text-[9px] text-gray-400 font-normal">Core Marketing Services</span>
+                        <span className="text-[9px] text-slate-400 font-mono">Core</span>
                       </div>
-                      <div className="space-y-0.5">
+                      <div className="space-y-1">
                         {primaryMarketingServices.map((item) => {
                           const Icon = item.icon;
                           const isActive = pathname === item.href;
@@ -198,19 +198,20 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${isActive
-                                  ? "bg-amber-400/10 text-white"
-                                  : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
-                                }`}
+                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                                isActive
+                                  ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
+                                  : "text-[#0b131e] hover:bg-[#faf8f5]"
+                              }`}
                             >
-                              <div className="p-1.5 rounded-lg bg-gray-800/80 text-[#ffb703] shrink-0 mt-0.5">
-                                <Icon className="w-3.5 h-3.5" />
+                              <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
+                                <Icon className="w-4 h-4" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <div className="text-xs font-semibold text-white">
+                                <div className="font-heading text-xs font-bold text-[#0b131e]">
                                   {item.name}
                                 </div>
-                                <div className="text-[11px] text-gray-400 leading-tight mt-0.5 font-light">
+                                <div className="text-[11px] text-[#0b131e]/70 leading-relaxed mt-0.5 font-light">
                                   {item.description}
                                 </div>
                               </div>
@@ -221,12 +222,12 @@ export default function Header() {
                     </div>
 
                     {/* Supporting Capabilities */}
-                    <div className="pt-1 border-t border-gray-800/60">
-                      <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-gray-400 border-b border-gray-800/80 mb-1 flex items-center justify-between">
+                    <div className="pt-2 border-t border-gray-100">
+                      <div className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500 border-b border-gray-100 mb-1.5 flex items-center justify-between">
                         <span>Supporting Capabilities</span>
-                        <span className="text-[9px] text-gray-500 font-normal">Engineering &amp; Creative</span>
+                        <span className="text-[9px] text-slate-400 font-mono">Foundation</span>
                       </div>
-                      <div className="space-y-0.5">
+                      <div className="space-y-1">
                         {supportingCapabilities.map((item) => {
                           const Icon = item.icon;
                           const isActive = pathname === item.href;
@@ -236,19 +237,20 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${isActive
-                                  ? "bg-amber-400/10 text-white"
-                                  : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
-                                }`}
+                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                                isActive
+                                  ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
+                                  : "text-[#0b131e] hover:bg-[#faf8f5]"
+                              }`}
                             >
-                              <div className="p-1.5 rounded-lg bg-gray-800/80 text-gray-300 shrink-0 mt-0.5">
-                                <Icon className="w-3.5 h-3.5" />
+                              <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
+                                <Icon className="w-4 h-4" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <div className="text-xs font-medium text-white flex items-center justify-between">
-                                  <span>{item.name}</span>
+                                <div className="font-heading text-xs font-bold text-[#0b131e]">
+                                  {item.name}
                                 </div>
-                                <div className="text-[11px] text-gray-400 leading-tight mt-0.5 font-light">
+                                <div className="text-[11px] text-[#0b131e]/70 leading-relaxed mt-0.5 font-light">
                                   {item.description}
                                 </div>
                               </div>

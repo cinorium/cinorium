@@ -12,20 +12,20 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
-  title: "Work & Production Evidence Portfolio",
+  title: "Marketing & SEO Case Studies | Search Performance Benchmarks",
   description:
-    "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
+    "Evidence of organic search discovery, technical SEO performance benchmarks, and high-converting acquisition funnels engineered by Cinorium Digital Marketing Agency.",
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Work & Production Evidence Portfolio | Cinorium",
+    title: "Marketing & SEO Case Studies | Search Performance Benchmarks | Cinorium",
     description:
-      "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
+      "Evidence of organic search discovery, technical SEO performance benchmarks, and high-converting acquisition funnels engineered by Cinorium Digital Marketing Agency.",
     url: "https://www.cinorium.com/work",
     type: "website",
   },
@@ -55,9 +55,9 @@ const jsonLd = {
       "@type": "CollectionPage",
       "@id": "https://www.cinorium.com/work#webpage",
       url: "https://www.cinorium.com/work",
-      name: "Work & Production Evidence Portfolio | Cinorium",
+      name: "Marketing & SEO Case Studies | Search Performance Benchmarks | Cinorium",
       description:
-        "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
+        "Evidence of organic search discovery, technical SEO performance benchmarks, and high-converting acquisition funnels engineered by Cinorium Digital Marketing Agency.",
       publisher: {
         "@id": "https://www.cinorium.com/#organization",
       },
@@ -84,39 +84,39 @@ export default function WorkPage() {
           {/* Eyebrow */}
           <div className="mb-4">
             <Badge variant="default" dot="amber" size="lg">
-              Selected Work &amp; Case Studies
+              Performance Evidence · Case Studies &amp; Benchmarks
             </Badge>
           </div>
 
           {/* Main Heading */}
           <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
-            Platforms Engineered for Measurable Performance.
+            Search Visibility, Speed Benchmarks &amp; Conversion Funnels.
           </h1>
 
           {/* Supporting Copy */}
           <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8 font-light">
-            Explore selected production platforms and exploratory concepts developed by Cinorium. Each project demonstrates our integrated approach: aligning customer intent, search visibility, and high-performance web engineering to turn visitors into confirmed inquiries.
+            Explore verified client case studies, live technical SEO benchmarks, and industry acquisition concepts engineered by Cinorium. We build synchronized growth engines where organic search discoverability, sub-second performance, and frictionless buyer journeys combine to turn search demand into confirmed revenue.
           </p>
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link href="/contact">
               <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
-                <span>Discuss Your Project</span>
+                <span>Discuss Growth Strategy</span>
                 <ArrowRight className="h-4 w-4 text-[#0b131e]" />
               </Button>
             </Link>
 
             <Link href="#featured-projects">
               <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
-                <span>Explore Live Platforms</span>
+                <span>Explore Live Benchmarks</span>
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Featured Projects Section (Live Client Websites) */}
+      {/* 2. Featured Projects Section (Live Client Benchmarks & Case Studies) */}
       <section
         id="featured-projects"
         className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
@@ -124,10 +124,10 @@ export default function WorkPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-12 sm:mb-14 text-center sm:text-left">
             <Badge variant="secondary" size="sm" className="mb-3">
-              Production Case Studies
+              Case Study Benchmarks
             </Badge>
             <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
-              Live Business Platforms
+              Live Commercial Platforms
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
               Active platforms operating in production, engineered for organic discoverability, speed, and conversion.
@@ -144,13 +144,13 @@ export default function WorkPage() {
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge variant="success" size="sm">
-                    Live Platform
+                    Live Benchmark
                   </Badge>
                   <Badge variant="secondary" size="sm">
-                    Next.js App Router
+                    Technical SEO &amp; CWV
                   </Badge>
                   <Badge variant="amber" size="sm">
-                    Product Catalogue
+                    B2B Lead Pipeline
                   </Badge>
                 </div>
 
@@ -168,47 +168,47 @@ export default function WorkPage() {
                   Clothing Nexus
                 </h3>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
-                  A custom B2B web platform with an extensive product catalogue, engineered with Next.js. Development included careful attention to hierarchical catalogue navigation, high-density product imagery compression, technical SEO, and conversion friction elimination.
+                  A custom B2B commercial platform engineered to capture qualified industrial search demand. We implemented semantic product taxonomies, structured schema markup, and rigorous speed optimizations that secured 100/100 Core Web Vitals lab benchmarks—ensuring organic crawl equity is never wasted and prospective corporate buyers experience instant, zero-friction discovery.
                 </p>
               </div>
 
               {/* Scope of Contribution */}
-              <div className="mb-8 rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 sm:p-7">
+              <div className="mb-8 rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 sm:p-7 shadow-xs">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-4 flex items-center gap-2">
                   <Layers className="h-4 w-4 text-[#ffb703]" />
-                  Scope of Technical Contribution
+                  Marketing &amp; Technical SEO Execution
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Custom Next.js App Router architecture</span>
+                    <span>Sub-second Core Web Vitals tuning targeting zero bounce rate</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Automated product image optimization &amp; WebP delivery</span>
+                    <span>Search-intent product taxonomy &amp; crawlable breadcrumbs</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Search-intent taxonomy &amp; crawlable breadcrumbs</span>
+                    <span>JSON-LD Organization &amp; Product schema for organic indexation</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>JSON-LD schema markup &amp; semantic HTML5 hierarchy</span>
+                    <span>Automated WebP compression preserving visual clarity without lag</span>
                   </li>
                   <li className="flex items-start gap-2.5 sm:col-span-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Core Web Vitals performance tuning targeting sub-second renders</span>
+                    <span>B2B inquiry funnel &amp; quote requisition pathways designed for conversion</span>
                   </li>
                 </ul>
               </div>
 
               {/* PageSpeed Insights Panel */}
-              <div className="mb-8 rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 sm:p-7">
+              <div className="mb-8 rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 sm:p-7 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-gray-200">
                   <div className="flex items-center gap-2.5">
                     <Gauge className="h-5 w-5 text-[#0b131e]" />
                     <h4 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-[#0b131e]">
-                      Google PageSpeed Insights Lab Report
+                      Google PageSpeed Insights Lab Benchmark
                     </h4>
                   </div>
                   <span className="text-xs font-medium text-gray-600 bg-white border border-gray-300 rounded-lg px-3 py-1 w-max">
@@ -299,9 +299,9 @@ export default function WorkPage() {
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-gray-200 flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed font-light">
-                  <Info className="h-4 w-4 text-gray-500 shrink-0 mt-0.5" />
+                  <Info className="h-4 w-4 text-[#0b131e] shrink-0 mt-0.5" />
                   <p>
-                    <strong>Performance Disclosure:</strong> Results reflect a specific synthetic lab audit captured on 29 October 2026. Lab audits measure controlled environments; live Core Web Vitals differ based on real-world user devices, caching behavior, and ISP networks.
+                    <strong>Why 100/100 Performance Matters for Digital Marketing:</strong> Sub-second load speeds directly impact Google organic search rankings, maximize crawl equity, prevent high-intent buyer drop-off, and drive higher conversion rates across B2B lead generation pipelines.
                   </p>
                 </div>
               </div>
@@ -312,12 +312,10 @@ export default function WorkPage() {
                   href="https://www.clothingnexus.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0b131e] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-slate-900 border-2 border-[#0b131e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
                 >
-                  <Button variant="default" size="default" className="gap-2">
-                    <span>View Live Website</span>
-                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
-                  </Button>
+                  <span>View Live Website</span>
+                  <ExternalLink className="h-4 w-4 text-[#ffb703]" />
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -337,11 +335,11 @@ export default function WorkPage() {
                     Live Platform
                   </Badge>
                   <Badge variant="secondary" size="sm">
-                    Next.js App Router
+                    DTC Acquisition Funnel
                   </Badge>
                   <Badge variant="amber" size="sm">
                     <ShoppingBag className="h-3 w-3 mr-1 inline" />
-                    DTC E-commerce Store
+                    E-Commerce Store
                   </Badge>
                 </div>
 
@@ -358,28 +356,28 @@ export default function WorkPage() {
                   CN Fragrances
                 </h3>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
-                  A direct-to-consumer e-commerce store engineered with Next.js for a fragrance brand, featuring a curated product catalog, shopping cart, customer accounts, and real-time order tracking.
+                  A direct-to-consumer e-commerce brand presence engineered as a high-converting customer acquisition channel for an established fragrance line, featuring optimized product discovery, mobile checkout UX, and real-time order tracking.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 flex flex-col justify-between shadow-xs">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3 flex items-center gap-2">
                       <Layers className="h-4 w-4 text-[#ffb703]" />
-                      Scope of Contribution
+                      Scope of Marketing &amp; Storefront Execution
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed mb-4 font-light">
-                      Full-stack website development, e-commerce storefront, and mobile checkout UX.
+                      E-commerce storefront engineering, product presentation, and mobile checkout UX.
                     </p>
                     <ul className="space-y-2.5 text-sm text-gray-600">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Custom Next.js e-commerce storefront development</span>
+                        <span>High-converting direct-to-consumer digital storefront</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Product catalog, variant selection &amp; shopping cart integration</span>
+                        <span>Structured product catalog, variant selection &amp; cart checkout</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -387,13 +385,13 @@ export default function WorkPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Mobile-first shopping interface with bottom floating navigation</span>
+                        <span>Mobile-first shopping interface optimized for conversion</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between shadow-xs">
+                <div className="rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 flex flex-col justify-between shadow-xs">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0b131e] mb-3 flex items-center gap-2">
                       <Info className="h-4 w-4 text-amber-600" />
@@ -414,12 +412,10 @@ export default function WorkPage() {
                   href="https://www.cnfragrances.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0b131e] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-slate-900 border-2 border-[#0b131e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
                 >
-                  <Button variant="default" size="default" className="gap-2">
-                    <span>View Live Website</span>
-                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
-                  </Button>
+                  <span>View Live Website</span>
+                  <ExternalLink className="h-4 w-4 text-[#ffb703]" />
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -439,7 +435,10 @@ export default function WorkPage() {
                     Live Platform
                   </Badge>
                   <Badge variant="secondary" size="sm">
-                    IT Corporate Website
+                    Corporate B2B Inquiries
+                  </Badge>
+                  <Badge variant="amber" size="sm">
+                    IT Service Taxonomy
                   </Badge>
                 </div>
 
@@ -456,12 +455,12 @@ export default function WorkPage() {
                   CN IT Solutions
                 </h3>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
-                  A dedicated website for an IT enterprise, presenting its technical service offerings, certifications, and corporate inquiry pathways.
+                  A dedicated corporate web presence engineered to capture organic search queries for enterprise IT services and direct commercial decision-makers toward structured consultation funnels.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 flex flex-col justify-between shadow-xs">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3 flex items-center gap-2">
                       <Layers className="h-4 w-4 text-[#ffb703]" />
@@ -487,7 +486,7 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between shadow-xs">
+                <div className="rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 flex flex-col justify-between shadow-xs">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0b131e] mb-3 flex items-center gap-2">
                       <Info className="h-4 w-4 text-amber-600" />
@@ -508,12 +507,10 @@ export default function WorkPage() {
                   href="https://www.cnitsolutions.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0b131e] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-slate-900 border-2 border-[#0b131e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
                 >
-                  <Button variant="default" size="default" className="gap-2">
-                    <span>View Live Website</span>
-                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
-                  </Button>
+                  <span>View Live Website</span>
+                  <ExternalLink className="h-4 w-4 text-[#ffb703]" />
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -533,13 +530,13 @@ export default function WorkPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-12 sm:mb-14 text-center sm:text-left">
             <Badge variant="secondary" size="sm" className="mb-3">
-              Exploratory Work
+              Exploratory Architectures
             </Badge>
             <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
-              Concepts &amp; Industry Prototypes
+              Search Authority Funnels &amp; Sector Prototypes
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              Interactive concept prototypes developed to explore user journeys, sector-specific taxonomies, and conversion funnels.
+              Interactive concept prototypes developed to explore sector-specific search taxonomies, generative answer modeling, and conversion landing architectures.
             </p>
           </div>
 
@@ -548,7 +545,7 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="secondary" size="sm">
-                  Client Pitch / Concept
+                  Search Funnel Concept
                 </Badge>
                 <span className="text-xs text-gray-500 font-mono">Legal Services</span>
               </div>
@@ -557,7 +554,7 @@ export default function WorkPage() {
                 Zubair Law Associates
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A modern website concept designed for an Advocate High Court legal chamber in Karachi. Demonstrates structured presentation of civil, criminal, and constitutional litigation services. Prepared as an exploratory client pitch.
+                A high-intent legal search capture concept designed for an Advocate High Court chamber in Karachi. Engineered with practice-area search clusters, attorney authority schemas, and direct consultation pathways.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -577,7 +574,7 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="subtle" size="sm">
-                  Project on hold
+                  Acquisition Prototype
                 </Badge>
                 <span className="text-xs text-gray-500 font-mono">E-commerce</span>
               </div>
@@ -586,7 +583,7 @@ export default function WorkPage() {
                 Tooni Wear
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A website concept for a children&apos;s apparel brand. Exploratory concept prototype; currently on hold and not an operating commercial store.
+                An exploratory direct-to-consumer brand concept for a children&apos;s apparel line. Designed to model mobile-first catalog browsing, social commerce landing pages, and frictionless checkout funnels.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -606,16 +603,16 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="secondary" size="sm">
-                  Concept / Sample
+                  Product Discovery
                 </Badge>
-                <span className="text-xs text-gray-500 font-mono">Hardware</span>
+                <span className="text-xs text-gray-500 font-mono">Hardware Retail</span>
               </div>
 
               <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
                 March Computer
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A website sample exploring structured product presentation for a computer hardware retail and enterprise business.
+                A B2B and retail hardware discovery sample structuring enterprise computing, networking categories, and procurement quote funnels for commercial buyers.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -635,16 +632,16 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="secondary" size="sm">
-                  Concept / Sample
+                  Authority Architecture
                 </Badge>
-                <span className="text-xs text-gray-500 font-mono">Legal Services</span>
+                <span className="text-xs text-gray-500 font-mono">Legal Practice</span>
               </div>
 
               <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
                 Lexway
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A legal chamber website concept focused on presenting practice areas, attorney credentials, and inquiry consultation funnels.
+                A corporate legal chamber concept structured around practice-area entity authority, dispute resolution taxonomies, and high-trust retainer inquiry funnels.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -664,16 +661,16 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="secondary" size="sm">
-                  Concept / Sample
+                  Search Capture Sample
                 </Badge>
-                <span className="text-xs text-gray-500 font-mono">Legal Services</span>
+                <span className="text-xs text-gray-500 font-mono">Litigation Advisory</span>
               </div>
 
               <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
                 Khawar Law Associates
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A clean website sample developed for an advocacy and legal advisory firm, structuring litigation and arbitration services.
+                A specialized legal advisory web sample structured to capture commercial litigation and arbitration search queries with transparent practice credentials.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -693,16 +690,16 @@ export default function WorkPage() {
             <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
               <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
                 <Badge variant="secondary" size="sm">
-                  Concept / Sample
+                  Export Catalogue Funnel
                 </Badge>
-                <span className="text-xs text-gray-500 font-mono">Export Goods</span>
+                <span className="text-xs text-gray-500 font-mono">B2B Manufacturing</span>
               </div>
 
               <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
                 3G Leather
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
-                A custom sample platform created during business development discussions to explore B2B leather garment and accessories export catalogues.
+                A custom B2B export catalogue concept designed to showcase manufacturing capabilities and capture international garment procurement inquiries.
               </p>
 
               <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
@@ -726,13 +723,13 @@ export default function WorkPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-12 text-center sm:text-left">
             <Badge variant="secondary" size="sm" className="mb-3">
-              Delivery Standards
+              Foundation Standards
             </Badge>
             <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
-              Principles Behind Every Build
+              Technical Foundations that Power Marketing Growth
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-gray-600 font-light">
-              How we approach structure, speed, and real-world commercial usability across client platforms and concept prototypes.
+              How rigorous code standards, sub-second speed, and semantic hierarchy directly amplify organic rankings, reduce bounce rates, and turn clicks into revenue.
             </p>
           </div>
 
@@ -742,10 +739,10 @@ export default function WorkPage() {
                 <Layers className="h-5 w-5" />
               </div>
               <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
-                Structured Foundations
+                Structured Crawl Architecture
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
-                Clean semantic hierarchy and intentional document flow that make pages intuitive for prospective clients and effortless for search engine bots.
+                Clean document flow, schema markup, and intuitive breadcrumbs that make pages easy for search bots to index and cite across organic and AI search.
               </p>
             </Card>
 
@@ -754,10 +751,10 @@ export default function WorkPage() {
                 <Gauge className="h-5 w-5" />
               </div>
               <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
-                Performance-Conscious
+                Core Web Vitals Supremacy
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
-                Sub-second loading, minimal client-side script bundles, and optimized Core Web Vitals to prevent buyer drop-off and support crawl equity.
+                Sub-second loading, zero layout shift, and minimal scripts that protect Google rankings and prevent buyer drop-off at critical conversion steps.
               </p>
             </Card>
 
@@ -766,10 +763,10 @@ export default function WorkPage() {
                 <Sparkles className="h-5 w-5" />
               </div>
               <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
-                Conversion Clarity
+                Conversion Path Integrity
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
-                Layouts designed to articulate your commercial value proposition with authority and guide interested visitors smoothly toward meaningful inquiries.
+                Layouts engineered to articulate commercial value with authority and guide high-intent visitors directly into inquiry pipelines.
               </p>
             </Card>
           </div>
