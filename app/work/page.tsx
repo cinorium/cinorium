@@ -243,7 +243,7 @@ export default function WorkPage() {
                       </span>
                       <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
-                    <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-amber-900 bg-amber-50 rounded-full px-2 py-0.5 mt-1">
+                    <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-amber-900 bg-[#faf8f5] border border-amber-200/60 rounded-full px-2 py-0.5 mt-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703]" />
                       Mobile Lab
                     </span>
@@ -393,17 +393,17 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between shadow-xs">
                   <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-900 mb-3 flex items-center gap-2">
-                      <Info className="h-4 w-4 text-amber-700" />
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0b131e] mb-3 flex items-center gap-2">
+                      <Info className="h-4 w-4 text-amber-600" />
                       Project Context &amp; Group Affiliation
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed font-light">
                       Developed as a dedicated online retail venture associated with the Clothing Nexus company group. Built to provide a direct-to-consumer digital shopping channel for the brand&apos;s fragrance line.
                     </p>
                   </div>
-                  <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-amber-200/60 pt-3">
+                  <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-black/10 pt-3">
                     Presented as an independent live e-commerce platform within the broader Clothing Nexus group portfolio.
                   </p>
                 </div>
@@ -487,17 +487,17 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between shadow-xs">
                   <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-900 mb-3 flex items-center gap-2">
-                      <Info className="h-4 w-4 text-amber-700" />
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0b131e] mb-3 flex items-center gap-2">
+                      <Info className="h-4 w-4 text-amber-600" />
                       Project Context &amp; Group Affiliation
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed font-light">
                       Developed for an affiliate enterprise related to the same corporate group as Clothing Nexus to establish an authoritative online footprint for its IT consulting vertical.
                     </p>
                   </div>
-                  <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-amber-200/60 pt-3">
+                  <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-black/10 pt-3">
                     Presented transparently as an affiliated engagement focused on website implementation and corporate presence.
                   </p>
                 </div>
@@ -543,26 +543,24 @@ export default function WorkPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Project 4: Zubair Law Associates */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="secondary" size="sm">
-                    Client Pitch / Concept
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  Zubair Law Associates
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A modern website concept designed for an Advocate High Court legal chamber in Karachi. Demonstrates structured presentation of civil, criminal, and constitutional litigation services. Prepared as an exploratory client pitch.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="secondary" size="sm">
+                  Client Pitch / Concept
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">Legal Services</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                Zubair Law Associates
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A modern website concept designed for an Advocate High Court legal chamber in Karachi. Demonstrates structured presentation of civil, criminal, and constitutional litigation services. Prepared as an exploratory client pitch.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://zubair-law-associates.vercel.app/"
                   target="_blank"
@@ -576,24 +574,22 @@ export default function WorkPage() {
             </Card>
 
             {/* Project 5: Tooni Wear */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="subtle" size="sm">
-                    Project on hold
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">E-commerce</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  Tooni Wear
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A website concept for a children&apos;s apparel brand. Exploratory concept prototype; currently on hold and not an operating commercial store.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="subtle" size="sm">
+                  Project on hold
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">E-commerce</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                Tooni Wear
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A website concept for a children&apos;s apparel brand. Exploratory concept prototype; currently on hold and not an operating commercial store.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://tooniwear.vercel.app/"
                   target="_blank"
@@ -607,24 +603,22 @@ export default function WorkPage() {
             </Card>
 
             {/* Project 6: March Computer */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="secondary" size="sm">
-                    Concept / Sample
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">Hardware</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  March Computer
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A website sample exploring structured product presentation for a computer hardware retail and enterprise business.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="secondary" size="sm">
+                  Concept / Sample
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">Hardware</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                March Computer
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A website sample exploring structured product presentation for a computer hardware retail and enterprise business.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://cinorium.github.io/march/"
                   target="_blank"
@@ -638,24 +632,22 @@ export default function WorkPage() {
             </Card>
 
             {/* Project 7: Lexway */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="secondary" size="sm">
-                    Concept / Sample
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  Lexway
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A legal chamber website concept focused on presenting practice areas, attorney credentials, and inquiry consultation funnels.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="secondary" size="sm">
+                  Concept / Sample
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">Legal Services</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                Lexway
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A legal chamber website concept focused on presenting practice areas, attorney credentials, and inquiry consultation funnels.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://cinorium.github.io/Lexway/"
                   target="_blank"
@@ -669,24 +661,22 @@ export default function WorkPage() {
             </Card>
 
             {/* Project 8: Khawar Law Associates */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="secondary" size="sm">
-                    Concept / Sample
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  Khawar Law Associates
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A clean website sample developed for an advocacy and legal advisory firm, structuring litigation and arbitration services.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="secondary" size="sm">
+                  Concept / Sample
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">Legal Services</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                Khawar Law Associates
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A clean website sample developed for an advocacy and legal advisory firm, structuring litigation and arbitration services.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://cinorium.github.io/khawar/"
                   target="_blank"
@@ -700,24 +690,22 @@ export default function WorkPage() {
             </Card>
 
             {/* Project 9: 3G Leather */}
-            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="secondary" size="sm">
-                    Concept / Sample
-                  </Badge>
-                  <span className="text-xs text-gray-500 font-mono">Export Goods</span>
-                </div>
-
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
-                  3G Leather
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A custom sample platform created during business development discussions to explore B2B leather garment and accessories export catalogues.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col h-full">
+              <div className="flex items-center justify-between gap-2 mb-4 min-h-[1.75rem]">
+                <Badge variant="secondary" size="sm">
+                  Concept / Sample
+                </Badge>
+                <span className="text-xs text-gray-500 font-mono">Export Goods</span>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 mt-auto">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5 min-h-[3.5rem] flex items-center">
+                3G Leather
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light flex-grow">
+                A custom sample platform created during business development discussions to explore B2B leather garment and accessories export catalogues.
+              </p>
+
+              <div className="mt-auto pt-6 border-t border-[#0b131e]/5">
                 <a
                   href="https://cinorium.github.io/3gleather/"
                   target="_blank"
@@ -749,46 +737,40 @@ export default function WorkPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
-              <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
-                  <Layers className="h-5 w-5" />
-                </div>
-                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
-                  Structured Foundations
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                  Clean semantic hierarchy and intentional document flow that make pages intuitive for prospective clients and effortless for search engine bots.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white flex flex-col h-full">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                <Layers className="h-5 w-5" />
               </div>
+              <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
+                Structured Foundations
+              </h3>
+              <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                Clean semantic hierarchy and intentional document flow that make pages intuitive for prospective clients and effortless for search engine bots.
+              </p>
             </Card>
 
-            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
-              <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
-                  <Gauge className="h-5 w-5" />
-                </div>
-                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
-                  Performance-Conscious
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                  Sub-second loading, minimal client-side script bundles, and optimized Core Web Vitals to prevent buyer drop-off and support crawl equity.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white flex flex-col h-full">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                <Gauge className="h-5 w-5" />
               </div>
+              <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
+                Performance-Conscious
+              </h3>
+              <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                Sub-second loading, minimal client-side script bundles, and optimized Core Web Vitals to prevent buyer drop-off and support crawl equity.
+              </p>
             </Card>
 
-            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
-              <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
-                  Conversion Clarity
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                  Layouts designed to articulate your commercial value proposition with authority and guide interested visitors smoothly toward meaningful inquiries.
-                </p>
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white flex flex-col h-full">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                <Sparkles className="h-5 w-5" />
               </div>
+              <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2 min-h-[2.5rem] flex items-center">
+                Conversion Clarity
+              </h3>
+              <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                Layouts designed to articulate your commercial value proposition with authority and guide interested visitors smoothly toward meaningful inquiries.
+              </p>
             </Card>
           </div>
         </div>

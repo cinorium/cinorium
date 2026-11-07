@@ -85,7 +85,7 @@ const primaryServices = [
     description:
       "Traffic without commercial intent is an expensive vanity metric. We design cohesive marketing systems that connect audience discovery, content relevance, and conversion pathways to drive predictable business growth.",
     icon: TrendingUp,
-    badgeText: "Core Agency Service",
+    badgeText: "Customer Acquisition",
     actionHref: "/contact",
     actionText: "Discuss Marketing Strategy",
     deliverables: [
@@ -115,7 +115,7 @@ const primaryServices = [
     description:
       "Modern search visibility requires more than inserting keywords. We align technical crawlability, semantic site hierarchy, and comprehensive topic coverage so search engines understand and prioritize your offerings.",
     icon: Search,
-    badgeText: "Core Agency Service",
+    badgeText: "Organic Visibility",
     actionHref: "/seo-services",
     actionText: "Explore Dedicated SEO Services",
     deliverables: [
@@ -145,7 +145,7 @@ const primaryServices = [
     description:
       "As prospective buyers query AI platforms like Perplexity, ChatGPT, and Google AI Overviews, businesses need structured factual footprints. We organize your digital entities and content clarity for generative discovery.",
     icon: Sparkles,
-    badgeText: "Evolving Capability",
+    badgeText: "Generative Reach",
     actionHref: "/contact",
     actionText: "Discuss AI Search Discovery",
     deliverables: [
@@ -174,7 +174,7 @@ const supportingCapabilities = [
   {
     id: "web-development-optimization",
     title: "Web Development & Technical Optimization",
-    badgeText: "Supporting Technical Capability",
+    badgeText: "Conversion Engine",
     tagline: "High-performance web architecture engineered as the foundation for marketing conversions.",
     description:
       "A slow or fragile website sabotages marketing campaigns before they have a chance to convert. We engineer fast, semantic Next.js and modern websites that load instantly, score high in Core Web Vitals, and provide a seamless mobile journey.",
@@ -192,7 +192,7 @@ const supportingCapabilities = [
   {
     id: "visual-communication",
     title: "Graphic Design & Visual Communication",
-    badgeText: "Supporting Creative Capability",
+    badgeText: "Brand Identity & UX",
     tagline: "Distinctive visual systems that establish immediate credibility and elevate marketing touchpoints.",
     description:
       "Visual communication is the silent salesman of your brand. We design professional marketing assets, brand identities, and commercial layouts that reinforce credibility and make complex business offerings instantly understandable.",
@@ -376,23 +376,21 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {strategicFramework.map((item) => (
-              <Card key={item.step} variant="tactile" className="p-6">
-                <div>
-                  <span className="font-modak text-3xl sm:text-4xl text-[#ffb703] block mb-1">
-                    {item.step}
-                  </span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-1">
-                    {item.phase}
-                  </span>
-                  <h3 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed font-light">
-                    {item.description}
-                  </p>
-                </div>
+              <Card key={item.step} variant="tactile" className="p-6 flex flex-col h-full">
+                <span className="font-modak text-3xl sm:text-4xl text-slate-500 block mb-1">
+                  {item.step}
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-1">
+                  {item.phase}
+                </span>
+                <h3 className="font-heading text-lg font-bold tracking-tight text-gray-900 mb-2 min-h-[3rem] flex items-center">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-light flex-grow">
+                  {item.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -407,7 +405,7 @@ export default function ServicesPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-14 sm:mb-18">
             <Badge variant="default" dot="amber" size="default" className="mb-3">
-              Primary Agency Focus
+              Customer Acquisition &amp; Growth
             </Badge>
             <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
               Core Digital Marketing Services
@@ -430,7 +428,7 @@ export default function ServicesPage() {
                   {/* Top Bar: Number, Badge, Title & Icon */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-100 mb-8">
                     <div className="flex items-center gap-4">
-                      <span className="font-modak text-3xl sm:text-4xl text-[#ffb703]">
+                      <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                         {service.number}
                       </span>
                       <div>
@@ -530,7 +528,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {supportingCapabilities.map((capability) => {
               const Icon = capability.icon;
               return (
@@ -538,10 +536,10 @@ export default function ServicesPage() {
                   key={capability.id}
                   id={capability.id}
                   variant="tactile"
-                  className="p-6 sm:p-8"
+                  className="p-6 sm:p-8 flex flex-col h-full"
                 >
                   <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-4 min-h-[2.75rem]">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                         <Icon className="h-5 w-5" />
                       </div>
@@ -549,7 +547,7 @@ export default function ServicesPage() {
                         {capability.badgeText}
                       </Badge>
                     </div>
-                    <CardTitle className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                    <CardTitle className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-2 min-h-[3.5rem] flex items-center">
                       {capability.title}
                     </CardTitle>
                     <p className="text-sm font-medium text-gray-900 mb-2">
@@ -560,8 +558,8 @@ export default function ServicesPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="p-0 mb-6">
-                    <div className="rounded-xl border border-gray-200 bg-[#fdfbf7] p-4">
+                  <CardContent className="p-0 mb-6 flex-grow">
+                    <div className="rounded-xl border border-gray-200 bg-[#fdfbf7] p-4 h-full">
                       <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-3">
                         Key Deliverables
                       </span>
@@ -576,7 +574,7 @@ export default function ServicesPage() {
                     </div>
                   </CardContent>
 
-                  <CardFooter className="p-0 border-t border-gray-100 pt-4">
+                  <CardFooter className="p-0 border-t border-[#0b131e]/5 pt-6 mt-auto">
                     <Link href={capability.actionHref} className="w-full">
                       <Button variant="slateOutline" size="default" className="w-full gap-2">
                         <span>{capability.actionText}</span>

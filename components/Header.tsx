@@ -60,7 +60,7 @@ const supportingCapabilities = [
     href: "/web-development",
     description: "High-performance websites engineered to power marketing conversions.",
     icon: Code2,
-    badge: "Supporting Foundation",
+    badge: "Conversion Engine",
   },
   {
     name: "Graphic Design & Visual Communication",
@@ -152,11 +152,10 @@ export default function Header() {
               <div className="flex items-center gap-1">
                 <Link
                   href="/services"
-                  className={`transition-colors duration-200 ${
-                    isLinkActive("/services")
+                  className={`transition-colors duration-200 ${isLinkActive("/services")
                       ? "text-[#ffb703] font-semibold"
                       : "hover:text-white text-gray-300"
-                  }`}
+                    }`}
                 >
                   Services
                 </Link>
@@ -169,9 +168,8 @@ export default function Header() {
                   className="text-gray-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 p-0.5 rounded cursor-pointer"
                 >
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      servicesOpen ? "rotate-180 text-[#ffb703]" : ""
-                    }`}
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180 text-[#ffb703]" : ""
+                      }`}
                   />
                 </button>
               </div>
@@ -188,7 +186,7 @@ export default function Header() {
                     <div>
                       <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400/90 border-b border-gray-800/80 mb-1 flex items-center justify-between">
                         <span>Digital Marketing Services</span>
-                        <span className="text-[9px] text-gray-400 font-normal">Primary Agency Focus</span>
+                        <span className="text-[9px] text-gray-400 font-normal">Core Marketing Services</span>
                       </div>
                       <div className="space-y-0.5">
                         {primaryMarketingServices.map((item) => {
@@ -200,11 +198,10 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${
-                                isActive
+                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${isActive
                                   ? "bg-amber-400/10 text-white"
                                   : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
-                              }`}
+                                }`}
                             >
                               <div className="p-1.5 rounded-lg bg-gray-800/80 text-[#ffb703] shrink-0 mt-0.5">
                                 <Icon className="w-3.5 h-3.5" />
@@ -239,11 +236,10 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${
-                                isActive
+                              className={`flex items-start gap-2.5 p-2 rounded-xl transition-colors ${isActive
                                   ? "bg-amber-400/10 text-white"
                                   : "text-gray-300 hover:bg-gray-800/60 hover:text-white"
-                              }`}
+                                }`}
                             >
                               <div className="p-1.5 rounded-lg bg-gray-800/80 text-gray-300 shrink-0 mt-0.5">
                                 <Icon className="w-3.5 h-3.5" />
@@ -269,11 +265,10 @@ export default function Header() {
             {/* 2. About */}
             <Link
               href="/about"
-              className={`transition-colors duration-200 ${
-                isLinkActive("/about")
+              className={`transition-colors duration-200 ${isLinkActive("/about")
                   ? "text-[#ffb703] font-semibold"
                   : "hover:text-white text-gray-300"
-              }`}
+                }`}
             >
               About
             </Link>
@@ -281,11 +276,10 @@ export default function Header() {
             {/* 3. Work */}
             <Link
               href="/work"
-              className={`transition-colors duration-200 ${
-                isLinkActive("/work")
+              className={`transition-colors duration-200 ${isLinkActive("/work")
                   ? "text-[#ffb703] font-semibold"
                   : "hover:text-white text-gray-300"
-              }`}
+                }`}
             >
               Work
             </Link>
@@ -293,11 +287,10 @@ export default function Header() {
             {/* 4. Journal */}
             <Link
               href="/journal"
-              className={`transition-colors duration-200 ${
-                isLinkActive("/journal")
+              className={`transition-colors duration-200 ${isLinkActive("/journal")
                   ? "text-[#ffb703] font-semibold"
                   : "hover:text-white text-gray-300"
-              }`}
+                }`}
             >
               Journal
             </Link>
@@ -366,9 +359,8 @@ export default function Header() {
                     Services
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      mobileServicesAccordion ? "rotate-180 text-[#ffb703]" : "text-gray-400"
-                    }`}
+                    className={`w-4 h-4 transition-transform ${mobileServicesAccordion ? "rotate-180 text-[#ffb703]" : "text-gray-400"
+                      }`}
                   />
                 </button>
 
@@ -409,9 +401,8 @@ export default function Header() {
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${
-                  isLinkActive("/about") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                }`}
+                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/about") ? "text-[#ffb703] font-semibold" : "text-gray-200"
+                  }`}
               >
                 About
               </Link>
@@ -420,9 +411,8 @@ export default function Header() {
               <Link
                 href="/work"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${
-                  isLinkActive("/work") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                }`}
+                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/work") ? "text-[#ffb703] font-semibold" : "text-gray-200"
+                  }`}
               >
                 Work
               </Link>
@@ -431,9 +421,8 @@ export default function Header() {
               <Link
                 href="/journal"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${
-                  isLinkActive("/journal") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                }`}
+                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/journal") ? "text-[#ffb703] font-semibold" : "text-gray-200"
+                  }`}
               >
                 Journal
               </Link>

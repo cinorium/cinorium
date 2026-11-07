@@ -72,9 +72,9 @@ export default function IntegratedApproach() {
           {solutions.map((item) => {
             const Icon = item.icon;
             return (
-              <Card key={item.num} variant="tactile" className="p-7 sm:p-8">
+              <Card key={item.num} variant="tactile" className="p-7 sm:p-8 flex flex-col h-full">
                 <CardHeader className="p-0 pb-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between min-h-[2.5rem]">
                     <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                       {item.num}
                     </span>
@@ -83,8 +83,8 @@ export default function IntegratedApproach() {
                     </Badge>
                   </div>
 
-                  <div className="flex items-center gap-3 mt-4">
-                    <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e]">
+                  <div className="flex items-center gap-3 mt-4 min-h-[3.5rem]">
+                    <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <CardTitle className="text-xl sm:text-2xl text-[#0b131e]">
@@ -93,13 +93,13 @@ export default function IntegratedApproach() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex-grow">
                   <CardDescription className="text-sm sm:text-base leading-relaxed text-gray-600 font-light mb-4">
                     {item.description}
                   </CardDescription>
                 </CardContent>
 
-                <CardFooter className="p-0 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <CardFooter className="p-0 mt-auto pt-6 border-t border-[#0b131e]/5 flex items-center justify-between">
                   <Link href={item.href} className="w-full">
                     <Button
                       variant="slateOutline"

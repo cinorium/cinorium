@@ -433,20 +433,18 @@ export default function WebDevelopmentPage() {
             </p>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {processSteps.map((step) => (
-              <Card key={step.number} variant="tactile" className="p-6">
-                <div>
-                  <span className="font-modak text-3xl text-[#ffb703] block mb-2">
-                    {step.number}
-                  </span>
-                  <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                    {step.description}
-                  </p>
-                </div>
+              <Card key={step.number} variant="tactile" className="p-6 flex flex-col h-full">
+                <span className="font-modak text-3xl text-slate-500 block mb-2">
+                  {step.number}
+                </span>
+                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900 min-h-[3rem] flex items-center">
+                  {step.title}
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                  {step.description}
+                </p>
               </Card>
             ))}
           </div>

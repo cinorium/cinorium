@@ -51,20 +51,20 @@ export default function BusinessChallenges() {
         {/* 3 Tactile Cards Grid with Strictly Baseline-Aligned Footers */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {challenges.map((item) => (
-            <Card key={item.step} variant="tactile" className="p-7">
+            <Card key={item.step} variant="tactile" className="p-7 flex flex-col h-full">
               <CardHeader className="p-0 pb-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-modak text-5xl sm:text-6xl text-[#ffb703] leading-none select-none">
+                <div className="flex items-center justify-between min-h-[3.5rem]">
+                  <span className="font-modak text-5xl sm:text-6xl text-slate-500 leading-none select-none">
                     {item.step}
                   </span>
                   <Badge variant="secondary">{item.tag}</Badge>
                 </div>
-                <CardTitle className="text-xl sm:text-2xl mt-3 text-[#0b131e]">
+                <CardTitle className="text-xl sm:text-2xl mt-3 text-[#0b131e] min-h-[3.5rem] flex items-center">
                   {item.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="p-0">
+              <CardContent className="p-0 flex-grow">
                 <CardDescription className="text-sm leading-relaxed text-gray-600 mb-3 font-light">
                   {item.description}
                 </CardDescription>
@@ -74,7 +74,7 @@ export default function BusinessChallenges() {
                 </div>
               </CardContent>
 
-              <CardFooter className="p-0 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <CardFooter className="p-0 mt-auto pt-6 border-t border-[#0b131e]/5 flex items-center justify-between">
                 <span className="text-xs text-gray-400 font-mono">
                   Challenge 0{item.step}
                 </span>

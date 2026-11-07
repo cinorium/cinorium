@@ -560,20 +560,18 @@ export default function SeoServicesPage() {
             </p>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {processSteps.map((step) => (
-              <Card key={step.number} variant="tactile" className="p-6 bg-white">
-                <div>
-                  <span className="font-modak text-3xl text-[#ffb703] block mb-2">
-                    {step.number}
-                  </span>
-                  <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                    {step.description}
-                  </p>
-                </div>
+              <Card key={step.number} variant="tactile" className="p-6 bg-white flex flex-col h-full">
+                <span className="font-modak text-3xl text-slate-500 block mb-2">
+                  {step.number}
+                </span>
+                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900 min-h-[3rem] flex items-center">
+                  {step.title}
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                  {step.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -596,7 +594,7 @@ export default function SeoServicesPage() {
         <div className={inner}>
           <div className="mb-10 sm:mb-12 max-w-3xl">
             <Badge variant="secondary" size="sm" className="mb-3">
-              Supporting Foundation
+              Conversion Engine
             </Badge>
             <h2
               id="seo-web-dev-heading"
@@ -609,17 +607,17 @@ export default function SeoServicesPage() {
             </p>
           </div>
 
-          <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 items-stretch">
             {webFoundations.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.title} variant="tactile" className="p-6">
-                  <div className="flex items-start gap-4">
+                <Card key={item.title} variant="tactile" className="p-6 flex flex-col h-full">
+                  <div className="flex items-start gap-4 flex-grow">
                     <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="mb-1.5 font-heading text-lg font-bold text-gray-900">
+                      <h3 className="mb-1.5 font-heading text-lg font-bold text-gray-900 min-h-[2.5rem] flex items-center">
                         {item.title}
                       </h3>
                       <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">

@@ -96,7 +96,7 @@ const principles = [
 const capabilities = [
   {
     number: "01",
-    tier: "Primary Agency Focus",
+    tier: "Customer Acquisition",
     title: "Digital Marketing Strategy",
     description:
       "Outcome-driven customer acquisition campaigns designed to generate qualified business enquiries and predictable revenue pipeline.",
@@ -111,7 +111,7 @@ const capabilities = [
   },
   {
     number: "02",
-    tier: "Primary Agency Focus",
+    tier: "Organic Visibility",
     title: "Search Visibility & SEO",
     description:
       "Technical audits, on-page architecture, and intent-focused content designed to capture high-intent buyers across Google search.",
@@ -126,7 +126,7 @@ const capabilities = [
   },
   {
     number: "03",
-    tier: "Primary Agency Focus",
+    tier: "Generative Reach",
     title: "AI Search Visibility (AEO / GEO)",
     description:
       "Entity modeling and factual grounding structured for conversational AI platforms, including ChatGPT, Perplexity, and Google AI Overviews.",
@@ -141,7 +141,7 @@ const capabilities = [
   },
   {
     number: "04",
-    tier: "Supporting Foundation",
+    tier: "Conversion Engine",
     title: "Web Engineering & Design",
     description:
       "Fast, custom Next.js platforms and distinct visual assets built as the dependable, high-converting foundation for marketing campaigns.",
@@ -339,22 +339,22 @@ export default function AboutPage() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {capabilities.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.number} variant="tactile" className="p-7 sm:p-9 bg-white">
+                <Card key={item.number} variant="tactile" className="p-7 sm:p-9 bg-white flex flex-col h-full">
                   <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-modak text-3xl sm:text-4xl text-[#ffb703]">
+                    <div className="flex items-center justify-between mb-4 min-h-[2.5rem]">
+                      <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                         {item.number}
                       </span>
-                      <Badge variant={item.tier === "Primary Agency Focus" ? "default" : "secondary"} size="sm">
+                      <Badge variant="secondary" size="sm">
                         {item.tier}
                       </Badge>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-h-[3.5rem]">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                         <Icon className="h-5 w-5" />
                       </div>
@@ -368,7 +368,7 @@ export default function AboutPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="p-0 mb-6 flex-1">
+                  <CardContent className="p-0 mb-6 flex-grow">
                     <div className="rounded-xl border border-gray-100 bg-[#fdfbf7] p-4 h-full">
                       <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-2.5">
                         Key Capabilities
@@ -384,7 +384,7 @@ export default function AboutPage() {
                     </div>
                   </CardContent>
 
-                  <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
+                  <CardFooter className="p-0 border-t border-[#0b131e]/5 pt-6 mt-auto">
                     <Link href={item.href} className="w-full">
                       <Button variant="slateOutline" size="sm" className="w-full justify-between">
                         <span>{item.cta}</span>
@@ -422,10 +422,10 @@ export default function AboutPage() {
               <Card
                 key={stage.step}
                 variant="dark"
-                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors"
+                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors flex flex-col h-full"
               >
                 <CardHeader className="p-0 pb-3">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between min-h-[2.5rem]">
                     <span className="font-modak text-4xl sm:text-5xl text-[#ffb703] leading-none select-none">
                       {stage.step}
                     </span>
@@ -433,12 +433,12 @@ export default function AboutPage() {
                       Phase {stage.step}
                     </span>
                   </div>
-                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading">
+                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading min-h-[3.5rem] flex items-center">
                     {stage.title}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex-grow">
                   <CardDescription className="text-sm leading-relaxed text-gray-400 font-light">
                     {stage.description}
                   </CardDescription>
