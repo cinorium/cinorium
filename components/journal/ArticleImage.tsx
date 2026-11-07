@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { ImageOff } from "lucide-react";
 
 interface ArticleImageProps {
   src: string;
@@ -38,6 +42,7 @@ interface ArticleImageProps {
  *  - Generate a responsive srcset from the configured deviceSizes.
  *  - Prevent CLS by reserving space with explicit width/height.
  *  - Apply fetchpriority="high" for LCP images; lazy-load all others.
+ *  - Display a graceful placeholder if the image fails to load.
  *
  * The `src` must be a public Vercel Blob URL (*.public.blob.vercel-storage.com)
  * or a local /public path — both are covered by next.config.ts remotePatterns.
@@ -51,21 +56,28 @@ export default function ArticleImage({
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 800px",
   className = "",
 }: ArticleImageProps) {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <div
       className={`relative w-full overflow-hidden rounded-2xl border-2 border-black/10 bg-gray-100 ${className}`}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        priority={priority}
-        className="object-cover"
-        quality={85}
-        {...(!priority && { loading: "lazy" })}
-      />
+      {hasError ? (
+        <ImageFallback alt={alt} />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+          quality={85}
+          onError={() => setHasError(true)}
+          {...(!priority && { loading: "lazy" })}
+        />
+      )}
     </div>
   );
 }
@@ -85,6 +97,7 @@ interface ArticleCardImageProps {
  * Compact thumbnail for use inside ArticleCard and GrowthVault cards.
  * Always lazy-loaded (never the LCP element).
  * Sized at 16:9, capped at 640px wide to avoid downloading oversized images.
+ * Shows a graceful placeholder if the Blob image is unreachable.
  */
 export function ArticleCardImage({
   src,
@@ -92,21 +105,42 @@ export function ArticleCardImage({
   width = 1600,
   height = 900,
 }: ArticleCardImageProps) {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <div
       className="relative w-full overflow-hidden rounded-xl bg-gray-100"
       style={{ aspectRatio: `${width} / ${height}` }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
-        loading="lazy"
-        className="object-cover"
-        quality={75}
-      />
+      {hasError ? (
+        <ImageFallback alt={alt} />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
+          loading="lazy"
+          className="object-cover"
+          quality={75}
+          onError={() => setHasError(true)}
+        />
+      )}
     </div>
   );
 }
 
+// ---------------------------------------------------------------------------
+// Shared fallback placeholder when a Blob/remote image fails to load.
+// ---------------------------------------------------------------------------
+
+function ImageFallback({ alt }: { alt: string }) {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-50 text-gray-400">
+      <ImageOff className="h-8 w-8" aria-hidden="true" />
+      <span className="max-w-[200px] truncate text-xs font-medium text-center">
+        {alt || "Image unavailable"}
+      </span>
+    </div>
+  );
+}
