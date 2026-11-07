@@ -153,8 +153,8 @@ export default function Header() {
                 <Link
                   href="/services"
                   className={`transition-colors duration-200 ${isLinkActive("/services")
-                      ? "text-[#ffb703] font-semibold"
-                      : "hover:text-white text-gray-300"
+                    ? "text-[#ffb703] font-semibold"
+                    : "hover:text-white text-gray-300"
                     }`}
                 >
                   Services
@@ -198,11 +198,10 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                                isActive
+                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${isActive
                                   ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
                                   : "text-[#0b131e] hover:bg-[#faf8f5]"
-                              }`}
+                                }`}
                             >
                               <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
                                 <Icon className="w-4 h-4" />
@@ -237,11 +236,10 @@ export default function Header() {
                               href={item.href}
                               role="menuitem"
                               onClick={() => setServicesOpen(false)}
-                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                                isActive
+                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${isActive
                                   ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
                                   : "text-[#0b131e] hover:bg-[#faf8f5]"
-                              }`}
+                                }`}
                             >
                               <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
                                 <Icon className="w-4 h-4" />
@@ -268,30 +266,19 @@ export default function Header() {
             <Link
               href="/about"
               className={`transition-colors duration-200 ${isLinkActive("/about")
-                  ? "text-[#ffb703] font-semibold"
-                  : "hover:text-white text-gray-300"
+                ? "text-[#ffb703] font-semibold"
+                : "hover:text-white text-gray-300"
                 }`}
             >
               About
             </Link>
 
-            {/* 3. Work */}
-            <Link
-              href="/work"
-              className={`transition-colors duration-200 ${isLinkActive("/work")
-                  ? "text-[#ffb703] font-semibold"
-                  : "hover:text-white text-gray-300"
-                }`}
-            >
-              Work
-            </Link>
-
-            {/* 4. Journal */}
+            {/* 3. Journal */}
             <Link
               href="/journal"
               className={`transition-colors duration-200 ${isLinkActive("/journal")
-                  ? "text-[#ffb703] font-semibold"
-                  : "hover:text-white text-gray-300"
+                ? "text-[#ffb703] font-semibold"
+                : "hover:text-white text-gray-300"
                 }`}
             >
               Journal
@@ -407,16 +394,6 @@ export default function Header() {
                   }`}
               >
                 About
-              </Link>
-
-              {/* Work */}
-              <Link
-                href="/work"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/work") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                  }`}
-              >
-                Work
               </Link>
 
               {/* Journal */}

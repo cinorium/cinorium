@@ -112,10 +112,6 @@ export const primaryNavigation: PrimaryNavItem[] = [
     href: "/about",
   },
   {
-    name: "Work",
-    href: "/work",
-  },
-  {
     name: "Journal",
     href: "/journal",
   },
@@ -166,11 +162,6 @@ export const staticRoutes: StaticRoute[] = [
   },
   {
     path: "/about",
-    changeFrequency: "monthly",
-    priority: 0.8,
-  },
-  {
-    path: "/work",
     changeFrequency: "monthly",
     priority: 0.8,
   },

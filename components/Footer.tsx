@@ -190,11 +190,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/work" className="hover:text-white transition-colors">
-                  Selected Work &amp; Case Studies
-                </Link>
-              </li>
-              <li>
                 <Link href="/journal" className="hover:text-white transition-colors">
                   Insights &amp; Journal
                 </Link>
