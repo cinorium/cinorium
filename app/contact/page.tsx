@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, ArrowRight, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Discuss Your Website or Marketing Project",
+  title: "Contact | Discuss Your Marketing & Growth Project",
   description:
-    "Contact Cinorium to discuss web development, technical SEO, digital marketing strategy, and e-commerce growth for your business.",
+    "Contact Cinorium to discuss customer acquisition strategy, search visibility (SEO/AEO), high-performance web development, and digital marketing growth.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Cinorium | Discuss Your Website or Marketing Project",
+    title: "Contact Cinorium | Discuss Your Marketing & Growth Project",
     description:
-      "Contact Cinorium to discuss web development, technical SEO, digital marketing strategy, and e-commerce growth for your business.",
+      "Contact Cinorium to discuss customer acquisition strategy, search visibility (SEO/AEO), high-performance web development, and digital marketing growth.",
     url: "https://www.cinorium.com/contact",
     type: "website",
   },
@@ -47,33 +49,73 @@ function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 const whatsappUrl =
-  "https://wa.me/923212481412?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20or%20SEO%20project.";
+  "https://wa.me/923212481412?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20digital%20marketing%20or%20website%20project.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.cinorium.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact",
+          item: "https://www.cinorium.com/contact",
+        },
+      ],
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://www.cinorium.com/contact#webpage",
+      url: "https://www.cinorium.com/contact",
+      name: "Contact Cinorium | Discuss Your Marketing & Growth Project",
+      description:
+        "Contact Cinorium to discuss customer acquisition strategy, search visibility (SEO/AEO), high-performance web development, and digital marketing growth.",
+      mainEntity: {
+        "@id": "https://www.cinorium.com/#organization",
+      },
+    },
+  ],
+};
 
 export default function ContactPage() {
   return (
     <div className="w-full">
+      {/* Structured Data Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* 1. Hero Section */}
       <section
         id="contact-hero"
-        className="w-full bg-blue-100 pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full bg-[#fdfbf7] pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
           {/* Eyebrow */}
-          <span className="mb-4 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            LET&apos;S TALK
-          </span>
+          <div className="mb-4">
+            <Badge variant="default" dot="amber" size="lg">
+              Direct Agency Consultation
+            </Badge>
+          </div>
 
           {/* Heading */}
-          <h1 className="mb-6 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
-            Let&apos;s Discuss Your Next Project.
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+            Let&apos;s Discuss Your Next Growth Milestone.
           </h1>
 
           {/* Supporting Copy */}
-          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            Whether you need a new website, improvements to an existing one, or
-            a clearer SEO direction, tell us a little about your business and
-            what you&apos;re trying to achieve. We&apos;ll use that information
-            to understand your requirements and discuss the next practical steps.
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
+            Whether you need to capture qualified search demand, eliminate speed roadblocks on your website, or architect a full-funnel digital marketing strategy, tell us about your goals. You will speak directly with our founder to evaluate concrete, practical next steps.
           </p>
         </div>
       </section>
@@ -81,7 +123,7 @@ export default function ContactPage() {
       {/* 2. Main Content & Form Grid */}
       <section
         id="contact-form-section"
-        className="w-full bg-amber-50/40 py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24"
+        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -91,28 +133,27 @@ export default function ContactPage() {
               className="lg:col-span-5 flex flex-col gap-6"
             >
               {/* Channels Card */}
-              <div className="rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm">
-                <h2 className="mb-2 font-serif text-2xl font-bold text-gray-900">
-                  Contact Channels
+              <Card variant="tactile" className="p-7 sm:p-9 bg-white">
+                <h2 className="mb-2 font-heading text-2xl font-bold text-[#0b131e]">
+                  Direct Channels
                 </h2>
-                <p className="mb-8 text-sm leading-relaxed text-gray-600">
-                  Direct ways to reach out, discuss requirements, or connect with
-                  Cinorium.
+                <p className="mb-8 text-sm leading-relaxed text-gray-600 font-light">
+                  Direct pathways to start a conversation, request an initial evaluation, or schedule a technical review.
                 </p>
 
                 <div className="flex flex-col gap-6">
                   {/* Channel: Email */}
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703]">
                       <Mail className="h-5 w-5" />
                     </div>
                     <div>
                       <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
-                        Business Email
+                        Direct Email
                       </span>
                       <a
                         href="mailto:cinoriumadmin@gmail.com"
-                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                        className="text-base font-semibold text-[#0b131e] transition-colors hover:text-amber-700 underline decoration-[#ffb703] underline-offset-4"
                       >
                         cinoriumadmin@gmail.com
                       </a>
@@ -121,27 +162,27 @@ export default function ContactPage() {
 
                   {/* Channel: WhatsApp */}
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703]">
                       <MessageCircle className="h-5 w-5" />
                     </div>
                     <div>
                       <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
-                        WhatsApp
+                        Instant WhatsApp Chat
                       </span>
                       <a
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                        className="text-base font-semibold text-[#0b131e] transition-colors hover:text-amber-700 underline decoration-[#ffb703] underline-offset-4"
                       >
-                        Discuss on WhatsApp
+                        Message on WhatsApp
                       </a>
                     </div>
                   </div>
 
                   {/* Channel: LinkedIn */}
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703]">
                       <LinkedinIcon className="h-5 w-5" />
                     </div>
                     <div>
@@ -152,7 +193,7 @@ export default function ContactPage() {
                         href="https://www.linkedin.com/in/cinorium/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                        className="text-base font-semibold text-[#0b131e] transition-colors hover:text-amber-700 underline decoration-[#ffb703] underline-offset-4"
                       >
                         linkedin.com/in/cinorium
                       </a>
@@ -161,7 +202,7 @@ export default function ContactPage() {
 
                   {/* Channel: Instagram */}
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-gray-900 bg-amber-100 text-gray-900">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703]">
                       <InstagramIcon className="h-5 w-5" />
                     </div>
                     <div>
@@ -172,25 +213,37 @@ export default function ContactPage() {
                         href="https://www.instagram.com/cinorium_/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base font-semibold text-gray-900 transition-colors hover:text-amber-700 underline decoration-amber-400 underline-offset-4"
+                        className="text-base font-semibold text-[#0b131e] transition-colors hover:text-amber-700 underline decoration-[#ffb703] underline-offset-4"
                       >
                         @cinorium_
                       </a>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Card>
 
               {/* What Happens Next Card */}
-              <div className="rounded-3xl border border-amber-200 bg-amber-100/40 p-7">
-                <h3 className="mb-2 font-serif text-lg font-bold text-gray-900">
-                  What Happens Next?
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-700">
-                  Your enquiry is received directly. We review your business
-                  context, inspect your current digital setup if a website was
-                  provided, and prepare thoughtful, practical next steps.
-                </p>
+              <div className="rounded-3xl border-2 border-[#0b131e] bg-white p-7 shadow-xs">
+                <div className="flex items-center gap-2 mb-3">
+                  <Clock className="w-5 h-5 text-[#ffb703]" />
+                  <h3 className="font-heading text-lg font-bold text-[#0b131e]">
+                    What Happens Next?
+                  </h3>
+                </div>
+                <ul className="space-y-3 text-xs sm:text-sm text-gray-600 font-light">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>Your enquiry is reviewed directly by agency founder Muhammad Huzaifa.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>We inspect your current web presence, speed metrics, and search footprint.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>You receive honest, actionable recommendations within 24 business hours.</span>
+                  </li>
+                </ul>
               </div>
             </aside>
 
@@ -200,14 +253,17 @@ export default function ContactPage() {
               className="lg:col-span-7 rounded-3xl border-2 border-black bg-white p-7 sm:p-10 shadow-sm"
             >
               <div className="mb-8">
+                <Badge variant="secondary" size="sm" className="mb-2">
+                  Project Intake
+                </Badge>
                 <h2
                   id="enquiry-form-heading"
-                  className="mb-2 font-serif text-2xl sm:text-3xl font-bold text-gray-900"
+                  className="font-heading text-2xl sm:text-3xl font-bold text-[#0b131e] mb-2"
                 >
-                  Project Enquiry Form
+                  Tell Us About Your Project
                 </h2>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  Fill in your details below and we will follow up with you.
+                <p className="text-sm leading-relaxed text-gray-600 font-light">
+                  Fill in your project details below and we will follow up with tailored insights.
                 </p>
               </div>
 

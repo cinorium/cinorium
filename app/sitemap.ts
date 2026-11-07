@@ -25,7 +25,7 @@ import { getPublishedArticles } from "@/lib/journal";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── 1. Static pages ─────────────────────────────────────────────────────────
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${siteUrl}${route.path}`,
+    url: route.path === "/" ? siteUrl : `${siteUrl}${route.path}`,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
     ...(route.lastModified ? { lastModified: new Date(route.lastModified) } : {}),

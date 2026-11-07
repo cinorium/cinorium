@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ExternalLink,
-  ArrowDown,
   ArrowRight,
-  MessageCircle,
   Gauge,
   CheckCircle2,
   Layers,
@@ -12,79 +10,107 @@ import {
   Info,
   ShoppingBag,
 } from "lucide-react";
-import CtaSection from "@/components/CtaSection";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
-  title: "Work & Website Development Portfolio",
+  title: "Work & Production Evidence Portfolio",
   description:
-    "Explore Cinorium's website development work, including live business websites and selected concepts built for different industries.",
+    "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Work & Website Development Portfolio | Cinorium",
+    title: "Work & Production Evidence Portfolio | Cinorium",
     description:
-      "Explore Cinorium's website development work, including live business websites and selected concepts built for different industries.",
+      "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
     url: "https://www.cinorium.com/work",
     type: "website",
   },
 };
 
-const whatsappUrl =
-  "https://wa.me/923212481412?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20or%20SEO%20project.";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.cinorium.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Work",
+          item: "https://www.cinorium.com/work",
+        },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cinorium.com/work#webpage",
+      url: "https://www.cinorium.com/work",
+      name: "Work & Production Evidence Portfolio | Cinorium",
+      description:
+        "Explore Cinorium's digital marketing and web engineering portfolio, including live production platforms, lab performance benchmarks, and exploratory concept prototypes.",
+      publisher: {
+        "@id": "https://www.cinorium.com/#organization",
+      },
+    },
+  ],
+};
 
 export default function WorkPage() {
   return (
     <div className="w-full">
+      {/* Structured Data Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* 1. Hero Section */}
       <section
         id="overview"
-        className="w-full bg-blue-100 pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full bg-[#fdfbf7] pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
           {/* Eyebrow */}
-          <span className="mb-4 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            SELECTED WORK
-          </span>
+          <div className="mb-4">
+            <Badge variant="default" dot="amber" size="lg">
+              Selected Work &amp; Case Studies
+            </Badge>
+          </div>
 
           {/* Main Heading */}
-          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
-            Websites Built Around Real Business Needs.
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+            Platforms Engineered for Measurable Performance.
           </h1>
 
           {/* Supporting Copy */}
-          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8">
-            Explore selected website development projects, from live business
-            websites to tailored concepts created for different industries. Each
-            project reflects a considered approach to website structure, user
-            experience and implementation.
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8 font-light">
+            Explore selected production platforms and exploratory concepts developed by Cinorium. Each project demonstrates our integrated approach: aligning customer intent, search visibility, and high-performance web engineering to turn visitors into confirmed inquiries.
           </p>
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-black px-7 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <MessageCircle
-                aria-hidden="true"
-                className="h-5 w-5 text-amber-400"
-              />
-              <span>Discuss Your Project</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform group-hover:translate-x-1"
-              />
+            <Link href="/contact">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+                <span>Discuss Your Project</span>
+                <ArrowRight className="h-4 w-4 text-[#0b131e]" />
+              </Button>
             </Link>
 
-            <Link
-              href="#featured-projects"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white/80 px-7 py-4 text-center text-sm font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Explore Projects</span>
-              <ArrowDown aria-hidden="true" className="h-4 w-4" />
+            <Link href="#featured-projects">
+              <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
+                <span>Explore Live Platforms</span>
+              </Button>
             </Link>
           </div>
         </div>
@@ -93,20 +119,18 @@ export default function WorkPage() {
       {/* 2. Featured Projects Section (Live Client Websites) */}
       <section
         id="featured-projects"
-        className="w-full bg-amber-50/40 py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24"
+        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
           <div className="mb-12 sm:mb-14 text-center sm:text-left">
-            <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              FEATURED CLIENT WORK
-            </span>
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-              Live Business Websites
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Production Case Studies
+            </Badge>
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+              Live Business Platforms
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              Production websites running in production. Built with a focus on
-              performance, structured content and clean implementation.
+            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              Active platforms operating in production, engineered for organic discoverability, speed, and conversion.
             </p>
           </div>
 
@@ -114,23 +138,20 @@ export default function WorkPage() {
             {/* Project 1: Clothing Nexus */}
             <article
               aria-labelledby="project-clothing-nexus-title"
-              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
+              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* Header row: Badges and URL */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-800">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Live Website
-                  </span>
-
-                  <span className="rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-semibold tracking-wide text-gray-800">
-                    Next.js
-                  </span>
-
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
-                    Business Website / Product Catalogue
-                  </span>
+                  <Badge variant="success" size="sm">
+                    Live Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    Next.js App Router
+                  </Badge>
+                  <Badge variant="amber" size="sm">
+                    Product Catalogue
+                  </Badge>
                 </div>
 
                 <span className="text-xs text-gray-500 font-mono">
@@ -142,65 +163,60 @@ export default function WorkPage() {
               <div className="mb-8">
                 <h3
                   id="project-clothing-nexus-title"
-                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0b131e] mb-4"
                 >
                   Clothing Nexus
                 </h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
-                  A custom business website with a substantial product
-                  catalogue, SEO-conscious architecture and carefully optimized
-                  product imagery.
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
+                  A custom B2B web platform with an extensive product catalogue, engineered with Next.js. Development included careful attention to hierarchical catalogue navigation, high-density product imagery compression, technical SEO, and conversion friction elimination.
                 </p>
               </div>
 
               {/* Scope of Contribution */}
-              <div className="mb-8 rounded-2xl border border-gray-200 bg-gray-50/70 p-6 sm:p-7">
+              <div className="mb-8 rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 sm:p-7">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-4 flex items-center gap-2">
-                  <Layers className="h-4 w-4 text-amber-600" />
-                  Scope of Contribution
+                  <Layers className="h-4 w-4 text-[#ffb703]" />
+                  Scope of Technical Contribution
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Custom Next.js website development</span>
+                    <span>Custom Next.js App Router architecture</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Product image optimization for large catalogues</span>
+                    <span>Automated product image optimization &amp; WebP delivery</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>SEO-conscious website structure and hierarchy</span>
+                    <span>Search-intent taxonomy &amp; crawlable breadcrumbs</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Technical SEO considerations &amp; clean markup</span>
+                    <span>JSON-LD schema markup &amp; semantic HTML5 hierarchy</span>
                   </li>
                   <li className="flex items-start gap-2.5 sm:col-span-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Performance-conscious implementation</span>
+                    <span>Core Web Vitals performance tuning targeting sub-second renders</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Performance Proof Section (Reworked PageSpeed Insights Panel) */}
-              <div className="mb-8 rounded-2xl border-2 border-gray-900 bg-amber-50/40 p-6 sm:p-7">
-                {/* Panel Header */}
+              {/* PageSpeed Insights Panel */}
+              <div className="mb-8 rounded-2xl border-2 border-[#0b131e] bg-[#fdfbf7] p-6 sm:p-7">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-gray-200">
                   <div className="flex items-center gap-2.5">
-                    <Gauge className="h-5 w-5 text-gray-900" />
-                    <h4 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-gray-900">
-                      PageSpeed Insights
+                    <Gauge className="h-5 w-5 text-[#0b131e]" />
+                    <h4 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-[#0b131e]">
+                      Google PageSpeed Insights Lab Report
                     </h4>
                   </div>
                   <span className="text-xs font-medium text-gray-600 bg-white border border-gray-300 rounded-lg px-3 py-1 w-max">
-                    Captured 29 October 2026
+                    Audit Date: 29 October 2026
                   </span>
                 </div>
 
-                {/* Responsive Metrics Grid (5 Balanced Cards) */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
-                  {/* Metric 1: Desktop Performance */}
                   <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-xs flex flex-col justify-between">
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600 mb-1">
                       Desktop Perf.
@@ -209,36 +225,30 @@ export default function WorkPage() {
                       <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         100
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">
-                        /100
-                      </span>
+                      <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
                     <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 rounded-full px-2 py-0.5 mt-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      Desktop
+                      Desktop Lab
                     </span>
                   </div>
 
-                  {/* Metric 2: Mobile Performance */}
                   <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-xs flex flex-col justify-between">
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600 mb-1">
                       Mobile Perf.
                     </span>
                     <div className="my-1">
-                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-amber-600">
+                      <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-[#0b131e]">
                         75
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">
-                        /100
-                      </span>
+                      <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
-                    <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-amber-800 bg-amber-50 rounded-full px-2 py-0.5 mt-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-                      Mobile
+                    <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-amber-900 bg-amber-50 rounded-full px-2 py-0.5 mt-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703]" />
+                      Mobile Lab
                     </span>
                   </div>
 
-                  {/* Metric 3: Accessibility */}
                   <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-xs flex flex-col justify-between">
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600 mb-1">
                       Accessibility
@@ -247,9 +257,7 @@ export default function WorkPage() {
                       <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         96
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">
-                        /100
-                      </span>
+                      <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
                     <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 rounded-full px-2 py-0.5 mt-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -257,7 +265,6 @@ export default function WorkPage() {
                     </span>
                   </div>
 
-                  {/* Metric 4: Best Practices */}
                   <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-xs flex flex-col justify-between">
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600 mb-1">
                       Best Practices
@@ -266,9 +273,7 @@ export default function WorkPage() {
                       <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         96
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">
-                        /100
-                      </span>
+                      <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
                     <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 rounded-full px-2 py-0.5 mt-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -276,7 +281,6 @@ export default function WorkPage() {
                     </span>
                   </div>
 
-                  {/* Metric 5: SEO */}
                   <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-xs flex flex-col justify-between col-span-2 sm:col-span-1">
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-600 mb-1">
                       SEO
@@ -285,9 +289,7 @@ export default function WorkPage() {
                       <span className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-emerald-600">
                         92
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">
-                        /100
-                      </span>
+                      <span className="text-xs text-gray-400 font-medium">/100</span>
                     </div>
                     <span className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 rounded-full px-2 py-0.5 mt-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -296,15 +298,10 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                {/* Honest Transparency Caption */}
-                <div className="mt-5 pt-4 border-t border-gray-200/80 flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
+                <div className="mt-5 pt-4 border-t border-gray-200 flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed font-light">
                   <Info className="h-4 w-4 text-gray-500 shrink-0 mt-0.5" />
                   <p>
-                    Results from a captured Lighthouse report dated 29 October
-                    2026. Desktop performance achieved 100/100 alongside 75/100
-                    on mobile. Scores reflect this specific test run and can vary
-                    with subsequent audits, user device hardware, and real-time
-                    network conditions.
+                    <strong>Performance Disclosure:</strong> Results reflect a specific synthetic lab audit captured on 29 October 2026. Lab audits measure controlled environments; live Core Web Vitals differ based on real-world user devices, caching behavior, and ISP networks.
                   </p>
                 </div>
               </div>
@@ -315,10 +312,12 @@ export default function WorkPage() {
                   href="https://www.clothingnexus.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-2.5"
                 >
-                  <span>View Live Website</span>
-                  <ExternalLink className="h-4 w-4 text-amber-400" />
+                  <Button variant="default" size="default" className="gap-2">
+                    <span>View Live Website</span>
+                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
+                  </Button>
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -330,24 +329,20 @@ export default function WorkPage() {
             {/* Project 2: CN Fragrances */}
             <article
               aria-labelledby="project-cn-fragrances-title"
-              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
+              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              {/* Header row: Badges and URL */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-800">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Live Website
-                  </span>
-
-                  <span className="rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-semibold tracking-wide text-gray-800">
-                    Next.js
-                  </span>
-
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
-                    <ShoppingBag className="h-3.5 w-3.5 text-amber-700" />
-                    E-commerce / Online Store
-                  </span>
+                  <Badge variant="success" size="sm">
+                    Live Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    Next.js App Router
+                  </Badge>
+                  <Badge variant="amber" size="sm">
+                    <ShoppingBag className="h-3 w-3 mr-1 inline" />
+                    DTC E-commerce Store
+                  </Badge>
                 </div>
 
                 <span className="text-xs text-gray-500 font-mono">
@@ -355,30 +350,27 @@ export default function WorkPage() {
                 </span>
               </div>
 
-              {/* Title & Description */}
               <div className="mb-8">
                 <h3
                   id="project-cn-fragrances-title"
-                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0b131e] mb-4"
                 >
                   CN Fragrances
                 </h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
-                  A live direct-to-consumer e-commerce store engineered with Next.js for a premium fragrance brand, featuring a curated product catalog, shopping cart, customer accounts, and real-time order tracking.
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
+                  A direct-to-consumer e-commerce store engineered with Next.js for a fragrance brand, featuring a curated product catalog, shopping cart, customer accounts, and real-time order tracking.
                 </p>
               </div>
 
-              {/* Scope & Context Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {/* Scope of Contribution */}
-                <div className="rounded-2xl border border-gray-200 bg-gray-50/70 p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3 flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-amber-600" />
+                      <Layers className="h-4 w-4 text-[#ffb703]" />
                       Scope of Contribution
                     </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                      Full-stack website development and e-commerce implementation.
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4 font-light">
+                      Full-stack website development, e-commerce storefront, and mobile checkout UX.
                     </p>
                     <ul className="space-y-2.5 text-sm text-gray-600">
                       <li className="flex items-start gap-2">
@@ -401,14 +393,13 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                {/* Context Note (Honest relationship disclosure) */}
                 <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-900 mb-3 flex items-center gap-2">
                       <Info className="h-4 w-4 text-amber-700" />
                       Project Context &amp; Group Affiliation
                     </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-gray-700 leading-relaxed font-light">
                       Developed as a dedicated online retail venture associated with the Clothing Nexus company group. Built to provide a direct-to-consumer digital shopping channel for the brand&apos;s fragrance line.
                     </p>
                   </div>
@@ -418,16 +409,17 @@ export default function WorkPage() {
                 </div>
               </div>
 
-              {/* Action Link Button */}
               <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                 <a
                   href="https://www.cnfragrances.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-2.5"
                 >
-                  <span>View Live Website</span>
-                  <ExternalLink className="h-4 w-4 text-amber-400" />
+                  <Button variant="default" size="default" className="gap-2">
+                    <span>View Live Website</span>
+                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
+                  </Button>
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -439,19 +431,16 @@ export default function WorkPage() {
             {/* Project 3: CN IT Solutions */}
             <article
               aria-labelledby="project-cn-it-title"
-              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-4"
+              className="group relative flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-9 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              {/* Header row: Badges and URL */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-800">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Live Website
-                  </span>
-
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
-                    IT Business Website
-                  </span>
+                  <Badge variant="success" size="sm">
+                    Live Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    IT Corporate Website
+                  </Badge>
                 </div>
 
                 <span className="text-xs text-gray-500 font-mono">
@@ -459,79 +448,72 @@ export default function WorkPage() {
                 </span>
               </div>
 
-              {/* Title & Description */}
               <div className="mb-8">
                 <h3
                   id="project-cn-it-title"
-                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
+                  className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0b131e] mb-4"
                 >
                   CN IT Solutions
                 </h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
-                  A dedicated website for an IT business, presenting its
-                  services and online business presence.
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl font-light">
+                  A dedicated website for an IT enterprise, presenting its technical service offerings, certifications, and corporate inquiry pathways.
                 </p>
               </div>
 
-              {/* Scope & Context Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {/* Scope of Contribution */}
-                <div className="rounded-2xl border border-gray-200 bg-gray-50/70 p-6 flex flex-col justify-between">
+                <div className="rounded-2xl border border-gray-200 bg-[#fdfbf7] p-6 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3 flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-amber-600" />
+                      <Layers className="h-4 w-4 text-[#ffb703]" />
                       Scope of Contribution
                     </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                      Website development and implementation.
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4 font-light">
+                      Corporate web presence engineering and service funnel implementation.
                     </p>
                     <ul className="space-y-2.5 text-sm text-gray-600">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Corporate IT services presentation</span>
+                        <span>Corporate IT services presentation and taxonomy</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Responsive, business-oriented layouts</span>
+                        <span>Responsive, business-oriented layouts across all viewports</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>Accessible typography and contact pathways</span>
+                        <span>Accessible typography and conversion contact funnels</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
-                {/* Context Note (Honest relationship disclosure) */}
                 <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-900 mb-3 flex items-center gap-2">
                       <Info className="h-4 w-4 text-amber-700" />
                       Project Context &amp; Group Affiliation
                     </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      This website was developed for an entity related to the
-                      same company group as Clothing Nexus to establish an
-                      online presence for its dedicated IT services.
+                    <p className="text-sm text-gray-700 leading-relaxed font-light">
+                      Developed for an affiliate enterprise related to the same corporate group as Clothing Nexus to establish an authoritative online footprint for its IT consulting vertical.
                     </p>
                   </div>
                   <p className="mt-4 text-xs text-gray-500 leading-relaxed border-t border-amber-200/60 pt-3">
-                    Presented transparently as an affiliated engagement focused
-                    on website implementation and online presence.
+                    Presented transparently as an affiliated engagement focused on website implementation and corporate presence.
                   </p>
                 </div>
               </div>
 
-              {/* Action Link Button */}
               <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                 <a
                   href="https://www.cnitsolutions.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-2.5"
                 >
-                  <span>View Live Website</span>
-                  <ExternalLink className="h-4 w-4 text-amber-400" />
+                  <Button variant="default" size="default" className="gap-2">
+                    <span>View Live Website</span>
+                    <ExternalLink className="h-4 w-4 text-[#ffb703]" />
+                  </Button>
                 </a>
 
                 <span className="text-xs text-gray-500">
@@ -546,317 +528,274 @@ export default function WorkPage() {
       {/* 3. Concepts & Selected Samples Section */}
       <section
         id="concepts"
-        className="w-full border-t border-black/10 bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24"
+        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
           <div className="mb-12 sm:mb-14 text-center sm:text-left">
-            <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              EXPLORATORY WORK
-            </span>
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-              Concepts &amp; Selected Samples
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Exploratory Work
+            </Badge>
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+              Concepts &amp; Industry Prototypes
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              Selected website concepts and samples developed to explore how
-              different businesses can present their services, products and
-              customer journeys online.
+            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              Interactive concept prototypes developed to explore user journeys, sector-specific taxonomies, and conversion funnels.
             </p>
           </div>
 
-          {/* Grid of Concept Cards (Balanced 6-Project Grid) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Project 4: Zubair Law Associates */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-sky-300 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-800">
+                  <Badge variant="secondary" size="sm">
                     Client Pitch / Concept
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Legal Services
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   Zubair Law Associates
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A modern website concept designed for an Advocate High Court
-                  legal chamber in Karachi. Demonstrates structured presentation
-                  of civil, criminal, and constitutional litigation services
-                  alongside a legal drafting resource library. Prepared as an
-                  exploratory client pitch; awaiting presentation and not an
-                  officially commissioned or active firm website.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A modern website concept designed for an Advocate High Court legal chamber in Karachi. Demonstrates structured presentation of civil, criminal, and constitutional litigation services. Prepared as an exploratory client pitch.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://zubair-law-associates.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Concept Demo</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
 
             {/* Project 5: Tooni Wear */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                  <Badge variant="subtle" size="sm">
                     Project on hold
-                  </span>
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-900">
-                    E-commerce Concept
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">E-commerce</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   Tooni Wear
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A website concept for a children&apos;s clothing brand.
-                  Exploratory concept prototype; currently on hold and not an
-                  operating store.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A website concept for a children&apos;s apparel brand. Exploratory concept prototype; currently on hold and not an operating commercial store.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://tooniwear.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Concept Preview</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
 
             {/* Project 6: March Computer */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-xs font-semibold text-amber-900">
+                  <Badge variant="secondary" size="sm">
                     Concept / Sample
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Computer Hardware
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">Hardware</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   March Computer
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A website sample exploring product presentation for a computer
-                  hardware business.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A website sample exploring structured product presentation for a computer hardware retail and enterprise business.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://cinorium.github.io/march/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Sample Website</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
 
             {/* Project 7: Lexway */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-xs font-semibold text-amber-900">
+                  <Badge variant="secondary" size="sm">
                     Concept / Sample
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Legal Services
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   Lexway
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A legal services website concept focused on presenting
-                  professional services clearly.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A legal chamber website concept focused on presenting practice areas, attorney credentials, and inquiry consultation funnels.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://cinorium.github.io/Lexway/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Concept Website</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
 
             {/* Project 8: Khawar Law Associates */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-xs font-semibold text-amber-900">
+                  <Badge variant="secondary" size="sm">
                     Concept / Sample
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Legal Services
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">Legal Services</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   Khawar Law Associates
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A website sample for a legal practice.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A clean website sample developed for an advocacy and legal advisory firm, structuring litigation and arbitration services.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://cinorium.github.io/khawar/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Sample Website</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
 
             {/* Project 9: 3G Leather */}
-            <div className="group relative flex flex-col h-full rounded-2xl border-2 border-black bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Card variant="tactile" className="p-6 sm:p-7 flex flex-col justify-between">
               <div>
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-xs font-semibold text-amber-900">
+                  <Badge variant="secondary" size="sm">
                     Concept / Sample
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Leather Products
-                  </span>
+                  </Badge>
+                  <span className="text-xs text-gray-500 font-mono">Export Goods</span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-2.5">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e] mb-2.5">
                   3G Leather
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  A website sample created during a potential partnership
-                  discussion.
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A custom sample platform created during business development discussions to explore B2B leather garment and accessories export catalogues.
                 </p>
               </div>
 
-              {/* Action Link pinned to bottom (URL verified resolving with HTTP 200) */}
-              <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100 mt-auto">
                 <a
                   href="https://cinorium.github.io/3gleather/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 group-hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] hover:text-amber-700 transition-colors"
                 >
                   <span>View Sample Website</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* 4. Cinorium Approach Overview */}
-      <section className="w-full border-t border-black/10 bg-amber-50/30 py-16 sm:py-20 px-6 sm:px-10 md:px-16 lg:px-24">
+      {/* 4. Engineering Principles Overview */}
+      <section className="w-full bg-[#faf8f5] py-16 sm:py-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10">
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
           <div className="mb-12 text-center sm:text-left">
-            <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              OUR APPROACH
-            </span>
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl">
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Delivery Standards
+            </Badge>
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
               Principles Behind Every Build
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600">
-              How we approach structure, speed, and real-world usability across
-              client and concept projects.
+            <p className="max-w-2xl text-base leading-relaxed text-gray-600 font-light">
+              How we approach structure, speed, and real-world commercial usability across client platforms and concept prototypes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="rounded-2xl border border-black/15 bg-white p-6 sm:p-7 shadow-xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
-                <Layers className="h-5 w-5" />
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                  <Layers className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
+                  Structured Foundations
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                  Clean semantic hierarchy and intentional document flow that make pages intuitive for prospective clients and effortless for search engine bots.
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
-                Structured Foundations
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600">
-                Clean semantic hierarchy and intentional architecture that make
-                pages easy to navigate for users and clear for search engines.
-              </p>
-            </div>
+            </Card>
 
-            <div className="rounded-2xl border border-black/15 bg-white p-6 sm:p-7 shadow-xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
-                <Gauge className="h-5 w-5" />
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                  <Gauge className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
+                  Performance-Conscious
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                  Sub-second loading, minimal client-side script bundles, and optimized Core Web Vitals to prevent buyer drop-off and support crawl equity.
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
-                Performance-Conscious
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600">
-                Lightweight assets, responsive imagery and minimal bundle sizes
-                for fast initial load times and smooth interactions.
-              </p>
-            </div>
+            </Card>
 
-            <div className="rounded-2xl border border-black/15 bg-white p-6 sm:p-7 shadow-xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 mb-4">
-                <Sparkles className="h-5 w-5" />
+            <Card variant="tactile" className="p-6 sm:p-7 bg-white">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703] mb-4">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-xl font-bold tracking-tight text-[#0b131e] mb-2">
+                  Conversion Clarity
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                  Layouts designed to articulate your commercial value proposition with authority and guide interested visitors smoothly toward meaningful inquiries.
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold tracking-tight text-gray-900 mb-2">
-                Clear Communication
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600">
-                Design focused on communicating your value proposition clearly
-                and guiding visitors toward meaningful enquiries.
-              </p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* 5. Bottom Call to Action Section */}
-      <CtaSection />
+      {/* 5. Bottom Unified CTA */}
+      <FinalCta />
     </div>
   );
 }

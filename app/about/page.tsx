@@ -4,55 +4,71 @@ import {
   ArrowRight,
   Code2,
   Search,
-  Megaphone,
-  TrendingUp,
-  Compass,
-  CheckCircle2,
   Sparkles,
   ShieldCheck,
   Layers,
+  Compass,
+  CheckCircle2,
+  TrendingUp,
+  Palette,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
-  title: "About | Technology-Driven Digital Marketing Agency",
+  title: "About | Digital Marketing Agency with Engineering Depth",
   description:
-    "Cinorium is a technology-driven digital marketing agency combining web development, technical SEO and digital marketing to help businesses build sustainable online foundations.",
+    "Cinorium is a digital marketing agency combining customer acquisition strategy, search visibility (SEO/AEO), and high-performance web engineering to drive measurable commercial growth.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Cinorium | Technology-Driven Digital Marketing Agency",
+    title: "About Cinorium | Digital Marketing Agency with Engineering Depth",
     description:
-      "Cinorium is a technology-driven digital marketing agency combining web development, technical SEO and digital marketing to help businesses build sustainable online foundations.",
+      "Cinorium is a digital marketing agency combining customer acquisition strategy, search visibility (SEO/AEO), and high-performance web engineering to drive measurable commercial growth.",
     url: "https://www.cinorium.com/about",
     type: "website",
   },
 };
 
-const processSteps = [
+const workingStages = [
   {
-    number: "01",
-    title: "Inspect & Understand",
+    step: "01",
+    title: "Understand",
     description:
-      "Analyze the business model, technical infrastructure, target audience, and current search footprint.",
+      "Deep dive into your business model, customer economics, competitive landscape, and commercial acquisition targets.",
   },
   {
-    number: "02",
-    title: "Architect & Plan",
+    step: "02",
+    title: "Diagnose",
     description:
-      "Map out code architecture, content intent, and technical priorities to eliminate guesswork.",
+      "Rigorous technical audit of your organic search footprint, speed metrics, tracking integrity, and buyer conversion leaks.",
   },
   {
-    number: "03",
-    title: "Build & Optimize",
+    step: "03",
+    title: "Strategize",
     description:
-      "Implement high-performance web development, technical SEO, and conversion-focused user journeys.",
+      "Formulate the target keyword architecture, positioning narrative, entity data map, and high-converting user journey.",
   },
   {
-    number: "04",
-    title: "Refine & Grow",
+    step: "04",
+    title: "Execute",
     description:
-      "Evaluate verified data, optimize conversion funnels, and expand topical search authority over time.",
+      "Deploy fast, semantic web infrastructure, authoritative content assets, structured schema, and telemetry systems.",
+  },
+  {
+    step: "05",
+    title: "Measure",
+    description:
+      "Monitor qualified lead pipeline, search ranking trajectory, engagement scores, and campaign return on investment.",
+  },
+  {
+    step: "06",
+    title: "Improve",
+    description:
+      "Iterate continuously on buyer data to refine conversion rates, expand organic reach, and compound growth over time.",
   },
 ];
 
@@ -60,69 +76,166 @@ const principles = [
   {
     title: "Look Deeper",
     description:
-      "Inspect underlying systems rather than treating surface symptoms. Fast loading speeds, clean codebases, and semantic hierarchies make sites durable.",
+      "We address root commercial challenges rather than treating surface symptoms. Fast code, semantic structures, and genuine audience relevance make growth sustainable.",
     icon: Layers,
   },
   {
     title: "Build Smarter",
     description:
-      "Prioritize technical choices that make genuine commercial sense, avoiding plugin bloat, vanity metrics, and fragile shortcuts.",
+      "We prioritize decisions that generate verified commercial yield—completely avoiding fragile shortcuts, vanity traffic claims, and bloated plugins.",
     icon: Compass,
   },
   {
     title: "Grow Better",
     description:
-      "Build sustainable, organic customer discovery through transparent communication, honest expectations, and measurable improvements.",
+      "We build durable discoverability across both traditional search and AI answer engines through honest expectations and direct technical accountability.",
     icon: ShieldCheck,
   },
 ];
 
+const capabilities = [
+  {
+    number: "01",
+    tier: "Primary Agency Focus",
+    title: "Digital Marketing Strategy",
+    description:
+      "Outcome-driven customer acquisition campaigns designed to generate qualified business enquiries and predictable revenue pipeline.",
+    icon: TrendingUp,
+    href: "/services#strategy",
+    cta: "Explore Strategy",
+    points: [
+      "Target audience & commercial positioning",
+      "Conversion Rate Optimization (CRO) & funnel audits",
+      "Content marketing & editorial authority",
+    ],
+  },
+  {
+    number: "02",
+    tier: "Primary Agency Focus",
+    title: "Search Visibility & SEO",
+    description:
+      "Technical audits, on-page architecture, and intent-focused content designed to capture high-intent buyers across Google search.",
+    icon: Search,
+    href: "/seo-services",
+    cta: "Explore SEO",
+    points: [
+      "Technical SEO audits, indexing & crawlability",
+      "High-intent keyword intelligence & topic clusters",
+      "Semantic markup & internal linking architecture",
+    ],
+  },
+  {
+    number: "03",
+    tier: "Primary Agency Focus",
+    title: "AI Search Visibility (AEO / GEO)",
+    description:
+      "Entity modeling and factual grounding structured for conversational AI platforms, including ChatGPT, Perplexity, and Google AI Overviews.",
+    icon: Sparkles,
+    href: "/services#ai-search",
+    cta: "Explore AI Visibility",
+    points: [
+      "Entity authority & knowledge graph alignment",
+      "Answer Engine Optimization (AEO) direct Q&A structuring",
+      "Generative Engine Optimization (GEO) data tables & schema",
+    ],
+  },
+  {
+    number: "04",
+    tier: "Supporting Foundation",
+    title: "Web Engineering & Design",
+    description:
+      "Fast, custom Next.js platforms and distinct visual assets built as the dependable, high-converting foundation for marketing campaigns.",
+    icon: Code2,
+    href: "/web-development",
+    cta: "Explore Foundations",
+    points: [
+      "Sub-second load times & Core Web Vitals optimization",
+      "Clean, semantic Next.js App Router architectures",
+      "Credibility-first brand identity & marketing creative",
+    ],
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.cinorium.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About",
+          item: "https://www.cinorium.com/about",
+        },
+      ],
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.cinorium.com/about#webpage",
+      url: "https://www.cinorium.com/about",
+      name: "About Cinorium | Digital Marketing Agency with Engineering Depth",
+      description:
+        "Cinorium is a digital marketing agency combining customer acquisition strategy, search visibility (SEO/AEO), and high-performance web engineering to drive measurable commercial growth.",
+      mainEntity: {
+        "@id": "https://www.cinorium.com/#organization",
+      },
+    },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="w-full">
+      {/* Structured Data Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* 1. Hero Section */}
       <section
         id="about-hero"
-        className="w-full bg-blue-100 pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full bg-[#fdfbf7] pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
           {/* Eyebrow */}
-          <span className="mb-4 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            TECHNOLOGY · MARKETING · DIGITAL GROWTH
-          </span>
+          <div className="mb-4">
+            <Badge variant="default" dot="amber" size="lg">
+              Digital Marketing Agency
+            </Badge>
+          </div>
 
           {/* Heading */}
-          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
             Built for Visibility. Designed for Growth.
           </h1>
 
           {/* Introduction */}
-          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8">
-            Cinorium is a technology-driven digital marketing agency. We bring
-            web development, SEO, search visibility, and digital marketing
-            together. Our distinctive strength is understanding how digital
-            systems are built, how search engines interpret them, and how they
-            turn prospective visitors into real business inquiries.
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8 font-light">
+            Cinorium is a digital marketing agency built on technical foundations. We help ambitious businesses capture qualified buyer demand, establish durable organic visibility, and transform web traffic into predictable revenue. Web development and technical SEO serve as our supporting engineering bedrock.
           </p>
 
-          {/* Primary CTA */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href="/contact"
-              className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-black px-7 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Discuss Your Project</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-400"
-              />
+            <Link href="/contact">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+                <span>Discuss Your Project</span>
+                <ArrowRight className="h-4 w-4 text-[#0b131e]" />
+              </Button>
             </Link>
 
-            <Link
-              href="/services"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white/80 px-7 py-4 text-center text-sm font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Explore The 4 Pillars</span>
+            <Link href="/services">
+              <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
+                <span>Explore Agency Capabilities</span>
+              </Button>
             </Link>
           </div>
         </div>
@@ -137,60 +250,47 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-                BEYOND THE SURFACE
-              </span>
+              <Badge variant="secondary" size="sm" className="mb-3">
+                Beyond the Surface
+              </Badge>
 
-              <h2 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl">
+              <h2 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
                 We don&apos;t just make things look right. We make them work right.
               </h2>
 
-              <div className="space-y-4 text-base leading-relaxed text-gray-700">
+              <div className="space-y-4 text-base leading-relaxed text-gray-700 font-light">
                 <p>
-                  Most businesses run into the same digital roadblock: their
-                  designers build visually pleasing layouts that search engines
-                  can barely crawl, while generic marketing agencies drive paid
-                  clicks to slow, unoptimized landing pages that leak conversions.
+                  Most businesses run into the exact same commercial friction: design agencies build visually ornate layouts that search engine bots can barely crawl, while conventional marketing agencies drive expensive traffic to sluggish, poorly structured pages that leak conversions.
                 </p>
 
                 <p>
-                  Cinorium was founded to bridge this divide. We combine web
-                  development and digital marketing into a synchronized discipline.
-                  By understanding the technical underpinnings—server response times,
-                  clean DOM hierarchies, Core Web Vitals, and semantic entity
-                  markup—we build websites that satisfy both human visitors and
-                  complex search algorithms.
+                  Cinorium was founded to solve this disconnect. We unite commercial marketing strategy with rigorous web engineering. By mastering the underlying technical systems—server response times, clean DOM hierarchies, Core Web Vitals, and semantic entity markup—we build digital presences that satisfy both discerning human buyers and complex search algorithms.
                 </p>
 
                 <p>
-                  AI is an engineering tool in our workflow, not a substitute for
-                  firsthand judgment. Our real differentiators remain rigorous
-                  technical inspection, architectural problem-solving, and
-                  purposeful execution.
+                  AI is an engineering tool in our workflow, not a substitute for firsthand technical judgment. Our true differentiators remain architectural problem-solving, meticulous quality, and an unwavering focus on measurable business growth.
                 </p>
               </div>
             </div>
 
             {/* Right Callout Box */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl border-2 border-black bg-amber-50/50 p-7 sm:p-9 shadow-sm">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900">
-                  <Sparkles className="h-3.5 w-3.5 text-amber-700" />
-                  Founder-Led Execution
+              <div className="relative rounded-3xl border-2 border-black bg-[#faf8f5] p-7 sm:p-9 shadow-sm">
+                <div className="mb-4">
+                  <Badge variant="amber" size="sm">
+                    Founder-Led Execution
+                  </Badge>
                 </div>
 
-                <h3 className="mb-3 font-heading text-xl sm:text-2xl font-bold tracking-tight text-gray-900">
+                <h3 className="mb-3 font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e]">
                   Direct Technical Accountability
                 </h3>
 
-                <p className="text-sm leading-relaxed text-gray-700 mb-6 font-light">
-                  Cinorium is founder-led by Muhammad Huzaifa. You collaborate
-                  directly with the person analyzing, engineering, and optimizing
-                  your digital presence—delivering transparent communication,
-                  fast execution, and zero account-manager bureaucracy.
+                <p className="text-sm leading-relaxed text-gray-600 mb-6 font-light">
+                  Cinorium is founder-led by Muhammad Huzaifa. You collaborate directly with the strategist analyzing your search footprint, architecting your campaigns, and engineering your web foundations—ensuring complete transparency, fast execution, and zero account-manager bureaucracy.
                 </p>
 
-                <div className="pt-5 border-t border-amber-200/80 flex flex-col gap-2.5 text-xs font-medium text-gray-800">
+                <div className="pt-5 border-t border-gray-200 flex flex-col gap-2.5 text-xs font-medium text-[#0b131e]">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                     <span>Technical foundations integrated from day one</span>
@@ -210,484 +310,285 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. The 4 Service Pillars */}
+      {/* 3. Core Capabilities: Strategic Architecture */}
       <section
-        id="services-overview"
-        className="w-full bg-amber-50/40 py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        id="capabilities-overview"
+        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
       >
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="mb-12 sm:mb-14 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="mb-12 sm:mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div>
-              <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-                SERVICE ARCHITECTURE
-              </span>
-              <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-                Four Connected Service Pillars
+              <Badge variant="default" dot="amber" size="sm" className="mb-3">
+                Capability Framework
+              </Badge>
+              <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+                Connected Marketing &amp; Technical Capabilities
               </h2>
               <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-                Digital marketing is most effective when technical foundations,
-                search discovery, and customer journey optimization reinforce each other.
+                Digital marketing achieves peak ROI when customer acquisition, search visibility, and high-performance technical engineering reinforce one another.
               </p>
             </div>
 
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-800 underline decoration-amber-500 decoration-2 underline-offset-4 shrink-0"
-            >
-              <span>View All Services</span>
-              <ArrowRight className="h-4 w-4" />
+            <Link href="/services" className="shrink-0">
+              <Button variant="slateOutline" size="sm" className="gap-2">
+                <span>View All Services</span>
+                <ArrowRight className="h-4 w-4" />
+              </Button>
             </Link>
           </div>
 
-          {/* Service Cards Grid (4 Pillars) */}
+          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Pillar 1: Web Development & Technology */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300 bg-amber-100 text-amber-900">
-                    <Code2 className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-700">
-                    Pillar 01
-                  </span>
-                </div>
-
-                <h3 className="mb-3 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  Web Development &amp; Technology
-                </h3>
-
-                <p className="mb-6 text-sm sm:text-base leading-relaxed text-gray-700 font-light">
-                  Custom Next.js and clean WordPress development built for
-                  responsive performance, speed, security, and a maintainable
-                  technical architecture.
-                </p>
-
-                <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/70 p-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3">
-                    Core Capabilities
-                  </h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Custom Next.js web application architecture</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Performance tuning &amp; Core Web Vitals optimization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Clean WordPress development without bloated plugins</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-2 border-t border-gray-100">
-                <Link
-                  href="/web-development"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-700 transition-colors group"
-                >
-                  <span>Explore Web Development</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-500" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Pillar 2: SEO & Search Visibility */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300 bg-amber-100 text-amber-900">
-                    <Search className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-700">
-                    Pillar 02
-                  </span>
-                </div>
-
-                <h3 className="mb-3 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  SEO &amp; Search Visibility
-                </h3>
-
-                <p className="mb-6 text-sm sm:text-base leading-relaxed text-gray-700 font-light">
-                  Technical SEO audits, indexing optimization, intent-aligned
-                  content strategy, and modern AI answer engine discovery (AEO/GEO).
-                </p>
-
-                <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/70 p-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3">
-                    Core Capabilities
-                  </h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Technical SEO audits, sitemaps, robots &amp; canonicals</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Intent-focused keyword mapping &amp; topical clusters</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>AI search visibility (ChatGPT, Perplexity, AI Overviews)</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-2 border-t border-gray-100">
-                <Link
-                  href="/seo-services"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-700 transition-colors group"
-                >
-                  <span>Explore SEO Services</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-500" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Pillar 3: Digital Marketing */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300 bg-amber-100 text-amber-900">
-                    <Megaphone className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-700">
-                    Pillar 03
-                  </span>
-                </div>
-
-                <h3 className="mb-3 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  Digital Marketing &amp; Strategy
-                </h3>
-
-                <p className="mb-6 text-sm sm:text-base leading-relaxed text-gray-700 font-light">
-                  Strategic content marketing, professional brand alignment,
-                  and conversion rate optimization to turn organic visibility
-                  into confirmed client enquiries.
-                </p>
-
-                <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/70 p-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3">
-                    Core Capabilities
-                  </h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Conversion rate optimization &amp; friction analysis</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Educational content marketing &amp; case study development</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Professional social channel positioning</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-2 border-t border-gray-100">
-                <Link
-                  href="/services#digital-marketing"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-700 transition-colors group"
-                >
-                  <span>Learn About Marketing</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-500" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Pillar 4: E-commerce & Growth Systems */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 sm:p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300 bg-amber-100 text-amber-900">
-                    <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-700">
-                    Pillar 04
-                  </span>
-                </div>
-
-                <h3 className="mb-3 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  E-commerce &amp; Growth Systems
-                </h3>
-
-                <p className="mb-6 text-sm sm:text-base leading-relaxed text-gray-700 font-light">
-                  Store journey optimization, catalog structuring, and
-                  friction-free mobile experiences to improve checkout
-                  completion and buyer trust.
-                </p>
-
-                <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/70 p-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-3">
-                    Core Capabilities
-                  </h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Catalog taxonomy &amp; category discovery structure</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Mobile checkout UX and payment flow streamlining</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>Funnel analytics &amp; drop-off point measurement</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-2 border-t border-gray-100">
-                <Link
-                  href="/services#ecommerce-growth"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-amber-700 transition-colors group"
-                >
-                  <span>Learn About E-commerce</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-500" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. How We Approach Projects */}
-      <section
-        id="process"
-        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
-      >
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <div className="mb-12 sm:mb-14 text-center sm:text-left">
-            <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              THE METHODOLOGY
-            </span>
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-              How We Approach Engagements
-            </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              A clear, practical framework to move your digital presence from
-              initial discovery to measurable business momentum.
-            </p>
-          </div>
-
-          {/* 4-Step Process Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {processSteps.map((step) => (
-              <div
-                key={step.number}
-                className="flex flex-col justify-between rounded-2xl border-2 border-black bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-              >
-                <div>
-                  <span className="inline-block rounded-xl border border-amber-300 bg-amber-50 px-3.5 py-1.5 font-heading text-xl font-bold text-amber-900 mb-4">
-                    {step.number}
-                  </span>
-                  <h3 className="mb-2 font-heading text-xl font-bold tracking-tight text-gray-900">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-600 font-light">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Scope Transparency Note */}
-          <div className="rounded-2xl border border-gray-200 bg-gray-50/70 p-5 sm:p-6 text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-            <strong className="text-gray-900 font-semibold">Scope Note:</strong>{" "}
-            Engagements are strictly customized. Some clients partner with us for
-            a comprehensive Next.js web application build; others engage us for
-            focused technical SEO remediation or content restructuring. We scope
-            work based on your actual commercial goals.
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Selected Work (Compact Section) */}
-      <section
-        id="about-selected-work"
-        className="w-full bg-amber-50/30 py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-                SELECTED WORK
-              </span>
-              <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl">
-                Real Projects &amp; Tailored Concepts
-              </h2>
-              <p className="max-w-2xl text-base leading-relaxed text-gray-600 font-light">
-                Explore real business websites running in production alongside
-                exploratory concepts created for different industries.
-              </p>
-            </div>
-
-            <Link
-              href="/work"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <span>Explore Selected Work</span>
-              <ArrowRight className="h-4 w-4 text-amber-400 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          {/* Compact 2-Card Preview of Live Work */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Clothing Nexus */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 shadow-xs">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                    Live Website
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    Next.js
-                  </span>
-                </div>
-
-                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  Clothing Nexus
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A custom business website with a substantial product catalogue,
-                  SEO-conscious architecture and carefully optimized product imagery.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono">
-                <span>clothingnexus.com</span>
-                <span className="text-emerald-700 font-semibold font-sans">
-                  Production Site
-                </span>
-              </div>
-            </div>
-
-            {/* CN IT Solutions */}
-            <div className="flex flex-col justify-between rounded-3xl border-2 border-black bg-white p-7 shadow-xs">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                    Live Website
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700">
-                    IT Business
-                  </span>
-                </div>
-
-                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-gray-900">
-                  CN IT Solutions
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A dedicated website for an IT business, presenting its services
-                  and online business presence (affiliated group project).
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono">
-                <span>cnitsolutions.com</span>
-                <span className="text-emerald-700 font-semibold font-sans">
-                  Production Site
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Principles */}
-      <section
-        id="principles"
-        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
-      >
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <div className="mb-12 sm:mb-14 text-center sm:text-left">
-            <span className="mb-3 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              CORE VALUES
-            </span>
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-              Look Deeper. Build Smarter. Grow Better.
-            </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              The foundational standards that guide every recommendation,
-              technical decision, and marketing strategy.
-            </p>
-          </div>
-
-          {/* 3 Principles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {principles.map((principle) => {
-              const Icon = principle.icon;
+            {capabilities.map((item) => {
+              const Icon = item.icon;
               return (
-                <div
-                  key={principle.title}
-                  className="rounded-3xl border-2 border-black bg-white p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-300 bg-amber-100 text-amber-900 mb-5">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-3 font-heading text-xl font-bold tracking-tight text-gray-900">
-                    {principle.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-600 font-light">
-                    {principle.description}
-                  </p>
-                </div>
+                <Card key={item.number} variant="tactile" className="p-7 sm:p-9 bg-white">
+                  <CardHeader className="p-0 mb-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-modak text-3xl sm:text-4xl text-[#ffb703]">
+                        {item.number}
+                      </span>
+                      <Badge variant={item.tier === "Primary Agency Focus" ? "default" : "secondary"} size="sm">
+                        {item.tier}
+                      </Badge>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="font-heading text-xl sm:text-2xl font-bold text-[#0b131e]">
+                        {item.title}
+                      </CardTitle>
+                    </div>
+
+                    <CardDescription className="text-sm leading-relaxed text-gray-600 font-light mt-3">
+                      {item.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="p-0 mb-6 flex-1">
+                    <div className="rounded-xl border border-gray-100 bg-[#fdfbf7] p-4 h-full">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-2.5">
+                        Key Capabilities
+                      </span>
+                      <ul className="space-y-2">
+                        {item.points.map((pt) => (
+                          <li key={pt} className="flex items-start gap-2 text-xs sm:text-sm text-gray-600">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+
+                  <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
+                    <Link href={item.href} className="w-full">
+                      <Button variant="slateOutline" size="sm" className="w-full justify-between">
+                        <span>{item.cta}</span>
+                        <ArrowRight className="h-4 w-4 text-[#0b131e]" />
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* 7. Final Call to Action Section */}
+      {/* 4. The 6-Stage Working Methodology */}
       <section
-        id="about-cta"
-        className="w-full bg-blue-100 py-20 px-6 sm:px-10 md:px-16 lg:px-24"
+        id="methodology"
+        className="w-full bg-[#0b131e] py-20 sm:py-24 px-6 sm:px-10 md:px-16 lg:px-24 text-white border-b border-gray-800/80"
       >
-        <div className="max-w-5xl mx-auto">
-          <span className="mb-4 inline-block w-max border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            LET&apos;S TALK ABOUT YOUR PROJECT
-          </span>
+        <div className="max-w-5xl mx-auto w-full">
+          <div className="mb-14 text-center md:text-left">
+            <Badge variant="default" dot="amber" className="mb-3 bg-gray-900 border-gray-700">
+              Disciplined Execution
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-white mb-4">
+              The 6-Stage Working Framework
+            </h2>
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl font-light leading-relaxed">
+              We replace marketing guesswork and bloated agency promises with a structured, step-by-step framework built for predictable visibility and compounding return.
+            </p>
+          </div>
 
-          <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl max-w-3xl">
-            Ready to Build for Visibility and Growth?
-          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {workingStages.map((stage) => (
+              <Card
+                key={stage.step}
+                variant="dark"
+                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors"
+              >
+                <CardHeader className="p-0 pb-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-modak text-4xl sm:text-5xl text-[#ffb703] leading-none select-none">
+                      {stage.step}
+                    </span>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500">
+                      Phase {stage.step}
+                    </span>
+                  </div>
+                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading">
+                    {stage.title}
+                  </CardTitle>
+                </CardHeader>
 
-          <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8 font-light">
-            Whether you&apos;re planning a new website, addressing search
-            visibility deficits, or aligning your digital marketing strategy,
-            let&apos;s discuss your goals and map out a practical starting point.
-          </p>
+                <CardContent className="p-0">
+                  <CardDescription className="text-sm leading-relaxed text-gray-400 font-light">
+                    {stage.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-          <div>
-            <Link
-              href="/contact"
-              className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-black px-8 py-4 text-center text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Discuss Your Project</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform group-hover:translate-x-1 text-amber-400"
-              />
-            </Link>
+          <div className="mt-10 rounded-2xl border border-gray-800 bg-[#0f1724]/80 p-5 sm:p-6 text-xs sm:text-sm text-gray-400 leading-relaxed font-light">
+            <strong className="text-white font-semibold">Scope Transparency:</strong>{" "}
+            Every engagement is customized to your commercial goals. Some clients partner with us for multi-channel digital marketing campaigns supported by custom Next.js engineering; others engage us for focused technical SEO remediation or content restructuring.
           </div>
         </div>
       </section>
+
+      {/* 5. Production Evidence Preview */}
+      <section
+        id="about-selected-work"
+        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <Badge variant="secondary" size="sm" className="mb-3">
+                Selected Work
+              </Badge>
+              <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
+                Real Projects &amp; Tailored Concepts
+              </h2>
+              <p className="max-w-2xl text-base leading-relaxed text-gray-600 font-light">
+                Explore real business websites running in production alongside exploratory concept prototypes created for different sectors.
+              </p>
+            </div>
+
+            <Link href="/work" className="shrink-0">
+              <Button variant="default" size="default" className="gap-2">
+                <span>Explore All Work</span>
+                <ArrowRight className="h-4 w-4 text-[#ffb703]" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Clothing Nexus */}
+            <Card variant="tactile" className="p-7 bg-white">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <Badge variant="success" size="sm">
+                    Live Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    Next.js App Router
+                  </Badge>
+                  <Badge variant="amber" size="sm">
+                    Product Catalogue
+                  </Badge>
+                </div>
+
+                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-[#0b131e]">
+                  Clothing Nexus
+                </h3>
+
+                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A custom B2B web platform with a substantial product catalogue, SEO-conscious architecture, and sub-second load times engineered for high buyer retention.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono mt-auto">
+                <span>clothingnexus.com</span>
+                <span className="text-emerald-700 font-semibold font-sans">
+                  Production Site
+                </span>
+              </div>
+            </Card>
+
+            {/* CN IT Solutions */}
+            <Card variant="tactile" className="p-7 bg-white">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <Badge variant="success" size="sm">
+                    Live Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    IT Corporate Website
+                  </Badge>
+                </div>
+
+                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-[#0b131e]">
+                  CN IT Solutions
+                </h3>
+
+                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
+                  A dedicated corporate website developed for an IT services provider, presenting enterprise offerings and structured inquiry funnels (affiliated group project).
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono mt-auto">
+                <span>cnitsolutions.com</span>
+                <span className="text-emerald-700 font-semibold font-sans">
+                  Production Site
+                </span>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Core Principles */}
+      <section
+        id="principles"
+        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12 sm:mb-14">
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Operating Values
+            </Badge>
+            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+              Look Deeper. Build Smarter. Grow Better.
+            </h2>
+            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              The foundational standards that guide every recommendation, architectural choice, and marketing strategy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {principles.map((principle) => {
+              const Icon = principle.icon;
+              return (
+                <Card key={principle.title} variant="tactile" className="p-7 sm:p-8">
+                  <div>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703] mb-5">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mb-3 font-heading text-xl font-bold tracking-tight text-[#0b131e]">
+                      {principle.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-gray-600 font-light">
+                      {principle.description}
+                    </p>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Bottom Unified CTA */}
+      <FinalCta />
     </div>
   );
 }

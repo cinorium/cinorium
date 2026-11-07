@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Figtree } from "next/font/google";
+import { Figtree, Montserrat, Sora, Modak } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import "./globals.css";
@@ -22,40 +22,53 @@ const personId = `${siteUrl}/#person`;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
   display: "swap",
 });
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const modak = Modak({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-modak",
+  display: "swap",
+});
+
 const siteDescription =
-  "Cinorium combines web development, SEO, and digital marketing to help businesses build stronger digital foundations, improve search visibility, and grow online.";
+  "Cinorium is a digital marketing agency helping businesses improve search visibility, customer acquisition, and measurable revenue growth through strategic SEO, AI search visibility, and high-performance web foundations.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cinorium.com"),
 
   title: {
-    default: "Cinorium — Technology-Driven Digital Marketing & Web Development",
+    default: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
     template: "%s | Cinorium",
   },
 
   description: siteDescription,
 
   alternates: {
-    canonical: "/",
+    canonical: "https://www.cinorium.com",
   },
 
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "Cinorium | Built for Visibility. Designed for Growth.",
+    title: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -70,7 +83,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Cinorium | Built for Visibility. Designed for Growth.",
+    title: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     images: ["/og-images/og-image.webp"],
   },
@@ -80,24 +93,49 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": organizationId,
       name: "Cinorium",
+      alternateName: "Cinorium Digital Marketing Agency",
       url: siteUrl,
-      logo: `${siteUrl}/og-images/og-image.webp`,
+      logo: `${siteUrl}/cinorium-logo.svg`,
+      image: `${siteUrl}/og-images/og-image.webp`,
       description: siteDescription,
       slogan: "Built for Visibility. Designed for Growth.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Karachi",
+        addressRegion: "Sindh",
+        addressCountry: "PK",
+      },
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "Pakistan",
+        },
+        {
+          "@type": "Country",
+          name: "United States",
+        },
+        {
+          "@type": "Country",
+          name: "United Kingdom",
+        },
+        {
+          "@type": "Country",
+          name: "United Arab Emirates",
+        },
+      ],
       knowsAbout: [
-        "Digital Marketing",
+        "Digital Marketing Strategy",
         "Search Engine Optimization (SEO)",
-        "Technical SEO",
-        "Website Development",
-        "WordPress Development",
-        "Content Strategy",
-        "Conversion Rate Optimization",
+        "Technical SEO Audits",
         "Answer Engine Optimization (AEO)",
         "Generative Engine Optimization (GEO)",
-        "E-commerce Strategy",
+        "Website Development",
+        "Core Web Vitals Optimization",
+        "Conversion Rate Optimization (CRO)",
+        "Visual Communication & Branding",
       ],
       founder: {
         "@id": personId,
@@ -127,7 +165,7 @@ const jsonLd = {
       publisher: {
         "@id": organizationId,
       },
-      inLanguage: "en",
+      inLanguage: "en-US",
     },
   ],
 };
@@ -140,7 +178,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(geist.variable, figtree.variable, "font-sans")}
+      className={cn(
+        figtree.variable,
+        montserrat.variable,
+        sora.variable,
+        modak.variable,
+        "font-sans"
+      )}
     >
       <body className="min-h-screen font-sans antialiased">
         <script

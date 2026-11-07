@@ -14,20 +14,32 @@ import {
   ShieldCheck,
   Compass,
   AlertTriangle,
+  Zap,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import FinalCta from "@/components/FinalCta";
 import WebDevFaq from "./WebDevFaq";
 
 export const metadata: Metadata = {
-  title: "Website Development Services | Custom & WordPress",
+  title: "Web Development & Technical Optimization",
   description:
-    "Explore custom and WordPress website development by Cinorium, with a focus on responsive design, usability, performance and SEO-aware technical foundations.",
+    "Explore Cinorium's supporting web engineering capabilities: Next.js and WordPress platforms built as a fast, conversion-engineered foundation for marketing.",
   alternates: {
     canonical: "/web-development",
   },
   openGraph: {
-    title: "Website Development Services | Cinorium",
+    title: "Web Development & Technical Optimization | Cinorium",
     description:
-      "Explore custom and WordPress website development by Cinorium, with a focus on responsive design, usability, performance and SEO-aware technical foundations.",
+      "Explore Cinorium's supporting web engineering capabilities: Next.js and WordPress platforms built as a fast, conversion-engineered foundation for marketing.",
     url: "https://www.cinorium.com/web-development",
     type: "website",
   },
@@ -35,21 +47,21 @@ export const metadata: Metadata = {
 
 const businessProblems = [
   {
-    title: "Difficult to Use",
+    title: "High Bounce Rates on Mobile",
     description:
-      "A confusing structure or poor mobile experience can make it harder for visitors to find information and take action.",
+      "Slow render speeds, shifting layouts, and sluggish response times cause high-intent mobile visitors to abandon pages before reading your value proposition.",
     icon: AlertTriangle,
   },
   {
-    title: "Weak Technical Foundations",
+    title: "Weak Search & Technical Foundations",
     description:
-      "Poorly structured pages, unnecessary code and performance problems can affect usability and make a website harder to maintain.",
+      "Bloated code, absent semantic tags, uncompressed assets, and messy URL paths limit crawl efficiency and prevent marketing content from performing.",
     icon: Layers,
   },
   {
-    title: "Built Without a Clear Purpose",
+    title: "Websites Built Without Conversion Paths",
     description:
-      "A website should reflect its audience, services and business objectives instead of simply filling pages with content.",
+      "Pages designed purely as visual showcases often lack clear conversion hierarchy, direct inquiry pathways, and intuitive information architecture.",
     icon: Compass,
   },
 ];
@@ -57,62 +69,62 @@ const businessProblems = [
 const coreServices = [
   {
     id: "custom-dev",
-    title: "Custom Website Development",
+    title: "Custom Next.js Web Development",
     description:
-      "Purpose-built websites using appropriate modern web technologies, with attention to structure, responsive layouts, maintainability and project requirements.",
+      "Purpose-built modern web platforms with sub-second loading, clean semantic markup, and maintainable architectures that support aggressive marketing growth.",
     icon: Code2,
     highlights: [
-      "Tailored Next.js and React architecture",
-      "Fast page load times and minimal dependencies",
-      "Clean, scalable and maintainable codebase",
+      "Custom Next.js App Router & React 19 architecture",
+      "Sub-second page speeds and minimal dependency bloat",
+      "Clean, scalable, maintainable codebase with full documentation",
     ],
   },
   {
     id: "wordpress-dev",
-    title: "WordPress Website Development",
+    title: "Engineered WordPress Development",
     description:
-      "WordPress websites for businesses that need a practical content-management workflow and the ability to update relevant site content.",
+      "Clean, block-based WordPress setups configured without fragile plugin stacks, ensuring editorial freedom alongside rock-solid security and speed.",
     icon: Layers,
     highlights: [
-      "Custom theme setups without plugin bloat",
-      "Intuitive content editing and page management",
-      "Security-conscious configuration and clean code",
+      "Custom theme setups free of bloated multi-purpose themes",
+      "Intuitive Gutenberg block editorial experience",
+      "Hardened security configurations and managed update paths",
     ],
   },
   {
     id: "ecommerce-catalog",
-    title: "E-commerce & Product Catalogue Websites",
+    title: "Product Catalogue & E-commerce Platforms",
     description:
-      "Web experiences for businesses presenting products online, with attention to product structure, imagery, navigation and usability.",
+      "High-converting catalog architectures engineered for effortless product discovery, fast image rendering, and friction-free inquiry pathways.",
     icon: ShoppingBag,
     highlights: [
-      "Structured catalogue layouts for easy browsing",
-      "High-density product image optimization",
-      "Intuitive inquiry and conversion pathways",
+      "Structured catalogue hierarchies for intuitive browsing",
+      "Aggressive product image optimization and WebP/AVIF delivery",
+      "Frictionless lead generation and purchase inquiry flows",
     ],
   },
   {
     id: "redesign-improvement",
-    title: "Website Redesign & Improvement",
+    title: "Website Modernization & Speed Overhauls",
     description:
-      "Improve an existing website's structure, responsiveness, usability or technical implementation according to the agreed project scope.",
+      "Re-engineer existing sluggish websites to eliminate technical bottlenecks, modernize UI responsiveness, and preserve accumulated search equity.",
     icon: RefreshCw,
     highlights: [
-      "Responsive layout corrections for mobile and tablet",
-      "Navigation and content restructuring",
-      "Performance and page-speed improvements",
+      "Mobile-first responsive corrections across all devices",
+      "Crawl-budget restoration and redirect preservation",
+      "Core Web Vitals remediation (LCP, INP, CLS)",
     ],
   },
   {
     id: "seo-aware",
-    title: "SEO-Aware Development",
+    title: "Search-Engineered Technical Architecture",
     description:
-      "Build with sensible URL structures, semantic HTML, metadata support, crawlability, responsive layouts and performance considerations where relevant.",
+      "Websites engineered from line one with search crawlers in mind: structured data, semantic HTML5, breadcrumbs, and crawlable layouts.",
     icon: Search,
     highlights: [
-      "Semantic HTML5 hierarchy and clean markup",
-      "Search-engine-friendly URLs and breadcrumbs",
-      "Solid technical foundation (rankings require ongoing SEO)",
+      "Semantic HTML5 hierarchy and clean schema integration",
+      "Crawl-friendly internal linking and URL structures",
+      "Engineered to maximize organic crawl efficiency",
     ],
   },
 ];
@@ -120,427 +132,407 @@ const coreServices = [
 const processSteps = [
   {
     number: "01",
-    title: "Understand",
+    title: "Discovery & Architecture",
     description:
-      "Discuss the business, audience, requirements and purpose of the website.",
+      "Map out commercial objectives, customer buyer journeys, page hierarchies, and technical specifications.",
   },
   {
     number: "02",
-    title: "Plan",
+    title: "Engineering & Speed",
     description:
-      "Define the page structure, functionality, content requirements and appropriate technical approach.",
+      "Develop custom components with semantic HTML, responsive touch states, and strict Core Web Vitals targets.",
   },
   {
     number: "03",
-    title: "Build",
+    title: "Content & Integration",
     description:
-      "Develop the agreed solution, checking responsive behaviour, usability and relevant technical foundations.",
+      "Populate intent-focused copy, optimize media assets, and wire up analytics and conversion tracking points.",
   },
   {
     number: "04",
-    title: "Review and Launch",
+    title: "Validation & Launch",
     description:
-      "Test the implementation, address agreed issues and prepare the website for launch.",
+      "Audit cross-browser performance, indexation readiness, and accessibility before switching domain records.",
   },
 ];
 
 const approachDifferences = [
   {
-    title: "Understandable Structure",
+    title: "Engineered for Marketing Conversions",
     description:
-      "Structure pages so content and navigation are immediately understandable to prospective clients.",
+      "We design page layouts with clear visual hierarchy, direct CTAs, and frictionless forms that maximize lead inquiries.",
   },
   {
     title: "Mobile Usability First",
     description:
-      "Consider touch targets, typography scaling and mobile performance throughout implementation.",
+      "Touch targets, font scaling, navigation drawers, and asset loading are rigorously tested on real mobile devices.",
   },
   {
-    title: "Semantic & Search-Ready",
+    title: "Semantic & Crawlable HTML",
     description:
-      "Use appropriate metadata, semantic tags and clean markup that search crawlers can parse accurately.",
+      "Search crawlers parse meaning through proper tags, semantic structures, and accurate metadata—not nested div bloat.",
   },
   {
-    title: "Maintainable Code",
+    title: "Lean, Maintainable Code",
     description:
-      "Keep the implementation maintainable, avoiding fragile workarounds or heavy plugin dependencies.",
+      "We avoid heavy, unvetted third-party plugins that introduce security liabilities and degrade site responsiveness.",
   },
   {
-    title: "Future-Proof Growth",
+    title: "Scalable Growth Architecture",
     description:
-      "Make future content updates, landing-page additions and ongoing SEO optimization practical.",
+      "Future landing pages, marketing campaigns, and journal articles can be published seamlessly without code regressions.",
   },
 ];
 
-/* ─── Shared layout tokens ──────────────────────────────────────────────────
-   Applied consistently across every section so padding and max-width never
-   drift between sections.
-──────────────────────────────────────────────────────────────────────────── */
-const px = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
+const px = "px-6 sm:px-10 md:px-16 lg:px-24";
 const inner = "max-w-5xl mx-auto";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.cinorium.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://www.cinorium.com/services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Web Development & Tech Optimization",
+          item: "https://www.cinorium.com/web-development",
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Web Development & Tech Optimization",
+      serviceType: "Web Development",
+      provider: {
+        "@id": "https://www.cinorium.com/#organization",
+      },
+      url: "https://www.cinorium.com/web-development",
+      description:
+        "High-performance Next.js and modern web development engineered as the fast, conversion-focused foundation for digital marketing campaigns.",
+      areaServed: ["Pakistan", "United States", "United Kingdom", "Worldwide"],
+    },
+  ],
+};
 
 export default function WebDevelopmentPage() {
   return (
     <div className="w-full">
-
-      {/* ─────────────────────────────────────────────────────────────────
-          1. Hero
-          ─────────────────────────────────────────────────────────────────
-          Layout context:
-          • NotificationBar is static and sits above everything (~34px tall).
-          • Header is position:fixed; on desktop it floats at top-6 from the
-            viewport top (not from below the notification bar). Its pill is
-            roughly 50–56px tall, so the bottom of the header reaches about
-            top-6 + 56px ≈ 80px below the viewport top.
-          • When the notification bar is visible the effective offset before
-            the header clears is ~34px (bar) + ~80px (header) = ~114px.
-          • pt-28 (112px) on mobile-to-sm is close enough; we bump to pt-32
-            at md+ to be safe.
-          • On mobile the header is pinned to bottom-4, so no top offset is
-            needed for nav — but we add pb-24 so content isn't hidden under
-            the bottom nav.
-          ───────────────────────────────────────────────────────────────── */}
+      {/* Structured Data Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
       <section
         id="webdev-hero"
         aria-labelledby="webdev-hero-heading"
-        className={`w-full bg-blue-100 border-b border-black/10 ${px} pt-28 pb-24 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24`}
+        className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} pt-28 pb-20 sm:pt-36 sm:pb-24`}
       >
         <div className={inner}>
-          {/* Eyebrow */}
-          <span className="mb-4 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            Website Development Services
-          </span>
+          <div className="mb-4">
+            <Badge variant="default" dot="amber" size="lg">
+              Supporting Technical Capability
+            </Badge>
+          </div>
 
-          {/* H1 */}
           <h1
             id="webdev-hero-heading"
-            className="mb-5 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl"
+            className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl"
           >
-            Websites Built Around Your Business Goals.
+            High-Performance Web Foundations Built for Marketing Results.
           </h1>
 
-          {/* Supporting copy */}
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            From custom-built websites to WordPress solutions, Cinorium helps
-            businesses create useful, responsive and search-aware digital
-            experiences. Every project starts with understanding what the
-            website needs to accomplish.
+          <p className="mb-8 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
+            A website is the core engine of your marketing system. As a digital marketing agency, Cinorium approaches web development not as isolated coding, but as the high-speed, search-aware technical foundation that captures high-intent traffic and turns visitors into qualified business inquiries.
           </p>
 
-          {/* CTAs — stack on mobile, inline at sm+ */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <Link
-              href="/contact"
-              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-black px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Discuss Your Project</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 text-amber-400"
-              />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <Link href="/contact">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+                <span>Discuss Your Project</span>
+                <ArrowRight className="h-4 w-4 text-[#0b131e]" />
+              </Button>
             </Link>
 
-            <Link
-              href="/work"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white/80 px-7 py-3.5 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-            >
-              <span>Explore Selected Work</span>
-              <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+            <Link href="/work">
+              <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
+                <span>Explore Selected Work</span>
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          2. Business Problems
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 2. Common Challenges ─────────────────────────────────────────── */}
       <section
         id="business-problems"
         aria-labelledby="business-problems-heading"
         className={`w-full bg-white border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className={inner}>
-          <div className="mb-10 sm:mb-12">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              Common Challenges
-            </span>
+          <div className="mb-10 sm:mb-14 max-w-3xl">
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Common Technical Hurdles
+            </Badge>
             <h2
               id="business-problems-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl max-w-2xl"
+              className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              A Business Website Needs to Do More Than Look Good.
+              A Business Website Must Do Far More Than Look Modern
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600">
-              Many business websites struggle not because of poor visual intent,
-              but because of structural, technical, and strategic shortcomings.
+            <p className="text-base leading-relaxed text-gray-600 font-light">
+              Many corporate websites fail to generate commercial inquiries not because of poor graphic intent, but because underlying technical flaws sabotage the visitor experience.
             </p>
           </div>
 
-          {/* 1 → 2 → 3 column responsive grid */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {businessProblems.map((problem) => {
               const Icon = problem.icon;
               return (
-                <div
+                <Card
                   key={problem.title}
-                  className="flex flex-col rounded-2xl border-2 border-black bg-white p-6 shadow-xs transition-shadow duration-200 hover:shadow-md"
+                  variant="tactile"
+                  className="p-6"
                 >
-                  <div className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-amber-300 bg-amber-50 text-amber-800">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <h3 className="mb-2 font-serif text-lg font-bold text-gray-900 sm:text-xl">
-                    {problem.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
-                    {problem.description}
-                  </p>
-                </div>
+                  <CardHeader className="p-0 mb-4">
+                    <div className="mb-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <CardTitle className="font-heading text-lg font-bold text-gray-900 sm:text-xl">
+                      {problem.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <CardDescription className="text-sm leading-relaxed text-gray-600 font-light">
+                      {problem.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          3. Core Services (5 cards)
-          ─────────────────────────────────────────────────────────────────
-          5 cards in a 3-col desktop grid → row 1: cards 1-2-3, row 2: cards 4-5.
-          The last row is left-aligned (standard grid behaviour). No col-span
-          tricks are applied — they were previously no-ops and have been removed.
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 3. Core Development Capabilities ─────────────────────────────── */}
       <section
         id="core-services"
         aria-labelledby="core-services-heading"
-        className={`w-full bg-amber-50/40 border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
+        className={`w-full bg-[#faf8f5] border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className={inner}>
-          <div className="mb-10 sm:mb-12">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              Our Expertise
-            </span>
+          <div className="mb-10 sm:mb-14 max-w-3xl">
+            <Badge variant="default" dot="amber" size="sm" className="mb-3">
+              Technical Capabilities
+            </Badge>
             <h2
               id="core-services-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl max-w-2xl"
+              className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              Website Development Services
+              Web Architecture Engineered for Conversion &amp; Speed
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              We design and develop solutions tailored to your business model,
-              technical requirements and audience expectations.
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              We design and engineer bespoke web solutions tailored to your operational model, marketing goals, and audience demands.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {coreServices.map((service) => {
               const Icon = service.icon;
               return (
-                <div
+                <Card
                   key={service.id}
-                  className="flex flex-col rounded-2xl border-2 border-black bg-white p-6 shadow-xs transition-shadow duration-200 hover:shadow-lg"
+                  variant="tactile"
+                  className="p-6 bg-white"
                 >
-                  {/* Icon */}
-                  <div className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-amber-300 bg-amber-100 text-amber-900">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
+                  <CardHeader className="p-0 mb-4">
+                    <div className="mb-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
 
-                  {/* Title */}
-                  <h3 className="mb-2 font-serif text-lg font-bold text-gray-900 sm:text-xl">
-                    {service.title}
-                  </h3>
+                    <CardTitle className="font-heading text-lg font-bold text-gray-900 sm:text-xl">
+                      {service.title}
+                    </CardTitle>
 
-                  {/* Description */}
-                  <p className="mb-5 text-sm leading-relaxed text-gray-700">
-                    {service.description}
-                  </p>
+                    <CardDescription className="text-sm leading-relaxed text-gray-600 font-light mt-1">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
 
-                  {/* Highlights box — grow fills remaining card height */}
-                  <div className="mb-5 grow rounded-xl border border-gray-100 bg-gray-50 p-4">
-                    <ul className="space-y-2">
-                      {service.highlights.map((point) => (
-                        <li key={point} className="flex items-start gap-2">
-                          <CheckCircle2
-                            className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600"
-                            aria-hidden="true"
-                          />
-                          <span className="text-xs leading-relaxed text-gray-600 sm:text-sm">
-                            {point}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <CardContent className="p-0 mb-6 flex-1">
+                    <div className="rounded-xl border border-gray-100 bg-[#fdfbf7] p-4 h-full">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-2.5">
+                        Technical Deliverables
+                      </span>
+                      <ul className="space-y-2">
+                        {service.highlights.map((point) => (
+                          <li key={point} className="flex items-start gap-2">
+                            <CheckCircle2
+                              className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600"
+                              aria-hidden="true"
+                            />
+                            <span className="text-xs leading-relaxed text-gray-600">
+                              {point}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
 
-                  {/* Card footer */}
-                  <div className="border-t border-gray-100 pt-4">
-                    <Link
-                      href="/contact"
-                      className="group inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
-                    >
-                      <span>Inquire About This Service</span>
-                      <ArrowRight
-                        className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 text-amber-500"
-                        aria-hidden="true"
-                      />
+                  <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
+                    <Link href="/contact" className="w-full">
+                      <Button variant="slateOutline" size="sm" className="w-full gap-2">
+                        <span>Inquire About This Service</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Button>
                     </Link>
-                  </div>
-                </div>
+                  </CardFooter>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          4. Process
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 4. The Engineering Process ───────────────────────────────────── */}
       <section
         id="process"
         aria-labelledby="process-heading"
         className={`w-full bg-white border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className={inner}>
-          <div className="mb-10 sm:mb-12">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              The Process
-            </span>
+          <div className="mb-10 sm:mb-12 max-w-3xl">
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Delivery Process
+            </Badge>
             <h2
               id="process-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+              className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              How We Work
+              How We Engineer &amp; Launch Web Platforms
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              A structured four-step approach focused on clarity, practical
-              milestones and solid implementation.
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              A structured 4-step framework centered on clear architectural planning, clean development, and rigorous pre-launch QA.
             </p>
           </div>
 
-          <div className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step) => (
-              <div
-                key={step.number}
-                className="flex flex-col rounded-2xl border-2 border-black bg-white p-6"
-              >
-                <span className="mb-4 inline-block w-max rounded-xl border border-amber-300 bg-amber-50 px-3 py-1.5 font-serif text-xl font-bold text-amber-900">
-                  {step.number}
-                </span>
-                <h3 className="mb-2 font-serif text-lg font-bold text-gray-900">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  {step.description}
-                </p>
-              </div>
+              <Card key={step.number} variant="tactile" className="p-6">
+                <div>
+                  <span className="font-modak text-3xl text-[#ffb703] block mb-2">
+                    {step.number}
+                  </span>
+                  <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                    {step.description}
+                  </p>
+                </div>
+              </Card>
             ))}
           </div>
 
-          {/* Scope note */}
-          <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-xs leading-relaxed text-gray-600 sm:p-6 sm:text-sm">
+          <div className="rounded-xl border border-gray-200 bg-[#faf8f5] p-5 text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
             <strong className="font-semibold text-gray-900">
-              Scope &amp; Delivery Note:
+              Scope &amp; Delivery Commitments:
             </strong>{" "}
-            Timelines, revisions, specialized third-party integrations, content
-            production and ongoing support depend strictly on the agreed scope
-            for each project. We avoid arbitrary fixed-timeline promises,
-            focusing instead on realistic, well-defined milestones.
+            Timelines, revisions, specialized third-party integrations, and content migration are defined transparently before any work starts. We set realistic milestones based on actual engineering scope.
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          5. Selected Project Experience
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 5. Selected Project Experience ───────────────────────────────── */}
       <section
         id="selected-experience"
         aria-labelledby="selected-experience-heading"
-        className={`w-full bg-amber-50/30 border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
+        className={`w-full bg-[#faf8f5] border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className={inner}>
-          {/* Section header + link */}
           <div className="mb-10 flex flex-col gap-5 sm:mb-12 md:flex-row md:items-end md:justify-between">
             <div className="min-w-0">
-              <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-                Portfolio Evidence
-              </span>
+              <Badge variant="secondary" size="sm" className="mb-3">
+                Production Evidence
+              </Badge>
               <h2
                 id="selected-experience-heading"
-                className="mb-2 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+                className="mb-2 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
               >
-                Selected Project Experience
+                Production Engineering in Action
               </h2>
-              <p className="max-w-xl text-base leading-relaxed text-gray-600">
-                Real production websites built for businesses with performance,
-                structure, and user journey in mind.
+              <p className="max-w-xl text-base leading-relaxed text-gray-600 font-light">
+                Real production websites built with meticulous attention to performance, structure, and user conversion journeys.
               </p>
             </div>
 
-            <Link
-              href="/work"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
-            >
-              <span>Explore All Selected Work</span>
-              <ArrowRight
-                className="h-4 w-4 shrink-0 text-amber-400 transition-transform group-hover:translate-x-1"
-                aria-hidden="true"
-              />
+            <Link href="/work" className="shrink-0">
+              <Button variant="default" size="default" className="gap-2">
+                <span>Explore All Selected Work</span>
+                <ArrowRight className="h-4 w-4 text-[#ffb703]" />
+              </Button>
             </Link>
           </div>
 
           <div className="flex flex-col gap-8">
-
-            {/* ── Clothing Nexus card ─────────────────────────────────── */}
-            <article className="flex flex-col rounded-2xl border-2 border-black bg-white p-6 shadow-xs sm:p-8">
-              {/* Badge row */}
+            {/* Clothing Nexus card */}
+            <article className="flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-10 shadow-sm">
               <div className="mb-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
-                    Live Website
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-800">
-                    Next.js
-                  </span>
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
+                  <Badge variant="success" size="sm">
+                    Live Production Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    Next.js App Router
+                  </Badge>
+                  <Badge variant="amber" size="sm">
                     Product Catalogue
-                  </span>
+                  </Badge>
                 </div>
                 <span className="shrink-0 font-mono text-xs text-gray-500">
                   clothingnexus.com
                 </span>
               </div>
 
-              <h3 className="mb-3 font-serif text-2xl font-bold text-gray-900 sm:text-3xl">
+              <h3 className="mb-3 font-heading text-2xl font-bold text-gray-900 sm:text-3xl">
                 Clothing Nexus
               </h3>
 
-              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700">
-                A custom business website with a substantial product catalogue,
-                built with Next.js. Development included careful attention to
-                website structure, product image optimization, technical SEO,
-                and performance.
+              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700 font-light">
+                A custom B2B web platform with a substantial product catalogue, engineered with Next.js. Architecture highlights include aggressive image compression, semantic markup, and optimal Core Web Vitals to maximize buyer engagement.
               </p>
 
-              {/* PageSpeed Insights panel */}
-              <div className="mb-6 rounded-xl border-2 border-gray-900 bg-amber-50/40 p-5 sm:p-6">
-                {/* Panel header */}
+              {/* Lab Report Panel */}
+              <div className="mb-6 rounded-2xl border-2 border-gray-900 bg-[#fdfbf7] p-5 sm:p-6">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 pb-3">
                   <div className="flex items-center gap-2">
-                    <Gauge
-                      className="h-5 w-5 shrink-0 text-gray-900"
-                      aria-hidden="true"
-                    />
-                    <span className="font-serif text-sm font-bold text-gray-900 sm:text-base">
-                      PageSpeed Insights Lab Report
+                    <Gauge className="h-5 w-5 shrink-0 text-gray-900" aria-hidden="true" />
+                    <span className="font-heading text-sm font-bold text-gray-900 sm:text-base">
+                      Google PageSpeed Insights Lab Report
                     </span>
                   </div>
                   <span className="inline-block rounded-lg border border-gray-300 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-                    Captured 29 October 2026
+                    Audit Date: 29 October 2026
                   </span>
                 </div>
 
-                {/* Score grid: 2 cols on mobile, 5 cols at sm+
-                    The last (5th) card does NOT need col-span on mobile
-                    because we use a simple 2-col grid; at sm it becomes 5-col. */}
                 <div
                   className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-5"
                   role="list"
@@ -548,10 +540,10 @@ export default function WebDevelopmentPage() {
                 >
                   {[
                     { label: "Desktop Perf.", score: 100, color: "text-emerald-600" },
-                    { label: "Mobile Perf.",  score: 75,  color: "text-amber-600"   },
-                    { label: "Accessibility", score: 96,  color: "text-emerald-600" },
-                    { label: "Best Practices",score: 96,  color: "text-emerald-600" },
-                    { label: "SEO",           score: 92,  color: "text-emerald-600" },
+                    { label: "Mobile Perf.", score: 75, color: "text-[#0b131e]" },
+                    { label: "Accessibility", score: 96, color: "text-emerald-600" },
+                    { label: "Best Practices", score: 96, color: "text-emerald-600" },
+                    { label: "SEO", score: 92, color: "text-emerald-600" },
                   ].map((metric) => (
                     <div
                       key={metric.label}
@@ -561,9 +553,7 @@ export default function WebDevelopmentPage() {
                       <span className="mb-1 block text-[10px] font-semibold uppercase leading-tight tracking-wide text-gray-600 sm:text-[11px]">
                         {metric.label}
                       </span>
-                      <span
-                        className={`font-serif text-2xl font-bold leading-none ${metric.color}`}
-                      >
+                      <span className={`font-heading text-2xl font-bold leading-none ${metric.color}`}>
                         {metric.score}
                       </span>
                       <span className="mt-0.5 text-xs text-gray-400">/100</span>
@@ -571,17 +561,10 @@ export default function WebDevelopmentPage() {
                   ))}
                 </div>
 
-                {/* Disclaimer */}
-                <p className="flex items-start gap-2 text-xs leading-relaxed text-gray-600">
-                  <Info
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-500"
-                    aria-hidden="true"
-                  />
+                <p className="flex items-start gap-2 text-xs leading-relaxed text-gray-600 font-light">
+                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-500" aria-hidden="true" />
                   <span>
-                    Results from a specific Lighthouse lab audit captured on 29
-                    October 2026. Lab scores test synthetic conditions and differ
-                    from field-user Core Web Vitals; live performance varies with
-                    real-world networks and devices.
+                    Measured under synthetic Lighthouse lab audit conditions on 29 October 2026. While synthetic scores validate code efficiency, real-world user metrics (Core Web Vitals) vary based on visitor devices, caching, and network conditions.
                   </span>
                 </p>
               </div>
@@ -591,43 +574,38 @@ export default function WebDevelopmentPage() {
                   href="https://www.clothingnexus.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-2"
                 >
-                  <span>View Live Website</span>
-                  <ExternalLink
-                    className="h-4 w-4 shrink-0 text-amber-400"
-                    aria-hidden="true"
-                  />
+                  <Button variant="default" size="default" className="gap-2">
+                    <span>View Live Website</span>
+                    <ExternalLink className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
+                  </Button>
                 </a>
               </div>
             </article>
 
-            {/* ── CN IT Solutions card ────────────────────────────────── */}
-            <article className="flex flex-col rounded-2xl border-2 border-black bg-white p-6 shadow-xs sm:p-8">
+            {/* CN IT Solutions card */}
+            <article className="flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-10 shadow-sm">
               <div className="mb-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
-                    Live Website
-                  </span>
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
-                    IT Business Website
-                  </span>
+                  <Badge variant="success" size="sm">
+                    Live Production Platform
+                  </Badge>
+                  <Badge variant="secondary" size="sm">
+                    IT Corporate Website
+                  </Badge>
                 </div>
                 <span className="shrink-0 font-mono text-xs text-gray-500">
                   cnitsolutions.com
                 </span>
               </div>
 
-              <h3 className="mb-3 font-serif text-2xl font-bold text-gray-900 sm:text-3xl">
+              <h3 className="mb-3 font-heading text-2xl font-bold text-gray-900 sm:text-3xl">
                 CN IT Solutions
               </h3>
 
-              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700">
-                A dedicated website developed for an IT services business,
-                focused on clearly presenting its service offerings and
-                establishing an online presence. Developed for an affiliated
-                business within the same corporate group as Clothing Nexus.
+              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700 font-light">
+                A structured corporate platform developed for an IT services provider, focused on clear presentation of enterprise service offerings and professional lead generation. Built for an affiliated entity within the same corporate group as Clothing Nexus.
               </p>
 
               <div>
@@ -635,156 +613,140 @@ export default function WebDevelopmentPage() {
                   href="https://www.cnitsolutions.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-2"
                 >
-                  <span>View Live Website</span>
-                  <ExternalLink
-                    className="h-4 w-4 shrink-0 text-amber-400"
-                    aria-hidden="true"
-                  />
+                  <Button variant="default" size="default" className="gap-2">
+                    <span>View Live Website</span>
+                    <ExternalLink className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
+                  </Button>
                 </a>
               </div>
             </article>
 
             {/* Concepts callout */}
-            <div className="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white/70 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h4 className="mb-1 font-serif text-lg font-bold text-gray-900">
-                  Exploratory Concepts &amp; Samples
+                <h4 className="mb-1 font-heading text-lg font-bold text-gray-900">
+                  Exploratory Concepts &amp; Interactive Prototypes
                 </h4>
-                <p className="text-xs leading-relaxed text-gray-600 sm:text-sm">
-                  Our portfolio also features industry concept prototypes
-                  including Tooni Wear (on hold), March Computer, Lexway, Khawar
-                  Law Associates and 3G Leather.
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                  Our portfolio also features exploratory sector prototypes including Tooni Wear (on hold), March Computer, Lexway, Khawar Law Associates, and 3G Leather.
                 </p>
               </div>
-              <Link
-                href="/work#concepts"
-                className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-gray-900 underline decoration-amber-400 underline-offset-4 transition-colors hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
-              >
-                <span>View Concept Samples</span>
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <Link href="/work#concepts" className="shrink-0">
+                <Button variant="slateOutline" size="sm" className="gap-2">
+                  <span>View Concept Prototypes</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          6. What Makes the Approach Different
-          ─────────────────────────────────────────────────────────────────
-          5 approach cards + 1 "Honest Promises" card = 6 total.
-          lg:grid-cols-3 → exactly 2 rows of 3. Perfectly balanced.
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 6. What Makes the Approach Different ─────────────────────────── */}
       <section
         id="approach-difference"
         aria-labelledby="approach-heading"
         className={`w-full bg-white border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className={inner}>
-          <div className="mb-10 sm:mb-12">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
-              Our Standard
-            </span>
+          <div className="mb-10 sm:mb-12 max-w-3xl">
+            <Badge variant="secondary" size="sm" className="mb-3">
+              Engineering Standards
+            </Badge>
             <h2
               id="approach-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl max-w-2xl"
+              className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              What Makes the Approach Different
+              Why Our Development Principles Drive Marketing Outcomes
             </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              We connect website development with search foundations from day
-              one, creating practical value without unsupported claims.
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+              We connect web engineering directly with search discoverability and customer conversion from day one.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {approachDifferences.map((diff) => (
-              <div
-                key={diff.title}
-                className="rounded-2xl border-2 border-black bg-white p-6"
-              >
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-sm font-bold text-amber-900">
-                  ✓
+              <Card key={diff.title} variant="tactile" className="p-6">
+                <div>
+                  <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-[#0b131e] text-xs font-bold text-[#ffb703]">
+                    ✓
+                  </div>
+                  <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
+                    {diff.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                    {diff.description}
+                  </p>
                 </div>
-                <h3 className="mb-2 font-serif text-lg font-bold text-gray-900">
-                  {diff.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  {diff.description}
-                </p>
-              </div>
+              </Card>
             ))}
 
-            {/* 6th card — "Honest Promises" completes the 2×3 grid */}
-            <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6">
-              <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-900">
-                <ShieldCheck
-                  className="h-4 w-4 shrink-0 text-amber-700"
-                  aria-hidden="true"
-                />
-                Realistic Expectations
+            {/* 6th Card: Realistic Expectations */}
+            <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between">
+              <div>
+                <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-800">
+                  <ShieldCheck className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
+                  Honest Promises
+                </div>
+                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
+                  Transparent Technical Advice
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
+                  We don&apos;t claim that clean code alone replaces ongoing marketing strategy. We provide rigorous, battle-tested software engineering that ensures your marketing investments achieve maximum commercial yield.
+                </p>
               </div>
-              <h3 className="mb-2 font-serif text-lg font-bold text-gray-900">
-                Honest Promises
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-700">
-                We don&apos;t claim that every line of code is magically
-                optimized or that technical SEO alone guarantees top rankings.
-                We provide solid technical engineering that supports long-term
-                commercial success.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Contextual Investigation Callout ────────────────────────── */}
-      <section className={`w-full bg-[#fcfbf7] border-b border-black/10 ${px} py-12`}>
-        <div className="max-w-4xl mx-auto rounded-3xl border-2 border-black bg-blue-100 p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      {/* ── 7. Contextual Investigation Callout ────────────────────────── */}
+      <section className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} py-12`}>
+        <div className="max-w-5xl mx-auto rounded-3xl border-2 border-black bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
           <div className="max-w-xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-700 block mb-1">
+            <Badge variant="amber" size="sm" className="mb-2">
               From Our Journal · The Internet, Under the Hood
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+            </Badge>
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               How Website Development Improves Search Visibility
             </h3>
-            <p className="text-sm text-gray-700 leading-relaxed font-light">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
               Read our analysis on why technical foundations, site speed, and semantic page structure directly influence search discovery and business conversions.
             </p>
           </div>
           <Link
             href="/journal/website-development-search-visibility-conversions"
-            className="inline-flex items-center gap-2 rounded-2xl bg-black px-6 py-3.5 text-sm font-semibold text-white hover:bg-gray-900 transition-all shrink-0"
+            className="shrink-0"
           >
-            <span>Read Investigation</span>
-            <ArrowRight className="h-4 w-4 text-amber-400" />
+            <Button variant="default" size="default" className="gap-2">
+              <span>Read Investigation</span>
+              <ArrowRight className="h-4 w-4 text-[#ffb703]" />
+            </Button>
           </Link>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          7. FAQ
-          ───────────────────────────────────────────────────────────────── */}
+      {/* ── 8. FAQ ───────────────────────────────────────────────────────── */}
       <section
         id="webdev-faqs"
         aria-labelledby="webdev-faq-heading"
-        className={`w-full bg-amber-50/40 border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
+        className={`w-full bg-white border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
       >
         <div className="max-w-4xl mx-auto">
           <div className="mb-10 sm:mb-12">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-700 sm:text-sm">
+            <Badge variant="secondary" size="sm" className="mb-3">
               Common Questions
-            </span>
+            </Badge>
             <h2
               id="webdev-faq-heading"
-              className="mb-3 font-serif text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+              className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
               Frequently Asked Questions
             </h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
-              Clear answers about our website development process, technology
-              choices, costs, timelines and SEO foundations.
+            <p className="max-w-2xl text-sm leading-relaxed text-gray-600 font-light">
+              Clear answers regarding our web engineering workflows, technology stack selections, timelines, and SEO-aware foundations.
             </p>
           </div>
 
@@ -792,44 +754,8 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          8. Final CTA
-          ───────────────────────────────────────────────────────────────── */}
-      <section
-        id="webdev-cta"
-        aria-labelledby="webdev-cta-heading"
-        className={`w-full bg-blue-100 ${px} py-20 lg:py-24`}
-      >
-        <div className={inner}>
-          <span className="mb-4 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            Let&apos;s Talk About Your Project
-          </span>
-
-          <h2
-            id="webdev-cta-heading"
-            className="mb-4 font-serif text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl max-w-2xl"
-          >
-            Ready to Build a Better Website?
-          </h2>
-
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            Tell us what your business needs, what your current website is
-            missing, or what you want to build from scratch. We&apos;ll discuss
-            the requirements and identify a practical next step.
-          </p>
-
-          <Link
-            href="/contact"
-            className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-black px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:text-base"
-          >
-            <span>Discuss Your Project</span>
-            <ArrowRight
-              aria-hidden="true"
-              className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 text-amber-400"
-            />
-          </Link>
-        </div>
-      </section>
+      {/* ── 9. Unified Bottom CTA ────────────────────────────────────────── */}
+      <FinalCta />
     </div>
   );
 }

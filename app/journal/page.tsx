@@ -2,25 +2,60 @@ import type { Metadata } from "next";
 import { getPublishedArticles, getCategories, getFeaturedArticle } from "@/lib/journal";
 import ArticleCard from "@/components/journal/ArticleCard";
 import CategoryFilter from "@/components/journal/CategoryFilter";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "The Growth & Tech Vault | SEO & Web Development Journal",
+  title: "The Growth & Tech Vault | SEO & Digital Marketing Journal",
   description:
-    "Practical guides and technical resources on SEO, website development, Core Web Vitals, and search visibility by Cinorium.",
+    "Practical guides and technical investigations on customer acquisition, SEO, search visibility, Core Web Vitals, and web architecture by Cinorium.",
   alternates: {
     canonical: "/journal",
   },
   openGraph: {
-    title: "The Growth & Tech Vault | SEO & Web Development Journal | Cinorium",
+    title: "The Growth & Tech Vault | SEO & Digital Marketing Journal | Cinorium",
     description:
-      "Practical guides and technical resources on SEO, website development, Core Web Vitals, and search visibility by Cinorium.",
+      "Practical guides and technical investigations on customer acquisition, SEO, search visibility, Core Web Vitals, and web architecture by Cinorium.",
     url: "https://www.cinorium.com/journal",
     type: "website",
   },
 };
 
-const px = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
+const px = "px-6 sm:px-10 md:px-16 lg:px-24";
 const inner = "max-w-5xl mx-auto";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.cinorium.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Journal",
+          item: "https://www.cinorium.com/journal",
+        },
+      ],
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://www.cinorium.com/journal#blog",
+      url: "https://www.cinorium.com/journal",
+      name: "The Growth & Tech Vault | SEO & Digital Marketing Journal",
+      description:
+        "Practical guides and technical investigations on customer acquisition, SEO, search visibility, Core Web Vitals, and web architecture by Cinorium.",
+      publisher: {
+        "@id": "https://www.cinorium.com/#organization",
+      },
+    },
+  ],
+};
 
 export default async function JournalPage() {
   const publishedArticles = await getPublishedArticles();
@@ -29,28 +64,35 @@ export default async function JournalPage() {
 
   return (
     <div className="w-full">
+      {/* Structured Data Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
       <section
         id="journal-hero"
         aria-labelledby="journal-hero-heading"
-        className={`w-full bg-blue-100 border-b border-black/10 ${px} pt-28 pb-20 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24`}
+        className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} pt-28 pb-16 sm:pt-36 sm:pb-20`}
       >
         <div className={inner}>
-          <span className="mb-4 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-800 sm:text-sm">
-            THE INTERNET, UNDER THE HOOD · JOURNAL &amp; INSIGHTS
-          </span>
+          <div className="mb-4">
+            <Badge variant="default" dot="amber" size="lg">
+              The Internet, Under the Hood · Journal &amp; Insights
+            </Badge>
+          </div>
 
           <h1
             id="journal-hero-heading"
-            className="mb-5 font-heading text-3xl font-bold tracking-tight leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl"
+            className="mb-5 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl"
           >
             The Growth &amp; Tech Vault
           </h1>
 
-          <p className="max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
-            Website investigations, technical explanations, and practical
-            frameworks on web development, SEO, search visibility, and digital
-            marketing. Clear advice without agency fluff or unsupported claims.
+          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
+            Website investigations, architectural explanations, and practical frameworks across digital marketing strategy, search visibility (SEO/AEO), Core Web Vitals, and web engineering. Clear advice without generic agency fluff.
           </p>
         </div>
       </section>
@@ -60,16 +102,13 @@ export default async function JournalPage() {
         <section
           id="featured-article"
           aria-labelledby="featured-heading"
-          className={`w-full bg-amber-50/30 border-b border-black/10 ${px} py-14 sm:py-16`}
+          className={`w-full bg-[#faf8f5] border-b border-black/10 ${px} py-14 sm:py-16`}
         >
           <div className={inner}>
             <div className="mb-6 flex items-center justify-between">
-              <span
-                id="featured-heading"
-                className="inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm"
-              >
+              <Badge variant="secondary" size="sm" id="featured-heading">
                 Featured Release
-              </span>
+              </Badge>
             </div>
 
             <ArticleCard article={featuredArticle} featured={true} />
@@ -85,18 +124,17 @@ export default async function JournalPage() {
       >
         <div className={inner}>
           <div className="mb-10">
-            <span className="mb-3 inline-block border-b-2 border-amber-400 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-800 sm:text-sm">
+            <Badge variant="secondary" size="sm" className="mb-3">
               All Articles
-            </span>
+            </Badge>
             <h2
               id="articles-heading"
-              className="mb-3 font-heading text-2xl font-bold tracking-tight leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+              className="mb-3 font-heading text-2xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-3xl md:text-4xl"
             >
               Explore the Archive
             </h2>
-            <p className="max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base">
-              Browse technical and strategy guides categorized by search visibility,
-              web development, and evolving AI search experiences.
+            <p className="max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base font-light">
+              Browse technical analyses and marketing guides categorized by search visibility, web engineering, and evolving AI search experiences.
             </p>
           </div>
 

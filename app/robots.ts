@@ -47,36 +47,37 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/api/",          // Server-side API endpoints
           "/admin/",        // Private admin portal
+          "/preview/",      // Internal design system specimen & drafts
         ],
       },
 
-      // ── AI crawlers — explicitly allowed ──────────────────────────────────
+      // ── AI crawlers — explicitly allowed for indexable content ────────────
       // Keeping these separate makes it easy to adjust AI-crawler policy
       // independently from the default wildcard rule.
       {
         userAgent: "GPTBot",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/preview/"],
       },
       {
         userAgent: "Claude-Web",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/preview/"],
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/preview/"],
       },
       {
         userAgent: "Bytespider",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/preview/"],
       },
       {
         userAgent: "PerplexityBot",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/preview/"],
       },
 
       // ── Paid SEO crawlers — disallowed to save crawl budget ───────────────
