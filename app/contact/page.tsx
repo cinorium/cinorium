@@ -115,7 +115,7 @@ export default function ContactPage() {
 
           {/* Supporting Copy */}
           <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
-            Whether you need to capture qualified search demand, eliminate speed roadblocks on your website, or architect a full-funnel digital marketing strategy, tell us about your goals. You will speak directly with our founder to evaluate concrete, practical next steps.
+            Whether you need to capture qualified search demand, eliminate speed roadblocks on your website, or architect a full-funnel digital marketing strategy, tell us about your goals. You will speak directly with our senior strategy team to evaluate concrete, practical next steps.
           </p>
         </div>
       </section>
@@ -233,7 +233,7 @@ export default function ContactPage() {
                 <ul className="space-y-3 text-xs sm:text-sm text-gray-600 font-light">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Your enquiry is reviewed directly by agency founder Muhammad Huzaifa.</span>
+                    <span>Your enquiry is reviewed directly by our senior strategy team.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
