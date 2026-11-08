@@ -66,23 +66,23 @@ export default function WorkingMethodology() {
             <Card
               key={stage.step}
               variant="dark"
-              className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors"
+              className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors flex flex-col h-full"
             >
               <CardHeader className="p-0 pb-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-modak text-4xl sm:text-5xl text-[#ffb703] leading-none select-none">
+                <div className="flex items-center justify-between min-h-[2.5rem]">
+                  <span className="font-modak text-4xl sm:text-5xl text-brand-amber leading-none select-none">
                     {stage.step}
                   </span>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500">
                     Phase {stage.step}
                   </span>
                 </div>
-                <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading">
+                <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading min-h-[3.5rem] flex items-center">
                   {stage.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="p-0">
+              <CardContent className="p-0 flex-grow">
                 <CardDescription className="text-sm leading-relaxed text-gray-300 font-light">
                   {stage.description}
                 </CardDescription>

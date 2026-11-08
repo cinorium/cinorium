@@ -10,7 +10,7 @@ export const SIGNAL_CAMPAIGNS: SignalCampaign[] = [
     ctaText: "Request Website Consultation",
     interestArea: "Website Development",
     triggerMinScore: 20,
-    relevantPathPrefixes: ["/web-development", "/work"],
+    relevantPathPrefixes: ["/web-development"],
   },
   {
     id: "technical-seo",

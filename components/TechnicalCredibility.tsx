@@ -83,9 +83,9 @@ export default function TechnicalCredibility() {
                   <span>Visit Live Platform</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
-                <Link href="/work">
+                <Link href="/contact">
                   <Button variant="slateOutline" size="sm" className="gap-1.5">
-                    <span>Explore All Projects</span>
+                    <span>Discuss Performance Goals</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Button>
                 </Link>

@@ -96,7 +96,7 @@ const principles = [
 const capabilities = [
   {
     number: "01",
-    tier: "Primary Agency Focus",
+    tier: "Customer Acquisition",
     title: "Digital Marketing Strategy",
     description:
       "Outcome-driven customer acquisition campaigns designed to generate qualified business enquiries and predictable revenue pipeline.",
@@ -111,7 +111,7 @@ const capabilities = [
   },
   {
     number: "02",
-    tier: "Primary Agency Focus",
+    tier: "Organic Visibility",
     title: "Search Visibility & SEO",
     description:
       "Technical audits, on-page architecture, and intent-focused content designed to capture high-intent buyers across Google search.",
@@ -126,7 +126,7 @@ const capabilities = [
   },
   {
     number: "03",
-    tier: "Primary Agency Focus",
+    tier: "Generative Reach",
     title: "AI Search Visibility (AEO / GEO)",
     description:
       "Entity modeling and factual grounding structured for conversational AI platforms, including ChatGPT, Perplexity, and Google AI Overviews.",
@@ -141,7 +141,7 @@ const capabilities = [
   },
   {
     number: "04",
-    tier: "Supporting Foundation",
+    tier: "Conversion Engine",
     title: "Web Engineering & Design",
     description:
       "Fast, custom Next.js platforms and distinct visual assets built as the dependable, high-converting foundation for marketing campaigns.",
@@ -339,22 +339,22 @@ export default function AboutPage() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {capabilities.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.number} variant="tactile" className="p-7 sm:p-9 bg-white">
+                <Card key={item.number} variant="tactile" className="p-7 sm:p-9 bg-white flex flex-col h-full">
                   <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-modak text-3xl sm:text-4xl text-[#ffb703]">
+                    <div className="flex items-center justify-between mb-4 min-h-[2.5rem]">
+                      <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                         {item.number}
                       </span>
-                      <Badge variant={item.tier === "Primary Agency Focus" ? "default" : "secondary"} size="sm">
+                      <Badge variant="secondary" size="sm">
                         {item.tier}
                       </Badge>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-h-[3.5rem]">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                         <Icon className="h-5 w-5" />
                       </div>
@@ -368,7 +368,7 @@ export default function AboutPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="p-0 mb-6 flex-1">
+                  <CardContent className="p-0 mb-6 flex-grow">
                     <div className="rounded-xl border border-gray-100 bg-[#fdfbf7] p-4 h-full">
                       <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-2.5">
                         Key Capabilities
@@ -384,7 +384,7 @@ export default function AboutPage() {
                     </div>
                   </CardContent>
 
-                  <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
+                  <CardFooter className="p-0 border-t border-[#0b131e]/5 pt-6 mt-auto">
                     <Link href={item.href} className="w-full">
                       <Button variant="slateOutline" size="sm" className="w-full justify-between">
                         <span>{item.cta}</span>
@@ -422,23 +422,23 @@ export default function AboutPage() {
               <Card
                 key={stage.step}
                 variant="dark"
-                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors"
+                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors flex flex-col h-full"
               >
                 <CardHeader className="p-0 pb-3">
-                  <div className="flex items-center justify-between">
-                    <span className="font-modak text-4xl sm:text-5xl text-[#ffb703] leading-none select-none">
+                  <div className="flex items-center justify-between min-h-[2.5rem]">
+                    <span className="font-modak text-4xl sm:text-5xl text-brand-amber leading-none select-none">
                       {stage.step}
                     </span>
                     <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500">
                       Phase {stage.step}
                     </span>
                   </div>
-                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading">
+                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading min-h-[3.5rem] flex items-center">
                     {stage.title}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex-grow">
                   <CardDescription className="text-sm leading-relaxed text-gray-400 font-light">
                     {stage.description}
                   </CardDescription>
@@ -454,99 +454,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. Production Evidence Preview */}
-      <section
-        id="about-selected-work"
-        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <Badge variant="secondary" size="sm" className="mb-3">
-                Selected Work
-              </Badge>
-              <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
-                Real Projects &amp; Tailored Concepts
-              </h2>
-              <p className="max-w-2xl text-base leading-relaxed text-gray-600 font-light">
-                Explore real business websites running in production alongside exploratory concept prototypes created for different sectors.
-              </p>
-            </div>
-
-            <Link href="/work" className="shrink-0">
-              <Button variant="default" size="default" className="gap-2">
-                <span>Explore All Work</span>
-                <ArrowRight className="h-4 w-4 text-[#ffb703]" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Clothing Nexus */}
-            <Card variant="tactile" className="p-7 bg-white">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="success" size="sm">
-                    Live Platform
-                  </Badge>
-                  <Badge variant="secondary" size="sm">
-                    Next.js App Router
-                  </Badge>
-                  <Badge variant="amber" size="sm">
-                    Product Catalogue
-                  </Badge>
-                </div>
-
-                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-[#0b131e]">
-                  Clothing Nexus
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A custom B2B web platform with a substantial product catalogue, SEO-conscious architecture, and sub-second load times engineered for high buyer retention.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono mt-auto">
-                <span>clothingnexus.com</span>
-                <span className="text-emerald-700 font-semibold font-sans">
-                  Production Site
-                </span>
-              </div>
-            </Card>
-
-            {/* CN IT Solutions */}
-            <Card variant="tactile" className="p-7 bg-white">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Badge variant="success" size="sm">
-                    Live Platform
-                  </Badge>
-                  <Badge variant="secondary" size="sm">
-                    IT Corporate Website
-                  </Badge>
-                </div>
-
-                <h3 className="mb-2 font-heading text-2xl font-bold tracking-tight text-[#0b131e]">
-                  CN IT Solutions
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 font-light">
-                  A dedicated corporate website developed for an IT services provider, presenting enterprise offerings and structured inquiry funnels (affiliated group project).
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-mono mt-auto">
-                <span>cnitsolutions.com</span>
-                <span className="text-emerald-700 font-semibold font-sans">
-                  Production Site
-                </span>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Core Principles */}
+      {/* 5. Core Principles */}
       <section
         id="principles"
         className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"

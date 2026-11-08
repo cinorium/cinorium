@@ -59,7 +59,7 @@ export default function FaqSection() {
     <section
       id="faqs"
       aria-labelledby="faq-heading"
-      className="w-full border-t border-black/10 bg-amber-50/40 px-6 py-20 sm:px-10 md:px-16 lg:px-24 lg:py-24"
+      className="w-full border-t border-black/10 bg-[#faf8f5] px-6 py-20 sm:px-10 md:px-16 lg:px-24 lg:py-24"
     >
       <div className="mx-auto max-w-4xl">
         <div className="mb-10 sm:mb-12">

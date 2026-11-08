@@ -270,9 +270,9 @@ export default function WebDevelopmentPage() {
               </Button>
             </Link>
 
-            <Link href="/work">
+            <Link href="#architecture">
               <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
-                <span>Explore Selected Work</span>
+                <span>Explore Technical Architecture</span>
               </Button>
             </Link>
           </div>
@@ -433,20 +433,18 @@ export default function WebDevelopmentPage() {
             </p>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {processSteps.map((step) => (
-              <Card key={step.number} variant="tactile" className="p-6">
-                <div>
-                  <span className="font-modak text-3xl text-[#ffb703] block mb-2">
-                    {step.number}
-                  </span>
-                  <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                    {step.description}
-                  </p>
-                </div>
+              <Card key={step.number} variant="tactile" className="p-6 flex flex-col h-full">
+                <span className="font-modak text-3xl text-slate-500 block mb-2">
+                  {step.number}
+                </span>
+                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900 min-h-[3rem] flex items-center">
+                  {step.title}
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+                  {step.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -460,191 +458,7 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      {/* ── 5. Selected Project Experience ───────────────────────────────── */}
-      <section
-        id="selected-experience"
-        aria-labelledby="selected-experience-heading"
-        className={`w-full bg-[#faf8f5] border-b border-black/10 ${px} py-16 sm:py-20 lg:py-24`}
-      >
-        <div className={inner}>
-          <div className="mb-10 flex flex-col gap-5 sm:mb-12 md:flex-row md:items-end md:justify-between">
-            <div className="min-w-0">
-              <Badge variant="secondary" size="sm" className="mb-3">
-                Production Evidence
-              </Badge>
-              <h2
-                id="selected-experience-heading"
-                className="mb-2 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
-              >
-                Production Engineering in Action
-              </h2>
-              <p className="max-w-xl text-base leading-relaxed text-gray-600 font-light">
-                Real production websites built with meticulous attention to performance, structure, and user conversion journeys.
-              </p>
-            </div>
-
-            <Link href="/work" className="shrink-0">
-              <Button variant="default" size="default" className="gap-2">
-                <span>Explore All Selected Work</span>
-                <ArrowRight className="h-4 w-4 text-[#ffb703]" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-8">
-            {/* Clothing Nexus card */}
-            <article className="flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-10 shadow-sm">
-              <div className="mb-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="success" size="sm">
-                    Live Production Platform
-                  </Badge>
-                  <Badge variant="secondary" size="sm">
-                    Next.js App Router
-                  </Badge>
-                  <Badge variant="amber" size="sm">
-                    Product Catalogue
-                  </Badge>
-                </div>
-                <span className="shrink-0 font-mono text-xs text-gray-500">
-                  clothingnexus.com
-                </span>
-              </div>
-
-              <h3 className="mb-3 font-heading text-2xl font-bold text-gray-900 sm:text-3xl">
-                Clothing Nexus
-              </h3>
-
-              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700 font-light">
-                A custom B2B web platform with a substantial product catalogue, engineered with Next.js. Architecture highlights include aggressive image compression, semantic markup, and optimal Core Web Vitals to maximize buyer engagement.
-              </p>
-
-              {/* Lab Report Panel */}
-              <div className="mb-6 rounded-2xl border-2 border-gray-900 bg-[#fdfbf7] p-5 sm:p-6">
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 pb-3">
-                  <div className="flex items-center gap-2">
-                    <Gauge className="h-5 w-5 shrink-0 text-gray-900" aria-hidden="true" />
-                    <span className="font-heading text-sm font-bold text-gray-900 sm:text-base">
-                      Google PageSpeed Insights Lab Report
-                    </span>
-                  </div>
-                  <span className="inline-block rounded-lg border border-gray-300 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-                    Audit Date: 29 October 2026
-                  </span>
-                </div>
-
-                <div
-                  className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-5"
-                  role="list"
-                  aria-label="Lighthouse audit scores"
-                >
-                  {[
-                    { label: "Desktop Perf.", score: 100, color: "text-emerald-600" },
-                    { label: "Mobile Perf.", score: 75, color: "text-[#0b131e]" },
-                    { label: "Accessibility", score: 96, color: "text-emerald-600" },
-                    { label: "Best Practices", score: 96, color: "text-emerald-600" },
-                    { label: "SEO", score: 92, color: "text-emerald-600" },
-                  ].map((metric) => (
-                    <div
-                      key={metric.label}
-                      role="listitem"
-                      className="flex flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-3 text-center"
-                    >
-                      <span className="mb-1 block text-[10px] font-semibold uppercase leading-tight tracking-wide text-gray-600 sm:text-[11px]">
-                        {metric.label}
-                      </span>
-                      <span className={`font-heading text-2xl font-bold leading-none ${metric.color}`}>
-                        {metric.score}
-                      </span>
-                      <span className="mt-0.5 text-xs text-gray-400">/100</span>
-                    </div>
-                  ))}
-                </div>
-
-                <p className="flex items-start gap-2 text-xs leading-relaxed text-gray-600 font-light">
-                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-500" aria-hidden="true" />
-                  <span>
-                    Measured under synthetic Lighthouse lab audit conditions on 29 October 2026. While synthetic scores validate code efficiency, real-world user metrics (Core Web Vitals) vary based on visitor devices, caching, and network conditions.
-                  </span>
-                </p>
-              </div>
-
-              <div>
-                <a
-                  href="https://www.clothingnexus.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <Button variant="default" size="default" className="gap-2">
-                    <span>View Live Website</span>
-                    <ExternalLink className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
-                  </Button>
-                </a>
-              </div>
-            </article>
-
-            {/* CN IT Solutions card */}
-            <article className="flex flex-col rounded-3xl border-2 border-black bg-white p-6 sm:p-10 shadow-sm">
-              <div className="mb-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="success" size="sm">
-                    Live Production Platform
-                  </Badge>
-                  <Badge variant="secondary" size="sm">
-                    IT Corporate Website
-                  </Badge>
-                </div>
-                <span className="shrink-0 font-mono text-xs text-gray-500">
-                  cnitsolutions.com
-                </span>
-              </div>
-
-              <h3 className="mb-3 font-heading text-2xl font-bold text-gray-900 sm:text-3xl">
-                CN IT Solutions
-              </h3>
-
-              <p className="mb-6 max-w-3xl text-base leading-relaxed text-gray-700 font-light">
-                A structured corporate platform developed for an IT services provider, focused on clear presentation of enterprise service offerings and professional lead generation. Built for an affiliated entity within the same corporate group as Clothing Nexus.
-              </p>
-
-              <div>
-                <a
-                  href="https://www.cnitsolutions.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <Button variant="default" size="default" className="gap-2">
-                    <span>View Live Website</span>
-                    <ExternalLink className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
-                  </Button>
-                </a>
-              </div>
-            </article>
-
-            {/* Concepts callout */}
-            <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h4 className="mb-1 font-heading text-lg font-bold text-gray-900">
-                  Exploratory Concepts &amp; Interactive Prototypes
-                </h4>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                  Our portfolio also features exploratory sector prototypes including Tooni Wear (on hold), March Computer, Lexway, Khawar Law Associates, and 3G Leather.
-                </p>
-              </div>
-              <Link href="/work#concepts" className="shrink-0">
-                <Button variant="slateOutline" size="sm" className="gap-2">
-                  <span>View Concept Prototypes</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. What Makes the Approach Different ─────────────────────────── */}
+      {/* ── 5. What Makes the Approach Different ─────────────────────────── */}
       <section
         id="approach-difference"
         aria-labelledby="approach-heading"

@@ -90,7 +90,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
   }
 
   return (
-    <article className="group flex flex-col justify-between rounded-2xl border-2 border-black bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="group flex flex-col h-full rounded-2xl border-2 border-black bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {/* Cover thumbnail */}
       {article.coverImage && (
         <div className="overflow-hidden rounded-t-2xl border-b-2 border-black/10">
@@ -103,30 +103,28 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
         </div>
       )}
 
-      <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
-        <div>
-          <div className="mb-4 flex items-center justify-between gap-2">
-            <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900">
-              {article.category}
-            </span>
-            <BookOpen className="h-4 w-4 text-gray-400 transition-colors group-hover:text-black" aria-hidden="true" />
-          </div>
-
-          <h3 className="mb-3 font-heading text-xl font-semibold tracking-tight leading-snug text-gray-900 sm:text-2xl">
-            <Link
-              href={`/journal/${article.slug}`}
-              className="transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-sm"
-            >
-              {article.title}
-            </Link>
-          </h3>
-
-          <p className="mb-6 text-sm leading-relaxed text-gray-600">
-            {article.description}
-          </p>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="mb-4 flex items-center justify-between gap-2 min-h-[1.75rem]">
+          <span className="rounded-full border border-gray-200 bg-[#faf8f5] px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-gray-800">
+            {article.category}
+          </span>
+          <BookOpen className="h-4 w-4 text-gray-400 transition-colors group-hover:text-black" aria-hidden="true" />
         </div>
 
-        <div className="border-t border-gray-100 pt-4">
+        <h3 className="mb-3 font-heading text-xl font-semibold tracking-tight leading-snug text-gray-900 sm:text-2xl min-h-[3.5rem] flex items-center">
+          <Link
+            href={`/journal/${article.slug}`}
+            className="transition-colors hover:text-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-sm"
+          >
+            {article.title}
+          </Link>
+        </h3>
+
+        <p className="mb-6 text-sm leading-relaxed text-gray-600 line-clamp-3 flex-grow">
+          {article.description}
+        </p>
+
+        <div className="border-t border-[#0b131e]/5 pt-4 mt-auto">
           <div className="mb-3 flex items-center justify-between text-xs text-gray-500">
             <span className="flex items-center gap-1">
               <Calendar className="h-3 w-3" aria-hidden="true" />

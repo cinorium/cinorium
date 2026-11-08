@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const solutions = [
   {
     num: "01",
-    tier: "Primary Agency Focus",
+    tier: "Customer Acquisition",
     title: "Outcome-Driven Marketing Strategy",
     description:
       "Grounded customer acquisition campaigns focused on qualified pipeline and measurable commercial growth. We map audience intent, refine positioning, and architect high-converting visitor journeys.",
@@ -17,7 +17,7 @@ const solutions = [
   },
   {
     num: "02",
-    tier: "Primary Agency Focus",
+    tier: "Organic Visibility",
     title: "Search Visibility & Technical SEO",
     description:
       "Comprehensive technical audits, semantic keyword architecture, and content authority engineered to capture high-intent buyers at the exact moment they search for your solutions.",
@@ -27,7 +27,7 @@ const solutions = [
   },
   {
     num: "03",
-    tier: "Primary Agency Focus",
+    tier: "Generative Reach",
     title: "AI Search Visibility (AEO / GEO)",
     description:
       "Entity authority, knowledge graph modeling, and structured data optimization so conversational AI platforms—including ChatGPT, Perplexity, and Google AI Overviews—cite and recommend your business.",
@@ -37,7 +37,7 @@ const solutions = [
   },
   {
     num: "04",
-    tier: "Supporting Foundation",
+    tier: "Conversion Engine",
     title: "High-Performance Web Foundation",
     description:
       "Fast, custom Next.js platforms built as the conversion engine for your marketing campaigns. Rapid load times, rock-solid Core Web Vitals, and responsive UX that ensure marketing spend never goes to waste.",
@@ -72,19 +72,19 @@ export default function IntegratedApproach() {
           {solutions.map((item) => {
             const Icon = item.icon;
             return (
-              <Card key={item.num} variant="tactile" className="p-7 sm:p-8">
+              <Card key={item.num} variant="tactile" className="p-7 sm:p-8 flex flex-col h-full">
                 <CardHeader className="p-0 pb-4">
-                  <div className="flex items-center justify-between">
-                    <span className="font-modak text-3xl sm:text-4xl text-[#ffb703]">
+                  <div className="flex items-center justify-between min-h-[2.5rem]">
+                    <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                       {item.num}
                     </span>
-                    <Badge variant={item.tier === "Primary Agency Focus" ? "default" : "secondary"}>
+                    <Badge variant="secondary">
                       {item.tier}
                     </Badge>
                   </div>
 
-                  <div className="flex items-center gap-3 mt-4">
-                    <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e]">
+                  <div className="flex items-center gap-3 mt-4 min-h-[3.5rem]">
+                    <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <CardTitle className="text-xl sm:text-2xl text-[#0b131e]">
@@ -93,13 +93,13 @@ export default function IntegratedApproach() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex-grow">
                   <CardDescription className="text-sm sm:text-base leading-relaxed text-gray-600 font-light mb-4">
                     {item.description}
                   </CardDescription>
                 </CardContent>
 
-                <CardFooter className="p-0 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <CardFooter className="p-0 mt-auto pt-6 border-t border-[#0b131e]/5 flex items-center justify-between">
                   <Link href={item.href} className="w-full">
                     <Button
                       variant="slateOutline"

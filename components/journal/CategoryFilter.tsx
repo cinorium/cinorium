@@ -103,8 +103,8 @@ export default function CategoryFilter({ articles, categories }: CategoryFilterP
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-amber-50/30 p-10 text-center sm:p-14">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-900">
+        <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-[#faf8f5] p-10 text-center sm:p-14">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-[#0b131e]">
             <FolderX className="h-6 w-6" aria-hidden="true" />
           </div>
           <h3 className="mb-2 font-heading text-xl font-bold text-gray-900">
