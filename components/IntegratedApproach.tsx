@@ -1,56 +1,51 @@
 import Link from "next/link";
-import { TrendingUp, Search, Sparkles, Code2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 const solutions = [
   {
     num: "01",
-    tier: "Customer Acquisition",
-    title: "Outcome-Driven Marketing Strategy",
+    tier: "Strategy & Planning",
+    title: "Digital Marketing Strategy",
     description:
-      "We develop marketing strategies around your business goals and target audience. From understanding customer needs to selecting the right channels, we help create a clearer path towards attracting and acquiring customers.",
-    icon: TrendingUp,
-    href: "/services#strategy",
+      "Build marketing around your business goals and audience. We help understand customer needs, identify opportunities, select suitable channels, and create a focused plan with clear priorities.",
+    href: "/digital-marketing-strategy",
     cta: "Explore Marketing Strategy",
   },
   {
     num: "02",
-    tier: "Organic Visibility",
-    title: "Search Visibility & Technical SEO",
+    tier: "Search & Discovery",
+    title: "Search Visibility & Discovery",
     description:
-      "Help the right customers discover your business through search. We improve website structure, technical SEO, keyword targeting, and content to strengthen your organic visibility and reach people actively looking for your products or services.",
-    icon: Search,
+      "Help the right people discover your business. We work on technical SEO, keyword research, on-page optimization, local search, and content visibility across traditional and AI-powered search experiences.",
     href: "/seo-services",
-    cta: "Explore SEO Architecture",
+    cta: "Explore Search Visibility",
   },
   {
     num: "03",
-    tier: "Generative Reach",
-    title: "AI Search Visibility (AEO / GEO)",
+    tier: "Content & Engagement",
+    title: "Content & Audience Engagement",
     description:
-      "Search is evolving beyond traditional search engines. We help businesses strengthen their digital presence for AI-powered search experiences through clear content, structured information, and better brand visibility across emerging answer platforms.",
-    icon: Sparkles,
-    href: "/services#ai-search",
-    cta: "Explore AI Visibility",
+      "Build meaningful connections through content marketing, social media, and email. We help businesses attract attention, establish trust, nurture leads, and maintain stronger customer relationships.",
+    href: "/content-marketing",
+    cta: "Explore Content & Engagement",
   },
   {
     num: "04",
-    tier: "Website Experience",
-    title: "A Stronger Website Foundation",
+    tier: "Commerce & Growth",
+    title: "E-commerce & Growth Systems",
     description:
-      "Your website plays an important role in how customers discover, understand, and interact with your business. We improve website structure, usability, responsiveness, and technical performance to create a stronger foundation for your digital marketing efforts.",
-    icon: Code2,
-    href: "/web-development",
-    cta: "Explore Website Solutions",
+      "Improve how customers discover, evaluate, and purchase your products. We focus on e-commerce growth, conversion optimization, performance measurement, retention, and customer loyalty.",
+    href: "/ecommerce-growth",
+    cta: "Explore E-commerce Growth",
   },
 ];
 
@@ -58,74 +53,96 @@ export default function IntegratedApproach() {
   return (
     <section
       id="approach"
-      className="w-full bg-[#fdfbf7] py-20 sm:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-200/80"
+      className="w-full border-t border-gray-200/80 bg-[#fdfbf7] px-6 py-20 sm:px-10 sm:py-24 md:px-16 lg:px-24"
     >
-      <div className="max-w-6xl mx-auto w-full">
-        {/* Header */}
+      <div className="mx-auto w-full max-w-6xl">
         <div className="mb-14 text-center md:text-left">
           <Badge variant="default" dot="amber" className="mb-3">
             Integrated Marketing Capabilities
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-[#0b131e] mb-4">
-            Connecting Strategy, Search & Conversion
+
+          <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight text-[#0b131e] sm:text-4xl lg:text-5xl">
+            One Connected Approach to Digital Growth
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-light leading-relaxed">
-            Effective digital marketing brings strategy, visibility, and
-            customer experience together. We combine the right channels and
-            capabilities to help businesses reach relevant audiences, build
-            trust, and turn opportunities into meaningful enquiries.
+
+          <p className="max-w-2xl text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+            Effective digital growth requires different marketing activities to
+            work together. We connect strategy, search visibility, content, and
+            customer experience to help businesses attract the right audience,
+            build trust, and create meaningful opportunities.
           </p>
         </div>
 
-        {/* 2x2 Grid of Tactile Solution Cards with Baseline-Aligned Footers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {solutions.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Card
-                key={item.num}
-                variant="tactile"
-                className="p-7 sm:p-8 flex flex-col h-full"
-              >
-                <CardHeader className="p-0 pb-4">
-                  <div className="flex items-center justify-between min-h-[2.5rem]">
-                    <span className="font-modak text-3xl sm:text-4xl text-slate-500">
-                      {item.num}
-                    </span>
-                    <Badge variant="secondary">{item.tier}</Badge>
-                  </div>
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+          {solutions.map((item) => (
+            <Card
+              key={item.num}
+              variant="tactile"
+              className="grid h-full grid-rows-[auto_1fr] p-7 sm:p-8"
+            >
+              <CardHeader className="grid grid-rows-[auto_minmax(4rem,auto)] gap-y-4 p-0 pb-5">
+                <div className="flex min-h-10 items-center justify-between gap-3">
+                  <span className="font-modak text-3xl leading-none text-slate-500 sm:text-4xl">
+                    {item.num}
+                  </span>
 
-                  <div className="flex items-center gap-3 mt-4 min-h-[3.5rem]">
-                    <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] shrink-0">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <CardTitle className="text-xl sm:text-2xl text-[#0b131e]">
-                      {item.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
+                  <Badge variant="secondary">{item.tier}</Badge>
+                </div>
 
-                <CardContent className="p-0 flex-grow">
-                  <CardDescription className="text-sm sm:text-base leading-relaxed text-gray-600 font-light mb-4">
-                    {item.description}
-                  </CardDescription>
-                </CardContent>
+                <CardTitle className="flex items-center text-xl leading-tight text-[#0b131e] sm:text-2xl">
+                  {item.title}
+                </CardTitle>
+              </CardHeader>
 
-                <CardFooter className="p-0 mt-auto pt-6 border-t border-[#0b131e]/5 flex items-center justify-between">
-                  <Link href={item.href} className="w-full">
-                    <Button
-                      variant="slateOutline"
-                      size="sm"
-                      className="w-full justify-between"
-                    >
-                      <span>{item.cta}</span>
-                      <ArrowRight className="w-4 h-4 text-[#0b131e]" />
-                    </Button>
+              <CardContent className="flex flex-col p-0">
+                <CardDescription className="mb-6 text-sm font-light leading-relaxed text-gray-600 sm:text-base">
+                  {item.description}
+                </CardDescription>
+
+                <div className="mt-auto border-t border-[#0b131e]/10 pt-5">
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] transition-colors hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703] focus-visible:ring-offset-2"
+                  >
+                    <span>{item.cta}</span>
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </Link>
-                </CardFooter>
-              </Card>
-            );
-          })}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-5 rounded-xl border-2 border-[#0b131e] bg-[#0b131e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#ffb703]">
+              Supporting Technical Capability
+            </p>
+
+            <h3 className="mb-2 text-lg font-bold sm:text-xl">
+              Website & Technical Optimization
+            </h3>
+
+            <p className="max-w-2xl text-sm font-light leading-relaxed text-white/75">
+              A stronger technical foundation for your marketing efforts. From
+              custom website development and WordPress to performance,
+              usability, and technical improvements.
+            </p>
+          </div>
+
+          <Link
+            href="/web-development"
+            className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#ffb703] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b131e]"
+          >
+            Explore Website & Technical Optimization
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
         </div>
       </div>
     </section>

@@ -14,43 +14,49 @@ const faqs: FaqItem[] = [
     id: "webdev-faq-1",
     question: "Should I choose a custom website or WordPress?",
     answer:
-      "It depends on your business requirements. A custom website (built with modern frameworks like Next.js) is ideal for businesses that prioritize speed, bespoke product catalogues, tailored user journeys and minimal plugin dependencies. WordPress is well-suited for businesses that need a familiar editorial workflow to publish articles or update page content regularly. We evaluate your goals and recommend the platform that best fits your needs rather than forcing a single technology.",
+      "It depends on your business requirements and how you plan to manage your website. A custom website built with a framework like Next.js can suit projects that need tailored functionality, custom user experiences, or a specific technical architecture. WordPress is often a practical choice for businesses that want to publish articles, update pages, and manage content through a familiar dashboard. We consider your goals, functionality, budget, and future needs before recommending an approach.",
   },
   {
     id: "webdev-faq-2",
     question: "Can you build a website for my existing business?",
     answer:
-      "Yes. Whether your business currently relies on social media, offline referrals, or an outdated website, we can build a modern online presence from scratch. We work with established companies, service providers, local businesses and growing brands to design websites that clearly present what they offer.",
+      "Yes. We can help businesses establish a new online presence or improve an existing one. Whether you currently rely on social media, referrals, or an outdated website, we plan the structure and functionality around your business, audience, and the information customers need to make decisions.",
   },
   {
     id: "webdev-faq-3",
     question: "Do you build websites with SEO in mind?",
     answer:
-      "Yes. Every website we build includes solid technical SEO foundations: clean URL structures, semantic HTML5 markup, responsive layouts, metadata configuration, crawlability and page speed considerations. While sound technical development creates an essential foundation for discovery, it does not automatically guarantee specific search rankings or traffic volumes on its own.",
+      "Yes. Our development work considers technical foundations such as semantic HTML, responsive layouts, logical URL structures, metadata, crawlability, and performance. These practices help create a website that is easier to access and understand. However, technical implementation alone does not guarantee search rankings or organic traffic. Ongoing SEO strategy and content work may also be needed.",
   },
   {
     id: "webdev-faq-4",
     question: "Can you redesign or improve an existing website?",
     answer:
-      "Yes. If your current website is slow, hard to use on mobile devices, visually dated, or difficult to maintain, we can evaluate its existing architecture and implement targeted improvements. Redesign projects can range from structural and responsive polish to a complete re-platforming, depending on what best serves your business.",
+      "Yes. We can review an existing website and identify opportunities to improve its structure, mobile usability, performance, appearance, and maintainability. Depending on the condition and requirements of the current website, the work may involve targeted improvements, a redesign, or migration to a different platform. Existing URLs, content, and search visibility considerations are reviewed when relevant.",
   },
   {
     id: "webdev-faq-5",
-    question: "Do you provide website maintenance and ongoing support?",
+    question: "Can you build an e-commerce website or product catalogue?",
     answer:
-      "Ongoing maintenance and technical support are available options that we can discuss based on your requirements. For WordPress sites, this can cover plugin updates, backups and security monitoring. For custom builds, we deliver clean, documented code and remain available for feature additions, performance reviews and continued improvements.",
+      "Yes. We can develop product catalogue experiences that organize products, categories, images, and product information for easier browsing. Depending on your requirements, the website can support product inquiries or a complete purchasing journey with checkout and payment functionality. The platform, integrations, and exact scope are agreed before development begins.",
   },
   {
     id: "webdev-faq-6",
-    question: "How much does a business website cost?",
+    question: "Do you provide website maintenance and ongoing support?",
     answer:
-      "Website costs vary depending on the scope of work, technical complexity, custom design requirements, content readiness and whether specialized catalogue or CMS functionality is required. We discuss your objectives and provide a clear, transparent scope and fixed quote before work begins, with no unexpected hidden costs.",
+      "Ongoing maintenance and technical support can be discussed as part of your project or as a separate arrangement. Depending on the platform and agreed scope, this may include updates, backups, security checks, troubleshooting, performance reviews, and feature improvements. The exact responsibilities and support arrangements are defined before work begins.",
   },
   {
     id: "webdev-faq-7",
+    question: "How much does a business website cost?",
+    answer:
+      "The cost depends on the number of pages, design requirements, functionality, platform, content readiness, and any specialized integrations. After understanding your requirements, we provide a clear project scope and quotation so you know what is included before work starts.",
+  },
+  {
+    id: "webdev-faq-8",
     question: "How long does a website project take?",
     answer:
-      "Project timelines depend on the size of the website, custom feature requirements, and how quickly content, branding assets and feedback are available. During the planning stage, we establish realistic milestone estimates based on your project's specific scope.",
+      "Timelines depend on the website's size, functionality, content requirements, and feedback process. A straightforward business website generally requires less work than a custom platform or e-commerce project. We establish realistic milestones after reviewing the scope, required materials, and dependencies.",
   },
 ];
 
@@ -70,7 +76,7 @@ export default function WebDevFaq() {
         return (
           <div
             key={faq.id}
-            className={`w-full rounded-2xl border-2 p-5 transition-colors duration-300 sm:px-6 sm:py-5 ${
+            className={`w-full min-w-0 rounded-2xl border-2 p-5 transition-colors duration-300 sm:px-6 sm:py-5 ${
               isOpen
                 ? "border-[#ffb703] bg-white shadow-sm"
                 : "border-black/10 bg-white/70 hover:border-black/30"
@@ -82,9 +88,9 @@ export default function WebDevFaq() {
               aria-expanded={isOpen}
               aria-controls={answerId}
               onClick={() => toggleFaq(faq.id)}
-              className="group flex w-full items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703] focus-visible:ring-offset-4"
+              className="group flex w-full min-w-0 items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703] focus-visible:ring-offset-4"
             >
-              <span className="font-heading text-base font-bold leading-snug text-gray-900 sm:text-lg">
+              <span className="min-w-0 font-heading text-base font-bold leading-snug text-gray-900 sm:text-lg">
                 {faq.question}
               </span>
 
@@ -112,7 +118,7 @@ export default function WebDevFaq() {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="border-t border-gray-100 pt-4 text-sm leading-relaxed text-gray-600 sm:text-base font-light">
+                <p className="border-t border-gray-100 pt-4 text-sm leading-relaxed text-gray-600 font-light sm:text-base">
                   {faq.answer}
                 </p>
               </div>

@@ -34,14 +34,14 @@ import SeoFaq from "./SeoFaq";
 export const metadata: Metadata = {
   title: "Search Visibility & SEO Services",
   description:
-    "Improve your website's organic visibility with technical SEO audits, on-page optimization, search intent architecture, and modern entity authority.",
+    "Help customers discover your business through technical SEO, search intent research, useful content, and visibility across traditional and AI-powered search.",
   alternates: {
     canonical: "/seo-services",
   },
   openGraph: {
     title: "Search Visibility & SEO Services | Cinorium",
     description:
-      "Improve your website's organic visibility with technical SEO audits, on-page optimization, search intent architecture, and modern entity authority.",
+      "Improve how customers discover your business through technical SEO, useful content, and a stronger search presence.",
     url: "https://www.cinorium.com/seo-services",
     type: "website",
   },
@@ -52,21 +52,21 @@ export const metadata: Metadata = {
 const challenges = [
   {
     icon: AlertTriangle,
-    title: "Technical Roadblocks",
+    title: "Technical Issues",
     description:
-      "Crawlability, indexation bottlenecks, broken internal linking, bloated code, and Core Web Vitals issues that block search engine bots from discovering or evaluating key pages.",
+      "Broken links, indexing problems, slow pages, and unclear site structures can make important pages harder for search engines and visitors to access.",
   },
   {
     icon: MessageSquareX,
-    title: "Pages Missing Search Intent",
+    title: "Content That Misses Intent",
     description:
-      "Weak heading structure, irrelevant keyword targeting, or shallow answers that fail to resolve the exact commercial questions your prospective customers are searching for.",
+      "Pages may target keywords but still fail to answer the questions, concerns, and comparisons that influence a customer's decision.",
   },
   {
     icon: RefreshCw,
-    title: "Lack of Ongoing Search Strategy",
+    title: "No Consistent Search Strategy",
     description:
-      "Websites treated as static brochures rather than dynamic search assets, with no continual audit of decaying rankings, content gaps, or competitor shifts.",
+      "Without regular evaluation, content gaps, outdated pages, changing search behaviour, and competitor activity can go unnoticed.",
   },
 ];
 
@@ -74,16 +74,16 @@ const coreServices = [
   {
     id: "technical-seo",
     icon: FileSearch,
-    title: "Technical SEO & Site Architecture",
+    title: "Technical SEO & Site Structure",
     description:
-      "Inspect and rebuild the foundational technical layers that dictate how search engine bots crawl, render, and index your website.",
+      "Improve the technical foundations that help search engines access, understand, and index your important website pages.",
     highlights: [
-      "Crawl budget, robots directives & XML sitemap health",
-      "Canonical URL handling, redirect mapping & duplicate resolution",
-      "Site hierarchy & semantic internal linking structure",
-      "Core Web Vitals & technical performance analysis",
-      "Structured data & JSON-LD schema implementation",
-      "Prioritized engineering recommendations roadmap",
+      "Crawlability, indexability, and sitemap checks",
+      "Robots directives, canonical URLs, and redirects",
+      "Website hierarchy and internal linking",
+      "Page speed and Core Web Vitals assessment",
+      "Relevant structured data and schema markup",
+      "Prioritized technical improvement roadmap",
     ],
   },
   {
@@ -91,56 +91,56 @@ const coreServices = [
     icon: FileText,
     title: "On-Page SEO & Content Structure",
     description:
-      "Align individual page relevance, semantic headings, and metadata so your offerings match high-intent customer queries.",
+      "Make individual pages more relevant to the searches they are intended to serve and easier for visitors to understand.",
     highlights: [
-      "Commercial page title and meta description optimization",
-      "Strict semantic heading hierarchy (H1, H2, H3)",
-      "Search intent mapping across transactional pages",
-      "Contextual internal linking and anchor text optimization",
-      "Image accessibility, modern format delivery, and alt tags",
-      "Direct page-level conversion and clarity refinements",
+      "Page titles and meta description optimization",
+      "Clear headings and semantic page structure",
+      "Search intent alignment",
+      "Contextual internal links",
+      "Image alt text and accessibility improvements",
+      "Content clarity and page-level refinements",
     ],
   },
   {
     id: "keyword-research",
     icon: Search,
-    title: "Keyword Intelligence & Topic Clusters",
+    title: "Keyword Research & Topic Planning",
     description:
-      "Uncover the commercial search queries, customer pain points, and comparison terms that indicate high purchasing intent.",
+      "Identify the searches, questions, and topics that matter to your audience and connect them to your business offerings.",
     highlights: [
-      "Identification of high-intent transactional search terms",
-      "Search intent classification (informational vs commercial)",
-      "Topical cluster mapping to build domain authority",
-      "Cannibalization cleanup to consolidate competing pages",
-      "Prioritization based on business value and revenue potential",
+      "Relevant commercial and informational keywords",
+      "Search intent classification",
+      "Topic clusters and content opportunities",
+      "Keyword cannibalization checks",
+      "Prioritization by relevance and business value",
     ],
   },
   {
     id: "content-optimization",
     icon: BookOpen,
-    title: "Editorial & Content Authority",
+    title: "Content Strategy & Optimization",
     description:
-      "Elevate the technical depth, factual accuracy, and topical comprehensiveness of your marketing articles and commercial assets.",
+      "Build useful, well-organized content that addresses customer questions and supports your website's broader search strategy.",
     highlights: [
-      "In-depth editorial audits of existing landing pages",
-      "Content gap identification against market leaders",
-      "Direct answers structured for fast user comprehension",
-      "Factual citations and entity-level subject authority",
-      "Elimination of generic AI-generated fluff and jargon",
+      "Existing content and landing page reviews",
+      "Content gap identification",
+      "Editorial planning and content briefs",
+      "Clear explanations and useful supporting information",
+      "Content accuracy, depth, and readability",
     ],
   },
   {
     id: "off-page-seo",
     icon: Link2,
-    title: "Digital PR & Authority Acquisition",
+    title: "Digital PR & Link Authority",
     description:
-      "Support ethical domain authority growth through relevant industry mentions, authentic digital PR, and natural editorial citations.",
+      "Strengthen your website's reputation through relevant mentions, editorial opportunities, and genuine industry relationships.",
     highlights: [
-      "Ethical brand mentions and contextual industry links",
-      "Focus on genuine editorial value, citations, and trust",
-      "Natural outreach to industry publications and partners",
-      "Strict adherence to search engine webmaster guidelines",
-      "Transparent project-by-project scope and deliverables",
+      "Relevant brand mentions and link opportunities",
+      "Industry and publication research",
+      "Contextual outreach planning",
+      "Editorial relevance and quality assessment",
+      "Transparent scope and agreed deliverables",
     ],
   },
 ];
@@ -168,65 +168,65 @@ const processSteps = [
     number: "04",
     title: "Measure & Iterate",
     description:
-      "Monitor organic impressions, crawl frequency, keyword movements, and qualified inquiry conversions over time.",
+      "Review your website's technical health, existing search performance, content, and the search landscape around your business.",
   },
 ];
 
 const webFoundations = [
   {
     icon: Code2,
-    title: "Clean, Semantic Architecture",
+    title: "Clear Page Structure",
     description:
-      "Proper HTML5 semantic structure, clean document hierarchy, and crawlable navigation search engines can parse effortlessly.",
+      "Semantic HTML, descriptive headings, and accessible content help search engines and visitors understand your pages.",
   },
   {
     icon: Search,
-    title: "Intuitive Information Architecture",
+    title: "Logical Website Navigation",
     description:
-      "Logical categorization and internal link equity distribution so search crawlers and visitors find critical service pages quickly.",
+      "A well-organized site structure helps visitors find relevant information and gives search engines clearer paths between pages.",
   },
   {
     icon: TrendingUp,
-    title: "High-Speed Performance",
+    title: "Performance & Usability",
     description:
-      "Rapid mobile load times and solid Core Web Vitals that prevent crawl abandonment, reduce bounce rates, and support search signals.",
+      "Responsive layouts, efficient loading, and good Core Web Vitals contribute to a better experience across devices.",
   },
   {
     icon: FileText,
-    title: "Accurate Indexability & Metadata",
+    title: "Technical Search Signals",
     description:
-      "Properly configured canonical tags, XML sitemaps, robots.txt directives, and OpenGraph social metadata.",
+      "Correct canonical tags, indexation settings, XML sitemaps, and metadata help search engines interpret your website.",
   },
 ];
 
 const expectations = [
   {
     icon: Target,
-    title: "Prioritized Commercial Value",
+    title: "Business-Led Priorities",
     description:
-      "We focus on fixing bottlenecks that directly unlock customer acquisition and organic revenue, not on generating meaningless 80-page checklist reports.",
+      "We prioritize improvements according to your audience, business goals, search opportunities, and available resources.",
   },
   {
     icon: ClipboardList,
-    title: "Transparent, Written Scope",
+    title: "Clear Scope & Deliverables",
     description:
-      "Every audit, technical overhaul, and content deliverable is defined in writing with agreed milestones before work commences.",
+      "Recommendations, implementation tasks, and agreed deliverables are defined before work begins.",
   },
   {
     icon: TrendingUp,
-    title: "Sustainable Foundations",
+    title: "Ongoing Improvement",
     description:
-      "We build durable organic visibility that compounds over months and years, completely avoiding manipulative tactics that risk algorithmic penalties.",
+      "Search performance needs regular evaluation. We use available data to identify what is improving and where further work is needed.",
   },
 ];
 
 const aeoGeoPoints = [
-  "Clear, accurate, well-structured content that directly resolves prospective buyer queries",
-  "Semantic heading hierarchies (H1–H4) allowing automated parsing by language models",
-  "Accessible, crawlable HTML architecture that both search crawlers and AI bots can index",
-  "Consistent entity information (name, brand identity, address, core capabilities) across the web",
-  "Substantive factual evidence, clear definitions, and verifiable citations",
-  "Correctly configured JSON-LD structured data and schema markup",
+  "Clear content that directly answers relevant customer questions",
+  "Descriptive headings and logical content organization",
+  "Accessible pages that search engines and AI crawlers can process",
+  "Consistent business and brand information across relevant sources",
+  "Accurate information supported by credible references where appropriate",
+  "Relevant structured data that helps describe your pages and business",
 ];
 
 /* ─── Shared layout tokens ─────────────────────────────────────────────── */
@@ -305,19 +305,31 @@ export default function SeoServicesPage() {
           </h1>
 
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
-            Search visibility requires far more than scattering keywords across a page. As a digital marketing agency, Cinorium aligns technical site architecture, semantic content hierarchy, and crawl efficiency so search engines understand your value and buyers easily discover your business.
+            Search visibility requires far more than scattering keywords across
+            a page. As a digital marketing agency, Cinorium aligns technical
+            site architecture, semantic content hierarchy, and crawl efficiency
+            so search engines understand your value and buyers easily discover
+            your business.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto gap-2"
+              >
                 <span>Discuss Your SEO Project</span>
                 <ArrowRight className="h-4 w-4 text-[#0b131e]" />
               </Button>
             </Link>
 
             <Link href="#core-seo-services">
-              <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
+              <Button
+                variant="slateOutline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 <span>Explore SEO Capabilities</span>
               </Button>
             </Link>
@@ -343,7 +355,10 @@ export default function SeoServicesPage() {
               Why Most Business Websites Underperform in Search
             </h2>
             <p className="text-base leading-relaxed text-gray-600 font-light">
-              Websites rarely fail in organic search due to one catastrophic error. Instead, they struggle under accumulated technical debt, unclear page hierarchies, and content that fails to answer the questions real buyers ask.
+              Websites rarely fail in organic search due to one catastrophic
+              error. Instead, they struggle under accumulated technical debt,
+              unclear page hierarchies, and content that fails to answer the
+              questions real buyers ask.
             </p>
           </div>
 
@@ -351,11 +366,7 @@ export default function SeoServicesPage() {
             {challenges.map((item) => {
               const Icon = item.icon;
               return (
-                <Card
-                  key={item.title}
-                  variant="tactile"
-                  className="p-6"
-                >
+                <Card key={item.title} variant="tactile" className="p-6">
                   <CardHeader className="p-0 mb-4">
                     <div className="mb-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -394,7 +405,9 @@ export default function SeoServicesPage() {
               SEO Capabilities Engineered for Commercial Growth
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              Our search visibility services are tailored to your current technical health and market opportunities. Every project is scoped with transparent deliverables before work commences.
+              Our search visibility services are tailored to your current
+              technical health and market opportunities. Every project is scoped
+              with transparent deliverables before work commences.
             </p>
           </div>
 
@@ -442,7 +455,11 @@ export default function SeoServicesPage() {
 
                   <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
                     <Link href="/contact" className="w-full">
-                      <Button variant="slateOutline" size="sm" className="w-full gap-2">
+                      <Button
+                        variant="slateOutline"
+                        size="sm"
+                        className="w-full gap-2"
+                      >
                         <span>Inquire About This Service</span>
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Button>
@@ -473,7 +490,10 @@ export default function SeoServicesPage() {
               Preparing Content for Traditional and Generative AI Search
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              Traditional organic search, AI-powered summaries (Google AI Overviews), and generative answer engines (Perplexity, ChatGPT) all depend on the exact same underlying fundamentals: clarity, structure, and factual authority.
+              Traditional organic search, AI-powered summaries (Google AI
+              Overviews), and generative answer engines (Perplexity, ChatGPT)
+              all depend on the exact same underlying fundamentals: clarity,
+              structure, and factual authority.
             </p>
           </div>
 
@@ -482,17 +502,17 @@ export default function SeoServicesPage() {
               {
                 label: "SEO",
                 heading: "Search Engine Optimization",
-                body: "Ensuring search crawlers can discover, crawl, render, and index your pages so relevant solutions appear when buyers search.",
+                body: "Helping search engines discover, crawl, understand, and index relevant pages so your business can appear for useful customer searches.",
               },
               {
                 label: "AEO",
                 heading: "Answer Engine Optimization",
-                body: "Structuring concise, definitive answers to direct customer questions so information is easily parsed by conversational search interfaces.",
+                body: "Organizing content to answer specific questions clearly, making useful information easier to understand across answer-focused search experiences.",
               },
               {
                 label: "GEO",
                 heading: "Generative Engine Optimization",
-                body: "Building entity credibility, factual depth, and structured tables so generative models cite your brand as an authoritative reference.",
+                body: "Improving content quality, brand information, and entity consistency to support discoverability across generative AI search experiences.",
               },
             ].map((concept) => (
               <Card key={concept.label} variant="tactile" className="p-6">
@@ -519,7 +539,12 @@ export default function SeoServicesPage() {
               </h4>
             </div>
             <p className="mb-5 text-sm leading-relaxed text-gray-700 font-light">
-              No agency controls whether an AI model chooses to cite a specific page. However, content that follows rigorous semantic and editorial standards has the highest probability of citation:
+              SEO, AEO, and GEO share many foundational practices. Clear
+              information, useful content, accessible website architecture, and
+              consistent business details can support discoverability across
+              different search experiences. However, no agency can control or
+              guarantee whether a search engine or AI platform will feature or
+              cite a particular website.
             </p>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {aeoGeoPoints.map((point) => (
@@ -556,20 +581,27 @@ export default function SeoServicesPage() {
               A Disciplined, 4-Stage Search Methodology
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              We operate through an evidence-based roadmap tailored to your website&apos;s unique competitive position.
+              We operate through an evidence-based roadmap tailored to your
+              website&apos;s unique competitive position.
             </p>
           </div>
 
           <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {processSteps.map((step) => (
-              <Card key={step.number} variant="tactile" className="p-6 bg-white flex flex-col h-full">
-                <span className="font-modak text-3xl text-slate-500 block mb-2">
+              <Card
+                key={step.number}
+                variant="tactile"
+                className="p-6 bg-white grid grid-rows-[auto_minmax(3.5rem,auto)_1fr] gap-y-2 h-full"
+              >
+                <span className="font-modak text-3xl text-slate-500 leading-none">
                   {step.number}
                 </span>
-                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900 min-h-[3rem] flex items-center">
+
+                <h3 className="font-heading text-lg font-bold text-gray-900 leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
                   {step.description}
                 </p>
               </Card>
@@ -580,7 +612,10 @@ export default function SeoServicesPage() {
             <strong className="font-semibold text-gray-900">
               Realistic Outcomes &amp; Timelines:
             </strong>{" "}
-            Organic search performance is influenced by domain authority, crawl frequency, market competition, and algorithmic updates. We focus on building durable foundations and improving verifiable signals over time—not on hollow overnight ranking promises.
+            Organic search performance is influenced by domain authority, crawl
+            frequency, market competition, and algorithmic updates. We focus on
+            building durable foundations and improving verifiable signals over
+            time—not on hollow overnight ranking promises.
           </div>
         </div>
       </section>
@@ -600,10 +635,15 @@ export default function SeoServicesPage() {
               id="seo-web-dev-heading"
               className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              SEO Yields Stronger Results on an Engineered Foundation
+              Search Strategy Needs a Sound Website Foundation
             </h2>
+
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              Marketing campaigns and content strategies produce higher returns when built on high-performance code. Technical excellence reduces the technical debt SEO work would otherwise struggle to overcome.
+              SEO is not separate from the website itself. Page structure,
+              navigation, accessibility, and performance all influence how
+              people and search engines experience your content. When deeper
+              technical implementation is needed, our web development
+              capabilities support the work.
             </p>
           </div>
 
@@ -611,7 +651,11 @@ export default function SeoServicesPage() {
             {webFoundations.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.title} variant="tactile" className="p-6 flex flex-col h-full">
+                <Card
+                  key={item.title}
+                  variant="tactile"
+                  className="p-6 flex flex-col h-full"
+                >
                   <div className="flex items-start gap-4 flex-grow">
                     <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -636,7 +680,10 @@ export default function SeoServicesPage() {
                 Explore Our Web Development Capabilities
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                Discover how our custom Next.js architectures and clean WordPress systems deliver sub-second response times and rock-solid technical SEO foundations.
+                Explore our approach to building and improving websites, from
+                custom Next.js projects to WordPress and e-commerce
+                implementations. Performance and technical outcomes depend on
+                the project's requirements and conditions.
               </p>
             </div>
             <Link href="/web-development" className="shrink-0">
@@ -667,7 +714,9 @@ export default function SeoServicesPage() {
               Practical Recommendations. Measurable Priorities.
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              Honest, prioritized work focused on what genuinely drives business inquiries—not on inflating checklist counts or making unsubstantiated claims.
+              Honest, prioritized work focused on what genuinely drives business
+              inquiries—not on inflating checklist counts or making
+              unsubstantiated claims.
             </p>
           </div>
 
@@ -675,7 +724,11 @@ export default function SeoServicesPage() {
             {expectations.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.title} variant="tactile" className="p-6 bg-white">
+                <Card
+                  key={item.title}
+                  variant="tactile"
+                  className="p-6 bg-white"
+                >
                   <div>
                     <div className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -701,24 +754,30 @@ export default function SeoServicesPage() {
               <strong className="font-semibold text-gray-900">
                 Zero fabricated metrics or invented outcomes:
               </strong>{" "}
-              We do not fabricate case studies, invent testimonials, or promise unverified ranking guarantees. Timelines vary by competitive sector—and direct honesty is our operating baseline.
+              We do not fabricate case studies, invent testimonials, or promise
+              unverified ranking guarantees. Timelines vary by competitive
+              sector—and direct honesty is our operating baseline.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── 8. Contextual Investigation Callout ────────────────────────── */}
-      <section className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} py-12`}>
+      <section
+        className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} py-12`}
+      >
         <div className="max-w-5xl mx-auto rounded-3xl border-2 border-black bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
           <div className="max-w-xl">
             <Badge variant="amber" size="sm" className="mb-2">
-              From Our Journal · The Internet, Under the Hood
+              From Our Journal
             </Badge>
             <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               How Website Development Improves Search Visibility
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-              Explore how site speed, crawling efficiency, semantic markup, and on-page structure combine to support organic search performance and conversion rates.
+              Explore how site speed, crawling efficiency, semantic markup, and
+              on-page structure combine to support organic search performance
+              and conversion rates.
             </p>
           </div>
           <Link
@@ -751,7 +810,8 @@ export default function SeoServicesPage() {
               Frequently Asked Questions
             </h2>
             <p className="max-w-2xl text-sm leading-relaxed text-gray-600 font-light">
-              Direct answers about what SEO requires, what it can realistically deliver, and how Cinorium structures each engagement.
+              Direct answers about what SEO requires, what it can realistically
+              deliver, and how Cinorium structures each engagement.
             </p>
           </div>
 

@@ -1,45 +1,43 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import {
   ArrowRight,
   Code2,
   Layers,
-  Gauge,
   CheckCircle2,
-  Search,
   RefreshCw,
   ShoppingBag,
-  ExternalLink,
-  Info,
   ShieldCheck,
-  Compass,
   AlertTriangle,
-  Zap,
+  Compass,
 } from "lucide-react";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
+
 import FinalCta from "@/components/FinalCta";
 import WebDevFaq from "./WebDevFaq";
 
 export const metadata: Metadata = {
   title: "Web Development & Technical Optimization",
   description:
-    "Explore Cinorium's supporting web engineering capabilities: Next.js and WordPress platforms built as a fast, conversion-engineered foundation for marketing.",
+    "Explore Cinorium's web development capabilities, including custom Next.js websites, WordPress, e-commerce experiences, and website modernization.",
   alternates: {
     canonical: "/web-development",
   },
   openGraph: {
     title: "Web Development & Technical Optimization | Cinorium",
     description:
-      "Explore Cinorium's supporting web engineering capabilities: Next.js and WordPress platforms built as a fast, conversion-engineered foundation for marketing.",
+      "Custom Next.js and WordPress websites, e-commerce experiences, and website modernization focused on usability and performance.",
     url: "https://www.cinorium.com/web-development",
     type: "website",
   },
@@ -71,60 +69,48 @@ const coreServices = [
     id: "custom-dev",
     title: "Custom Next.js Web Development",
     description:
-      "Purpose-built modern web platforms with sub-second loading, clean semantic markup, and maintainable architectures that support aggressive marketing growth.",
+      "Purpose-built websites and web platforms developed around your business requirements, user journeys, and long-term technical needs.",
     icon: Code2,
     highlights: [
-      "Custom Next.js App Router & React 19 architecture",
-      "Sub-second page speeds and minimal dependency bloat",
-      "Clean, scalable, maintainable codebase with full documentation",
+      "Custom Next.js App Router and React architecture",
+      "Responsive interfaces and performance optimization",
+      "Semantic markup and maintainable code structure",
     ],
   },
   {
     id: "wordpress-dev",
-    title: "Engineered WordPress Development",
+    title: "WordPress Website Development",
     description:
-      "Clean, block-based WordPress setups configured without fragile plugin stacks, ensuring editorial freedom alongside rock-solid security and speed.",
+      "Flexible WordPress websites with a practical content management experience, clean implementation, and room to grow.",
     icon: Layers,
     highlights: [
-      "Custom theme setups free of bloated multi-purpose themes",
-      "Intuitive Gutenberg block editorial experience",
-      "Hardened security configurations and managed update paths",
+      "Custom theme and block-based implementations",
+      "Gutenberg editing and content management",
+      "Security-conscious setup and maintainable configurations",
     ],
   },
   {
     id: "ecommerce-catalog",
-    title: "Product Catalogue & E-commerce Platforms",
+    title: "Product Catalogue & E-commerce Websites",
     description:
-      "High-converting catalog architectures engineered for effortless product discovery, fast image rendering, and friction-free inquiry pathways.",
+      "Organized product experiences that make browsing easier, present product information clearly, and support the buying or inquiry journey.",
     icon: ShoppingBag,
     highlights: [
-      "Structured catalogue hierarchies for intuitive browsing",
-      "Aggressive product image optimization and WebP/AVIF delivery",
-      "Frictionless lead generation and purchase inquiry flows",
+      "Structured product categories and catalogue navigation",
+      "Optimized product images and responsive layouts",
+      "Product inquiries or checkout functionality based on project scope",
     ],
   },
   {
     id: "redesign-improvement",
-    title: "Website Modernization & Speed Overhauls",
+    title: "Website Modernization & Optimization",
     description:
-      "Re-engineer existing sluggish websites to eliminate technical bottlenecks, modernize UI responsiveness, and preserve accumulated search equity.",
+      "Improve existing websites through better structure, responsive layouts, performance improvements, and a more manageable technical foundation.",
     icon: RefreshCw,
     highlights: [
-      "Mobile-first responsive corrections across all devices",
-      "Crawl-budget restoration and redirect preservation",
-      "Core Web Vitals remediation (LCP, INP, CLS)",
-    ],
-  },
-  {
-    id: "seo-aware",
-    title: "Search-Engineered Technical Architecture",
-    description:
-      "Websites engineered from line one with search crawlers in mind: structured data, semantic HTML5, breadcrumbs, and crawlable layouts.",
-    icon: Search,
-    highlights: [
-      "Semantic HTML5 hierarchy and clean schema integration",
-      "Crawl-friendly internal linking and URL structures",
-      "Engineered to maximize organic crawl efficiency",
+      "Mobile usability and responsive layout improvements",
+      "Performance and Core Web Vitals optimization",
+      "URL, redirect, and existing content preservation planning",
     ],
   },
 ];
@@ -158,29 +144,29 @@ const processSteps = [
 
 const approachDifferences = [
   {
-    title: "Engineered for Marketing Conversions",
+    title: "Designed Around Business Goals",
     description:
-      "We design page layouts with clear visual hierarchy, direct CTAs, and frictionless forms that maximize lead inquiries.",
+      "We plan page layouts around your audience, information priorities, and the actions visitors should be able to take.",
   },
   {
     title: "Mobile Usability First",
     description:
-      "Touch targets, font scaling, navigation drawers, and asset loading are rigorously tested on real mobile devices.",
+      "We consider touch targets, readable typography, responsive navigation, and layout behavior across screen sizes.",
   },
   {
-    title: "Semantic & Crawlable HTML",
+    title: "Semantic & Accessible Structure",
     description:
-      "Search crawlers parse meaning through proper tags, semantic structures, and accurate metadata—not nested div bloat.",
+      "Clear HTML structure, meaningful headings, descriptive links, and accessibility considerations help people and search crawlers understand your pages.",
   },
   {
-    title: "Lean, Maintainable Code",
+    title: "Lean, Maintainable Implementation",
     description:
-      "We avoid heavy, unvetted third-party plugins that introduce security liabilities and degrade site responsiveness.",
+      "We choose practical tools and dependencies, avoiding unnecessary complexity that makes websites harder to maintain.",
   },
   {
-    title: "Scalable Growth Architecture",
+    title: "Built to Support Future Growth",
     description:
-      "Future landing pages, marketing campaigns, and journal articles can be published seamlessly without code regressions.",
+      "The structure should make it easier to add pages, publish content, introduce campaigns, and extend functionality as requirements evolve.",
   },
 ];
 
@@ -222,7 +208,7 @@ const jsonLd = {
       },
       url: "https://www.cinorium.com/web-development",
       description:
-        "High-performance Next.js and modern web development engineered as the fast, conversion-focused foundation for digital marketing campaigns.",
+        "Custom Next.js and WordPress development, product catalogue and e-commerce websites, and website modernization focused on usability, performance, and maintainability.",
       areaServed: ["Pakistan", "United States", "United Kingdom", "Worldwide"],
     },
   ],
@@ -259,20 +245,32 @@ export default function WebDevelopmentPage() {
           </h1>
 
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
-            A website is the core engine of your marketing system. As a digital marketing agency, Cinorium approaches web development not as isolated coding, but as the high-speed, search-aware technical foundation that captures high-intent traffic and turns visitors into qualified business inquiries.
+            A website is the core engine of your marketing system. As a digital
+            marketing agency, Cinorium approaches web development not as
+            isolated coding, but as the high-speed, search-aware technical
+            foundation that captures high-intent traffic and turns visitors into
+            qualified business inquiries.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto gap-2"
+              >
                 <span>Discuss Your Project</span>
                 <ArrowRight className="h-4 w-4 text-[#0b131e]" />
               </Button>
             </Link>
 
-            <Link href="#architecture">
-              <Button variant="slateOutline" size="lg" className="w-full sm:w-auto">
-                <span>Explore Technical Architecture</span>
+            <Link href="#core-services">
+              <Button
+                variant="slateOutline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                <span>Explore Our Capabilities</span>
               </Button>
             </Link>
           </div>
@@ -297,7 +295,9 @@ export default function WebDevelopmentPage() {
               A Business Website Must Do Far More Than Look Modern
             </h2>
             <p className="text-base leading-relaxed text-gray-600 font-light">
-              Many corporate websites fail to generate commercial inquiries not because of poor graphic intent, but because underlying technical flaws sabotage the visitor experience.
+              Many corporate websites fail to generate commercial inquiries not
+              because of poor graphic intent, but because underlying technical
+              flaws sabotage the visitor experience.
             </p>
           </div>
 
@@ -305,11 +305,7 @@ export default function WebDevelopmentPage() {
             {businessProblems.map((problem) => {
               const Icon = problem.icon;
               return (
-                <Card
-                  key={problem.title}
-                  variant="tactile"
-                  className="p-6"
-                >
+                <Card key={problem.title} variant="tactile" className="p-6">
                   <CardHeader className="p-0 mb-4">
                     <div className="mb-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -348,7 +344,8 @@ export default function WebDevelopmentPage() {
               Web Architecture Engineered for Conversion &amp; Speed
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              We design and engineer bespoke web solutions tailored to your operational model, marketing goals, and audience demands.
+              We design and engineer bespoke web solutions tailored to your
+              operational model, marketing goals, and audience demands.
             </p>
           </div>
 
@@ -395,15 +392,6 @@ export default function WebDevelopmentPage() {
                       </ul>
                     </div>
                   </CardContent>
-
-                  <CardFooter className="p-0 border-t border-gray-100 pt-4 mt-auto">
-                    <Link href="/contact" className="w-full">
-                      <Button variant="slateOutline" size="sm" className="w-full gap-2">
-                        <span>Inquire About This Service</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Button>
-                    </Link>
-                  </CardFooter>
                 </Card>
               );
             })}
@@ -429,20 +417,27 @@ export default function WebDevelopmentPage() {
               How We Engineer &amp; Launch Web Platforms
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              A structured 4-step framework centered on clear architectural planning, clean development, and rigorous pre-launch QA.
+              A structured 4-step framework centered on clear architectural
+              planning, clean development, and rigorous pre-launch QA.
             </p>
           </div>
 
           <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {processSteps.map((step) => (
-              <Card key={step.number} variant="tactile" className="p-6 flex flex-col h-full">
-                <span className="font-modak text-3xl text-slate-500 block mb-2">
+              <Card
+                key={step.number}
+                variant="tactile"
+                className="p-6 bg-white grid grid-rows-[auto_minmax(3.5rem,auto)_1fr] gap-y-2 h-full"
+              >
+                <span className="font-modak text-3xl text-slate-500 leading-none">
                   {step.number}
                 </span>
-                <h3 className="mb-2 font-heading text-lg font-bold text-gray-900 min-h-[3rem] flex items-center">
+
+                <h3 className="font-heading text-lg font-bold text-gray-900 leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light flex-grow">
+
+                <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
                   {step.description}
                 </p>
               </Card>
@@ -453,7 +448,9 @@ export default function WebDevelopmentPage() {
             <strong className="font-semibold text-gray-900">
               Scope &amp; Delivery Commitments:
             </strong>{" "}
-            Timelines, revisions, specialized third-party integrations, and content migration are defined transparently before any work starts. We set realistic milestones based on actual engineering scope.
+            Timelines, revisions, specialized third-party integrations, and
+            content migration are defined transparently before any work starts.
+            We set realistic milestones based on actual engineering scope.
           </div>
         </div>
       </section>
@@ -476,7 +473,8 @@ export default function WebDevelopmentPage() {
               Why Our Development Principles Drive Marketing Outcomes
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
-              We connect web engineering directly with search discoverability and customer conversion from day one.
+              We connect web engineering directly with search discoverability
+              and customer conversion from day one.
             </p>
           </div>
 
@@ -501,14 +499,20 @@ export default function WebDevelopmentPage() {
             <div className="rounded-2xl border-2 border-black bg-[#faf8f5] p-6 flex flex-col justify-between">
               <div>
                 <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-800">
-                  <ShieldCheck className="h-4 w-4 text-[#ffb703]" aria-hidden="true" />
+                  <ShieldCheck
+                    className="h-4 w-4 text-[#ffb703]"
+                    aria-hidden="true"
+                  />
                   Honest Promises
                 </div>
                 <h3 className="mb-2 font-heading text-lg font-bold text-gray-900">
                   Transparent Technical Advice
                 </h3>
                 <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
-                  We don&apos;t claim that clean code alone replaces ongoing marketing strategy. We provide rigorous, battle-tested software engineering that ensures your marketing investments achieve maximum commercial yield.
+                  A well-built website supports your marketing efforts, but it
+                  does not replace a sound marketing strategy. We focus on the
+                  technical foundation, usability, and implementation decisions
+                  that help your wider growth activities work more effectively.
                 </p>
               </div>
             </div>
@@ -517,17 +521,21 @@ export default function WebDevelopmentPage() {
       </section>
 
       {/* ── 7. Contextual Investigation Callout ────────────────────────── */}
-      <section className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} py-12`}>
+      <section
+        className={`w-full bg-[#fdfbf7] border-b border-black/10 ${px} py-12`}
+      >
         <div className="max-w-5xl mx-auto rounded-3xl border-2 border-black bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
           <div className="max-w-xl">
             <Badge variant="amber" size="sm" className="mb-2">
-              From Our Journal · The Internet, Under the Hood
+              From Our Journal
             </Badge>
             <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               How Website Development Improves Search Visibility
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-              Read our analysis on why technical foundations, site speed, and semantic page structure directly influence search discovery and business conversions.
+              Read our analysis on why technical foundations, site speed, and
+              semantic page structure directly influence search discovery and
+              business conversions.
             </p>
           </div>
           <Link
@@ -560,7 +568,8 @@ export default function WebDevelopmentPage() {
               Frequently Asked Questions
             </h2>
             <p className="max-w-2xl text-sm leading-relaxed text-gray-600 font-light">
-              Clear answers regarding our web engineering workflows, technology stack selections, timelines, and SEO-aware foundations.
+              Clear answers regarding our web engineering workflows, technology
+              stack selections, timelines, and SEO-aware foundations.
             </p>
           </div>
 
