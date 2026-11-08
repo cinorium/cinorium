@@ -36,7 +36,9 @@ export default async function GrowthVault() {
             </h2>
 
             <p className="max-w-2xl text-base sm:text-lg text-gray-600 font-light leading-relaxed">
-              Technical breakdowns, organic search analyses, and commercial marketing strategies without agency fluff or superficial jargon.
+              Practical insights on digital marketing, search visibility,
+              website performance, and business growth — explained without
+              unnecessary jargon or agency fluff.
             </p>
           </div>
 
@@ -68,9 +70,7 @@ export default async function GrowthVault() {
                 </div>
 
                 <CardTitle className="text-xl sm:text-2xl text-[#0b131e] hover:text-amber-800 transition-colors">
-                  <Link href={`/journal/${article.slug}`}>
-                    {article.title}
-                  </Link>
+                  <Link href={`/journal/${article.slug}`}>{article.title}</Link>
                 </CardTitle>
               </CardHeader>
 

@@ -1,4 +1,11 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const challenges = [
@@ -7,24 +14,27 @@ const challenges = [
     tag: "Search Discovery Friction",
     title: "Invisible to High-Intent Buyers",
     description:
-      "When your business does not rank in organic search results or AI answer engines, prospective buyers actively seeking your exact services find and hire your competitors instead.",
-    consequence: "Results in weak customer pipeline and heavy reliance on unpredictable referrals.",
+      "When your business does not rank in organic search results or AI-powered search experiences, prospective buyers actively seeking your exact services find and hire your competitors instead.",
+    consequence:
+      "Results in fewer qualified enquiries and heavy reliance on unpredictable referrals.",
   },
   {
     step: "2",
     tag: "Conversion Friction",
-    title: "Sluggish & Low-Converting Experiences",
+    title: "A Website That Fails to Convert",
     description:
-      "Bloated templates, slow mobile load times, and confusing navigation kill buyer interest in seconds. Visitors abandon clunky platforms long before they reach an enquiry form.",
-    consequence: "Wastes marketing spend and deflates visitor-to-lead conversion rates.",
+      "Slow loading pages, confusing navigation, and unclear messaging make it harder for visitors to take action. Even when people find your business, a poor website experience can drive them away before they enquire.",
+    consequence:
+      "Fewer enquiries and missed opportunities from the traffic you already attract.",
   },
   {
     step: "3",
-    tag: "Acquisition Friction",
-    title: "Marketing Without A Solid Foundation",
+    tag: "Marketing Strategy Gaps",
+    title: "Marketing Without a Clear Direction",
     description:
-      "Driving traffic or publishing content on top of a fragile, unoptimized website is like pouring water into a leaking bucket. Sustainable marketing requires technology and strategy operating in tandem.",
-    consequence: "Produces inflated acquisition costs and flatline commercial growth.",
+      "Running campaigns, publishing content, or investing in multiple channels without a clear strategy can waste time and resources. Without defined goals and proper measurement, it's difficult to know what's working or where to improve.",
+    consequence:
+      "Wasted marketing resources, unclear results, and missed growth opportunities.",
   },
 ];
 
@@ -38,20 +48,27 @@ export default function BusinessChallenges() {
         {/* Section Header */}
         <div className="mb-14 text-center md:text-left">
           <Badge variant="secondary" className="mb-3">
-            Commercial Growth Roadblocks
+            Common Digital Growth Challenges
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-[#0b131e] mb-4">
             Where Most Digital Strategies Break Down
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-light leading-relaxed">
-            A website can look modern and still fail commercially. Without commanding search discoverability, rapid load times, and structured buyer journeys, digital investments underperform.
+            A modern-looking website alone doesn't guarantee business growth. If
+            customers can't find your business, understand your value, or take
+            the next step, your digital marketing efforts may not deliver their
+            full potential.
           </p>
         </div>
 
         {/* 3 Tactile Cards Grid with Strictly Baseline-Aligned Footers */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {challenges.map((item) => (
-            <Card key={item.step} variant="tactile" className="p-7 flex flex-col h-full">
+            <Card
+              key={item.step}
+              variant="tactile"
+              className="p-7 flex flex-col h-full"
+            >
               <CardHeader className="p-0 pb-4">
                 <div className="flex items-center justify-between min-h-[3.5rem]">
                   <span className="font-modak text-5xl sm:text-6xl text-slate-500 leading-none select-none">
@@ -89,4 +106,3 @@ export default function BusinessChallenges() {
     </section>
   );
 }
-

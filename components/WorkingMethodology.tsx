@@ -1,4 +1,10 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const stages = [
@@ -6,37 +12,37 @@ const stages = [
     step: "01",
     title: "Understand",
     description:
-      "Deep dive into your business model, customer economics, competitive landscape, and commercial acquisition targets.",
+      "We learn about your business, target customers, goals, existing digital presence, and the challenges you want to overcome.",
   },
   {
     step: "02",
     title: "Diagnose",
     description:
-      "Rigorous technical audit of your organic search footprint, speed metrics, tracking integrity, and buyer conversion leaks.",
+      "We review your website, search visibility, existing marketing activities, and customer journey to identify problems and opportunities.",
   },
   {
     step: "03",
     title: "Strategize",
     description:
-      "Formulate the target keyword architecture, positioning narrative, entity data map, and high-converting user journey.",
+      "We develop a practical plan based on your business goals, audience, available resources, and the opportunities identified during our assessment.",
   },
   {
     step: "04",
     title: "Execute",
     description:
-      "Deploy fast, semantic web infrastructure, authoritative content assets, structured schema, and telemetry systems.",
+      "We put the agreed strategy into action through relevant marketing activities, content, search optimization, and website improvements.",
   },
   {
     step: "05",
     title: "Measure",
     description:
-      "Monitor qualified lead pipeline, search ranking trajectory, engagement scores, and campaign return on investment.",
+      "We monitor relevant performance indicators, including search visibility, website engagement, enquiries, and other goals defined for your project.",
   },
   {
     step: "06",
     title: "Improve",
     description:
-      "Iterate continuously on buyer data to refine conversion rates, expand organic reach, and compound growth over time.",
+      "We use performance insights to refine the strategy, address new challenges, and identify further opportunities for sustainable growth.",
   },
 ];
 
@@ -49,14 +55,21 @@ export default function WorkingMethodology() {
       <div className="max-w-6xl mx-auto w-full">
         {/* Header */}
         <div className="mb-14 text-center md:text-left">
-          <Badge variant="default" dot="amber" className="mb-3 bg-gray-900 border-gray-700">
-            Disciplined Execution
+          <Badge
+            variant="default"
+            dot="amber"
+            className="mb-3 bg-gray-900 border-gray-700"
+          >
+            Our Approach
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-white mb-4">
             The 6-Stage Working Framework
           </h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl font-light leading-relaxed">
-            We replace marketing guesswork and bloated agency promises with a structured, step-by-step framework built for predictable visibility and compounding return.
+            Every business has different goals and challenges. Our structured
+            approach helps us understand your needs, identify the right
+            opportunities, implement relevant solutions, and improve performance
+            over time.
           </p>
         </div>
 
@@ -94,4 +107,3 @@ export default function WorkingMethodology() {
     </section>
   );
 }
-

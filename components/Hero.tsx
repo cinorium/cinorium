@@ -23,7 +23,9 @@ export default function Hero() {
 
         {/* Outcome-focused Value Proposition */}
         <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-700 font-light leading-relaxed mb-8">
-          We help ambitious businesses build a stronger digital presence, capture high-intent search traffic, and turn online visibility into predictable revenue and growth.
+          We help ambitious businesses build a stronger digital presence,
+          capture high-intent search traffic, and turn online visibility into
+          predictable revenue and growth.
         </p>
 
         {/* Action CTAs */}
@@ -67,7 +69,7 @@ export default function Hero() {
           </span>
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0b131e]/10 shadow-xs text-xs sm:text-sm font-medium text-[#0b131e]">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-            Fast Web Foundation
+            Technical Website Foundation
           </span>
         </div>
       </div>

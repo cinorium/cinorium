@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { TrendingUp, Search, Sparkles, Code2, ArrowRight } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -10,7 +17,7 @@ const solutions = [
     tier: "Customer Acquisition",
     title: "Outcome-Driven Marketing Strategy",
     description:
-      "Grounded customer acquisition campaigns focused on qualified pipeline and measurable commercial growth. We map audience intent, refine positioning, and architect high-converting visitor journeys.",
+      "We develop marketing strategies around your business goals and target audience. From understanding customer needs to selecting the right channels, we help create a clearer path towards attracting and acquiring customers.",
     icon: TrendingUp,
     href: "/services#strategy",
     cta: "Explore Marketing Strategy",
@@ -20,7 +27,7 @@ const solutions = [
     tier: "Organic Visibility",
     title: "Search Visibility & Technical SEO",
     description:
-      "Comprehensive technical audits, semantic keyword architecture, and content authority engineered to capture high-intent buyers at the exact moment they search for your solutions.",
+      "Help the right customers discover your business through search. We improve website structure, technical SEO, keyword targeting, and content to strengthen your organic visibility and reach people actively looking for your products or services.",
     icon: Search,
     href: "/seo-services",
     cta: "Explore SEO Architecture",
@@ -30,20 +37,20 @@ const solutions = [
     tier: "Generative Reach",
     title: "AI Search Visibility (AEO / GEO)",
     description:
-      "Entity authority, knowledge graph modeling, and structured data optimization so conversational AI platforms—including ChatGPT, Perplexity, and Google AI Overviews—cite and recommend your business.",
+      "Search is evolving beyond traditional search engines. We help businesses strengthen their digital presence for AI-powered search experiences through clear content, structured information, and better brand visibility across emerging answer platforms.",
     icon: Sparkles,
     href: "/services#ai-search",
     cta: "Explore AI Visibility",
   },
   {
     num: "04",
-    tier: "Conversion Engine",
-    title: "High-Performance Web Foundation",
+    tier: "Website Experience",
+    title: "A Stronger Website Foundation",
     description:
-      "Fast, custom Next.js platforms built as the conversion engine for your marketing campaigns. Rapid load times, rock-solid Core Web Vitals, and responsive UX that ensure marketing spend never goes to waste.",
+      "Your website plays an important role in how customers discover, understand, and interact with your business. We improve website structure, usability, responsiveness, and technical performance to create a stronger foundation for your digital marketing efforts.",
     icon: Code2,
     href: "/web-development",
-    cta: "Explore Web Engineering",
+    cta: "Explore Website Solutions",
   },
 ];
 
@@ -60,10 +67,13 @@ export default function IntegratedApproach() {
             Integrated Marketing Capabilities
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-[#0b131e] mb-4">
-            Connecting Strategy, Search &amp; Conversion
+            Connecting Strategy, Search & Conversion
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-light leading-relaxed">
-            We don&apos;t separate marketing from technology. We build synchronized acquisition engines where organic search discoverability and rapid technical performance work together to turn clicks into qualified enquiries.
+            Effective digital marketing brings strategy, visibility, and
+            customer experience together. We combine the right channels and
+            capabilities to help businesses reach relevant audiences, build
+            trust, and turn opportunities into meaningful enquiries.
           </p>
         </div>
 
@@ -72,15 +82,17 @@ export default function IntegratedApproach() {
           {solutions.map((item) => {
             const Icon = item.icon;
             return (
-              <Card key={item.num} variant="tactile" className="p-7 sm:p-8 flex flex-col h-full">
+              <Card
+                key={item.num}
+                variant="tactile"
+                className="p-7 sm:p-8 flex flex-col h-full"
+              >
                 <CardHeader className="p-0 pb-4">
                   <div className="flex items-center justify-between min-h-[2.5rem]">
                     <span className="font-modak text-3xl sm:text-4xl text-slate-500">
                       {item.num}
                     </span>
-                    <Badge variant="secondary">
-                      {item.tier}
-                    </Badge>
+                    <Badge variant="secondary">{item.tier}</Badge>
                   </div>
 
                   <div className="flex items-center gap-3 mt-4 min-h-[3.5rem]">
@@ -119,4 +131,3 @@ export default function IntegratedApproach() {
     </section>
   );
 }
-

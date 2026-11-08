@@ -1,95 +1,59 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
-  Layers,
-  TrendingUp,
-  Search,
-  Sparkles,
-  Code2,
-  Palette,
   ArrowRight,
-  Menu,
-  X,
+  House,
+  Layers,
+  UserRound,
+  BookOpen,
+  Mail,
 } from "lucide-react";
+
 import CinoriumLogo from "@/components/CinoriumLogo";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
-/**
- * Cinorium Service Offerings for Header Navigation:
- * Clearly structured with Digital Marketing as Primary, and Web Dev/Design as Supporting Capabilities.
- */
-const primaryMarketingServices = [
-  {
-    name: "All Services Overview",
-    href: "/services",
-    description: "Integrated digital marketing system for visibility, leads & growth.",
-    icon: Layers,
-    badge: "Integrated",
-  },
-  {
-    name: "Digital Marketing Strategy",
-    href: "/services#strategy",
-    description: "Outcome-driven customer acquisition & measurable revenue growth.",
-    icon: TrendingUp,
-    badge: "Core",
-  },
-  {
-    name: "Search Visibility & SEO",
-    href: "/seo-services",
-    description: "Technical SEO, site architecture & high-intent organic rankings.",
-    icon: Search,
-    badge: "Search",
-  },
-  {
-    name: "AI Search Visibility (AEO / GEO)",
-    href: "/services#ai-search",
-    description: "Entity authority & knowledge optimization for AI search engines.",
-    icon: Sparkles,
-    badge: "AEO/GEO",
-  },
+const primaryServices = [
+  { name: "Services Overview", href: "/services" },
+  { name: "Digital Marketing Strategy", href: "/services#strategy" },
+  { name: "Search Visibility & SEO", href: "/seo-services" },
+  { name: "AI Search Visibility (AEO / GEO)", href: "/services#ai-search" },
 ];
 
-const supportingCapabilities = [
-  {
-    name: "Web Development & Tech Optimization",
-    href: "/web-development",
-    description: "High-performance websites engineered to power marketing conversions.",
-    icon: Code2,
-    badge: "Conversion Engine",
-  },
+const supportingServices = [
+  { name: "Website Development & Tech Optimization", href: "/web-development" },
   {
     name: "Graphic Design & Visual Communication",
     href: "/services#visual-communication",
-    description: "Brand identities & visual systems that build credibility and trust.",
-    icon: Palette,
-    badge: "Supporting Creative",
   },
 ];
 
+const mobileLinks = [
+  { name: "Home", href: "/", icon: House },
+  { name: "Services", href: "/services", icon: Layers },
+  { name: "About", href: "/about", icon: UserRound },
+  { name: "Journal", href: "/journal", icon: BookOpen },
+  { name: "Contact", href: "/contact", icon: Mail },
+];
+
 export default function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesAccordion, setMobileServicesAccordion] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close menus on route change
+  // Close dropdown after navigation.
   useEffect(() => {
     setServicesOpen(false);
-    setMobileMenuOpen(false);
-    setMobileServicesAccordion(false);
   }, [pathname]);
 
-  // Handle outside click for services dropdown
+  // Close dropdown when clicking outside or pressing Escape.
   useEffect(() => {
     if (!servicesOpen) return;
 
-    function handleClickOutside(event: MouseEvent) {
+    function handlePointerDown(event: PointerEvent) {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -97,52 +61,65 @@ export default function Header() {
         setServicesOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setServicesOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [servicesOpen]);
 
-  const isLinkActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
+  // Active page detection, including nested routes.
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+
     if (href === "/services") {
       return (
         pathname === "/services" ||
+        pathname.startsWith("/services/") ||
+        pathname === "/seo-services" ||
+        pathname.startsWith("/seo-services/") ||
         pathname === "/web-development" ||
-        pathname === "/seo-services"
+        pathname.startsWith("/web-development/")
       );
     }
-    return (
-      pathname === href || (href !== "/" && Boolean(pathname?.startsWith(href)))
-    );
+
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
     <>
-      {/* Floating / Sticky Header Container */}
-      <header className="fixed z-50 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl top-4 sm:top-6 transform-gpu transition-all duration-300">
-        <div className="bg-[#0b131e]/95 backdrop-blur-md text-gray-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-2xl border border-gray-800/80">
-          {/* Brand Vector Logo — Wordmark (/cinorium-logo-light.svg) */}
-          <div className="flex items-center gap-3 shrink-0">
+      {/* Floating Header */}
+      <header className="fixed left-1/2 top-4 z-40 w-[94%] max-w-6xl -translate-x-1/2 sm:top-6">
+        <div className="flex items-center justify-between rounded-full border border-gray-800/80 bg-[#0b131e]/95 px-4 py-2.5 text-gray-200 shadow-2xl backdrop-blur-md sm:px-6 sm:py-3">
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label="Cinorium Home"
+            className="inline-flex shrink-0 mx-auto md:mx-0"
+          >
             <CinoriumLogo
               variant="light"
               size="sm"
               withTagline={false}
               className="inline-flex shrink-0"
             />
-          </div>
+          </Link>
 
-          {/* Desktop Navigation Links — Strictly Strategic Order:
-              1. Services (Dropdown)
-              2. About
-              3. Work
-              4. Journal
-              5. Contact (CTA Focus) */}
+          {/* Desktop Navigation */}
           <nav
-            aria-label="Primary desktop navigation"
-            className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300"
+            aria-label="Primary navigation"
+            className="hidden items-center gap-6 text-sm font-medium text-gray-300 md:flex"
           >
-            {/* 1. Services Dropdown Menu */}
+            {/* Services Dropdown */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -152,277 +129,156 @@ export default function Header() {
               <div className="flex items-center gap-1">
                 <Link
                   href="/services"
-                  className={`transition-colors duration-200 ${isLinkActive("/services")
-                    ? "text-[#ffb703] font-semibold"
-                    : "hover:text-white text-gray-300"
-                    }`}
+                  className={`transition-colors duration-200 ${
+                    isActive("/services")
+                      ? "font-semibold text-[#ffb703]"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                 >
                   Services
                 </Link>
+
                 <button
                   type="button"
+                  aria-label="Toggle services dropdown"
                   aria-haspopup="true"
                   aria-expanded={servicesOpen}
-                  aria-label="Toggle services menu"
                   onClick={() => setServicesOpen((prev) => !prev)}
-                  className="text-gray-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 p-0.5 rounded cursor-pointer"
+                  className="rounded p-1 text-gray-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                 >
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180 text-[#ffb703]" : ""
-                      }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      servicesOpen ? "rotate-180 text-[#ffb703]" : ""
+                    }`}
                   />
                 </button>
               </div>
 
-              {/* Desktop Services Dropdown Popover */}
+              {/* Simple Services Dropdown */}
               {servicesOpen && (
-                <div
-                  role="menu"
-                  aria-orientation="vertical"
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[420px] transition-all duration-200"
-                >
-                  <div className="rounded-2xl border-2 border-[#0b131e] bg-white p-3.5 shadow-xl space-y-3">
-                    {/* Primary Marketing Services */}
-                    <div>
-                      <div className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500 border-b border-gray-100 mb-1.5 flex items-center justify-between">
-                        <span>Digital Marketing Services</span>
-                        <span className="text-[9px] text-slate-400 font-mono">Core</span>
-                      </div>
-                      <div className="space-y-1">
-                        {primaryMarketingServices.map((item) => {
-                          const Icon = item.icon;
-                          const isActive = pathname === item.href;
-                          return (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              role="menuitem"
-                              onClick={() => setServicesOpen(false)}
-                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${isActive
-                                  ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
-                                  : "text-[#0b131e] hover:bg-[#faf8f5]"
-                                }`}
-                            >
-                              <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="font-heading text-xs font-bold text-[#0b131e]">
-                                  {item.name}
-                                </div>
-                                <div className="text-[11px] text-[#0b131e]/70 leading-relaxed mt-0.5 font-light">
-                                  {item.description}
-                                </div>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
+                <div className="absolute left-1/2 top-full z-50 w-[280px] -translate-x-1/2 pt-3">
+                  <div className="overflow-hidden rounded-xl border border-gray-200 bg-[#fcfbf7] p-3 shadow-xl">
+                    <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      Digital Marketing
+                    </p>
+
+                    <div className="space-y-0.5">
+                      {primaryServices.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="block rounded-lg px-2.5 py-2 text-xs font-medium text-[#0b131e] transition-colors hover:bg-[#ffb703]/15 hover:text-[#0b131e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
 
-                    {/* Supporting Capabilities */}
-                    <div className="pt-2 border-t border-gray-100">
-                      <div className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500 border-b border-gray-100 mb-1.5 flex items-center justify-between">
-                        <span>Supporting Capabilities</span>
-                        <span className="text-[9px] text-slate-400 font-mono">Foundation</span>
-                      </div>
-                      <div className="space-y-1">
-                        {supportingCapabilities.map((item) => {
-                          const Icon = item.icon;
-                          const isActive = pathname === item.href;
-                          return (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              role="menuitem"
-                              onClick={() => setServicesOpen(false)}
-                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${isActive
-                                  ? "bg-[#faf8f5] text-[#0b131e] ring-1 ring-[#0b131e]/15"
-                                  : "text-[#0b131e] hover:bg-[#faf8f5]"
-                                }`}
-                            >
-                              <div className="p-2 rounded-xl bg-slate-100 text-[#0b131e] group-hover:bg-[#0b131e] group-hover:text-[#ffb703] transition-colors shrink-0 mt-0.5">
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="font-heading text-xs font-bold text-[#0b131e]">
-                                  {item.name}
-                                </div>
-                                <div className="text-[11px] text-[#0b131e]/70 leading-relaxed mt-0.5 font-light">
-                                  {item.description}
-                                </div>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
+                    <div className="my-2 border-t border-gray-200" />
+
+                    <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      Supporting Capabilities
+                    </p>
+
+                    <div className="space-y-0.5">
+                      {supportingServices.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="block rounded-lg px-2.5 py-2 text-xs font-medium text-[#0b131e] transition-colors hover:bg-[#ffb703]/15 hover:text-[#0b131e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* 2. About */}
+            {/* About */}
             <Link
               href="/about"
-              className={`transition-colors duration-200 ${isLinkActive("/about")
-                ? "text-[#ffb703] font-semibold"
-                : "hover:text-white text-gray-300"
-                }`}
+              className={`transition-colors duration-200 ${
+                isActive("/about")
+                  ? "font-semibold text-[#ffb703]"
+                  : "text-gray-300 hover:text-white"
+              }`}
             >
               About
             </Link>
 
-            {/* 3. Journal */}
+            {/* Journal */}
             <Link
               href="/journal"
-              className={`transition-colors duration-200 ${isLinkActive("/journal")
-                ? "text-[#ffb703] font-semibold"
-                : "hover:text-white text-gray-300"
-                }`}
+              className={`transition-colors duration-200 ${
+                isActive("/journal")
+                  ? "font-semibold text-[#ffb703]"
+                  : "text-gray-300 hover:text-white"
+              }`}
             >
               Journal
             </Link>
           </nav>
 
-          {/* Desktop Primary CTA Button: "Discuss Your Project" */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop CTA */}
+          <div className="hidden md:flex">
             <Link href="/contact">
               <Button
                 variant="secondary"
                 size="sm"
-                className="gap-1.5 text-xs font-semibold px-4 rounded-full"
+                className="gap-1.5 rounded-full px-4 text-xs font-semibold"
               >
-                <span>Discuss Your Project</span>
+                Discuss Your Project
                 <ArrowRight className="h-3.5 w-3.5 text-[#0b131e]" />
               </Button>
             </Link>
           </div>
-
-          {/* Mobile Hamburger Toggle Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <Link href="/contact" className="mr-1">
-              <Button
-                variant="secondary"
-                size="xs"
-                className="text-[11px] font-semibold px-3 py-1 rounded-full"
-              >
-                <span>Discuss Project</span>
-              </Button>
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-navigation-menu"
-              aria-label="Toggle navigation menu"
-              className="p-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-[#ffb703]" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
-          </div>
         </div>
-
-        {/* Mobile Navigation Drawer / Popover */}
-        {mobileMenuOpen && (
-          <div
-            id="mobile-navigation-menu"
-            role="dialog"
-            aria-label="Mobile Navigation"
-            className="md:hidden mt-2 bg-[#0b131e]/98 backdrop-blur-xl border border-gray-800 rounded-3xl p-5 shadow-2xl text-gray-200 max-h-[82vh] overflow-y-auto"
-          >
-            <div className="flex flex-col gap-3">
-              {/* Services Accordion */}
-              <div className="border-b border-gray-800/80 pb-3">
-                <button
-                  type="button"
-                  onClick={() => setMobileServicesAccordion((prev) => !prev)}
-                  className="flex items-center justify-between w-full py-2 text-sm font-semibold text-white"
-                >
-                  <span className={isLinkActive("/services") ? "text-[#ffb703]" : ""}>
-                    Services
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${mobileServicesAccordion ? "rotate-180 text-[#ffb703]" : "text-gray-400"
-                      }`}
-                  />
-                </button>
-
-                {mobileServicesAccordion && (
-                  <div className="mt-2 space-y-2 pl-2">
-                    <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-400/90 pt-1">
-                      Digital Marketing
-                    </div>
-                    {primaryMarketingServices.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-xs text-gray-300 hover:text-white py-1"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-
-                    <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 pt-2 border-t border-gray-800/60">
-                      Supporting Capabilities
-                    </div>
-                    {supportingCapabilities.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-xs text-gray-400 hover:text-white py-1"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* About */}
-              <Link
-                href="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/about") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                  }`}
-              >
-                About
-              </Link>
-
-              {/* Journal */}
-              <Link
-                href="/journal"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-medium border-b border-gray-800/80 ${isLinkActive("/journal") ? "text-[#ffb703] font-semibold" : "text-gray-200"
-                  }`}
-              >
-                Journal
-              </Link>
-
-              {/* Contact CTA */}
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full"
-                >
-                  <Button variant="secondary" size="default" className="w-full justify-center gap-2">
-                    <span>Discuss Your Project</span>
-                    <ArrowRight className="w-4 h-4 text-[#0b131e]" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </header>
+
+      {/* Mobile Bottom Navigation */}
+      <nav
+        aria-label="Mobile navigation"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-700/70 bg-[#0b131e]/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_25px_rgba(0,0,0,0.12)] backdrop-blur-xl md:hidden"
+      >
+        <div className="mx-auto grid min-h-[64px] max-w-lg grid-cols-5">
+          {mobileLinks.map((item) => {
+            const Icon = item.icon;
+            const active = isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-label={item.name}
+                aria-current={active ? "page" : undefined}
+                className={`flex min-h-[64px] flex-col items-center justify-center gap-1 px-1 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#ffb703] ${
+                  active
+                    ? "text-[#ffb703]"
+                    : "text-gray-400 hover:text-gray-100"
+                }`}
+              >
+                <Icon
+                  className={`h-[19px] w-[19px] ${
+                    active ? "stroke-[2.3]" : "stroke-[1.8]"
+                  }`}
+                />
+
+                <span
+                  className={`text-[10px] leading-none ${
+                    active ? "font-semibold" : "font-medium"
+                  }`}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
     </>
   );
 }

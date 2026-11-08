@@ -1,6 +1,19 @@
 import Link from "next/link";
-import { Gauge, CheckCircle2, ShieldCheck, ArrowRight, ExternalLink } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Gauge,
+  CheckCircle2,
+  ShieldCheck,
+  ArrowRight,
+  ExternalLink,
+} from "lucide-react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -14,29 +27,34 @@ export default function TechnicalCredibility() {
         {/* Header */}
         <div className="mb-14 text-center md:text-left">
           <Badge variant="secondary" className="mb-3">
-            Verified Technical Standards
+            Technical Performance
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-[#0b131e] mb-4">
-            Speed as a Strategic Marketing Advantage
+            A Better Website Supports Better Marketing
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-light leading-relaxed">
-            Search engines reward responsiveness and buyers abandon delay. We engineer every marketing platform to verifiable performance benchmarks—ensuring speed compounds your organic ranking and ad ROI.
+            Your website is an important part of your digital marketing.
+            Performance, mobile usability, and technical quality influence how
+            visitors experience your business and interact with your content. We
+            pay attention to these foundations so your marketing has a stronger
+            platform to build on.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Main Evidence Card: Clothing Nexus 100/100 Desktop Lighthouse */}
           <div className="lg:col-span-7">
-            <Card variant="tactile" className="p-7 sm:p-9 h-full flex flex-col justify-between">
+            <Card
+              variant="tactile"
+              className="p-7 sm:p-9 h-full flex flex-col justify-between"
+            >
               <CardHeader className="p-0 pb-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <Badge variant="success" dot="emerald">
-                      Live Production Audit
+                      Verified Performance Report
                     </Badge>
-                    <Badge variant="secondary">
-                      Desktop Report
-                    </Badge>
+                    <Badge variant="secondary">Desktop Lighthouse Audit</Badge>
                   </div>
                   <span className="text-xs font-mono text-gray-500">
                     clothingnexus.com
@@ -46,7 +64,7 @@ export default function TechnicalCredibility() {
                 <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div>
                     <span className="text-xs uppercase tracking-wider font-semibold text-gray-500 block">
-                      Google Lighthouse Score
+                      Google Lighthouse Report
                     </span>
                     <span className="text-3xl sm:text-4xl font-heading font-bold text-gray-900 mt-1 block">
                       Performance: 100 / 100
@@ -54,7 +72,7 @@ export default function TechnicalCredibility() {
                   </div>
                   <div className="flex items-center gap-2 text-emerald-800 font-semibold text-sm bg-emerald-50 border border-emerald-200 px-3.5 py-2 rounded-xl shrink-0">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                    <span>Passing All Core Web Vitals</span>
+                    <span>Core Web Vitals — Passing</span>
                   </div>
                 </div>
               </CardHeader>
@@ -64,12 +82,20 @@ export default function TechnicalCredibility() {
                   Clothing Nexus — Digital Catalogue Platform
                 </CardTitle>
                 <CardDescription className="text-sm leading-relaxed text-gray-600 font-light mb-4">
-                  Built on modern Next.js App Router architecture. Featuring automated image optimization via CDN, zero cumulative layout shift (CLS 0.0), and instant paint metrics that maximize visitor engagement.
+                  A digital catalogue platform built using Next.js, with
+                  optimized image delivery and a responsive user experience. The
+                  project demonstrates how thoughtful technical implementation
+                  can support a fast and reliable website experience.
                 </CardDescription>
 
                 <div className="p-3.5 rounded-xl bg-slate-100/80 border border-slate-200 text-xs text-gray-700 font-light leading-relaxed mb-4">
-                  <strong className="text-gray-900 font-semibold">Performance Context: </strong>
-                  Lighthouse scores evaluate technical delivery and Core Web Vitals under controlled lab conditions. They represent technical excellence that supports—rather than directly guarantees—commercial rankings or sales conversions.
+                  <strong className="text-gray-900 font-semibold">
+                    Performance Context:{" "}
+                  </strong>
+                  Lighthouse evaluates website quality under specific testing
+                  conditions. These results demonstrate technical performance,
+                  but do not independently guarantee higher search rankings,
+                  more enquiries, or increased sales.
                 </div>
               </CardContent>
 
@@ -95,41 +121,56 @@ export default function TechnicalCredibility() {
 
           {/* Side Explanatory Pillar Card */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <Card variant="tactile" className="p-7 flex-1 flex flex-col justify-between">
+            <Card
+              variant="tactile"
+              className="p-7 flex-1 flex flex-col justify-between"
+            >
               <CardHeader className="p-0 pb-3">
                 <Badge variant="amber" className="mb-2">
                   The Conversion Equation
                 </Badge>
                 <CardTitle className="text-xl text-[#0b131e]">
-                  Why Technical Speed Powers Marketing
+                  Why Website Performance Matters
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0 space-y-3.5 text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                 <div className="flex items-start gap-2.5">
                   <Gauge className="w-4 h-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-gray-900 font-medium">Bounce Rate Reduction: </strong>
-                    Google research confirms that as page load time goes from 1s to 3s, the probability of a mobile bounce increases by 32%.
+                    <strong className="text-gray-900 font-medium">
+                      Bounce Rate Reduction:{" "}
+                    </strong>
+                    Google research confirms that as page load time goes from 1s
+                    to 3s, the probability of a mobile bounce increases by 32%.
                   </p>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-gray-900 font-medium">Search Crawl Efficiency: </strong>
-                    Search bots crawl and index fast, lightweight pages more frequently, accelerating new content discovery.
+                    <strong className="text-gray-900 font-medium">
+                      Search Crawl Efficiency:{" "}
+                    </strong>
+                    A well-structured, accessible website makes it easier for
+                    search engines to crawl and understand your content.
+                    Performance is one part of a broader technical SEO
+                    foundation.
                   </p>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-gray-900 font-medium">Paid Ad Efficiency: </strong>
-                    High landing page experience scores reduce target CPC bids on Google Ads and Meta campaigns.
+                    <strong className="text-gray-900 font-medium">
+                      Paid Ad Efficiency:{" "}
+                    </strong>
+                    Relevant, easy-to-use landing pages create a better
+                    experience for visitors arriving from advertising campaigns
+                    and make it easier for them to take the next step.
                   </p>
                 </div>
               </CardContent>
               <CardFooter className="p-0 pt-4 border-t border-gray-100">
                 <span className="text-xs text-gray-500 font-mono">
-                  Engineered to convert traffic into revenue
+                  Built to support better digital experiences.
                 </span>
               </CardFooter>
             </Card>
@@ -139,4 +180,3 @@ export default function TechnicalCredibility() {
     </section>
   );
 }
-

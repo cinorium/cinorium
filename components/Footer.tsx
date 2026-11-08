@@ -52,7 +52,7 @@ export default function Footer() {
     <footer className="w-full bg-[#0b131e] text-gray-300 pt-20 pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
       <div className="max-w-6xl mx-auto flex flex-col gap-14">
         {/* Top CTA Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-gray-800/80">
+        {/* <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-gray-800/80">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-[#ffb703] block mb-2">
               Digital Marketing Agency
@@ -61,7 +61,8 @@ export default function Footer() {
               Built for Visibility. Designed for Growth.
             </h2>
             <p className="text-sm sm:text-base text-gray-400 font-light max-w-xl">
-              Turn modern customer search behavior into qualified enquiries and measurable revenue.
+              Turn modern customer search behavior into qualified enquiries and
+              measurable revenue.
             </p>
           </div>
 
@@ -72,7 +73,7 @@ export default function Footer() {
             <span>Discuss Your Project</span>
             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#ffb703]" />
           </Link>
-        </div>
+        </div> */}
 
         {/* 4-Column Structured Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -88,7 +89,10 @@ export default function Footer() {
               Built for Visibility. Designed for Growth.
             </p>
             <p className="text-xs text-gray-400 font-light leading-relaxed">
-              Cinorium is a digital marketing agency helping ambitious businesses build organic visibility, acquire qualified leads, and turn web traffic into predictable revenue. Web development and technical SEO serve as our supporting engineering foundation.
+              Cinorium is a digital marketing agency helping ambitious
+              businesses build organic visibility, acquire qualified leads, and
+              turn web traffic into predictable revenue. Web development and
+              technical SEO serve as our supporting engineering foundation.
             </p>
 
             {/* Social Icons */}
@@ -142,7 +146,7 @@ export default function Footer() {
                   href="/seo-services"
                   className="hover:text-white transition-colors"
                 >
-                  Search Visibility &amp; Technical SEO
+                  Search Visibility & Technical SEO
                 </Link>
               </li>
               <li>
@@ -161,13 +165,13 @@ export default function Footer() {
                   href="/web-development"
                   className="hover:text-white transition-colors block mb-1.5"
                 >
-                  Web Development &amp; Tech Optimization
+                  Web Development & Tech Optimization
                 </Link>
                 <Link
                   href="/services#visual-communication"
                   className="hover:text-white transition-colors block"
                 >
-                  Graphic Design &amp; Visual Communication
+                  Graphic Design & Visual Communication
                 </Link>
               </li>
             </ul>
@@ -180,23 +184,35 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-xs text-gray-400 font-light">
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Services Overview
+                <Link
+                  href="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  Services
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About Cinorium
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About
                 </Link>
               </li>
               <li>
-                <Link href="/journal" className="hover:text-white transition-colors">
-                  Insights &amp; Journal
+                <Link
+                  href="/journal"
+                  className="hover:text-white transition-colors"
+                >
+                  Insights
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact &amp; Project Discussion
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -205,22 +221,31 @@ export default function Footer() {
           {/* Column 4: Legal & Preferences */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
-              Legal &amp; Preferences
+              Legal & Preferences
             </h3>
             <ul className="space-y-2 text-xs text-gray-400 font-light">
               <li>
-                <Link href="/privacy" className="hover:text-white transition-colors">
+                <Link
+                  href="/privacy"
+                  className="hover:text-white transition-colors"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-white transition-colors">
+                <Link
+                  href="/terms"
+                  className="hover:text-white transition-colors"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/return-policy" className="hover:text-white transition-colors">
-                  Return &amp; Refund Policy
+                <Link
+                  href="/return-policy"
+                  className="hover:text-white transition-colors"
+                >
+                  Return & Refund Policy
                 </Link>
               </li>
               <li className="pt-2">

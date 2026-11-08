@@ -11,18 +11,25 @@ export default function FinalCta() {
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         {/* Eyebrow */}
-        <Badge variant="default" dot="amber" size="lg" className="mb-6 bg-gray-900 border-gray-700">
+        <Badge
+          variant="default"
+          dot="amber"
+          size="lg"
+          className="mb-6 bg-gray-900 border-gray-700"
+        >
           Start Your Project Discussion
         </Badge>
 
         {/* Display Heading */}
         <h2 className="mb-6 max-w-3xl font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white">
-          Ready to Turn Online Visibility into Predictable Growth?
+          Ready to Turn Online Visibility into Business Growth?
         </h2>
 
         {/* Supporting Copy */}
         <p className="mb-10 max-w-2xl text-base sm:text-lg text-gray-300 font-light leading-relaxed">
-          Whether you need to capture high-intent search demand, eliminate speed barriers on your website, or architect an integrated customer acquisition campaign, let&apos;s evaluate your current presence and map out a clear roadmap.
+          Tell us about your business, current challenges, and what you want to
+          achieve. We'll discuss your needs, explore relevant opportunities, and
+          help you understand the next practical steps.
         </p>
 
         {/* Action CTAs */}
@@ -58,15 +65,14 @@ export default function FinalCta() {
           </span>
           <span className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#ffb703]" />
-            Clear Written Scope &amp; Deliverables
+            Clear Written Scope & Deliverables
           </span>
           <span className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#ffb703]" />
-            Zero Marketing Fluff
+            No Unnecessary Marketing Fluff
           </span>
         </div>
       </div>
     </section>
   );
 }
-
