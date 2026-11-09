@@ -91,12 +91,13 @@ interface ArticleCardImageProps {
   alt: string;
   width?: number;
   height?: number;
+  priority?: boolean;
 }
 
 /**
  * Compact thumbnail for use inside ArticleCard and GrowthVault cards.
- * Always lazy-loaded (never the LCP element).
  * Sized at 16:9, capped at 640px wide to avoid downloading oversized images.
+ * Supports priority loading when placed above the fold (e.g. Featured Article).
  * Shows a graceful placeholder if the Blob image is unreachable.
  */
 export function ArticleCardImage({
@@ -104,6 +105,7 @@ export function ArticleCardImage({
   alt,
   width = 1600,
   height = 900,
+  priority = false,
 }: ArticleCardImageProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -120,10 +122,11 @@ export function ArticleCardImage({
           alt={alt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
-          loading="lazy"
+          priority={priority}
           className="object-cover"
           quality={75}
           onError={() => setHasError(true)}
+          {...(!priority && { loading: "lazy" })}
         />
       )}
     </div>

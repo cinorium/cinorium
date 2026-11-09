@@ -8,7 +8,7 @@ import FinalCta from "@/components/FinalCta";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#fdfbf7]">
+    <div className="min-h-screen bg-[#fdfbf7]">
       {/* 1. Hero: Digital Marketing Agency Value Proposition */}
       <Hero />
 
@@ -29,6 +29,6 @@ export default function Home() {
 
       {/* 7. Final Conversion Section: Start Project Discussion */}
       <FinalCta />
-    </main>
+    </div>
   );
 }

@@ -66,7 +66,6 @@ export default function CookiePreferencesButton() {
       type="button"
       onClick={openPreferences}
       className="hover:text-amber-400 transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs text-gray-400 font-light"
-      aria-label="Open cookie consent preferences"
     >
       Cookie Preferences
     </button>

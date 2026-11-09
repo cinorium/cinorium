@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Montserrat, Sora, Modak } from "next/font/google";
+import { Figtree, Sora, Modak } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import "./globals.css";
@@ -25,12 +25,6 @@ const websiteId = `${siteUrl}/#website`;
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -180,13 +174,19 @@ export default function RootLayout({
       lang="en"
       className={cn(
         figtree.variable,
-        montserrat.variable,
         sora.variable,
         modak.variable,
         "font-sans"
       )}
     >
       <body className="min-h-screen font-sans antialiased">
+        {/* Skip to Main Content Link for Keyboard Accessibility (WCAG 2.4.1) */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#ffb703] focus:text-[#0b131e] focus:rounded-full focus:font-semibold focus:shadow-xl focus:outline-none"
+        >
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -237,7 +237,9 @@ export default function RootLayout({
 
         <Header />
 
-        <main className="w-full">{children}</main>
+        <main id="main-content" className="w-full">
+          {children}
+        </main>
 
         <Footer />
       </body>

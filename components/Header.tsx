@@ -118,6 +118,7 @@ export default function Header() {
               variant="light"
               size="sm"
               withTagline={false}
+              asLink={false}
               className="inline-flex shrink-0"
             />
           </Link>
