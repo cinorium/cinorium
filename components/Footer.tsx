@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import CinoriumLogo from "@/components/CinoriumLogo";
-import CookiePreferencesButton from "./CookiePreferencesButton";
 
 // Custom SVG Icons for Social Links
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -49,7 +48,7 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0b131e] text-gray-300 pt-20 pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
+    <footer className="w-full bg-[#0b131e] text-gray-300 pt-16 pb-28 md:pt-20 md:pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
       <div className="max-w-6xl mx-auto flex flex-col gap-14">
         {/* Top CTA Row */}
         {/* <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-gray-800/80">
@@ -234,10 +233,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Legal & Preferences */}
+          {/* Column 4: Legal */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
-              Legal & Preferences
+              Legal
             </h3>
             <ul className="space-y-2 text-xs text-gray-400 font-light">
               <li>
@@ -261,11 +260,8 @@ export default function Footer() {
                   href="/return-policy"
                   className="hover:text-white transition-colors"
                 >
-                  Return & Refund Policy
+                  Return &amp; Refund Policy
                 </Link>
-              </li>
-              <li className="pt-2">
-                <CookiePreferencesButton />
               </li>
             </ul>
           </div>

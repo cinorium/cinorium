@@ -429,7 +429,7 @@ export default function WebDevelopmentPage() {
                 variant="tactile"
                 className="p-6 bg-white grid grid-rows-[auto_minmax(3.5rem,auto)_1fr] gap-y-2 h-full"
               >
-                <span className="font-modak text-3xl text-slate-500 leading-none">
+                <span className="font-modak text-3xl text-slate-500 leading-none" aria-hidden="true">
                   {step.number}
                 </span>
 

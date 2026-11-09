@@ -62,7 +62,7 @@ export default async function GrowthVault() {
                       {article.category || "Insights"}
                     </Badge>
 
-                    <span className="flex shrink-0 items-center gap-1.5 font-mono text-[11px] text-gray-500">
+                    <span className="flex shrink-0 items-center gap-1.5 font-mono text-[11px] text-gray-600">
                       <Clock className="h-3 w-3 text-gray-400" />
                       {typeof article.readingTime === "number"
                         ? `${article.readingTime} min read`

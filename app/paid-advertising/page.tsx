@@ -853,7 +853,7 @@ export default function PaidAdvertisingPage() {
                 className="flex flex-col h-full bg-[#fdfbf7] border border-black/10 rounded-2xl p-5 transition-all duration-200 hover:border-black/25"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0">
+                  <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0" aria-hidden="true">
                     {el.step}
                   </span>
                   <h3 className="font-heading text-base font-bold text-gray-900">

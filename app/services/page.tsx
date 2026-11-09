@@ -407,7 +407,7 @@ export default function ServicesPage() {
               },
             ].map((item, index) => (
               <div key={item.title} className="flex items-start gap-4">
-                <span className="font-modak text-2xl sm:text-3xl leading-none text-[#ffb703] shrink-0">
+                <span className="font-modak text-2xl sm:text-3xl leading-none text-[#ffb703] shrink-0" aria-hidden="true">
                   0{index + 1}
                 </span>
 
@@ -465,7 +465,7 @@ export default function ServicesPage() {
                 {/* Number + Heading */}
 
                 <div className="flex items-start gap-4 sm:gap-6 pb-6 border-b border-gray-100 mb-6 sm:mb-8">
-                  <span className="font-modak text-4xl sm:text-5xl md:text-6xl leading-none text-[#ffb703] shrink-0 pt-1">
+                  <span className="font-modak text-4xl sm:text-5xl md:text-6xl leading-none text-[#ffb703] shrink-0 pt-1" aria-hidden="true">
                     {service.number}
                   </span>
 
@@ -509,7 +509,7 @@ export default function ServicesPage() {
                         id={item.name.includes("AI Search") ? "ai-search" : undefined}
                         className="flex items-start gap-3 bg-white p-3 sm:p-4 rounded-xl border border-gray-200/80 shadow-2xs min-w-0 scroll-mt-28"
                       >
-                        <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0 pt-0.5">
+                        <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0 pt-0.5" aria-hidden="true">
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
@@ -583,7 +583,7 @@ export default function ServicesPage() {
               >
                 <CardHeader className="p-0 mb-6">
                   <div className="flex items-start gap-4 sm:gap-6 pb-6 border-b border-gray-100">
-                    <span className="font-modak text-4xl sm:text-5xl md:text-6xl leading-none text-[#ffb703] shrink-0 pt-1">
+                    <span className="font-modak text-4xl sm:text-5xl md:text-6xl leading-none text-[#ffb703] shrink-0 pt-1" aria-hidden="true">
                       {capability.number}
                     </span>
 
@@ -619,7 +619,7 @@ export default function ServicesPage() {
                           key={del}
                           className="flex items-start gap-3 text-xs sm:text-sm text-gray-600 leading-relaxed min-w-0"
                         >
-                          <span className="font-modak text-base text-[#ffb703] leading-none shrink-0 pt-0.5">
+                          <span className="font-modak text-base text-[#ffb703] leading-none shrink-0 pt-0.5" aria-hidden="true">
                             {String(index + 1).padStart(2, "0")}
                           </span>
                           <span className="min-w-0">{del}</span>
@@ -672,7 +672,7 @@ export default function ServicesPage() {
                 key={item.title}
                 className="flex flex-col rounded-2xl border-2 border-black bg-white p-5 sm:p-6 shadow-xs min-w-0"
               >
-                <span className="font-modak text-4xl sm:text-5xl leading-none text-[#ffb703] mb-5">
+                <span className="font-modak text-4xl sm:text-5xl leading-none text-[#ffb703] mb-5" aria-hidden="true">
                   {item.number}
                 </span>
 

@@ -15,7 +15,7 @@ export default function FinalCta() {
           size="lg"
           className="mb-6 bg-gray-900 border-gray-700"
         >
-          Ready to Turn Online Visibility into Business Growth?
+          Start a Conversation
         </Badge>
 
         <h2 className="mb-6 max-w-3xl font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white">
