@@ -61,7 +61,7 @@ export default function Hero() {
           ))}
         </div>
 
-        <p className="mt-5 text-xs font-medium tracking-wide text-[#0b131e]/55 sm:text-sm">
+        <p className="mt-5 text-xs font-medium tracking-wide text-[#0b131e]/75 sm:text-sm">
           Supported by thoughtful website development and technical
           optimization.
         </p>

@@ -7,8 +7,6 @@
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-figtree: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  --font-montserrat:
-    var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-sora: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-modak: var(--font-modak), cursive;
   --color-brand-dark: #0b131e;
@@ -34,7 +32,6 @@
   --font-heading: var(--font-sora);
   --font-sans: var(--font-figtree);
   --font-figtree: var(--font-figtree);
-  --font-montserrat: var(--font-montserrat);
   --font-sora: var(--font-sora);
   --font-modak: var(--font-modak);
   --color-brand-dark: #0b131e;

@@ -506,7 +506,8 @@ export default function ServicesPage() {
                     {service.deliverables.map((item, index) => (
                       <div
                         key={item.name}
-                        className="flex items-start gap-3 bg-white p-3 sm:p-4 rounded-xl border border-gray-200/80 shadow-2xs min-w-0"
+                        id={item.name.includes("AI Search") ? "ai-search" : undefined}
+                        className="flex items-start gap-3 bg-white p-3 sm:p-4 rounded-xl border border-gray-200/80 shadow-2xs min-w-0 scroll-mt-28"
                       >
                         <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0 pt-0.5">
                           {String(index + 1).padStart(2, "0")}

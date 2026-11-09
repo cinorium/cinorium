@@ -132,11 +132,11 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
               Capabilities
             </h3>
-            <ul className="space-y-2 text-xs text-gray-400 font-light">
+            <ul className="space-y-1.5 text-xs text-gray-400 font-light">
               <li>
                 <Link
-                  href="/services#strategy"
-                  className="hover:text-white transition-colors"
+                  href="/marketing-strategy"
+                  className="hover:text-white transition-colors block py-0.5"
                 >
                   Digital Marketing Strategy
                 </Link>
@@ -144,34 +144,50 @@ export default function Footer() {
               <li>
                 <Link
                   href="/seo-services"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors block py-0.5"
                 >
-                  Search Visibility & Technical SEO
+                  Search Visibility &amp; Technical SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/content-marketing"
+                  className="hover:text-white transition-colors block py-0.5"
+                >
+                  Content &amp; Social Media
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/paid-advertising"
+                  className="hover:text-white transition-colors block py-0.5"
+                >
+                  Paid Advertising &amp; Acquisition
                 </Link>
               </li>
               <li>
                 <Link
                   href="/services#ai-search"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors block py-0.5"
                 >
                   AI Search Visibility (AEO / GEO)
                 </Link>
               </li>
               <li className="pt-2 border-t border-gray-800/60">
-                <span className="text-[10px] uppercase font-semibold text-gray-500 block mb-1">
+                <span className="text-[10px] uppercase font-semibold text-gray-400 block mb-1">
                   Supporting Capabilities
                 </span>
                 <Link
                   href="/web-development"
-                  className="hover:text-white transition-colors block mb-1.5"
+                  className="hover:text-white transition-colors block py-1"
                 >
-                  Web Development & Tech Optimization
+                  Web Development &amp; Tech Optimization
                 </Link>
                 <Link
                   href="/services#visual-communication"
-                  className="hover:text-white transition-colors block"
+                  className="hover:text-white transition-colors block py-1"
                 >
-                  Graphic Design & Visual Communication
+                  Graphic Design &amp; Visual Communication
                 </Link>
               </li>
             </ul>
@@ -256,7 +272,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Tagline */}
-        <div className="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-light">
+        <div className="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-light">
           <p>© 2026 Cinorium. All rights reserved.</p>
           <p className="text-gray-400">
             Built for Visibility. Designed for Growth.

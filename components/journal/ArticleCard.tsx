@@ -18,7 +18,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
   if (featured) {
     return (
       <article className="group relative flex flex-col justify-between rounded-3xl border-2 border-black bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-        {/* Cover image — lazy loaded even for featured card (not LCP on listing page) */}
+        {/* Cover image — priority loaded for featured card (LCP on listing page) */}
         {article.coverImage && (
           <div className="overflow-hidden rounded-t-3xl border-b-2 border-black/10">
             <ArticleCardImage
@@ -26,6 +26,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
               alt={article.coverImageAlt || article.title}
               width={article.imageWidth ?? 1600}
               height={article.imageHeight ?? 900}
+              priority={true}
             />
           </div>
         )}

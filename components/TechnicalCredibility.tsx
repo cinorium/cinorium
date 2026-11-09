@@ -56,14 +56,14 @@ export default function TechnicalCredibility() {
                     <Badge variant="outline">Desktop Lighthouse Audit</Badge>
                   </div>
 
-                  <span className="text-xs font-mono text-gray-500">
+                  <span className="text-xs font-mono text-gray-600">
                     clothingnexus.com
                   </span>
                 </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
                   <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-gray-500 block">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-gray-600 block">
                       Google Lighthouse
                     </span>
                     <span className="text-3xl sm:text-4xl font-heading font-bold text-gray-900 mt-1 block">
@@ -179,7 +179,7 @@ export default function TechnicalCredibility() {
               </CardContent>
 
               <CardFooter className="p-0 pt-5 mt-5 border-t border-gray-100">
-                <span className="text-xs text-gray-500 font-mono">
+                <span className="text-xs text-gray-600 font-mono">
                   Technical quality is part of the bigger growth picture.
                 </span>
               </CardFooter>

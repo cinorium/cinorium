@@ -124,6 +124,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   // ── 6. Validate file size ────────────────────────────────────────────────
+  if (file.size === 0) {
+    return NextResponse.json(
+      { error: "Empty files cannot be uploaded." },
+      { status: 400 },
+    );
+  }
+
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
       { error: `File exceeds the 5 MB limit (received ${(file.size / 1024 / 1024).toFixed(2)} MB).` },
@@ -131,12 +138,24 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     );
   }
 
-  // ── 7. Generate a unique filename to prevent overwrites ──────────────────
+  // ── 7. SVG content sanitization check ───────────────────────────────────
+  if (mimeType === "image/svg+xml" || extension === ".svg") {
+    const text = await file.text();
+    const dangerousPatterns = /<script\b|onload=|onerror=|onclick=|onmouseover=|javascript:/i;
+    if (dangerousPatterns.test(text)) {
+      return NextResponse.json(
+        { error: "SVG file contains unsafe executable scripts or event handlers." },
+        { status: 400 },
+      );
+    }
+  }
+
+  // ── 8. Generate a unique filename to prevent overwrites ──────────────────
   // Format: journal/<uuid>.<ext>  (keeps uploads organised in a subfolder)
   const uuid = randomUUID();
   const safeName = `journal/${uuid}${extension}`;
 
-  // ── 8. Upload to Vercel Blob (server-side write token) ───────────────────
+  // ── 9. Upload to Vercel Blob (server-side write token) ───────────────────
   try {
     const blob = await put(safeName, file, {
       access: "public",
