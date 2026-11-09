@@ -68,7 +68,7 @@ export default function BusinessChallenges() {
               variant="tactile"
               className="grid h-full grid-rows-[auto_1fr] p-7"
             >
-              <CardHeader className="grid grid-rows-[auto_minmax(4rem,auto)] gap-y-3 p-0 pb-2">
+              <CardHeader className="grid grid-rows-[auto_minmax(3rem,auto)] gap-y-2 p-0 pb-2">
                 <div className="flex min-h-8 items-center justify-between gap-3">
                   <span className="select-none font-modak text-5xl leading-none text-slate-500 sm:text-6xl">
                     {item.step}

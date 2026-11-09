@@ -28,6 +28,18 @@ const initialFormState: FormState = {
   website_hp: "",
 };
 
+const serviceOptions = [
+  "Digital Marketing Strategy",
+  "Search Visibility & SEO",
+  "Content & Social Media Marketing",
+  "Paid Advertising & Customer Acquisition",
+  "Email & E-commerce Growth",
+  "Website Development & Optimization",
+  "Graphic Design & Creative Support",
+  "Comprehensive Growth Consultation",
+  "Not Sure Yet",
+];
+
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormState>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,21 +54,36 @@ export default function ContactForm() {
     >,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
     setStatus(null);
 
     try {
+      const payload = {
+        ...formData,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        companyOrWebsite: formData.companyOrWebsite.trim(),
+        message: formData.message.trim(),
+      };
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json().catch(() => null);
@@ -68,20 +95,21 @@ export default function ContactForm() {
             data.message ||
             "Thank you for contacting Cinorium. Your enquiry has been submitted successfully.",
         });
+
         setFormData(initialFormState);
       } else {
         setStatus({
           success: false,
           message:
             data?.message ||
-            "Unable to submit your enquiry right now. Please check your inputs or message us on WhatsApp.",
+            "Unable to submit your enquiry right now. Please check your inputs or contact us directly.",
         });
       }
     } catch {
       setStatus({
         success: false,
         message:
-          "Network error encountered. Please check your connection or reach out directly on WhatsApp.",
+          "A network error occurred. Please check your connection or contact us directly.",
       });
     } finally {
       setIsSubmitting(false);
@@ -99,15 +127,20 @@ export default function ContactForm() {
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
             <CheckCircle2 className="h-8 w-8" />
           </div>
+
           <h3 className="mb-2 font-heading text-2xl font-bold text-[#0b131e]">
             Enquiry Received
           </h3>
-          <p className="mx-auto max-w-md text-base leading-relaxed text-gray-700 font-light">
+
+          <p className="mx-auto max-w-md text-base font-light leading-relaxed text-gray-700">
             {status.message}
           </p>
-          <p className="mt-3 text-sm text-gray-600 font-light">
-            We will review your requirements and follow up with a concrete next step via your preferred contact channel.
+
+          <p className="mt-3 text-sm font-light text-gray-600">
+            We will review your requirements and follow up with a concrete next
+            step via your preferred contact channel.
           </p>
+
           <Button
             type="button"
             variant="default"
@@ -119,10 +152,13 @@ export default function ContactForm() {
           </Button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
-          {/* Honeypot field for bot mitigation (hidden from real users) */}
-          <div className="hidden" aria-hidden="true">
-            <label htmlFor="website_hp">Leave this empty</label>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          {/* Honeypot field for bot mitigation */}
+          <div
+            className="pointer-events-none absolute -left-[9999px] h-px w-px overflow-hidden"
+            aria-hidden="true"
+          >
+            <label htmlFor="website_hp">Leave this field empty</label>
             <input
               type="text"
               id="website_hp"
@@ -134,7 +170,7 @@ export default function ContactForm() {
             />
           </div>
 
-          {/* Feedback error alert if any */}
+          {/* Error feedback */}
           {status && !status.success && (
             <div
               role="alert"
@@ -146,8 +182,8 @@ export default function ContactForm() {
             </div>
           )}
 
-          {/* Name & Email Row */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Name & Email */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
@@ -155,14 +191,18 @@ export default function ContactForm() {
               >
                 Full Name <span className="text-[#ffb703]">*</span>
               </label>
+
               <Input
                 type="text"
                 id="name"
                 name="name"
                 required
+                minLength={2}
+                maxLength={100}
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="e.g. Sarah Jenkins"
+                autoComplete="name"
               />
             </div>
 
@@ -173,20 +213,23 @@ export default function ContactForm() {
               >
                 Work Email <span className="text-[#ffb703]">*</span>
               </label>
+
               <Input
                 type="email"
                 id="email"
                 name="email"
                 required
+                maxLength={150}
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="name@company.com"
+                autoComplete="email"
               />
             </div>
           </div>
 
-          {/* Service & Company Row */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Service & Company */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="service"
@@ -194,20 +237,20 @@ export default function ContactForm() {
               >
                 Primary Objective <span className="text-[#ffb703]">*</span>
               </label>
+
               <select
                 id="service"
                 name="service"
                 required
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
+                className="h-12 w-full rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
-                <option value="Digital Marketing Strategy">Digital Marketing Strategy</option>
-                <option value="Search Visibility & SEO">Search Visibility &amp; SEO</option>
-                <option value="AI Search Visibility (AEO / GEO)">AI Search Visibility (AEO / GEO)</option>
-                <option value="Website Development & Optimization">Website Development &amp; Optimization</option>
-                <option value="Graphic Design & Visual Assets">Graphic Design &amp; Visual Assets</option>
-                <option value="Comprehensive Growth Audit">Comprehensive Growth Audit</option>
+                {serviceOptions.map((service) => (
+                  <option key={service} value={service}>
+                    {service}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -221,10 +264,12 @@ export default function ContactForm() {
                   (Optional)
                 </span>
               </label>
+
               <Input
                 type="text"
                 id="companyOrWebsite"
                 name="companyOrWebsite"
+                maxLength={200}
                 value={formData.companyOrWebsite}
                 onChange={handleChange}
                 placeholder="e.g. company.com"
@@ -232,8 +277,8 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Budget & Preferred Contact Method Row */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Budget & Preferred Contact */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="budget"
@@ -244,12 +289,13 @@ export default function ContactForm() {
                   (Optional)
                 </span>
               </label>
+
               <select
                 id="budget"
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
+                className="h-12 w-full rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
                 <option value="Not decided yet">Not decided yet</option>
                 <option value="Under $1,000">Under $1,000</option>
@@ -269,12 +315,13 @@ export default function ContactForm() {
                   (Optional)
                 </span>
               </label>
+
               <select
                 id="preferredContact"
                 name="preferredContact"
                 value={formData.preferredContact}
                 onChange={handleChange}
-                className="w-full h-12 rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
+                className="h-12 w-full rounded-2xl border-2 border-gray-200 bg-[#fdfbf7]/60 px-4 py-2 text-sm text-[#0b131e] transition-colors focus-visible:border-[#ffb703] focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703]"
               >
                 <option value="Email">Email</option>
                 <option value="WhatsApp">WhatsApp</option>
@@ -283,33 +330,37 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Project Details Textarea */}
+          {/* Project Details */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="message"
               className="text-sm font-semibold text-[#0b131e]"
             >
-              Needs, Objectives &amp; Current Challenges <span className="text-[#ffb703]">*</span>
+              Needs, Objectives &amp; Current Challenges{" "}
+              <span className="text-[#ffb703]">*</span>
             </label>
+
             <Textarea
               id="message"
               name="message"
               rows={5}
               required
+              minLength={10}
+              maxLength={3000}
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell us about your business, current visibility roadblocks, target audience, and what commercial outcomes you want to achieve..."
             />
           </div>
 
-          {/* Submit Action */}
+          {/* Submit */}
           <div className="pt-2">
             <Button
               type="submit"
               variant="default"
               size="lg"
               disabled={isSubmitting}
-              className="w-full sm:w-auto gap-2"
+              className="w-full gap-2 sm:w-auto"
             >
               {isSubmitting ? (
                 <>

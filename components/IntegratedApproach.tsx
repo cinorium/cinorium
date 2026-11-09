@@ -80,7 +80,7 @@ export default function IntegratedApproach() {
               variant="tactile"
               className="grid h-full grid-rows-[auto_1fr] p-7 sm:p-8"
             >
-              <CardHeader className="grid grid-rows-[auto_minmax(4rem,auto)] gap-y-4 p-0 pb-5">
+              <CardHeader className="grid grid-rows-[auto_minmax(2rem,auto)] gap-y-2 p-0 pb-2">
                 <div className="flex min-h-10 items-center justify-between gap-3">
                   <span className="font-modak text-3xl leading-none text-slate-500 sm:text-4xl">
                     {item.num}

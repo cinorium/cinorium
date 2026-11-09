@@ -56,7 +56,7 @@ export default async function GrowthVault() {
                 variant="tactile"
                 className="grid h-full grid-rows-[auto_1fr_auto] p-7 sm:p-8"
               >
-                <CardHeader className="grid grid-rows-[auto_minmax(5rem,auto)] gap-y-3 p-0 pb-4">
+                <CardHeader className="grid grid-rows-[auto_minmax(4rem,auto)] gap-y-2 p-0 pb-4">
                   <div className="flex min-h-8 items-center justify-between gap-3">
                     <Badge variant="secondary" className="max-w-[70%]">
                       {article.category || "Insights"}

@@ -18,8 +18,10 @@ import { Button } from "@/components/ui/button";
 
 const primaryServices = [
   { name: "Services Overview", href: "/services" },
-  { name: "Digital Marketing Strategy", href: "/services#strategy" },
+  { name: "Digital Marketing Strategy", href: "/marketing-strategy" },
   { name: "Search Visibility & SEO", href: "/seo-services" },
+  { name: "Content & Social Media", href: "/content-marketing" },
+  { name: "Paid Advertising & Acquisition", href: "/paid-advertising" },
   { name: "AI Search Visibility (AEO / GEO)", href: "/services#ai-search" },
 ];
 
@@ -85,6 +87,12 @@ export default function Header() {
       return (
         pathname === "/services" ||
         pathname.startsWith("/services/") ||
+        pathname === "/marketing-strategy" ||
+        pathname.startsWith("/marketing-strategy/") ||
+        pathname === "/content-marketing" ||
+        pathname.startsWith("/content-marketing/") ||
+        pathname === "/paid-advertising" ||
+        pathname.startsWith("/paid-advertising/") ||
         pathname === "/seo-services" ||
         pathname.startsWith("/seo-services/") ||
         pathname === "/web-development" ||
