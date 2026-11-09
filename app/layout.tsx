@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Figtree, Sora, Modak } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
@@ -19,6 +19,12 @@ const personId = `${siteUrl}/#person`;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b131e",
+};
+
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
@@ -36,6 +42,7 @@ const modak = Modak({
   subsets: ["latin"],
   variable: "--font-modak",
   display: "swap",
+  preload: false,
 });
 
 const siteDescription =
