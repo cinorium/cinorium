@@ -49,7 +49,7 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0b131e] text-gray-300 pt-20 pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
+    <footer className="w-full bg-[#0b131e] text-gray-300 pt-16 pb-28 md:pt-20 md:pb-16 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-800/60">
       <div className="max-w-6xl mx-auto flex flex-col gap-14">
         {/* Top CTA Row */}
         {/* <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-gray-800/80">

@@ -82,11 +82,11 @@ export default function WorkingMethodology() {
             >
               <CardHeader className="grid grid-rows-[auto_minmax(2.5rem,auto)] gap-y-2 p-0 pb-1">
                 <div className="flex min-h-10 items-center justify-between">
-                  <span className="select-none font-modak text-4xl leading-none text-brand-amber sm:text-5xl">
+                  <span className="select-none font-modak text-4xl leading-none text-brand-amber sm:text-5xl" aria-hidden="true">
                     {stage.step}
                   </span>
 
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-gray-500">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-gray-400">
                     Phase {stage.step}
                   </span>
                 </div>
