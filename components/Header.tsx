@@ -107,7 +107,7 @@ export default function Header() {
     <>
       {/* Floating Header */}
       <header className="fixed left-1/2 top-4 z-40 w-[94%] max-w-6xl -translate-x-1/2 sm:top-6">
-        <div className="flex items-center justify-between rounded-full border border-gray-800/80 bg-[#0b131e]/95 px-4 py-2.5 text-gray-200 shadow-2xl backdrop-blur-md sm:px-6 sm:py-3">
+        <div className="flex items-center justify-between rounded-full border border-gray-800/80 bg-[#0b131e] px-4 py-2.5 text-gray-200 shadow-2xl sm:px-6 sm:py-3">
           {/* Logo */}
           <Link
             href="/"
@@ -119,6 +119,7 @@ export default function Header() {
               size="sm"
               withTagline={false}
               asLink={false}
+              priority={true}
               className="inline-flex shrink-0"
             />
           </Link>
@@ -251,7 +252,7 @@ export default function Header() {
       {/* Mobile Bottom Navigation */}
       <nav
         aria-label="Mobile navigation"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-700/70 bg-[#0b131e]/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_25px_rgba(0,0,0,0.12)] backdrop-blur-xl md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-700/70 bg-[#0b131e] pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_25px_rgba(0,0,0,0.12)] md:hidden"
       >
         <div className="mx-auto grid min-h-[64px] max-w-lg grid-cols-5">
           {mobileLinks.map((item) => {
