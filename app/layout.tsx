@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.cinorium.com"),
 
   title: {
-    default: "Cinorium — Digital Marketing Agency",
+    default: "Cinorium — Digital Marketing Agency for Business Growth",
     template: "%s | Cinorium",
   },
 
@@ -59,8 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title:
-      "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
+    title: "Cinorium — Digital Marketing Agency for Business Growth",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -75,8 +74,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
+    title: "Cinorium — Digital Marketing Agency for Business Growth",
     description: siteDescription,
     images: ["/og-images/og-image.webp"],
   },
