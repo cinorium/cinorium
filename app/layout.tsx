@@ -10,7 +10,6 @@ import SignalsTracker from "@/components/signals/SignalsTracker";
 
 const SignalsCaptureModal = dynamic(
   () => import("@/components/signals/SignalsCaptureModal"),
-  { ssr: false }
 );
 
 const siteUrl = "https://www.cinorium.com";
