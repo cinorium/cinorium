@@ -17,7 +17,7 @@ const solutions = [
     title: "Digital Marketing Strategy",
     description:
       "Build marketing around your business goals and audience. We help understand customer needs, identify opportunities, select suitable channels, and create a focused plan with clear priorities.",
-    href: "/digital-marketing-strategy",
+    href: "/marketing-strategy",
     cta: "Explore Marketing Strategy",
   },
   {
@@ -44,7 +44,7 @@ const solutions = [
     title: "E-commerce & Growth Systems",
     description:
       "Improve how customers discover, evaluate, and purchase your products. We focus on e-commerce growth, conversion optimization, performance measurement, retention, and customer loyalty.",
-    href: "/ecommerce-growth",
+    href: "",
     cta: "Explore E-commerce Growth",
   },
 ];
@@ -82,7 +82,10 @@ export default function IntegratedApproach() {
             >
               <CardHeader className="grid grid-rows-[auto_minmax(2rem,auto)] gap-y-2 p-0 pb-2">
                 <div className="flex min-h-10 items-center justify-between gap-3">
-                  <span className="font-modak text-3xl leading-none text-slate-500 sm:text-4xl" aria-hidden="true">
+                  <span
+                    className="font-modak text-3xl leading-none text-slate-500 sm:text-4xl"
+                    aria-hidden="true"
+                  >
                     {item.num}
                   </span>
 
