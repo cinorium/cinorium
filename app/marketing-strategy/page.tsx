@@ -38,7 +38,7 @@ import StrategyFaq from "./StrategyFaq";
 import { strategyFaqs } from "./strategy-faq-data";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Strategy & Planning Services | Cinorium",
+  title: "Digital Marketing Strategy & Planning Services",
   description:
     "Understand your market, identify the right opportunities, and bring your marketing activities together through a practical strategy built around your business goals.",
   alternates: {
@@ -331,13 +331,14 @@ export default function MarketingStrategyPage() {
             </Badge>
 
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-gray-900 tracking-tight leading-[1.15] mb-4">
-              Digital Marketing Strategy That Gives Your Growth a Clear Direction.
+              Digital Marketing Strategy That Gives Your Growth a Clear
+              Direction.
             </h1>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-8 max-w-2xl">
-              Understand your market, identify the right opportunities, and bring
-              your marketing activities together through a practical strategy built
-              around your business goals.
+              Understand your market, identify the right opportunities, and
+              bring your marketing activities together through a practical
+              strategy built around your business goals.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
@@ -401,8 +402,8 @@ export default function MarketingStrategyPage() {
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
               When tactics are chosen before strategy is established, marketing
-              budgets get dispersed across too many channels without clear customer
-              connection or commercial accountability.
+              budgets get dispersed across too many channels without clear
+              customer connection or commercial accountability.
             </p>
           </div>
 
@@ -452,9 +453,9 @@ export default function MarketingStrategyPage() {
               A Practical, Four-Phase Strategy Framework
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We follow a structured progression designed to understand your business,
-              clarify positioning, select appropriate channels, and establish realistic
-              measurement standards.
+              We follow a structured progression designed to understand your
+              business, clarify positioning, select appropriate channels, and
+              establish realistic measurement standards.
             </p>
           </div>
 
@@ -504,9 +505,10 @@ export default function MarketingStrategyPage() {
               <strong className="font-semibold text-gray-900">
                 Scope calibrated to business reality:
               </strong>{" "}
-              We do not impose complex financial modeling or arbitrary metrics on
-              businesses where baseline customer data is still forming. Strategy is
-              tailored to what is realistically useful and executable for your team.
+              We do not impose complex financial modeling or arbitrary metrics
+              on businesses where baseline customer data is still forming.
+              Strategy is tailored to what is realistically useful and
+              executable for your team.
             </p>
           </div>
         </div>
@@ -530,9 +532,10 @@ export default function MarketingStrategyPage() {
               Practical Assets Produced During Strategy
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Deliverables are selected and shaped around your business objectives,
-              market maturity, and data availability—ensuring recommendations are
-              practical and directly actionable for your team.
+              Deliverables are selected and shaped around your business
+              objectives, market maturity, and data availability—ensuring
+              recommendations are practical and directly actionable for your
+              team.
             </p>
           </div>
 
@@ -583,9 +586,10 @@ export default function MarketingStrategyPage() {
               <strong className="font-semibold text-gray-900">
                 Tailored engagement scope:
               </strong>{" "}
-              Not every engagement requires every deliverable. Depth, duration, and
-              specific assets are aligned with your business requirements, available data,
-              and team capacity to focus effort where it creates the greatest impact.
+              Not every engagement requires every deliverable. Depth, duration,
+              and specific assets are aligned with your business requirements,
+              available data, and team capacity to focus effort where it creates
+              the greatest impact.
             </p>
           </div>
         </div>
@@ -674,8 +678,9 @@ export default function MarketingStrategyPage() {
               Is Strategic Planning the Right Investment Today?
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We believe in transparent alignment. Strategy delivers strong results
-              when there is clear readiness to collaborate and act on findings.
+              We believe in transparent alignment. Strategy delivers strong
+              results when there is clear readiness to collaborate and act on
+              findings.
             </p>
           </div>
 
@@ -694,29 +699,29 @@ export default function MarketingStrategyPage() {
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Businesses seeking to transition from random marketing tactics
-                    into a cohesive, goal-oriented plan.
+                    Businesses seeking to transition from random marketing
+                    tactics into a cohesive, goal-oriented plan.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Companies introducing a new product or service and needing clear
-                    channel prioritization.
+                    Companies introducing a new product or service and needing
+                    clear channel prioritization.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Brands currently spending on advertising or content but seeing
-                    diminishing customer acquisition returns.
+                    Brands currently spending on advertising or content but
+                    seeing diminishing customer acquisition returns.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Leadership teams requiring an objective, outside assessment of
-                    commercial positioning and competitor movements.
+                    Leadership teams requiring an objective, outside assessment
+                    of commercial positioning and competitor movements.
                   </span>
                 </li>
               </ul>
@@ -736,8 +741,8 @@ export default function MarketingStrategyPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Organizations looking for overnight hacks, quick viral spikes, or
-                    guaranteed revenue formulas.
+                    Organizations looking for overnight hacks, quick viral
+                    spikes, or guaranteed revenue formulas.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -750,15 +755,15 @@ export default function MarketingStrategyPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Teams currently unable to commit time for discovery interviews
-                    or access to relevant historical data.
+                    Teams currently unable to commit time for discovery
+                    interviews or access to relevant historical data.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Projects where a single standalone deliverable (e.g., technical
-                    audit) solves the immediate bottleneck.
+                    Projects where a single standalone deliverable (e.g.,
+                    technical audit) solves the immediate bottleneck.
                   </span>
                 </li>
               </ul>
@@ -785,8 +790,8 @@ export default function MarketingStrategyPage() {
               Frequently Asked Questions
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed max-w-2xl">
-              Practical answers regarding project scope, timelines, deliverables,
-              and how strategy connects to execution.
+              Practical answers regarding project scope, timelines,
+              deliverables, and how strategy connects to execution.
             </p>
           </div>
 

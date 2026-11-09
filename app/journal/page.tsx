@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { getPublishedArticles, getCategories, getFeaturedArticle } from "@/lib/journal";
+import {
+  getPublishedArticles,
+  getCategories,
+  getFeaturedArticle,
+} from "@/lib/journal";
 import ArticleCard from "@/components/journal/ArticleCard";
 import CategoryFilter from "@/components/journal/CategoryFilter";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "The Growth & Tech Vault | SEO & Digital Marketing Journal",
+  title: "The Growth & Digital Marketing Journal",
   description:
     "Practical guides and technical investigations on customer acquisition, SEO, search visibility, Core Web Vitals, and web architecture by Cinorium.",
   alternates: {
     canonical: "/journal",
   },
   openGraph: {
-    title: "The Growth & Tech Vault | SEO & Digital Marketing Journal | Cinorium",
+    title: "The Growth & Digital Marketing Journal | Cinorium",
     description:
       "Practical guides and technical investigations on customer acquisition, SEO, search visibility, Core Web Vitals, and web architecture by Cinorium.",
     url: "https://www.cinorium.com/journal",
@@ -92,7 +96,10 @@ export default async function JournalPage() {
           </h1>
 
           <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
-            Website investigations, architectural explanations, and practical frameworks across digital marketing strategy, search visibility (SEO/AEO), Core Web Vitals, and web engineering. Clear advice without generic agency fluff.
+            Website investigations, architectural explanations, and practical
+            frameworks across digital marketing strategy, search visibility
+            (SEO/AEO), Core Web Vitals, and web engineering. Clear advice
+            without generic agency fluff.
           </p>
         </div>
       </section>
@@ -134,7 +141,9 @@ export default async function JournalPage() {
               Explore the Archive
             </h2>
             <p className="max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base font-light">
-              Browse technical analyses and marketing guides categorized by search visibility, web engineering, and evolving AI search experiences.
+              Browse technical analyses and marketing guides categorized by
+              search visibility, web engineering, and evolving AI search
+              experiences.
             </p>
           </div>
 
