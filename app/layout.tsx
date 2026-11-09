@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.cinorium.com"),
 
   title: {
-    default: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
+    default: "Cinorium — Digital Marketing Agency",
     template: "%s | Cinorium",
   },
 
@@ -59,7 +59,8 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
+    title:
+      "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -74,7 +75,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
+    title:
+      "Cinorium — Digital Marketing Agency | Built for Visibility. Designed for Growth.",
     description: siteDescription,
     images: ["/og-images/og-image.webp"],
   },
@@ -173,7 +175,7 @@ export default function RootLayout({
         figtree.variable,
         sora.variable,
         modak.variable,
-        "font-sans"
+        "font-sans",
       )}
     >
       <body className="min-h-screen font-sans antialiased">
