@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Figtree, Sora, Modak } from "next/font/google";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import SignalsTracker from "@/components/signals/SignalsTracker";
 
 const SignalsCaptureModal = dynamic(
@@ -17,7 +14,7 @@ const SignalsCaptureModal = dynamic(
 
 const siteUrl = "https://www.cinorium.com";
 const siteName = "Cinorium";
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-CM37CKLDL4";
+// const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-CM37CKLDL4"; // temporarily disabled
 const personId = `${siteUrl}/#person`;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
@@ -194,42 +191,15 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Consent Mode / CMP (Choice by InMobi) */}
-        <Script id="choice-cmp-config" strategy="beforeInteractive">
-          {`
-            window.SDDAN = window.SDDAN || {};
-            window.SDDAN.theme = window.SDDAN.theme || {};
-            window.SDDAN.theme.toolbar = { active: false };
-          `}
-        </Script>
-        <Script
-          src="https://choices.consentframework.com/js/pa/55358/c/ujCdg/stub?source=google-tag"
-          strategy="beforeInteractive"
-          data-cfasync="false"
-        />
-        <Script
-          src="https://choices.consentframework.com/js/pa/55358/c/ujCdg/cmp?source=google-tag"
-          strategy="afterInteractive"
-          data-cfasync="false"
-        />
+        {/* Google Consent Mode / CMP — temporarily disabled */}
+        {/* <Script id="choice-cmp-config" strategy="beforeInteractive">...</Script> */}
 
-        {/* Vercel Insights */}
-        <SpeedInsights />
-        <Analytics />
+        {/* Vercel Insights — temporarily disabled */}
+        {/* <SpeedInsights /> */}
+        {/* <Analytics /> */}
 
-        {/* Google Analytics 4 */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        {/* Google Analytics 4 — temporarily disabled */}
+        {/* <Script src="https://www.googletagmanager.com/gtag/..." strategy="afterInteractive" /> */}
 
         {/* Cinorium Signals: First-Party Behaviour & Contextual Capture */}
         <SignalsTracker />

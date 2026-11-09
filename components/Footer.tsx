@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import CinoriumLogo from "@/components/CinoriumLogo";
-import CookiePreferencesButton from "./CookiePreferencesButton";
 
 // Custom SVG Icons for Social Links
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -234,10 +233,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Legal & Preferences */}
+          {/* Column 4: Legal */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
-              Legal & Preferences
+              Legal
             </h3>
             <ul className="space-y-2 text-xs text-gray-400 font-light">
               <li>
@@ -261,11 +260,8 @@ export default function Footer() {
                   href="/return-policy"
                   className="hover:text-white transition-colors"
                 >
-                  Return & Refund Policy
+                  Return &amp; Refund Policy
                 </Link>
-              </li>
-              <li className="pt-2">
-                <CookiePreferencesButton />
               </li>
             </ul>
           </div>
