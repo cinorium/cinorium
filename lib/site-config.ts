@@ -45,7 +45,7 @@ export const servicesConfig: ServiceItem[] = [
     id: "digital-marketing-strategy",
     name: "Digital Marketing Strategy",
     shortName: "Marketing Strategy",
-    href: "/services#strategy",
+    href: "/marketing-strategy",
     description: "Commercially grounded customer acquisition campaigns focused on qualified pipeline and measurable revenue growth.",
     tier: "primary",
     category: "strategy",
@@ -151,7 +151,22 @@ export const staticRoutes: StaticRoute[] = [
     priority: 0.9,
   },
   {
+    path: "/marketing-strategy",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
     path: "/seo-services",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    path: "/content-marketing",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    path: "/paid-advertising",
     changeFrequency: "monthly",
     priority: 0.9,
   },

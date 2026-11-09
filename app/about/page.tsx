@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Search,
-  ShieldCheck,
-  Layers,
-  Compass,
-  CheckCircle2,
-  TrendingUp,
-  FileText,
-  ShoppingBag,
-  Code2,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,14 +17,14 @@ import FinalCta from "@/components/FinalCta";
 export const metadata: Metadata = {
   title: "About Cinorium | Digital Marketing & Growth Agency",
   description:
-    "Discover Cinorium, a digital marketing and growth agency combining business-first strategy, search visibility, content, e-commerce and technical foundations.",
+    "Discover Cinorium, a digital marketing and growth agency connecting business-first strategy, search visibility, content, customer acquisition and technical foundations.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Cinorium | Digital Marketing & Growth Agency",
     description:
-      "Discover how Cinorium connects digital marketing strategy, search visibility, content and technology to support sustainable business growth.",
+      "Learn how Cinorium connects digital marketing strategy, search visibility, content and technology to support sustainable business growth.",
     url: "https://www.cinorium.com/about",
     type: "website",
   },
@@ -82,22 +71,22 @@ const workingStages = [
 
 const principles = [
   {
+    number: "01",
     title: "Look Deeper",
     description:
       "Understand the business behind the brief. We look beyond individual marketing tasks to examine the underlying challenges, customer needs and opportunities.",
-    icon: Layers,
   },
   {
+    number: "02",
     title: "Build Smarter",
     description:
       "Make informed decisions before investing time and resources. We prioritize purposeful strategies, useful technology and solutions that support real business objectives.",
-    icon: Compass,
   },
   {
+    number: "03",
     title: "Grow Better",
     description:
       "Focus on sustainable progress rather than shortcuts. We value meaningful visibility, stronger customer relationships and continuous improvement over vanity metrics.",
-    icon: ShieldCheck,
   },
 ];
 
@@ -105,17 +94,16 @@ const capabilities = [
   {
     number: "01",
     tier: "Strategy & Planning",
-    title: "Digital Marketing Strategy",
+    title: "Marketing Strategy & Planning",
     description:
       "A business-first approach to planning marketing activities around your audience, commercial objectives and customer journey.",
-    icon: TrendingUp,
-    href: "/digital-marketing",
-    cta: "Explore Marketing Strategy",
     points: [
       "Business and audience understanding",
       "Marketing strategy and channel planning",
       "Customer journey and conversion planning",
     ],
+    href: "/services",
+    cta: "Explore Our Services",
   },
   {
     number: "02",
@@ -123,44 +111,55 @@ const capabilities = [
     title: "Search Visibility & SEO",
     description:
       "Improve how people discover, understand and evaluate your business through search engines and emerging AI-powered discovery platforms.",
-    icon: Search,
-    href: "/seo-services",
-    cta: "Explore Search Visibility",
     points: [
       "Technical and on-page SEO",
       "Keyword research and content architecture",
       "Local SEO, AEO and GEO foundations",
     ],
+    href: "/seo-services",
+    cta: "Explore Search Visibility",
   },
   {
     number: "03",
     tier: "Content & Engagement",
-    title: "Content & Audience Engagement",
+    title: "Content & Social Media Marketing",
     description:
       "Develop useful, relevant content that communicates your value, supports audience discovery and helps build stronger customer relationships.",
-    icon: FileText,
-    href: "/services",
-    cta: "Explore Our Services",
     points: [
       "Content planning and editorial direction",
       "Brand messaging and content development",
-      "Organic channel alignment and distribution",
+      "Social media strategy and distribution",
     ],
+    href: "/services",
+    cta: "Explore Our Services",
   },
   {
     number: "04",
-    tier: "E-commerce & Growth",
-    title: "E-commerce & Growth Systems",
+    tier: "Acquisition & Advertising",
+    title: "Paid Advertising & Customer Acquisition",
     description:
-      "Connect product discovery, customer experience and conversion improvements to create a more effective online shopping journey.",
-    icon: ShoppingBag,
+      "Plan and manage paid campaigns to reach relevant audiences, support customer acquisition and make better use of advertising budgets.",
+    points: [
+      "Google Ads and search campaigns",
+      "Meta Ads and paid social campaigns",
+      "Campaign measurement and optimization",
+    ],
     href: "/services",
     cta: "Explore Our Services",
+  },
+  {
+    number: "05",
+    tier: "Retention & E-commerce",
+    title: "Email, E-commerce & Customer Growth",
+    description:
+      "Connect customer communication, online shopping experiences and retention activities to support stronger long-term customer relationships.",
     points: [
-      "E-commerce experience and product discovery",
-      "Conversion and customer journey improvements",
-      "Customer retention and loyalty foundations",
+      "Email campaigns and marketing automation",
+      "E-commerce marketing and customer experience",
+      "Retention, loyalty and customer growth",
     ],
+    href: "/services",
+    cta: "Explore Our Services",
   },
 ];
 
@@ -190,7 +189,7 @@ const jsonLd = {
       url: "https://www.cinorium.com/about",
       name: "About Cinorium | Digital Marketing & Growth Agency",
       description:
-        "Learn about Cinorium's business-first approach to digital marketing, search visibility, content, e-commerce and technical foundations.",
+        "Learn about Cinorium's business-first approach to digital marketing, search visibility, content, customer acquisition and technical foundations.",
       mainEntity: {
         "@id": "https://www.cinorium.com/#organization",
       },
@@ -212,20 +211,20 @@ export default function AboutPage() {
       {/* 1. Hero */}
       <section
         id="about-hero"
-        className="w-full bg-[#fdfbf7] pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full border-b border-black/10 bg-[#fdfbf7] px-6 pb-16 pt-28 sm:px-10 sm:pb-20 sm:pt-36 md:px-16 lg:px-24"
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="mx-auto max-w-5xl">
           <div className="mb-4">
             <Badge variant="default" dot="amber" size="lg">
               About Cinorium
             </Badge>
           </div>
 
-          <h1 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
+          <h1 className="mb-6 max-w-4xl font-heading text-3xl font-bold leading-[1.1] tracking-tight text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl">
             Built for Visibility. Designed for Growth.
           </h1>
 
-          <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg mb-8 font-light">
+          <p className="mb-8 max-w-3xl text-base font-light leading-relaxed text-gray-700 sm:text-lg">
             Cinorium is a digital marketing and growth agency focused on helping
             businesses build a stronger digital presence. We connect marketing
             strategy, search visibility, content and customer experience with
@@ -233,12 +232,12 @@ export default function AboutPage() {
             digital growth requires more than disconnected marketing activities.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
             <Link href="/contact">
               <Button
                 variant="secondary"
                 size="lg"
-                className="w-full sm:w-auto gap-2"
+                className="w-full gap-2 sm:w-auto"
               >
                 <span>Discuss Your Goals</span>
                 <ArrowRight className="h-4 w-4 text-[#0b131e]" />
@@ -261,21 +260,21 @@ export default function AboutPage() {
       {/* 2. The Thinking Behind Cinorium */}
       <section
         id="the-thinking"
-        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full border-b border-black/10 bg-white px-6 py-16 sm:px-10 sm:py-20 md:px-16 lg:px-24 lg:py-24"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <Badge variant="secondary" size="sm" className="mb-3">
                 Beyond the Surface
               </Badge>
 
-              <h2 className="mb-6 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl">
+              <h2 className="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight text-[#0b131e] sm:text-4xl">
                 Digital growth starts with understanding what is happening
                 beneath the surface.
               </h2>
 
-              <div className="space-y-4 text-base leading-relaxed text-gray-700 font-light">
+              <div className="space-y-4 text-base font-light leading-relaxed text-gray-700">
                 <p>
                   A business can invest in a new website, publish content,
                   improve its social presence and run marketing campaigns
@@ -309,18 +308,18 @@ export default function AboutPage() {
 
             {/* Founder-led callout */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl border-2 border-black bg-[#faf8f5] p-7 sm:p-9 shadow-sm">
+              <div className="relative rounded-3xl border-2 border-black bg-[#faf8f5] p-7 shadow-sm sm:p-9">
                 <div className="mb-4">
                   <Badge variant="amber" size="sm">
                     Founder-Led Agency
                   </Badge>
                 </div>
 
-                <h3 className="mb-3 font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#0b131e]">
+                <h3 className="mb-3 font-heading text-xl font-bold tracking-tight text-[#0b131e] sm:text-2xl">
                   Direct Involvement. Clear Accountability.
                 </h3>
 
-                <p className="text-sm leading-relaxed text-gray-600 mb-6 font-light">
+                <p className="mb-6 text-sm font-light leading-relaxed text-gray-600">
                   Cinorium is founded and led by Muhammad Huzaifa. The approach
                   combines marketing, design and technical understanding to look
                   at business challenges from more than one perspective. Clients
@@ -328,21 +327,10 @@ export default function AboutPage() {
                   and a clear understanding of the work being undertaken.
                 </p>
 
-                <div className="pt-5 border-t border-gray-200 flex flex-col gap-2.5 text-xs font-medium text-[#0b131e]">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    <span>Direct founder involvement</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    <span>Business-first recommendations</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    <span>Technical and marketing alignment</span>
-                  </div>
+                <div className="flex flex-col gap-2.5 border-t border-gray-200 pt-5 text-xs font-medium text-[#0b131e]">
+                  <p>Direct founder involvement</p>
+                  <p>Business-first recommendations</p>
+                  <p>Technical and marketing alignment</p>
                 </div>
               </div>
             </div>
@@ -353,117 +341,102 @@ export default function AboutPage() {
       {/* 3. Marketing Capabilities */}
       <section
         id="capabilities-overview"
-        className="w-full bg-[#faf8f5] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full border-b border-black/10 bg-[#faf8f5] px-6 py-16 sm:px-10 sm:py-20 md:px-16 lg:px-24 lg:py-24"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12 sm:mb-14">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 sm:mb-12">
             <Badge variant="default" dot="amber" size="sm" className="mb-3">
               What We Focus On
             </Badge>
 
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+            <h2 className="mb-3 font-heading text-3xl font-bold leading-tight tracking-tight text-[#0b131e] sm:text-4xl md:text-5xl">
               Connected Capabilities. One Growth Direction.
             </h2>
 
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+            <p className="max-w-2xl text-base font-light leading-relaxed text-gray-600 sm:text-lg">
               Our capabilities cover the key areas of digital marketing and
               growth. Each has a distinct role, but they are most effective when
               planned around the same business objectives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            {capabilities.map((item) => {
-              const Icon = item.icon;
+          <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:gap-5">
+            {capabilities.map((item) => (
+              <Card
+                key={item.number}
+                variant="tactile"
+                className="grid h-full grid-rows-[auto_1fr_auto] bg-white p-5 sm:p-6"
+              >
+                <CardHeader className="mb-4 grid grid-rows-[auto_3.5rem_1fr] p-0">
+                  <div className="mb-4 flex min-h-10 items-center justify-between gap-3">
+                    <span className="font-modak text-3xl text-slate-500 sm:text-4xl">
+                      {item.number}
+                    </span>
 
-              return (
-                <Card
-                  key={item.number}
-                  variant="tactile"
-                  className="p-7 sm:p-9 bg-white flex flex-col h-full"
-                >
-                  <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center justify-between mb-4 min-h-[2.5rem]">
-                      <span className="font-modak text-3xl sm:text-4xl text-slate-500">
-                        {item.number}
-                      </span>
+                    <Badge variant="secondary" size="sm">
+                      {item.tier}
+                    </Badge>
+                  </div>
 
-                      <Badge variant="secondary" size="sm">
-                        {item.tier}
-                      </Badge>
-                    </div>
+                  <div className="grid grid-rows-[1fr] items-start">
+                    <CardTitle className="font-heading text-xl font-bold text-[#0b131e] sm:text-2xl">
+                      {item.title}
+                    </CardTitle>
+                  </div>
 
-                    <div className="flex items-center gap-3 min-h-[3.5rem]">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0b131e] text-[#ffb703]">
-                        <Icon className="h-5 w-5" />
-                      </div>
+                  <CardDescription className="mt-3 text-sm font-light leading-relaxed text-gray-600">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
 
-                      <CardTitle className="font-heading text-xl sm:text-2xl font-bold text-[#0b131e]">
-                        {item.title}
-                      </CardTitle>
-                    </div>
+                <CardContent className="mb-4 p-0">
+                  <div className="border-t border-gray-200 pt-4">
+                    <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-gray-800">
+                      Focus Areas
+                    </span>
 
-                    <CardDescription className="text-sm leading-relaxed text-gray-600 font-light mt-3">
-                      {item.description}
-                    </CardDescription>
-                  </CardHeader>
+                    <ul className="space-y-2">
+                      {item.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-2 text-xs text-gray-600 sm:text-sm"
+                        >
+                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#ffb703]" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
 
-                  <CardContent className="p-0 mb-6 flex-grow">
-                    <div className="rounded-xl border border-gray-100 bg-[#fdfbf7] p-4 h-full">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-gray-800 block mb-2.5">
-                        Focus Areas
-                      </span>
-
-                      <ul className="space-y-2">
-                        {item.points.map((point) => (
-                          <li
-                            key={point}
-                            className="flex items-start gap-2 text-xs sm:text-sm text-gray-600"
-                          >
-                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-
-                  <CardFooter className="p-0 border-t border-[#0b131e]/5 pt-6 mt-auto">
-                    <Link href={item.href} className="w-full">
-                      <Button
-                        variant="slateOutline"
-                        size="sm"
-                        className="w-full justify-between"
-                      >
-                        <span>{item.cta}</span>
-                        <ArrowRight className="h-4 w-4 text-[#0b131e]" />
-                      </Button>
-                    </Link>
-                  </CardFooter>
-                </Card>
-              );
-            })}
+                <CardFooter className="mt-auto border-t border-[#0b131e]/5 p-0 pt-4">
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0b131e] transition-colors hover:text-amber-700"
+                  >
+                    {item.cta}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
 
           {/* Supporting Technical Foundation */}
-          <div className="mt-10 rounded-2xl border-2 border-black bg-[#0b131e] p-7 sm:p-9 text-white">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="mt-8 rounded-2xl border-2 border-black bg-[#0b131e] p-7 text-white sm:p-9">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
               <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[#ffb703]">
-                    <Code2 className="h-5 w-5" />
-                  </div>
-
+                <div className="mb-4">
                   <Badge variant="amber" size="sm">
                     Supporting Foundation
                   </Badge>
                 </div>
 
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold mb-3">
+                <h3 className="mb-3 font-heading text-2xl font-bold sm:text-3xl">
                   Technology That Supports Marketing.
                 </h3>
 
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-light">
+                <p className="text-sm font-light leading-relaxed text-gray-300 sm:text-base">
                   Websites, technical performance and implementation influence
                   how effectively marketing works. Our web engineering
                   capability supports search visibility, usability and
@@ -475,7 +448,7 @@ export default function AboutPage() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="w-full md:w-auto gap-2"
+                  className="w-full gap-2 md:w-auto"
                 >
                   Explore Web Engineering
                   <ArrowRight className="h-4 w-4" />
@@ -489,54 +462,54 @@ export default function AboutPage() {
       {/* 4. Working Methodology */}
       <section
         id="methodology"
-        className="w-full bg-[#0b131e] py-20 sm:py-24 px-6 sm:px-10 md:px-16 lg:px-24 text-white border-b border-gray-800/80"
+        className="w-full border-b border-gray-800/80 bg-[#0b131e] px-6 py-20 text-white sm:px-10 sm:py-24 md:px-16 lg:px-24"
       >
-        <div className="max-w-5xl mx-auto w-full">
-          <div className="mb-14 text-center md:text-left">
+        <div className="mx-auto w-full max-w-5xl">
+          <div className="mb-12 text-center md:mb-14 md:text-left">
             <Badge
               variant="default"
               dot="amber"
-              className="mb-3 bg-gray-900 border-gray-700"
+              className="mb-3 border-gray-700 bg-gray-900"
             >
               How We Work
             </Badge>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-white mb-4">
+            <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
               A Clearer Approach to Digital Growth.
             </h2>
 
-            <p className="text-base sm:text-lg text-gray-400 max-w-2xl font-light leading-relaxed">
+            <p className="max-w-2xl text-base font-light leading-relaxed text-gray-400 sm:text-lg">
               Every business has different needs. Our working framework provides
               a structured way to understand the situation, prioritize the right
               actions and improve through ongoing evaluation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {workingStages.map((stage) => (
               <Card
                 key={stage.step}
                 variant="dark"
-                className="p-6 sm:p-7 border border-gray-800 bg-[#0f1724] hover:border-gray-700 transition-colors flex flex-col h-full"
+                className="grid h-full grid-rows-[auto_1fr] border border-gray-800 bg-[#0f1724] p-5 transition-colors hover:border-gray-700 sm:p-6"
               >
-                <CardHeader className="p-0 pb-3">
-                  <div className="flex items-center justify-between min-h-[2.5rem]">
-                    <span className="font-modak text-4xl sm:text-5xl text-brand-amber leading-none select-none">
+                <CardHeader className="grid grid-rows-[auto_1.5rem] p-0 pb-2">
+                  <div className="mb-1 flex min-h-10 items-center justify-between">
+                    <span className="font-modak text-4xl leading-none text-brand-amber select-none sm:text-5xl">
                       {stage.step}
                     </span>
 
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-gray-500">
                       Stage {stage.step}
                     </span>
                   </div>
 
-                  <CardTitle className="text-xl sm:text-2xl text-white mt-2 font-heading">
+                  <CardTitle className="min-h-[2rem] font-heading text-xl text-white sm:text-2xl">
                     {stage.title}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="p-0 flex-grow">
-                  <CardDescription className="text-sm leading-relaxed text-gray-400 font-light">
+                <CardContent className="flex-grow p-0">
+                  <CardDescription className="text-sm font-light leading-relaxed text-gray-400">
                     {stage.description}
                   </CardDescription>
                 </CardContent>
@@ -544,8 +517,8 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-gray-800 bg-[#0f1724]/80 p-5 sm:p-6 text-xs sm:text-sm text-gray-400 leading-relaxed font-light">
-            <strong className="text-white font-semibold">
+          <div className="mt-8 rounded-2xl border border-gray-800 bg-[#0f1724]/80 p-5 text-xs font-light leading-relaxed text-gray-400 sm:p-6 sm:text-sm">
+            <strong className="font-semibold text-white">
               A Flexible Working Approach:
             </strong>{" "}
             Not every engagement requires all six stages in the same way. The
@@ -559,50 +532,46 @@ export default function AboutPage() {
       {/* 5. Operating Principles */}
       <section
         id="principles"
-        className="w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-b border-black/10"
+        className="w-full border-b border-black/10 bg-white px-6 py-16 sm:px-10 sm:py-20 md:px-16 lg:px-24 lg:py-24"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12 sm:mb-14">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 sm:mb-12">
             <Badge variant="secondary" size="sm" className="mb-3">
               Our Philosophy
             </Badge>
 
-            <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight leading-tight text-[#0b131e] sm:text-4xl md:text-5xl">
+            <h2 className="mb-3 font-heading text-3xl font-bold leading-tight tracking-tight text-[#0b131e] sm:text-4xl md:text-5xl">
               Look Deeper. Build Smarter. Grow Better.
             </h2>
 
-            <p className="max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-light">
+            <p className="max-w-2xl text-base font-light leading-relaxed text-gray-600 sm:text-lg">
               Three principles that shape how we understand problems, make
               decisions and approach every opportunity for improvement.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {principles.map((principle) => {
-              const Icon = principle.icon;
+          <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3">
+            {principles.map((principle) => (
+              <Card
+                key={principle.number}
+                variant="tactile"
+                className="grid h-full grid-rows-[auto_auto_1fr] p-6 sm:p-7"
+              >
+                <div className="mb-1">
+                  <span className="font-modak text-3xl text-slate-400 sm:text-4xl">
+                    {principle.number}
+                  </span>
+                </div>
 
-              return (
-                <Card
-                  key={principle.title}
-                  variant="tactile"
-                  className="p-7 sm:p-8"
-                >
-                  <div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0b131e] text-[#ffb703] mb-5">
-                      <Icon className="h-6 w-6" />
-                    </div>
+                <h3 className="mb-1 font-heading text-xl font-bold tracking-tight text-[#0b131e]">
+                  {principle.title}
+                </h3>
 
-                    <h3 className="mb-3 font-heading text-xl font-bold tracking-tight text-[#0b131e]">
-                      {principle.title}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed text-gray-600 font-light">
-                      {principle.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
+                <p className="text-sm font-light leading-relaxed text-gray-600">
+                  {principle.description}
+                </p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

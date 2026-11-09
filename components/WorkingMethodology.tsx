@@ -80,7 +80,7 @@ export default function WorkingMethodology() {
               variant="dark"
               className="grid h-full grid-rows-[auto_1fr] border border-gray-800 bg-[#0f1724] p-6 transition-colors hover:border-gray-700 sm:p-7"
             >
-              <CardHeader className="grid grid-rows-[auto_minmax(3.5rem,auto)] gap-y-3 p-0 pb-4">
+              <CardHeader className="grid grid-rows-[auto_minmax(2.5rem,auto)] gap-y-2 p-0 pb-1">
                 <div className="flex min-h-10 items-center justify-between">
                   <span className="select-none font-modak text-4xl leading-none text-brand-amber sm:text-5xl">
                     {stage.step}

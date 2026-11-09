@@ -40,8 +40,8 @@ const primaryServices = [
     description:
       "Effective marketing starts with understanding the business, not simply choosing platforms or launching campaigns. We bring your positioning, audience research, commercial objectives, and marketing activities together into a practical strategy.",
     badgeText: "Strategic Direction",
-    actionHref: "/contact",
-    actionText: "Discuss Your Marketing Strategy",
+    actionHref: "/marketing-strategy",
+    actionText: "Explore Marketing Strategy",
     deliverables: [
       {
         name: "Business & Audience Research",
@@ -104,8 +104,8 @@ const primaryServices = [
     description:
       "Your audience needs more than occasional posts. We connect content planning, brand communication, and social media activity to help your business communicate consistently, answer customer questions, and stay relevant across digital channels.",
     badgeText: "Content & Engagement",
-    actionHref: "/contact",
-    actionText: "Discuss Content & Social Media",
+    actionHref: "/content-marketing",
+    actionText: "Explore Content Marketing",
     deliverables: [
       {
         name: "Content Strategy & Editorial Planning",
@@ -134,8 +134,8 @@ const primaryServices = [
     description:
       "Paid campaigns can accelerate discovery when they are built around the right audience, offer, and conversion path. We connect campaign planning, advertising creative, landing pages, and performance measurement to make your advertising spend more accountable.",
     badgeText: "Paid Campaigns",
-    actionHref: "/contact",
-    actionText: "Discuss Advertising Campaigns",
+    actionHref: "/paid-advertising",
+    actionText: "Explore Paid Advertising",
     deliverables: [
       {
         name: "Google Ads Campaigns",
