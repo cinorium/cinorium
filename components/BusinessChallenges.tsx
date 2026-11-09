@@ -1,30 +1,39 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const challenges = [
   {
-    step: "1",
-    tag: "Search Discovery Friction",
-    title: "Invisible to High-Intent Buyers",
+    step: "01",
+    tag: "Discovery",
+    title: "The Right People Can't Find You",
     description:
-      "When your business does not rank in organic search results or AI answer engines, prospective buyers actively seeking your exact services find and hire your competitors instead.",
-    consequence: "Results in weak customer pipeline and heavy reliance on unpredictable referrals.",
+      "Potential customers are already searching for products, services, and solutions like yours. Without strong visibility across search engines and relevant discovery platforms, those opportunities can go to competitors instead.",
+    consequence:
+      "Limited qualified traffic and missed opportunities to reach potential customers.",
   },
   {
-    step: "2",
-    tag: "Conversion Friction",
-    title: "Sluggish & Low-Converting Experiences",
+    step: "02",
+    tag: "Conversion",
+    title: "Visitors Aren't Taking Action",
     description:
-      "Bloated templates, slow mobile load times, and confusing navigation kill buyer interest in seconds. Visitors abandon clunky platforms long before they reach an enquiry form.",
-    consequence: "Wastes marketing spend and deflates visitor-to-lead conversion rates.",
+      "People may reach your website but leave without enquiring or buying. Unclear messaging, confusing navigation, weak calls to action, and poor user experience can create friction throughout their journey.",
+    consequence:
+      "Lost enquiries and sales from the audience you have already attracted.",
   },
   {
-    step: "3",
-    tag: "Acquisition Friction",
-    title: "Marketing Without A Solid Foundation",
+    step: "03",
+    tag: "Marketing Direction",
+    title: "Marketing Activities Lack Direction",
     description:
-      "Driving traffic or publishing content on top of a fragile, unoptimized website is like pouring water into a leaking bucket. Sustainable marketing requires technology and strategy operating in tandem.",
-    consequence: "Produces inflated acquisition costs and flatline commercial growth.",
+      "Campaigns, content, and marketing channels need to work towards connected business objectives. Without a clear strategy and meaningful measurement, it becomes difficult to identify what is working and where to focus next.",
+    consequence:
+      "Disconnected efforts, wasted resources, and unclear growth priorities.",
   },
 ];
 
@@ -32,56 +41,59 @@ export default function BusinessChallenges() {
   return (
     <section
       id="challenges"
-      className="w-full bg-[#faf8f5] py-20 sm:py-24 px-6 sm:px-10 md:px-16 lg:px-24 border-t border-gray-200/80"
+      className="w-full border-t border-gray-200/80 bg-[#faf8f5] px-6 py-20 sm:px-10 sm:py-24 md:px-16 lg:px-24"
     >
-      <div className="max-w-6xl mx-auto w-full">
-        {/* Section Header */}
+      <div className="mx-auto w-full max-w-6xl">
         <div className="mb-14 text-center md:text-left">
           <Badge variant="secondary" className="mb-3">
-            Commercial Growth Roadblocks
+            Common Digital Growth Challenges
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight text-[#0b131e] mb-4">
-            Where Most Digital Strategies Break Down
+
+          <h2 className="mb-4 font-heading text-3xl font-bold tracking-tight text-[#0b131e] sm:text-4xl lg:text-5xl">
+            Growth Gets Difficult When the Pieces Don't Connect
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-light leading-relaxed">
-            A website can look modern and still fail commercially. Without commanding search discoverability, rapid load times, and structured buyer journeys, digital investments underperform.
+
+          <p className="max-w-2xl text-base font-light leading-relaxed text-gray-600 sm:text-lg">
+            Getting online is only the beginning. Your business needs to be
+            discoverable, communicate its value clearly, and make it easy for
+            potential customers to take the next step. When these pieces fall
+            short, growth becomes harder than it needs to be.
           </p>
         </div>
 
-        {/* 3 Tactile Cards Grid with Strictly Baseline-Aligned Footers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 lg:gap-8">
           {challenges.map((item) => (
-            <Card key={item.step} variant="tactile" className="p-7 flex flex-col h-full">
-              <CardHeader className="p-0 pb-4">
-                <div className="flex items-center justify-between min-h-[3.5rem]">
-                  <span className="font-modak text-5xl sm:text-6xl text-slate-500 leading-none select-none">
+            <Card
+              key={item.step}
+              variant="tactile"
+              className="grid h-full grid-rows-[auto_1fr] p-7"
+            >
+              <CardHeader className="grid grid-rows-[auto_minmax(4rem,auto)] gap-y-3 p-0 pb-2">
+                <div className="flex min-h-8 items-center justify-between gap-3">
+                  <span className="select-none font-modak text-5xl leading-none text-slate-500 sm:text-6xl">
                     {item.step}
                   </span>
+
                   <Badge variant="secondary">{item.tag}</Badge>
                 </div>
-                <CardTitle className="text-xl sm:text-2xl mt-3 text-[#0b131e] min-h-[3.5rem] flex items-center">
+
+                <CardTitle className="flex items-center text-xl leading-tight text-[#0b131e] sm:text-2xl">
                   {item.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="p-0 flex-grow">
-                <CardDescription className="text-sm leading-relaxed text-gray-600 mb-3 font-light">
+              <CardContent className="flex flex-col p-0">
+                <CardDescription className="mb-5 text-sm font-light leading-relaxed text-gray-600">
                   {item.description}
                 </CardDescription>
-                <div className="text-xs text-gray-500 font-medium pt-2 border-t border-gray-100">
-                  <span className="text-gray-900 font-semibold">Impact: </span>
+
+                <div className="mt-auto border-t border-[#0b131e]/10 pt-4 text-xs font-medium leading-relaxed text-gray-500">
+                  <span className="font-semibold text-[#0b131e]">
+                    The impact:{" "}
+                  </span>
                   {item.consequence}
                 </div>
               </CardContent>
-
-              <CardFooter className="p-0 mt-auto pt-6 border-t border-[#0b131e]/5 flex items-center justify-between">
-                <span className="text-xs text-gray-400 font-mono">
-                  Challenge 0{item.step}
-                </span>
-                <span className="text-xs font-semibold text-[#0b131e]">
-                  Problem Solved Below ↓
-                </span>
-              </CardFooter>
             </Card>
           ))}
         </div>
@@ -89,4 +101,3 @@ export default function BusinessChallenges() {
     </section>
   );
 }
-

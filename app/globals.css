@@ -7,7 +7,8 @@
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-figtree: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  --font-montserrat: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-montserrat:
+    var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-sora: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-modak: var(--font-modak), cursive;
   --color-brand-dark: #0b131e;
@@ -255,7 +256,9 @@ article details {
 
 article details[open] {
   border-color: #000000 !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(255, 183, 3, 0.25) !important;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(255, 183, 3, 0.25) !important;
 }
 
 article details summary {
@@ -299,7 +302,10 @@ article details summary:not(:has(svg))::after {
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: 1rem 1rem !important;
-  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease !important;
   flex-shrink: 0 !important;
   margin-left: 1rem !important;
 }
@@ -322,3 +328,9 @@ article details > p {
   background-color: rgba(254, 243, 199, 0.12) !important;
 }
 
+/* Reserve space for the fixed mobile bottom navigation */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}

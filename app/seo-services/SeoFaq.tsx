@@ -14,61 +14,49 @@ const faqs: FaqItem[] = [
     id: "seo-faq-1",
     question: "What SEO services does Cinorium offer?",
     answer:
-      "Cinorium offers technical SEO audits, on-page optimization, keyword research and content strategy, SEO content optimization, and off-page SEO guidance. These services can be scoped individually or combined depending on what your website and business currently need. Not every service is automatically included in every project — the scope is agreed before work begins.",
+      "Cinorium offers technical SEO, on-page optimization, keyword research, content strategy, content optimization, and digital PR and link authority services. We also work on practices that support visibility across AI-powered search experiences. Services can be scoped individually or combined according to your website and business requirements.",
   },
   {
     id: "seo-faq-2",
     question: "What is included in a technical SEO audit?",
     answer:
-      "A technical SEO audit typically covers crawlability and indexation, XML sitemap and robots.txt configuration, canonical URLs and redirect chains, internal linking and site structure, page speed and Core Web Vitals investigation, and metadata review. The depth and scope of an audit depend on the size and complexity of your website. Recommendations are prioritized by estimated impact and feasibility rather than presented as an overwhelming checklist.",
+      "A technical SEO audit can cover crawlability, indexation, XML sitemaps, robots.txt, canonical URLs, redirects, internal linking, website structure, page performance, Core Web Vitals, and relevant metadata. The audit is tailored to your website's size and complexity, with recommendations prioritized by impact and feasibility.",
   },
   {
     id: "seo-faq-3",
     question: "Can you improve the SEO of an existing website?",
     answer:
-      "Yes. Whether your website was built recently or has been running for years, there are usually meaningful technical, on-page, or content improvements that can be made. The starting point is understanding your current website, its existing search performance, and the most significant gaps or opportunities relative to your business goals.",
+      "Yes. We can assess an existing website to identify technical issues, content gaps, search intent mismatches, and opportunities for improvement. The process starts with understanding your website, its current search performance, and your business objectives before recommending the next steps.",
   },
   {
     id: "seo-faq-4",
     question: "Do you work with WordPress and custom-built websites?",
     answer:
-      "Yes. SEO work can be applied to both WordPress websites and custom-built websites such as those built with Next.js. The specific implementation steps differ between platforms, but the underlying principles — clean structure, useful content, accessible pages, and sound technical foundations — apply to both.",
+      "Yes. SEO improvements can be applied to WordPress websites as well as custom-built platforms such as Next.js. The implementation process differs depending on the technology, but the underlying priorities remain useful content, accessible pages, clear structure, and sound technical foundations.",
   },
   {
     id: "seo-faq-5",
-    question: "What is the difference between technical SEO and on-page SEO?",
+    question: "Do you provide SEO content strategy and optimization?",
     answer:
-      "Technical SEO focuses on how search engines can crawl, access, and index your website — covering areas like site structure, sitemaps, redirects, canonical tags, page speed, and mobile usability. On-page SEO focuses on the content and structure of individual pages — including headings, metadata, keyword alignment, internal links, and how well a page answers the questions your audience is searching for. Both work together and should be considered in combination.",
+      "Yes. This can include keyword and topic research, search intent mapping, content gap analysis, editorial planning, and improving existing website pages or articles. Our focus is on useful, accurate, well-structured content rather than increasing word count or repeating keywords unnecessarily.",
   },
   {
     id: "seo-faq-6",
-    question: "Do you offer SEO content strategy and content optimization?",
+    question: "Can you help improve visibility in AI-powered search?",
     answer:
-      "Yes. This can include identifying relevant search topics and audience questions, mapping search intent to existing or planned pages, developing a practical content roadmap, and improving the clarity, usefulness, and structure of existing website copy or articles. Content optimization focuses on accuracy, usefulness, and editorial quality rather than simply increasing word count or keyword density.",
+      "We work on practices that support discoverability across evolving search experiences, including clear and accurate content, descriptive headings, accessible website architecture, structured data, and consistent brand information. These practices can support AI search visibility, but no agency can guarantee inclusion or citations in Google AI Overviews, ChatGPT, Perplexity, or other AI-generated answers.",
   },
   {
     id: "seo-faq-7",
-    question: "Can you help with Google AI Overviews and AI-powered search?",
+    question: "Do you offer link building and digital PR?",
     answer:
-      "We can work on content practices that support visibility across evolving search experiences — including writing clear, accurate, well-organized content, using descriptive headings, structuring accessible pages, and maintaining consistent business information. However, no agency can guarantee that your website will be cited in Google AI Overviews, ChatGPT responses, or any other AI-generated answer. These systems use their own criteria for selecting content, which is not fully within anyone's control.",
+      "Digital PR and link authority work can be included when relevant to your project. This may involve researching industry publications, identifying editorial opportunities, and planning relevant outreach. We prioritize genuine relevance and editorial value rather than purchased links or manipulative link-building tactics. The scope and outcomes depend on your industry, website, and available resources.",
   },
   {
     id: "seo-faq-8",
-    question: "Do you offer link building?",
+    question: "How long does SEO take, and can you guarantee rankings?",
     answer:
-      "Off-page SEO and ethical link acquisition can be included in a project scope depending on requirements and suitability. The focus is on relevant outreach, editorial link opportunities, and natural acquisition strategies rather than link purchasing or manipulative tactics. The availability, scope, and expected outcomes of link-building work vary by industry, website history, and available budget — and no specific number of backlinks or ranking improvements can be promised.",
-  },
-  {
-    id: "seo-faq-9",
-    question: "How long does SEO take to show results?",
-    answer:
-      "SEO timelines vary considerably depending on website history, current technical state, content quality, competitive landscape, and how consistently improvements are implemented. Technical fixes can sometimes produce relatively quick improvements, while building organic authority through content and links typically takes months. Setting realistic expectations is part of how we approach every engagement.",
-  },
-  {
-    id: "seo-faq-10",
-    question: "Can you guarantee first-page rankings?",
-    answer:
-      "No. Nobody can honestly guarantee first-page rankings for specific keywords, and anyone who does should be treated with caution. Search rankings are influenced by many factors outside any agency's control, including algorithm changes, competitor activity, domain history, and the quality of your content. We focus on building sound, sustainable SEO foundations and improving meaningful signals over time — not on short-term tactics or unverifiable promises.",
+      "SEO timelines vary according to your website's history, technical condition, content quality, competition, and the consistency of implementation. Some technical improvements may show effects sooner, while building organic visibility and authority generally takes longer. We do not guarantee first-page rankings or specific positions. Instead, we focus on sound improvements and measurable progress over time.",
   },
 ];
 
@@ -102,9 +90,10 @@ export default function SeoFaq() {
               onClick={() => toggle(faq.id)}
               className="group flex w-full items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb703] focus-visible:ring-offset-4"
             >
-              <span className="font-heading text-base font-bold leading-snug text-gray-900 sm:text-lg">
+              <span className="min-w-0 font-heading text-base font-bold leading-snug text-gray-900 sm:text-lg">
                 {faq.question}
               </span>
+
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#faf8f5] text-gray-800 transition-colors group-hover:bg-[#ffb703]/20">
                 {isOpen ? (
                   <MoveDown aria-hidden="true" className="h-4 w-4" />
