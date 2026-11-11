@@ -33,15 +33,34 @@ interface Props {
   };
 }
 
-const STATUS_COLORS: Record<LeadStatus, { bg: string; text: string; border: string }> = {
+const STATUS_COLORS: Record<
+  LeadStatus,
+  { bg: string; text: string; border: string }
+> = {
   NEW: { bg: "bg-blue-50", text: "text-blue-800", border: "border-blue-300" },
-  CONTACTED: { bg: "bg-purple-50", text: "text-purple-800", border: "border-purple-300" },
-  QUALIFIED: { bg: "bg-amber-50", text: "text-amber-900", border: "border-amber-300" },
-  CONVERTED: { bg: "bg-emerald-50", text: "text-emerald-900", border: "border-emerald-300" },
+  CONTACTED: {
+    bg: "bg-purple-50",
+    text: "text-purple-800",
+    border: "border-purple-300",
+  },
+  QUALIFIED: {
+    bg: "bg-amber-50",
+    text: "text-amber-900",
+    border: "border-amber-300",
+  },
+  CONVERTED: {
+    bg: "bg-emerald-50",
+    text: "text-emerald-900",
+    border: "border-emerald-300",
+  },
   LOST: { bg: "bg-gray-100", text: "text-gray-700", border: "border-gray-300" },
 };
 
-export default function LeadsDashboard({ initialLeads, summary, diagnostics }: Props) {
+export default function LeadsDashboard({
+  initialLeads,
+  summary,
+  diagnostics,
+}: Props) {
   const [leads, setLeads] = useState<Lead[]>(initialLeads);
   const [selectedStatus, setSelectedStatus] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState("");
@@ -71,7 +90,7 @@ export default function LeadsDashboard({ initialLeads, summary, diagnostics }: P
       });
       if (res.ok) {
         setLeads((prev) =>
-          prev.map((l) => (l.id === leadId ? { ...l, status: newStatus } : l))
+          prev.map((l) => (l.id === leadId ? { ...l, status: newStatus } : l)),
         );
       }
     } catch (err) {
@@ -94,10 +113,14 @@ export default function LeadsDashboard({ initialLeads, summary, diagnostics }: P
             {diagnostics.connectionError}
           </p>
           <p className="mb-3 text-xs leading-relaxed text-amber-900">
-            The error code <strong>PGRST205</strong> indicates that the <code>leads</code> table has not been created yet in your Supabase project. To create all required tables, copy the SQL below, paste it into your <strong>Supabase SQL Editor</strong>, and click <strong>Run</strong>:
+            The error code <strong>PGRST205</strong> indicates that the{" "}
+            <code>leads</code> table has not been created yet in your Supabase
+            project. To create all required tables, copy the SQL below, paste it
+            into your <strong>Supabase SQL Editor</strong>, and click{" "}
+            <strong>Run</strong>:
           </p>
           <pre className="p-3 bg-white rounded-xl border border-amber-200 font-mono text-[11px] overflow-x-auto text-gray-900 leading-relaxed max-h-56">
-{`CREATE TABLE IF NOT EXISTS visitor_sessions (
+            {`CREATE TABLE IF NOT EXISTS visitor_sessions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   session_token VARCHAR(64) UNIQUE NOT NULL,
   interest_score INT DEFAULT 0 NOT NULL,
@@ -163,9 +186,13 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
       {diagnostics?.engine === "local" && (
         <div className="rounded-2xl border border-amber-300 bg-amber-50 p-3.5 text-xs text-amber-900 flex items-center justify-between">
           <span>
-            Storage Mode: <strong>Local File Fallback</strong> (.signals_store.json). Note: on Vercel serverless, Supabase environment variables must be configured to persist leads.
+            Storage Mode: <strong>Local File Fallback</strong>{" "}
+            (.signals_store.json). Note: on Vercel serverless, Supabase
+            environment variables must be configured to persist leads.
           </span>
-          <span className="font-semibold text-amber-800 text-[11px]">Local Dev</span>
+          <span className="font-semibold text-amber-800 text-[11px]">
+            Local Dev
+          </span>
         </div>
       )}
       {/* ── 1. Top KPI Summary Cards ─────────────────────────────────────── */}
@@ -275,15 +302,14 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
                     <span className="ml-1.5 opacity-70">
                       (
                       {
-                        leads.filter(
-                          (l) => l.status === (st as LeadStatus)
-                        ).length
+                        leads.filter((l) => l.status === (st as LeadStatus))
+                          .length
                       }
                       )
                     </span>
                   )}
                 </button>
-              )
+              ),
             )}
           </div>
         </div>
@@ -307,7 +333,7 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
               <thead>
                 <tr className="border-b-2 border-black/10 text-[11px] font-semibold uppercase tracking-wider text-gray-500">
                   <th className="py-3 px-3">Lead Contact</th>
-                  <th className="py-3 px-3">Interest &amp; Campaign</th>
+                  <th className="py-3 px-3">Interest & Campaign</th>
                   <th className="py-3 px-3">Score</th>
                   <th className="py-3 px-3">Date</th>
                   <th className="py-3 px-3">Status</th>
@@ -317,14 +343,13 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
               <tbody className="divide-y divide-gray-100">
                 {filteredLeads.map((lead) => {
                   const statusStyle = STATUS_COLORS[lead.status];
-                  const formattedDate = new Date(lead.createdAt).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    }
-                  );
+                  const formattedDate = new Date(
+                    lead.createdAt,
+                  ).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  });
 
                   return (
                     <tr
@@ -397,7 +422,7 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
                           onChange={(e) =>
                             handleStatusChange(
                               lead.id,
-                              e.target.value as LeadStatus
+                              e.target.value as LeadStatus,
                             )
                           }
                           className={`rounded-lg border px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-black ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}
@@ -431,4 +456,3 @@ CREATE POLICY "Allow all access" ON visitor_events FOR ALL TO authenticated, ano
     </div>
   );
 }
-

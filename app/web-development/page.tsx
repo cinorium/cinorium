@@ -341,7 +341,7 @@ export default function WebDevelopmentPage() {
               id="core-services-heading"
               className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              Web Architecture Engineered for Conversion &amp; Speed
+              Web Architecture Engineered for Conversion & Speed
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
               We design and engineer bespoke web solutions tailored to your
@@ -414,7 +414,7 @@ export default function WebDevelopmentPage() {
               id="process-heading"
               className="mb-3 font-heading text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl"
             >
-              How We Engineer &amp; Launch Web Platforms
+              How We Engineer & Launch Web Platforms
             </h2>
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg font-light">
               A structured 4-step framework centered on clear architectural
@@ -429,7 +429,10 @@ export default function WebDevelopmentPage() {
                 variant="tactile"
                 className="p-6 bg-white grid grid-rows-[auto_minmax(3.5rem,auto)_1fr] gap-y-2 h-full"
               >
-                <span className="font-modak text-3xl text-slate-500 leading-none" aria-hidden="true">
+                <span
+                  className="font-modak text-3xl text-slate-500 leading-none"
+                  aria-hidden="true"
+                >
                   {step.number}
                 </span>
 
@@ -446,7 +449,7 @@ export default function WebDevelopmentPage() {
 
           <div className="rounded-xl border border-gray-200 bg-[#faf8f5] p-5 text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
             <strong className="font-semibold text-gray-900">
-              Scope &amp; Delivery Commitments:
+              Scope & Delivery Commitments:
             </strong>{" "}
             Timelines, revisions, specialized third-party integrations, and
             content migration are defined transparently before any work starts.

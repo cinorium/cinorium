@@ -57,9 +57,10 @@ export default function HowWeFixIt() {
           </h2>
 
           <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
-            Your website and your marketing strategy should never exist in isolation.
-            We combine web engineering, search visibility, and strategic marketing
-            into a synchronized system built for sustainable growth.
+            Your website and your marketing strategy should never exist in
+            isolation. We combine web engineering, search visibility, and
+            strategic marketing into a synchronized system built for sustainable
+            growth.
           </p>
         </div>
 
@@ -110,7 +111,7 @@ export default function HowWeFixIt() {
             href="/services"
             className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 underline decoration-amber-500 decoration-2 underline-offset-4 hover:text-amber-800 transition-colors"
           >
-            <span>View Complete Service Specifications &amp; Deliverables</span>
+            <span>View Complete Service Specifications & Deliverables</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

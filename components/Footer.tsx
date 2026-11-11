@@ -145,7 +145,7 @@ export default function Footer() {
                   href="/seo-services"
                   className="hover:text-white transition-colors block py-0.5"
                 >
-                  Search Visibility &amp; Technical SEO
+                  Search Visibility & Technical SEO
                 </Link>
               </li>
               <li>
@@ -153,7 +153,7 @@ export default function Footer() {
                   href="/content-marketing"
                   className="hover:text-white transition-colors block py-0.5"
                 >
-                  Content &amp; Social Media
+                  Content & Social Media
                 </Link>
               </li>
               <li>
@@ -161,7 +161,7 @@ export default function Footer() {
                   href="/paid-advertising"
                   className="hover:text-white transition-colors block py-0.5"
                 >
-                  Paid Advertising &amp; Acquisition
+                  Paid Advertising & Acquisition
                 </Link>
               </li>
               <li>
@@ -180,13 +180,13 @@ export default function Footer() {
                   href="/web-development"
                   className="hover:text-white transition-colors block py-1"
                 >
-                  Web Development &amp; Tech Optimization
+                  Web Development & Tech Optimization
                 </Link>
                 <Link
                   href="/services#visual-communication"
                   className="hover:text-white transition-colors block py-1"
                 >
-                  Graphic Design &amp; Visual Communication
+                  Graphic Design & Visual Communication
                 </Link>
               </li>
             </ul>
@@ -260,7 +260,7 @@ export default function Footer() {
                   href="/return-policy"
                   className="hover:text-white transition-colors"
                 >
-                  Return &amp; Refund Policy
+                  Return & Refund Policy
                 </Link>
               </li>
             </ul>

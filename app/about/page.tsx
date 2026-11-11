@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Cinorium | Digital Marketing & Growth Agency",
+    title: "Digital Marketing & Growth Agency | About",
     description:
       "Learn how Cinorium connects digital marketing strategy, search visibility, content and technology to support sustainable business growth.",
     url: "https://www.cinorium.com/about",
@@ -369,7 +369,10 @@ export default function AboutPage() {
               >
                 <CardHeader className="mb-4 grid grid-rows-[auto_3.5rem_1fr] p-0">
                   <div className="mb-4 flex min-h-10 items-center justify-between gap-3">
-                    <span className="font-modak text-3xl text-slate-500 sm:text-4xl" aria-hidden="true">
+                    <span
+                      className="font-modak text-3xl text-slate-500 sm:text-4xl"
+                      aria-hidden="true"
+                    >
                       {item.number}
                     </span>
 
@@ -494,7 +497,10 @@ export default function AboutPage() {
               >
                 <CardHeader className="grid grid-rows-[auto_1.5rem] p-0 pb-2">
                   <div className="mb-1 flex min-h-10 items-center justify-between">
-                    <span className="font-modak text-4xl leading-none text-brand-amber select-none sm:text-5xl" aria-hidden="true">
+                    <span
+                      className="font-modak text-4xl leading-none text-brand-amber select-none sm:text-5xl"
+                      aria-hidden="true"
+                    >
                       {stage.step}
                     </span>
 
@@ -558,7 +564,10 @@ export default function AboutPage() {
                 className="grid h-full grid-rows-[auto_auto_1fr] p-6 sm:p-7"
               >
                 <div className="mb-1">
-                  <span className="font-modak text-3xl text-slate-400 sm:text-4xl" aria-hidden="true">
+                  <span
+                    className="font-modak text-3xl text-slate-400 sm:text-4xl"
+                    aria-hidden="true"
+                  >
                     {principle.number}
                   </span>
                 </div>

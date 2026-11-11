@@ -84,7 +84,7 @@ export default async function JournalPage() {
         <div className={inner}>
           <div className="mb-4">
             <Badge variant="default" dot="amber" size="lg">
-              The Internet, Under the Hood · Journal &amp; Insights
+              The Internet, Under the Hood · Journal & Insights
             </Badge>
           </div>
 
@@ -92,7 +92,7 @@ export default async function JournalPage() {
             id="journal-hero-heading"
             className="mb-5 font-heading text-3xl font-bold tracking-tight leading-[1.1] text-[#0b131e] sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl"
           >
-            The Growth &amp; Tech Vault
+            The Growth & Tech Vault
           </h1>
 
           <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">

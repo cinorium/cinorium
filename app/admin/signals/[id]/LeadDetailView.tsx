@@ -22,11 +22,26 @@ interface Props {
   initialNotes: LeadNote[];
 }
 
-const STATUS_COLORS: Record<LeadStatus, { bg: string; text: string; border: string }> = {
+const STATUS_COLORS: Record<
+  LeadStatus,
+  { bg: string; text: string; border: string }
+> = {
   NEW: { bg: "bg-blue-50", text: "text-blue-800", border: "border-blue-300" },
-  CONTACTED: { bg: "bg-purple-50", text: "text-purple-800", border: "border-purple-300" },
-  QUALIFIED: { bg: "bg-amber-50", text: "text-amber-900", border: "border-amber-300" },
-  CONVERTED: { bg: "bg-emerald-50", text: "text-emerald-900", border: "border-emerald-300" },
+  CONTACTED: {
+    bg: "bg-purple-50",
+    text: "text-purple-800",
+    border: "border-purple-300",
+  },
+  QUALIFIED: {
+    bg: "bg-amber-50",
+    text: "text-amber-900",
+    border: "border-amber-300",
+  },
+  CONVERTED: {
+    bg: "bg-emerald-50",
+    text: "text-emerald-900",
+    border: "border-emerald-300",
+  },
   LOST: { bg: "bg-gray-100", text: "text-gray-700", border: "border-gray-300" },
 };
 
@@ -70,7 +85,10 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
       const res = await fetch(`/api/signals/admin/leads/${lead.id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: newNote.trim(), author: "Cinorium Founder" }),
+        body: JSON.stringify({
+          content: newNote.trim(),
+          author: "Cinorium Founder",
+        }),
       });
       if (res.ok) {
         const data = await res.json();
@@ -93,7 +111,9 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
     minute: "2-digit",
   });
 
-  const whatsappCleanPhone = lead.phone ? lead.phone.replace(/[^0-9]/g, "") : "";
+  const whatsappCleanPhone = lead.phone
+    ? lead.phone.replace(/[^0-9]/g, "")
+    : "";
 
   return (
     <div className="space-y-6">
@@ -128,11 +148,15 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
 
               {/* Status Switcher */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-500 font-medium">Status:</span>
+                <span className="text-xs text-gray-500 font-medium">
+                  Status:
+                </span>
                 <select
                   disabled={isUpdatingStatus}
                   value={lead.status}
-                  onChange={(e) => handleStatusChange(e.target.value as LeadStatus)}
+                  onChange={(e) =>
+                    handleStatusChange(e.target.value as LeadStatus)
+                  }
                   className={`rounded-xl border px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-black ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}
                 >
                   <option value="NEW">NEW</option>
@@ -199,7 +223,7 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
           <div className="rounded-3xl border-2 border-black bg-white p-6 sm:p-8 shadow-sm">
             <h3 className="font-heading text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <MessageSquare className="h-5 w-5 text-amber-600" />
-              <span>Internal CRM Notes &amp; Activity Log</span>
+              <span>Internal CRM Notes & Activity Log</span>
             </h3>
 
             {/* Note form */}
@@ -266,7 +290,7 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
         <div className="lg:col-span-4 space-y-6">
           <div className="rounded-3xl border-2 border-black bg-white p-6 shadow-sm space-y-5">
             <h3 className="font-heading text-base font-bold text-gray-900 pb-3 border-b border-gray-100">
-              Signal Attribution &amp; Context
+              Signal Attribution & Context
             </h3>
 
             <div>
@@ -323,4 +347,3 @@ export default function LeadDetailView({ initialLead, initialNotes }: Props) {
     </div>
   );
 }
-

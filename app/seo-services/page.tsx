@@ -293,7 +293,7 @@ export default function SeoServicesPage() {
         <div className={inner}>
           <div className="mb-4">
             <Badge variant="default" dot="amber" size="lg">
-              Search Visibility &amp; SEO
+              Search Visibility & SEO
             </Badge>
           </div>
 
@@ -593,7 +593,10 @@ export default function SeoServicesPage() {
                 variant="tactile"
                 className="p-6 bg-white grid grid-rows-[auto_minmax(3.5rem,auto)_1fr] gap-y-2 h-full"
               >
-                <span className="font-modak text-3xl text-slate-500 leading-none" aria-hidden="true">
+                <span
+                  className="font-modak text-3xl text-slate-500 leading-none"
+                  aria-hidden="true"
+                >
                   {step.number}
                 </span>
 
@@ -610,7 +613,7 @@ export default function SeoServicesPage() {
 
           <div className="rounded-xl border border-gray-200 bg-white p-5 text-xs sm:text-sm leading-relaxed text-gray-600 font-light">
             <strong className="font-semibold text-gray-900">
-              Realistic Outcomes &amp; Timelines:
+              Realistic Outcomes & Timelines:
             </strong>{" "}
             Organic search performance is influenced by domain authority, crawl
             frequency, market competition, and algorithmic updates. We focus on
