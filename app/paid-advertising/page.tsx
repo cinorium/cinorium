@@ -448,18 +448,19 @@ export default function PaidAdvertisingPage() {
         <div className={inner}>
           <div className="flex flex-col items-start max-w-3xl">
             <Badge variant="amber" size="sm" className="mb-4">
-              Paid Advertising &amp; Customer Acquisition
+              Paid Advertising & Customer Acquisition
             </Badge>
 
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-gray-900 tracking-tight leading-[1.15] mb-4">
-              Advertising That Reaches the Right Audience and Drives Meaningful Action.
+              Advertising That Reaches the Right Audience and Drives Meaningful
+              Action.
             </h1>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-8 max-w-2xl">
               Getting attention is only the beginning. Cinorium helps businesses
               plan, launch and improve paid advertising campaigns that connect
-              relevant audiences with the right offer, support customer acquisition
-              and make better use of advertising budgets.
+              relevant audiences with the right offer, support customer
+              acquisition and make better use of advertising budgets.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
@@ -522,9 +523,10 @@ export default function PaidAdvertisingPage() {
               More Ad Spend Doesn&apos;t Automatically Mean Better Results.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Businesses can spend money on advertising without understanding what is
-              actually working. Campaigns often struggle because targeting, messaging,
-              budgets and conversion experiences are not properly connected.
+              Businesses can spend money on advertising without understanding
+              what is actually working. Campaigns often struggle because
+              targeting, messaging, budgets and conversion experiences are not
+              properly connected.
             </p>
           </div>
 
@@ -583,8 +585,9 @@ export default function PaidAdvertisingPage() {
               A Structured Approach to Paid Customer Acquisition.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We connect campaign planning, audience targeting, advertising execution
-              and performance improvement around the objectives that matter to your business.
+              We connect campaign planning, audience targeting, advertising
+              execution and performance improvement around the objectives that
+              matter to your business.
             </p>
           </div>
 
@@ -637,9 +640,10 @@ export default function PaidAdvertisingPage() {
               <strong className="font-semibold text-gray-900">
                 Tailored engagement scope:
               </strong>{" "}
-              Not every platform, creative asset, or targeting feature is necessary
-              for every campaign. Actual scope depends on your specific business goals,
-              available budget, and target audience behavior.
+              Not every platform, creative asset, or targeting feature is
+              necessary for every campaign. Actual scope depends on your
+              specific business goals, available budget, and target audience
+              behavior.
             </p>
           </div>
         </div>
@@ -663,9 +667,9 @@ export default function PaidAdvertisingPage() {
               From Business Objective to Measurable Campaign Improvement.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Optimization is continuous. A campaign should not be judged only by its
-              initial launch or a single short-term metric. We guide paid acquisition
-              through four disciplined stages:
+              Optimization is continuous. A campaign should not be judged only
+              by its initial launch or a single short-term metric. We guide paid
+              acquisition through four disciplined stages:
             </p>
           </div>
 
@@ -736,9 +740,10 @@ export default function PaidAdvertisingPage() {
               Choose Advertising Channels That Match Your Customers.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Different advertising platforms serve different purposes. The right channel
-              depends on how customers discover products and services, how they make
-              decisions and what the business wants to achieve.
+              Different advertising platforms serve different purposes. The
+              right channel depends on how customers discover products and
+              services, how they make decisions and what the business wants to
+              achieve.
             </p>
           </div>
 
@@ -795,11 +800,14 @@ export default function PaidAdvertisingPage() {
               <div className="flex items-center gap-2 mb-1">
                 <Layers className="h-4 w-4 text-[#ffb703]" />
                 <h4 className="font-heading text-base font-bold text-gray-900">
-                  Other Relevant &amp; Specialized Advertising Platforms
+                  Other Relevant & Specialized Advertising Platforms
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                Additional networks (such as niche industry directories, specialized B2B forums, or emerging channels) are considered selectively when audience behavior and unit economics justify their inclusion.
+                Additional networks (such as niche industry directories,
+                specialized B2B forums, or emerging channels) are considered
+                selectively when audience behavior and unit economics justify
+                their inclusion.
               </p>
             </div>
             <div className="shrink-0 text-xs text-gray-500 font-medium bg-[#faf8f5] px-3.5 py-2 rounded-xl border border-black/5">
@@ -813,9 +821,9 @@ export default function PaidAdvertisingPage() {
               <strong className="font-semibold text-gray-900">
                 Objective channel selection:
               </strong>{" "}
-              We do not advertise on every platform simply because it exists. Platform
-              selection must be justified by target audience behavior, business model,
-              and unit economics.
+              We do not advertise on every platform simply because it exists.
+              Platform selection must be justified by target audience behavior,
+              business model, and unit economics.
             </p>
           </div>
         </div>
@@ -839,9 +847,9 @@ export default function PaidAdvertisingPage() {
               A click only Valuable When the Next Step Makes Sense.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Advertising performance depends on more than the advertisement itself.
-              The customer journey after the click influences whether an interested
-              visitor becomes a qualified lead or customer.
+              Advertising performance depends on more than the advertisement
+              itself. The customer journey after the click influences whether an
+              interested visitor becomes a qualified lead or customer.
             </p>
           </div>
 
@@ -853,7 +861,10 @@ export default function PaidAdvertisingPage() {
                 className="flex flex-col h-full bg-[#fdfbf7] border border-black/10 rounded-2xl p-5 transition-all duration-200 hover:border-black/25"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-modak text-lg text-[#ffb703] leading-none shrink-0" aria-hidden="true">
+                  <span
+                    className="font-modak text-lg text-[#ffb703] leading-none shrink-0"
+                    aria-hidden="true"
+                  >
                     {el.step}
                   </span>
                   <h3 className="font-heading text-base font-bold text-gray-900">
@@ -935,11 +946,12 @@ export default function PaidAdvertisingPage() {
               id="qualification-heading"
               className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
             >
-              Advertising Works Best When the Business Is Ready to Convert Attention Into Action.
+              Advertising Works Best When the Business Is Ready to Convert
+              Attention Into Action.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We focus on purposeful customer acquisition campaigns where there is
-              commercial clarity and readiness to handle incoming inquiries.
+              We focus on purposeful customer acquisition campaigns where there
+              is commercial clarity and readiness to handle incoming inquiries.
             </p>
           </div>
 
@@ -958,31 +970,36 @@ export default function PaidAdvertisingPage() {
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Businesses with a clearly defined commercial product or service offering.
+                    Businesses with a clearly defined commercial product or
+                    service offering.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Companies looking to generate qualified inquiries from high-intent audiences.
+                    Companies looking to generate qualified inquiries from
+                    high-intent audiences.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    E-commerce businesses seeking focused, measurable customer acquisition.
+                    E-commerce businesses seeking focused, measurable customer
+                    acquisition.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Businesses entering new markets or targeting specific geographic/demographic segments.
+                    Businesses entering new markets or targeting specific
+                    geographic/demographic segments.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Established firms that want a structured, data-driven approach to existing paid campaigns.
+                    Established firms that want a structured, data-driven
+                    approach to existing paid campaigns.
                   </span>
                 </li>
               </ul>
@@ -1002,31 +1019,36 @@ export default function PaidAdvertisingPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    The core offer or value proposition is unclear or has not been validated by the market.
+                    The core offer or value proposition is unclear or has not
+                    been validated by the market.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    The website or landing page experience is slow, confusing, or unready to convert visitors.
+                    The website or landing page experience is slow, confusing,
+                    or unready to convert visitors.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    The business has not allocated a realistic media budget for testing and audience discovery.
+                    The business has not allocated a realistic media budget for
+                    testing and audience discovery.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Conversion tracking, sales follow-up processes, or lead management systems are missing.
+                    Conversion tracking, sales follow-up processes, or lead
+                    management systems are missing.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    The business expects instant, guaranteed sales or ROAS without allowing for testing.
+                    The business expects instant, guaranteed sales or ROAS
+                    without allowing for testing.
                   </span>
                 </li>
               </ul>
@@ -1039,10 +1061,11 @@ export default function PaidAdvertisingPage() {
               <strong className="font-semibold text-gray-900">
                 Transparent financial model:
               </strong>{" "}
-              Advertising platforms charge media spend directly to your payment method.
-              Media budgets are separate from Cinorium&apos;s service fees. We do not
-              promise guaranteed sales, leads, or artificial ROAS metrics; results depend
-              on market dynamics, offer strength, and consistent optimization.
+              Advertising platforms charge media spend directly to your payment
+              method. Media budgets are separate from Cinorium&apos;s service
+              fees. We do not promise guaranteed sales, leads, or artificial
+              ROAS metrics; results depend on market dynamics, offer strength,
+              and consistent optimization.
             </p>
           </div>
         </div>
@@ -1063,11 +1086,12 @@ export default function PaidAdvertisingPage() {
               id="paid-faq-heading"
               className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
             >
-              Paid Advertising &amp; Customer Acquisition — FAQs
+              Paid Advertising & Customer Acquisition — FAQs
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed max-w-2xl">
               Practical, transparent answers regarding platform choices, budget
-              management, ad creative, landing page requirements, and performance expectations.
+              management, ad creative, landing page requirements, and
+              performance expectations.
             </p>
           </div>
 
@@ -1095,9 +1119,9 @@ export default function PaidAdvertisingPage() {
           </h2>
 
           <p className="mb-9 max-w-2xl text-base sm:text-lg text-gray-300 font-light leading-relaxed">
-            Whether you&apos;re planning your first campaign or looking to improve
-            existing advertising activity, let&apos;s discuss your business goals and
-            the right next step.
+            Whether you&apos;re planning your first campaign or looking to
+            improve existing advertising activity, let&apos;s discuss your
+            business goals and the right next step.
           </p>
 
           <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-4 sm:w-auto">

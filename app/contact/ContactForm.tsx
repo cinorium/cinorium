@@ -336,7 +336,7 @@ export default function ContactForm() {
               htmlFor="message"
               className="text-sm font-semibold text-[#0b131e]"
             >
-              Needs, Objectives &amp; Current Challenges{" "}
+              Needs, Objectives & Current Challenges{" "}
               <span className="text-[#ffb703]">*</span>
             </label>
 

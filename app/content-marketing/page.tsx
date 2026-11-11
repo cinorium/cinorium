@@ -96,7 +96,7 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 export const metadata: Metadata = {
-  title: "Content & Social Media Marketing | Cinorium",
+  title: "Content & Social Media Marketing",
   description:
     "Strategic content and social media marketing to help businesses build brand awareness, engage relevant audiences and support sustainable growth.",
   alternates: {
@@ -420,9 +420,10 @@ export default function ContentMarketingPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-8 max-w-2xl">
-              Your audience needs more than occasional posts. Cinorium helps businesses
-              develop purposeful content and social media systems that communicate
-              their value, build meaningful connections and support long-term growth.
+              Your audience needs more than occasional posts. Cinorium helps
+              businesses develop purposeful content and social media systems
+              that communicate their value, build meaningful connections and
+              support long-term growth.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
@@ -485,9 +486,10 @@ export default function ContentMarketingPage() {
               Being Active Online Doesn&apos;t Always Mean Making Progress.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Many businesses publish regularly but struggle to turn their activity
-              into meaningful results. The issue is often not a lack of content; it is
-              the absence of a clear purpose and a connected approach.
+              Many businesses publish regularly but struggle to turn their
+              activity into meaningful results. The issue is often not a lack of
+              content; it is the absence of a clear purpose and a connected
+              approach.
             </p>
           </div>
 
@@ -537,8 +539,8 @@ export default function ContentMarketingPage() {
               A Connected Content System, Built Around Your Business.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We bring planning, production, publishing and engagement together so
-              your content has a clear role across the customer journey.
+              We bring planning, production, publishing and engagement together
+              so your content has a clear role across the customer journey.
             </p>
           </div>
 
@@ -591,9 +593,10 @@ export default function ContentMarketingPage() {
               <strong className="font-semibold text-gray-900">
                 Transparent scope boundaries:
               </strong>{" "}
-              Not every format, platform, or production asset is required for every
-              engagement. We scope content deliverables around your agreed objectives,
-              production budget, and where your audience actually consumes information.
+              Not every format, platform, or production asset is required for
+              every engagement. We scope content deliverables around your agreed
+              objectives, production budget, and where your audience actually
+              consumes information.
             </p>
           </div>
         </div>
@@ -618,8 +621,8 @@ export default function ContentMarketingPage() {
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
               Not every post needs to sell. Different content serves different
-              functions across the customer journey—from first discovery to confident
-              decision-making.
+              functions across the customer journey—from first discovery to
+              confident decision-making.
             </p>
           </div>
 
@@ -686,9 +689,9 @@ export default function ContentMarketingPage() {
               Create for the Audience, Not Just the Platform.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Platform selection must be based on relevance, not popularity. We tailor
-              your content to the native formats and communication styles of the
-              channels where your customers actively engage.
+              Platform selection must be based on relevance, not popularity. We
+              tailor your content to the native formats and communication styles
+              of the channels where your customers actively engage.
             </p>
           </div>
 
@@ -738,8 +741,8 @@ export default function ContentMarketingPage() {
               </strong>{" "}
               You do not need to be on every platform. Focusing on two or three
               well-chosen channels with high consistency and substance yields
-              consistently better business outcomes than spreading shallow content across
-              every emerging network.
+              consistently better business outcomes than spreading shallow
+              content across every emerging network.
             </p>
           </div>
         </div>
@@ -760,12 +763,13 @@ export default function ContentMarketingPage() {
               id="integrated-heading"
               className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
             >
-              Content Works Better When It Connects With the Rest of Your Marketing.
+              Content Works Better When It Connects With the Rest of Your
+              Marketing.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Content is not an isolated discipline. When planned strategically, it
-              strengthens and accelerates every other marketing channel across the
-              Cinorium ecosystem:
+              Content is not an isolated discipline. When planned strategically,
+              it strengthens and accelerates every other marketing channel
+              across the Cinorium ecosystem:
             </p>
           </div>
 
@@ -825,11 +829,12 @@ export default function ContentMarketingPage() {
               id="qualification-heading"
               className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
             >
-              A Better Content Approach for Businesses Ready to Communicate With Purpose.
+              A Better Content Approach for Businesses Ready to Communicate With
+              Purpose.
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              We focus on building sustainable content systems that compound value over
-              time, rather than pursuing short-lived vanity metrics.
+              We focus on building sustainable content systems that compound
+              value over time, rather than pursuing short-lived vanity metrics.
             </p>
           </div>
 
@@ -848,31 +853,36 @@ export default function ContentMarketingPage() {
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Businesses that need a more consistent, recognizable online presence across key channels.
+                    Businesses that need a more consistent, recognizable online
+                    presence across key channels.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Brands struggling to explain their unique value proposition and service offerings clearly.
+                    Brands struggling to explain their unique value proposition
+                    and service offerings clearly.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Companies currently publishing sporadic content without a defined commercial direction.
+                    Companies currently publishing sporadic content without a
+                    defined commercial direction.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Growing firms wanting to build long-term audience trust, credibility, and organic reach.
+                    Growing firms wanting to build long-term audience trust,
+                    credibility, and organic reach.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-[#ffb703] shrink-0 mt-0.5" />
                   <span>
-                    Teams needing a structured, organized content calendar and professional publishing process.
+                    Teams needing a structured, organized content calendar and
+                    professional publishing process.
                   </span>
                 </li>
               </ul>
@@ -892,25 +902,29 @@ export default function ContentMarketingPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    This service is not a guarantee of instant viral follower spikes or overnight sales surges.
+                    This service is not a guarantee of instant viral follower
+                    spikes or overnight sales surges.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Meaningful audience relationships require patience, active context, and sustained execution over months.
+                    Meaningful audience relationships require patience, active
+                    context, and sustained execution over months.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    Content outcomes depend on market demand, competitive positioning, and genuine product/service quality.
+                    Content outcomes depend on market demand, competitive
+                    positioning, and genuine product/service quality.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ffb703] shrink-0 mt-2" />
                   <span>
-                    We prioritize commercial relevance, qualified inquiries, and trust over empty follower counts.
+                    We prioritize commercial relevance, qualified inquiries, and
+                    trust over empty follower counts.
                   </span>
                 </li>
               </ul>
@@ -934,11 +948,11 @@ export default function ContentMarketingPage() {
               id="content-faq-heading"
               className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
             >
-              Content &amp; Social Media Marketing — FAQs
+              Content & Social Media Marketing — FAQs
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed max-w-2xl">
-              Direct, transparent answers regarding publishing frequency, platform
-              focus, management retainers, and realistic outcomes.
+              Direct, transparent answers regarding publishing frequency,
+              platform focus, management retainers, and realistic outcomes.
             </p>
           </div>
 
@@ -967,7 +981,8 @@ export default function ContentMarketingPage() {
 
           <p className="mb-9 max-w-2xl text-base sm:text-lg text-gray-300 font-light leading-relaxed">
             Whether you need a more consistent social presence or a structured
-            content approach, let&apos;s discuss what makes sense for your business.
+            content approach, let&apos;s discuss what makes sense for your
+            business.
           </p>
 
           <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-4 sm:w-auto">
@@ -1007,4 +1022,3 @@ export default function ContentMarketingPage() {
     </div>
   );
 }
-

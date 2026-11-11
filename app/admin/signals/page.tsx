@@ -26,7 +26,13 @@ export default async function SignalsAdminPage() {
     convertedLeads: 0,
     leadsByInterest: {},
     leadsByCampaign: {},
-    leadsByStatus: { NEW: 0, CONTACTED: 0, QUALIFIED: 0, CONVERTED: 0, LOST: 0 },
+    leadsByStatus: {
+      NEW: 0,
+      CONTACTED: 0,
+      QUALIFIED: 0,
+      CONVERTED: 0,
+      LOST: 0,
+    },
     totalSessions: 0,
     totalImpressions: 0,
     totalDismissals: 0,
@@ -55,18 +61,22 @@ export default async function SignalsAdminPage() {
                 Cinorium Signals Mini CRM
               </span>
               <h1 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">
-                Visitor Signals &amp; Lead Inbox
+                Visitor Signals & Lead Inbox
               </h1>
             </div>
             <p className="text-xs text-gray-500 max-w-sm">
-              First-party behavioral leads captured via non-intrusive contextual prompts and voluntary submissions.
+              First-party behavioral leads captured via non-intrusive contextual
+              prompts and voluntary submissions.
             </p>
           </div>
         </div>
 
-        <LeadsDashboard initialLeads={leads} summary={summary} diagnostics={diagnostics} />
+        <LeadsDashboard
+          initialLeads={leads}
+          summary={summary}
+          diagnostics={diagnostics}
+        />
       </main>
     </div>
   );
 }
-

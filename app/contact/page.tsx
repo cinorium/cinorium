@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Mail, MessageCircle, ArrowRight, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import {
+  Mail,
+  MessageCircle,
+  ArrowRight,
+  ShieldCheck,
+  Clock,
+  CheckCircle2,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import ContactForm from "./ContactForm";
@@ -12,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Cinorium | Discuss Your Marketing & Growth Project",
+    title: "Discuss Your Marketing & Growth Project | Contact",
     description:
       "Contact Cinorium to discuss customer acquisition strategy, search visibility (SEO/AEO), high-performance web development, and digital marketing growth.",
     url: "https://www.cinorium.com/contact",
@@ -115,7 +122,11 @@ export default function ContactPage() {
 
           {/* Supporting Copy */}
           <p className="max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg font-light">
-            Whether you need to capture qualified search demand, eliminate speed roadblocks on your website, or architect a full-funnel digital marketing strategy, tell us about your goals. You will speak directly with our senior strategy team to evaluate concrete, practical next steps.
+            Whether you need to capture qualified search demand, eliminate speed
+            roadblocks on your website, or architect a full-funnel digital
+            marketing strategy, tell us about your goals. You will speak
+            directly with our senior strategy team to evaluate concrete,
+            practical next steps.
           </p>
         </div>
       </section>
@@ -138,7 +149,8 @@ export default function ContactPage() {
                   Direct Channels
                 </h2>
                 <p className="mb-8 text-sm leading-relaxed text-gray-600 font-light">
-                  Direct pathways to start a conversation, request an initial evaluation, or schedule a technical review.
+                  Direct pathways to start a conversation, request an initial
+                  evaluation, or schedule a technical review.
                 </p>
 
                 <div className="flex flex-col gap-6">
@@ -233,15 +245,24 @@ export default function ContactPage() {
                 <ul className="space-y-3 text-xs sm:text-sm text-gray-600 font-light">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Your enquiry is reviewed directly by our senior strategy team.</span>
+                    <span>
+                      Your enquiry is reviewed directly by our senior strategy
+                      team.
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>We inspect your current web presence, speed metrics, and search footprint.</span>
+                    <span>
+                      We inspect your current web presence, speed metrics, and
+                      search footprint.
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>You receive honest, actionable recommendations within 24 business hours.</span>
+                    <span>
+                      You receive honest, actionable recommendations within 24
+                      business hours.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -263,7 +284,8 @@ export default function ContactPage() {
                   Tell Us About Your Project
                 </h2>
                 <p className="text-sm leading-relaxed text-gray-600 font-light">
-                  Fill in your project details below and we will follow up with tailored insights.
+                  Fill in your project details below and we will follow up with
+                  tailored insights.
                 </p>
               </div>
 

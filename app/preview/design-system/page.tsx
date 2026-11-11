@@ -1,9 +1,25 @@
 import type { Metadata } from "next";
-import { ArrowRight, MoveRight, Sparkles, CheckCircle2, ShieldCheck, Compass, Gauge, ShoppingBag } from "lucide-react";
+import {
+  ArrowRight,
+  MoveRight,
+  Sparkles,
+  CheckCircle2,
+  ShieldCheck,
+  Compass,
+  Gauge,
+  ShoppingBag,
+} from "lucide-react";
 import CinoriumLogo from "@/components/CinoriumLogo";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Cinorium Design System & Typography Specimen Preview",
@@ -24,10 +40,11 @@ export default function DesignSystemPreviewPage() {
               Stage B · Visual Foundation Preview
             </Badge>
             <h1 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-white">
-              Cinorium Design System &amp; Component Specimens
+              Cinorium Design System & Component Specimens
             </h1>
             <p className="text-sm text-gray-400 mt-1 max-w-2xl font-light">
-              Official vector logo assets, Sora display headings, clean secondary button &amp; badge styling, and baseline-aligned grid cards.
+              Official vector logo assets, Sora display headings, clean
+              secondary button & badge styling, and baseline-aligned grid cards.
             </p>
           </div>
 
@@ -50,7 +67,9 @@ export default function DesignSystemPreviewPage() {
               Official Vector Logo Assets
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Official SVG vector assets with custom exclamation &apos;i&apos; stems and vibrant amber accent dots (#ffb703) on both light and dark slate (#0b131e) surfaces.
+              Official SVG vector assets with custom exclamation &apos;i&apos;
+              stems and vibrant amber accent dots (#ffb703) on both light and
+              dark slate (#0b131e) surfaces.
             </p>
           </div>
 
@@ -61,10 +80,16 @@ export default function DesignSystemPreviewPage() {
                 Main Display / Featured (/cinorium-logo-with-tagline.svg)
               </span>
               <div className="py-6">
-                <CinoriumLogo variant="dark" withTagline={true} size="lg" asLink={false} />
+                <CinoriumLogo
+                  variant="dark"
+                  withTagline={true}
+                  size="lg"
+                  asLink={false}
+                />
               </div>
               <span className="text-[11px] text-gray-400 font-mono">
-                Asset: /cinorium-logo-with-tagline.svg · Surface: Light (#ffffff / #fdfbf7)
+                Asset: /cinorium-logo-with-tagline.svg · Surface: Light (#ffffff
+                / #fdfbf7)
               </span>
             </div>
 
@@ -74,10 +99,16 @@ export default function DesignSystemPreviewPage() {
                 Dark Surface / Footer (/cinorium-logo-with-tagline-light.svg)
               </span>
               <div className="py-6">
-                <CinoriumLogo variant="light" withTagline={true} size="lg" asLink={false} />
+                <CinoriumLogo
+                  variant="light"
+                  withTagline={true}
+                  size="lg"
+                  asLink={false}
+                />
               </div>
               <span className="text-[11px] text-gray-500 font-mono">
-                Asset: /cinorium-logo-with-tagline-light.svg · Surface: Deep Slate (#0b131e)
+                Asset: /cinorium-logo-with-tagline-light.svg · Surface: Deep
+                Slate (#0b131e)
               </span>
             </div>
 
@@ -87,10 +118,15 @@ export default function DesignSystemPreviewPage() {
                 Wordmark Only / Compact (/cinorium-logo.svg)
               </span>
               <div className="py-4">
-                <CinoriumLogo variant="dark" withTagline={false} size="md" asLink={false} />
+                <CinoriumLogo
+                  variant="dark"
+                  withTagline={false}
+                  size="md"
+                  asLink={false}
+                />
               </div>
               <span className="text-[11px] text-gray-400 font-mono">
-                Asset: /cinorium-logo.svg · Compact headers &amp; cards
+                Asset: /cinorium-logo.svg · Compact headers & cards
               </span>
             </div>
 
@@ -100,10 +136,15 @@ export default function DesignSystemPreviewPage() {
                 Wordmark Only / Floating Nav (/cinorium-logo-light.svg)
               </span>
               <div className="py-4">
-                <CinoriumLogo variant="light" withTagline={false} size="md" asLink={false} />
+                <CinoriumLogo
+                  variant="light"
+                  withTagline={false}
+                  size="md"
+                  asLink={false}
+                />
               </div>
               <span className="text-[11px] text-gray-500 font-mono">
-                Asset: /cinorium-logo-light.svg · Floating nav pill &amp; mobile bar
+                Asset: /cinorium-logo-light.svg · Floating nav pill & mobile bar
               </span>
             </div>
           </div>
@@ -119,7 +160,9 @@ export default function DesignSystemPreviewPage() {
               Finalized Display Headings: Sora
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Sora selected as the display heading font, paired with Figtree body prose, providing geometric structure, authority, and high contrast with 2px borders.
+              Sora selected as the display heading font, paired with Figtree
+              body prose, providing geometric structure, authority, and high
+              contrast with 2px borders.
             </p>
           </div>
 
@@ -141,8 +184,9 @@ export default function DesignSystemPreviewPage() {
                 Built for Visibility. Designed for Growth.
               </h4>
               <p className="font-sans text-base text-gray-700 leading-relaxed font-light max-w-3xl">
-                Cinorium is a digital marketing agency with a strong web development foundation.
-                We help businesses turn search visibility into qualified inquiries and measurable revenue.
+                Cinorium is a digital marketing agency with a strong web
+                development foundation. We help businesses turn search
+                visibility into qualified inquiries and measurable revenue.
               </p>
             </div>
 
@@ -152,7 +196,8 @@ export default function DesignSystemPreviewPage() {
                   A Stronger Tech Foundation. A Smarter Marketing Engine.
                 </span>
                 <p className="font-sans text-xs text-gray-600 leading-relaxed">
-                  Web engineering and search visibility synchronized into an integrated acquisition system.
+                  Web engineering and search visibility synchronized into an
+                  integrated acquisition system.
                 </p>
               </div>
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
@@ -160,7 +205,8 @@ export default function DesignSystemPreviewPage() {
                   Why Websites Fail Beyond Appearance
                 </span>
                 <p className="font-sans text-xs text-gray-600 leading-relaxed">
-                  Without discoverability, rapid load times, and structured buyer journeys, digital investments underperform.
+                  Without discoverability, rapid load times, and structured
+                  buyer journeys, digital investments underperform.
                 </p>
               </div>
             </div>
@@ -177,7 +223,8 @@ export default function DesignSystemPreviewPage() {
               Modak Numerical Accents
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Applied strictly to numbers and oversized numerical markers (#ffb703) to create bold visual anchor points.
+              Applied strictly to numbers and oversized numerical markers
+              (#ffb703) to create bold visual anchor points.
             </p>
           </div>
 
@@ -193,7 +240,8 @@ export default function DesignSystemPreviewPage() {
                 Slow Loading Pages
               </h3>
               <p className="text-xs text-gray-600 font-light mt-2">
-                If your site takes too long to load, visitors leave before learning what you offer.
+                If your site takes too long to load, visitors leave before
+                learning what you offer.
               </p>
               <div className="mt-4">
                 <Badge variant="subtle">Speed Friction</Badge>
@@ -211,7 +259,8 @@ export default function DesignSystemPreviewPage() {
                 Confusing Navigation
               </h3>
               <p className="text-xs text-gray-600 font-light mt-2">
-                If prospective clients cannot find answers, they won&apos;t inquire.
+                If prospective clients cannot find answers, they won&apos;t
+                inquire.
               </p>
               <div className="mt-4">
                 <Badge variant="subtle">Usability</Badge>
@@ -229,7 +278,8 @@ export default function DesignSystemPreviewPage() {
                 Invisible to Search
               </h3>
               <p className="text-xs text-gray-600 font-light mt-2">
-                A beautiful website without organic search visibility generates zero customer pipeline.
+                A beautiful website without organic search visibility generates
+                zero customer pipeline.
               </p>
               <div className="mt-4">
                 <Badge variant="subtle">Discovery</Badge>
@@ -248,7 +298,9 @@ export default function DesignSystemPreviewPage() {
               Badge Styling Suite (Zero Pale Yellow Tint)
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Pale amber-tint (#fff8e7) backgrounds completely eliminated. Replaced with Deep Slate (#0b131e), Clean Slate Outline, and Solid Amber (#ffb703).
+              Pale amber-tint (#fff8e7) backgrounds completely eliminated.
+              Replaced with Deep Slate (#0b131e), Clean Slate Outline, and Solid
+              Amber (#ffb703).
             </p>
           </div>
 
@@ -258,21 +310,13 @@ export default function DesignSystemPreviewPage() {
                 Primary: Deep Slate Eyebrow
               </Badge>
 
-              <Badge variant="secondary">
-                Secondary: Clean Slate Outline
-              </Badge>
+              <Badge variant="secondary">Secondary: Clean Slate Outline</Badge>
 
-              <Badge variant="amber">
-                High-Impact: Solid Amber (#ffb703)
-              </Badge>
+              <Badge variant="amber">High-Impact: Solid Amber (#ffb703)</Badge>
 
-              <Badge variant="outline">
-                Tactile: 2px Outline Pill
-              </Badge>
+              <Badge variant="outline">Tactile: 2px Outline Pill</Badge>
 
-              <Badge variant="subtle">
-                Neutral: Slate Subtle
-              </Badge>
+              <Badge variant="subtle">Neutral: Slate Subtle</Badge>
 
               <Badge variant="success" dot="emerald">
                 Live Production
@@ -281,7 +325,12 @@ export default function DesignSystemPreviewPage() {
 
             <div className="pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-gray-500 font-light">
               <p>
-                <strong>Standard:</strong> <code>variant=&quot;default&quot;</code> (deep slate + amber dot) for section eyebrows; <code>variant=&quot;secondary&quot;</code> (slate outline) for sub-tags; <code>variant=&quot;amber&quot;</code> for callout pills.
+                <strong>Standard:</strong>{" "}
+                <code>variant=&quot;default&quot;</code> (deep slate + amber
+                dot) for section eyebrows;{" "}
+                <code>variant=&quot;secondary&quot;</code> (slate outline) for
+                sub-tags; <code>variant=&quot;amber&quot;</code> for callout
+                pills.
               </p>
               <span className="font-mono text-gray-400">
                 Zero pale yellow tint · Clean contrast
@@ -297,10 +346,11 @@ export default function DesignSystemPreviewPage() {
               Interactive Elements 05
             </Badge>
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Button Hierarchy &amp; Secondary Variant
+              Button Hierarchy & Secondary Variant
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Standardized button variants with rounded-2xl geometry. Secondary variant updated to Solid Amber Accent or Clean Slate Outline.
+              Standardized button variants with rounded-2xl geometry. Secondary
+              variant updated to Solid Amber Accent or Clean Slate Outline.
             </p>
           </div>
 
@@ -341,7 +391,13 @@ export default function DesignSystemPreviewPage() {
             </div>
 
             <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3 text-xs text-gray-500">
-              <span>Variants: <code>default</code> (black pill), <code>secondary</code> (solid amber accent), <code>slateOutline</code> (1px slate border), <code>outline</code> (2px black), <code>ghost</code> (slate-100 hover).</span>
+              <span>
+                Variants: <code>default</code> (black pill),{" "}
+                <code>secondary</code> (solid amber accent),{" "}
+                <code>slateOutline</code> (1px slate border),{" "}
+                <code>outline</code> (2px black), <code>ghost</code> (slate-100
+                hover).
+              </span>
             </div>
           </div>
         </section>
@@ -350,13 +406,17 @@ export default function DesignSystemPreviewPage() {
         <section className="space-y-6">
           <div>
             <Badge variant="secondary" className="mb-2">
-              Surfaces &amp; Containers 06
+              Surfaces & Containers 06
             </Badge>
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Card Alignment &amp; Uniform Height Test
+              Card Alignment & Uniform Height Test
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Demonstrating <code>flex flex-col justify-between h-full</code> with <code>CardContent flex-1</code> and <code>CardFooter mt-auto</code>. Buttons across adjacent cards with varying text lengths strictly align on the exact same horizontal baseline.
+              Demonstrating <code>flex flex-col justify-between h-full</code>{" "}
+              with <code>CardContent flex-1</code> and{" "}
+              <code>CardFooter mt-auto</code>. Buttons across adjacent cards
+              with varying text lengths strictly align on the exact same
+              horizontal baseline.
             </p>
           </div>
 
@@ -376,11 +436,16 @@ export default function DesignSystemPreviewPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Clean site architecture, indexability, and schema metadata to ensure crawl efficiency.
+                  Clean site architecture, indexability, and schema metadata to
+                  ensure crawl efficiency.
                 </CardDescription>
               </CardContent>
               <CardFooter className="flex items-center justify-between border-t border-gray-100">
-                <Button variant="slateOutline" size="sm" className="w-full justify-between">
+                <Button
+                  variant="slateOutline"
+                  size="sm"
+                  className="w-full justify-between"
+                >
                   <span>Explore SEO</span>
                   <MoveRight className="h-3.5 w-3.5 text-[#0b131e]" />
                 </Button>
@@ -391,9 +456,7 @@ export default function DesignSystemPreviewPage() {
             <Card variant="tactile">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <Badge variant="secondary">
-                    Web Foundation
-                  </Badge>
+                  <Badge variant="secondary">Web Foundation</Badge>
                   <Gauge className="h-5 w-5 text-gray-400" />
                 </div>
                 <CardTitle className="mt-2">
@@ -402,11 +465,18 @@ export default function DesignSystemPreviewPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Engineered with Next.js and sub-second loading speeds. Speed directly impacts Google Core Web Vitals, visitor bounce rates, and paid ad quality scores, creating a dependable foundation for all marketing campaigns.
+                  Engineered with Next.js and sub-second loading speeds. Speed
+                  directly impacts Google Core Web Vitals, visitor bounce rates,
+                  and paid ad quality scores, creating a dependable foundation
+                  for all marketing campaigns.
                 </CardDescription>
               </CardContent>
               <CardFooter className="flex items-center justify-between border-t border-gray-100">
-                <Button variant="slateOutline" size="sm" className="w-full justify-between">
+                <Button
+                  variant="slateOutline"
+                  size="sm"
+                  className="w-full justify-between"
+                >
                   <span>Explore Web Dev</span>
                   <MoveRight className="h-3.5 w-3.5 text-[#0b131e]" />
                 </Button>
@@ -417,9 +487,7 @@ export default function DesignSystemPreviewPage() {
             <Card variant="dark">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <Badge variant="amber">
-                    AI Search
-                  </Badge>
+                  <Badge variant="amber">AI Search</Badge>
                   <ShieldCheck className="h-5 w-5 text-[#ffb703]" />
                 </div>
                 <CardTitle className="text-white mt-2">
@@ -428,11 +496,16 @@ export default function DesignSystemPreviewPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-400">
-                  Entity authority and knowledge graph modeling to position your brand inside ChatGPT, Perplexity, and Google AI Overviews.
+                  Entity authority and knowledge graph modeling to position your
+                  brand inside ChatGPT, Perplexity, and Google AI Overviews.
                 </CardDescription>
               </CardContent>
               <CardFooter className="flex items-center justify-between border-t border-gray-800">
-                <Button variant="secondary" size="sm" className="w-full justify-between">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full justify-between"
+                >
                   <span>Explore GEO</span>
                   <MoveRight className="h-3.5 w-3.5 text-[#0b131e]" />
                 </Button>
@@ -448,36 +521,53 @@ export default function DesignSystemPreviewPage() {
               Color Architecture 07
             </Badge>
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Cinorium Palette &amp; Contrast Values
+              Cinorium Palette & Contrast Values
             </h2>
             <p className="text-sm text-gray-600 font-light mt-1">
-              Established brand palette ensuring high contrast and WCAG AA accessibility without muddy yellow washes.
+              Established brand palette ensuring high contrast and WCAG AA
+              accessibility without muddy yellow washes.
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="p-4 rounded-2xl border-2 border-black bg-[#ffb703] text-black">
-              <span className="block text-xs uppercase font-bold tracking-wider mb-8">Brand Amber</span>
+              <span className="block text-xs uppercase font-bold tracking-wider mb-8">
+                Brand Amber
+              </span>
               <span className="block font-mono text-xs font-bold">#ffb703</span>
-              <span className="block text-[11px] opacity-75">Accent / Highlights</span>
+              <span className="block text-[11px] opacity-75">
+                Accent / Highlights
+              </span>
             </div>
 
             <div className="p-4 rounded-2xl border-2 border-black bg-[#0b131e] text-white">
-              <span className="block text-xs uppercase font-bold tracking-wider mb-8">Deep Slate</span>
+              <span className="block text-xs uppercase font-bold tracking-wider mb-8">
+                Deep Slate
+              </span>
               <span className="block font-mono text-xs font-bold">#0b131e</span>
-              <span className="block text-[11px] opacity-75">Surfaces / Contrast</span>
+              <span className="block text-[11px] opacity-75">
+                Surfaces / Contrast
+              </span>
             </div>
 
             <div className="p-4 rounded-2xl border-2 border-black bg-white text-gray-900">
-              <span className="block text-xs uppercase font-bold tracking-wider mb-8">Crisp White</span>
+              <span className="block text-xs uppercase font-bold tracking-wider mb-8">
+                Crisp White
+              </span>
               <span className="block font-mono text-xs font-bold">#ffffff</span>
-              <span className="block text-[11px] opacity-75">Primary Cards</span>
+              <span className="block text-[11px] opacity-75">
+                Primary Cards
+              </span>
             </div>
 
             <div className="p-4 rounded-2xl border-2 border-black bg-[#fdfbf7] text-gray-900">
-              <span className="block text-xs uppercase font-bold tracking-wider mb-8">Warm Cream</span>
+              <span className="block text-xs uppercase font-bold tracking-wider mb-8">
+                Warm Cream
+              </span>
               <span className="block font-mono text-xs font-bold">#fdfbf7</span>
-              <span className="block text-[11px] opacity-75">Page Background</span>
+              <span className="block text-[11px] opacity-75">
+                Page Background
+              </span>
             </div>
           </div>
         </section>

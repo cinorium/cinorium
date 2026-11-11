@@ -13,14 +13,14 @@ import {
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & Growth Services | Cinorium",
+  title: "Digital Marketing & Growth Services",
   description:
     "Explore Cinorium's digital marketing services, including marketing strategy, SEO, AI search visibility, content, social media, paid advertising, email marketing, and e-commerce growth.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Digital Marketing & Growth Services | Cinorium",
+    title: "Digital Marketing & Growth Services",
     description:
       "Explore integrated digital marketing and growth services, supported by technically sound web development and visual communication.",
     url: "https://www.cinorium.com/services",
