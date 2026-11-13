@@ -46,7 +46,7 @@ const modak = Modak({
 });
 
 const siteDescription =
-  "Cinorium is a digital marketing agency helping businesses improve search visibility, customer acquisition, and measurable revenue growth through strategic SEO, AI search visibility, and high-performance web foundations.";
+  "Cinorium is a digital marketing agency helping businesses improve search visibility, customer acquisition, and measurable revenue growth.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cinorium.com"),
